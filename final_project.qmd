@@ -1,0 +1,76 @@
+---
+title: "Final Project"
+subtitle: "FOR 128: Practical Computing and Data Science Tools, Fall 2024"
+editor: 
+  mode: source
+---
+
+## Description
+
+In this class, we've learned how to analyze data in the `R` programming language. From reading in the data, to tidying and reshaping, to wrangling, and finally to plotting. The final project asks you to find a dataset that is interesting to you and analyze it with the tools we've learned in class. The dataset you use for the class should be environmental in some sense. It could relate to forestry, water and water quality, animals, climate, etc. We will include some datasets that could be a good choice for this project, but you are not limited to these datasets. 
+
+This is a group project, with groups of 3-5 people. You can choose your groups, but if you are having trouble finding a group or your group is too small (< 3 people), please let Grayson know and we will combine you or your group with others. 
+
+## Components
+
+The final project will be composed of four components: a group member submission, a proposal, a blog post, and a presentation. For each component, your group will submit one document via D2L.
+
+### The group member submission
+
+**Due date:** Tuesday, November 12th, 5pm.
+
+Please submit a document to D2L with the names of your group members. Remember, groups of 3-5 people are allowed. If you are having trouble finding a group or your group is too small (< 3 people), please let Grayson know and we will combine you or your group with others. 
+
+### The proposal
+
+**Due date:** Saturday, November 23rd, 5pm. 
+
+Please submit a brief proposal of the project you would like to do. This should be a (no longer than 2 page) document outlining the data you will use and an idea of the story or information that you'd like to try to extract from the data. For this part, it is strongly recommended that you download the data you would like to use and take a look at it. In the proposal, describe any challenges you anticipate having working with the data, and the steps needed to get the data into a form that will be easy to work with in R. It is expected that this document is well-written, explains the data you'd like to work with, and conveys your ideas and hopes for what you'd like to do with the data (i.e. what your blog post will be about). 
+
+### The blog post
+
+**Due date:** Monday, December 9th, 5pm. 
+
+The blog post is the heart of the final project. You and your group members will write a blog post in a Quarto document that takes the raw data you are using and tells a story with it. The blog post will include the story of getting the data, wrangling the data, and plots and summaries of the data. The blog posts will be posted on the course website (with groups permission), you have the right to not include your blog post on the course website, or to anonymize your blog post for the course website. 
+
+The blog post has the following parameters:
+
+-   I expect the post to be approximately 1000 words. This is a "soft" minimum: i.e., I wouldn't want to see a significantly shorter blog post, and it would be fine if you went significantly over this limit. In general, I want your blog post to convey the story you are telling in a thoughtful way that doesn't have too much "fluff" but isn't overly terse either. In other words, write naturally and thoughtfully. 
+
+-   Your blog post should include at least three (3) graphics created with `ggplot2` and at least one tabular summary of the data. For displaying tables in beautiful ways in your blog post, check out the `gt` R package. 
+
+-   Your blog post will be written in Quarto as a fully reproducible document. You will load in the data and necessary packages at the beginning of the blog post, do the necessary wrangling and cleaning in the blog post, and make the plots in the blog post. It is okay (and even encouraged) to work in separate documents to begin, but one final blog post will be the final product. 
+
+-   You likely should break your blog post into different sections. I suggest (but surely do not limit you to) the following sections:
+    -   **Introduction**: Give some background on the data and the questions you'd like to answer with it,
+    -   **Methods**: Include how you got the data, and the steps necessary to load it into R and wrangle it into appropriate format for data analysis,
+    -   **Analysis / Results**: Talk about and display your figures, tables, and findings from the data,
+    -   **Conclusions**: Summarize your findings and discuss the implications. Discuss possible future directions for working with these data. 
+    
+-   Your blog post will Render to HTML. You must submit your .qmd file, along with any data files (.csv, etc.) necessary for Rendering the document to D2L by the deadline, December 9th at 5pm. 
+
+### The presentation
+
+**Due date:** Slides submitted by Wednesday, December 11th, 5pm. Presentations to be completed in class during the final exam slot on December 12th. 
+
+You and your group will present the results from your analyses (i.e. findings from the blog post) in slide show form to your classmates during the final exam slot. Groups will present together, and presentation time should be shared relatively equally between group members. 
+
+More details to come on the presentation. 
+
+## Potential Datasets
+
+While you can come up with your own dataset for the final project, we have provided some datasets that might be nice to explore. 
+
+-   [Penobscot Experimental Forest](https://www.fs.usda.gov/rds/efrdata/efr/3)
+-   [HJ Andrews Experimental Forest](https://andrewsforest.oregonstate.edu/data)
+-   [Harvard Forest](https://harvardforest.fas.harvard.edu/data-archive)
+-   [National Ecological Observatory Network](https://data.neonscience.org/)
+-   [Hubbard Brook Ecosystem Study](https://hubbardbrook.org/data-catalog/)
+-   [Bartlett Experimental Forest](https://www.fs.usda.gov/rds/archive/catalog/RDS-2017-0036)
+-   [Fernow Experimental Forest](https://www.fs.usda.gov/rds/archive/catalog/RDS-2011-0013)
+-   [National Park Service DataStore](https://irma.nps.gov/DataStore/)
+
+
+## Evaluation
+
+The final project is worth 15% of your final grade. The proposal, blog post, and presentation will contribute to this 15%. 

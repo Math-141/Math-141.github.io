@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Math-141.github.io</title>
+<title>Math 141</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/favicon.ico" rel="icon">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -68,18 +69,18 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="assets/styles.scss">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-fixed fullcontent">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Math-141.github.io</span>
+    <a href="./index.html" class="navbar-brand navbar-brand-logo">
+    <img src="./assets/for128-hex.png" alt="Math 141 logo" class="navbar-logo">
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -93,8 +94,23 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> 
-<span class="menu-text">About</span></a>
+    <a class="nav-link" href="./syllabus.html"> 
+<span class="menu-text">Syllabus</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-slides" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Slides</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-slides">    
+        <li>
+    <a class="dropdown-item" href="./slides/w1d1.qmd">
+ <span class="dropdown-text">Week 1 Day 1</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./assignments.html"> 
+<span class="menu-text">Assignments</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
@@ -107,35 +123,36 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Math-141.github.io</h1>
-</div>
 
 
 
-<div class="quarto-title-meta">
+<section id="introduction-to-probability-and-statistics" class="level1">
+<h1>Introduction to<a><img src="assets/math141-hex.png" align="right" height="200"></a> <br>Probability and Statistics</h1>
+<p><span class="smallcaps">Math 141 Reed College</span></p>
+<p><span class="smallcaps">Fall 2025</span></p>
+<section id="week-1-august-31---september-6" class="level2">
+<h2 class="anchored" data-anchor-id="week-1-august-31---september-6">Week 1, August 31 - September 6</h2>
+<section id="monday" class="level3">
+<h3 class="anchored" data-anchor-id="monday">Monday</h3>
+<p>No class, holiday</p>
+</section>
+<section id="wednesday" class="level3">
+<h3 class="anchored" data-anchor-id="wednesday">Wednesday</h3>
+</section>
+<section id="thursday" class="level3">
+<h3 class="anchored" data-anchor-id="thursday">Thursday</h3>
+</section>
+<section id="friday" class="level3">
+<h3 class="anchored" data-anchor-id="friday">Friday</h3>
 
-    
-  
-    
-  </div>
-  
 
-
-</header>
-
-
-<p>This is a Quarto website.</p>
-<p>To learn more about Quarto websites visit <a href="https://quarto.org/docs/websites" class="uri">https://quarto.org/docs/websites</a>.</p>
-
-
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -230,7 +247,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/www\.math-141\.github\.io\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }

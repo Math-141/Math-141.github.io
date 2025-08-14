@@ -1,0 +1,179 @@
+---
+title: "FOR 128: Midterm II"
+author: "Insert Your Name Here"
+format:
+  pdf: default
+editor: 
+  mode: source
+---
+
+## Welcome
+
+Welcome to the second midterm! This is a closed resources exam. This means course materials, past labs/quizzes, internet or AI tools, etc. are not allowed. However, you are allowed one 8.5" x 11" sheet of paper with handwritten notes (double sided) and you are allowed to use RStudio's help menu / look up documentation of functions with `?function_name`. 
+
+Please read the exam instructions below.
+
+Good luck!
+
+### Instructions
+
+The exam has 5 questions, each equally weighted at 25 points, however only your top 4 questions will be counted to your final score. You can choose to not do one problem entirely, or do all 5 and I will count your top 4. Therefore, the exam is scored out of 100 points. 
+
+For Question 3, make sure to download "islands_long.csv" from the same place you downloaded the Quarto document for the exam.
+
+### Deliverables (i.e., what to put in the midterm drop box)
+
+Upload your rendered PDF (`midterm_02.pdf`) **and** Quarto (`midterm_02.qmd`) document to the exam drop box. Make sure the Quarto document properly renders to PDF, but partial credit will be given even if you cannot render the PDF (-5 points for no rendered PDF).
+
+\newpage
+
+## Question 0
+
+Load any packages you'll need for this midterm below. 
+
+```{r}
+library(tidyverse)
+library(pdxTrees)
+```
+
+
+## Question 1
+
+(a) 
+
+```{r}
+
+```
+
+
+(b) 
+
+```{r}
+
+```
+
+
+(c) 
+
+```{r}
+
+```
+
+
+(d)
+
+```{r}
+
+```
+
+
+(e) 
+
+```{r}
+
+```
+
+
+(f)  
+
+```{r}
+
+```
+
+
+
+## Question 2
+
+(a) 
+
+```{r}
+streets <- get_pdxTrees_streets()
+```
+
+
+(b)  
+
+```{r}
+
+```
+
+(c) 
+
+```{r}
+
+```
+
+(d)
+
+```{r}
+
+```
+
+
+
+## Question 3
+
+(a) 
+
+```{r}
+
+```
+
+(b) 
+
+```{r}
+
+```
+
+(c)
+
+```{r}
+
+```
+
+
+
+## Question 4
+
+For this exercise, we will use data from the `pdxTrees` R package. 
+
+```{r}
+wrc <- get_pdxTrees_parks() %>%
+  filter(Common_Name == "Western Redcedar")
+```
+
+(a) 
+
+(b) 
+
+(c) 
+
+```{r}
+
+```
+
+
+
+## Question 5
+
+For this exercise, we will use data from the `pdxTrees` R package. 
+
+```{r}
+parks <- get_pdxTrees_parks() 
+```
+
+
+(a)
+
+(b) 
+
+(c) 
+
+```{r}
+
+```
+
+
+## Wrap up
+
+Congratulations! You've made it to the end of the midterm. Make sure to render your final document and submit both the .pdf and .qmd file to D2L.

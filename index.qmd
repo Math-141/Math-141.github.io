@@ -1,7 +1,25 @@
 ---
-title: "Math-141.github.io"
+format: 
+  html:
+    toc: false
+editor: 
+  mode: source
 ---
 
-This is a Quarto website.
+# Introduction to<a><img src="assets/math141-hex.png" align="right" height="200"/></a> <br/>Probability and Statistics
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+[Math 141 Reed College]{.smallcaps}
+
+[Fall 2025]{.smallcaps}
+
+## Week 1, August 31 - September 6
+
+### Monday
+
+No class, holiday
+
+### Wednesday
+
+### Thursday
+
+### Friday 

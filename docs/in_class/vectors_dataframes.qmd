@@ -1,0 +1,349 @@
+---
+title: "vectors and data frames"
+format: html
+editor: visual
+---
+
+## Consider a scalar.
+
+```{r}
+a <- 1
+str(a)
+is.vector(a)
+length(a)
+```
+
+"Atomic" vectors (all elements of the same type).
+
+```{r}
+dbh <- c(20.023, 18, 13, 16, 10, 14)
+dbh
+```
+
+```{r}
+spp <- c("Acer rubrum", "Acer rubrum", "Betula lenta", 
+         "Betula lenta", "Prunus serotina", "Prunus serotina")
+spp
+```
+
+## Adding to vectors.
+
+```{r}
+dbh <- c(dbh, 13)
+spp <- c(spp, "Acer rubrum")
+dbh
+spp
+```
+
+## Types, conversion, and coercion.
+
+Character: consists of letters or words. Our vector `spp` is a character vector because it consists of the species names for each of the trees in our dataset.
+
+```{r}
+typeof(spp)
+```
+
+Double: a numeric object that can be an integer or non-integer value (e.g., 10, 4.2). Our vector `dbh` is a double vector.
+
+```{r}
+typeof(dbh)
+```
+
+Integer: a numeric object that can only be an integer. It may be surprising to see the DBH variable `dbh` is of type double, even though its values are all integers. By default, R creates a double type vector when numeric values are given via the `c()` function. We can create an integer vector of DBH variables by placing the letter `L` next to each of the numbers when we place it in the vector:
+
+```{r}
+dbh.int <- c(20L, 18L, 13L, 16L, 10L, 14L)
+typeof(dbh.int)
+```
+
+Logical: used to represent variables that can take values `TRUE` or `FALSE`. Consider a vector of acceptable growing stock (`ags`)
+
+```{r}
+ags <- c(TRUE, TRUE, FALSE, TRUE, FALSE, FALSE, TRUE)
+ags
+typeof(ags)
+```
+
+### Converting between types.
+
+```{r}
+dbh.int.2 <- as.integer(dbh)
+dbh.int.2
+typeof(dbh.int.2)
+```
+
+```{r}
+dbh.char <- as.character(dbh)
+dbh.char
+```
+
+```{r}
+ags.double <- as.double(ags)
+ags.double
+```
+
+```{r}
+spp.oops <- as.double(spp)
+spp.oops
+```
+
+```{r}
+sum(ags)
+```
+
+### Testing types.
+
+```{r}
+is.double(dbh)
+is.character(dbh)
+is.integer(dbh.int)
+is.logical(ags)
+```
+
+### Coercion
+
+R enables automatic conversion of data types into other types, a process referred to as Coercion. Consider the following examples.
+
+```{r}
+xx <- c(1, 2, 3, TRUE)
+xx
+```
+
+```{r}
+yy <- c(1, 2, 3, "dog")
+yy
+```
+
+```{r}
+zz <- c(TRUE, FALSE, "cat")
+zz
+```
+
+```{r}
+dbh + ags
+```
+
+```{r}
+length(dbh)
+length(ags)
+```
+
+Vectors in R can only contain elements of one type. If more than one type is included in a `c()` function, R silently coerces the vector to be of one type.
+
+The examples illustrate the hierarchy of how R performs the conversions---if any element is a character, then the whole vector is character.
+
+If some elements are numeric (either integer or double) and other elements are logical, then the whole vector is numeric. Note what happened when R was asked to add the numeric vector `dbh` to the logical vector `ags`. The logical vector was silently coerced to be numeric, so that `FALSE` became zero and `TRUE` became one, and then the two numeric vectors were added.
+
+## Accessing specific elements of vectors .
+
+```{r}
+dbh
+dbh[5]
+dbh[1:3]
+```
+
+```{r}
+length(dbh)
+dbh[length(dbh)]
+```
+
+```{r}
+dbh[]
+```
+
+```{r}
+dbh[3] <- 202 # Crazy big tree.
+dbh[1:3] <- c(16, 8, 2)
+dbh
+```
+
+```{r}
+dbh[-3]
+```
+
+```{r}
+dbh[-length(dbh)]
+```
+
+```{r}
+fewer.dbh <- dbh[-c(1, 3, 5)]
+fewer.dbh
+```
+
+```{r}
+dbh[0]
+```
+
+```{r}
+dbh[c(0, 2, 1)]
+```
+
+```{r, error=TRUE}
+dbh[c(-1, 2)]
+```
+
+Note that mixing zero and other nonzero subscripts is allowed, but mixing negative and positive subscripts is not allowed.
+
+### Some more subtleties about replacement.
+
+```{r}
+x <- rep(0, times = 4) # Creates a vector by repeating zero four times. 
+```
+
+```{r}
+x[1:3] <- c(1, 2)
+```
+
+```{r}
+x[1:4] <- c(3, 4)
+```
+
+```{r}
+x[1] <- c(5, 6)
+```
+
+### Everything except.
+
+```{r}
+dbh[-3]
+dbh[-length(dbh)]
+fewer.dbh <- dbh[-c(1, 3, 5)]
+fewer.dbh
+```
+
+```{r, error=TRUE}
+dbh[0]
+dbh[c(0, 2, 1)]
+dbh[c(-1, 2)]
+```
+
+## Factors.
+
+The nominal crown class variable.
+
+```{r}
+crown.class <- c("D", "D", "C", "D", "D", "C", "C")
+crown.class # Character.
+```
+
+```{r}
+crown.class <- factor(crown.class, levels=c("S", "I", "C", "D"))
+crown.class # Factor data type.
+```
+
+The ordinal log grade variable.
+
+```{r}
+grade <- c("Grade 1", "Grade 1", "Grade 3", "Grade 2", 
+           "Grade 3", "Grade 3", "Grade 2")
+```
+
+```{r}
+grade <- factor(grade, 
+                levels=c("Grade 3", "Grade 2", "Grade 1"), 
+                ordered = TRUE)
+grade
+```
+
+## Missing data, infinity, etc.
+
+```{r}
+missingSpecies <- c("Quercus alba", "Quercus rubra", NA, "Acer saccharum", NA, "Quercus rubra")
+missingSpecies
+```
+
+```{r}
+is.na(missingSpecies)
+```
+
+```{r}
+missingSpecies <- c(missingSpecies, "NA")
+```
+
+```{r}
+missingSpecies
+is.na(missingSpecies)
+allMissing <- c(NA, NA, NA)
+typeof(allMissing)
+```
+
+```{r}
+mean(c(1,2,3,NA,5), na.rm = FALSE)
+
+mean(c(1,2,3,NA,5), na.rm = TRUE)
+```
+
+## Infinity and NaN (see Bill Metzenthen's "IEEE Unfortunate Points" at [link](http://www.linuxsupportline.com/~billm/ieee.html#standards) ).
+
+```{r}
+x <- 0:4
+x
+1/x
+x/x
+y <- c(10, 1000, 10000)
+2^y
+```
+
+## Data frames
+
+
+```{r}
+trees <- data.frame(Species = spp, DBH = dbh, AGS = ags)
+trees
+str(trees)
+```
+```{r}
+View(trees)
+```
+
+```{r}
+dim(trees)
+```
+
+```{r}
+nrow(trees)
+ncol(trees)
+```
+
+```{r}
+names(trees)
+colnames(trees)
+```
+
+```{r}
+names(trees) <- c("species", "dbh", "acceptable.stock")
+colnames(trees)
+```
+
+```{r}
+names(trees) <- c("Species", "DBH", "AGS")
+```
+
+```{r}
+rownames(trees)
+rownames(trees) <- paste("Tree", 1:nrow(trees))
+rownames(trees)
+```
+
+## Loblolly dataset.
+
+```{r}
+loblolly <- read.csv("Loblolly.csv")
+
+head(loblolly) #tail(loblolly)
+```
+
+### Accessing specific elements of data frames.
+
+```{r}
+loblolly[1,3] # Row 1 and column 3.
+loblolly[1:3, 3] # Rows 1 through 3 and column 3.
+loblolly[1:3, 2:3] # Rows 1 through 3 and columns 2 through 3.
+loblolly[, 1] # All rows and column 1.
+loblolly[1:4, "height"]
+loblolly[1:4, c("age", "seed")]
+loblolly$height
+```
+
+```{r, error=TRUE}
+height # Does not exist outside the data frame.

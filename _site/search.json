@@ -1,16 +1,65 @@
 [
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "FOR 128",
+    "section": "",
+    "text": "Practical Computing and Data Science Tools\n\nFor 128 Michigan State University"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "About this site"
+    "text": "This site was created with Quarto. Much inspiration, styling, and format troubleshooting was drawn from UC Berkeley’s Stat 20 website."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Math-141.github.io",
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
     "section": "",
-    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites."
+    "text": "Instructor: Grayson White (whitegra@msu.edu, Room 211 Natural Resources Building)\nLinks:\n\nThe course website, www.for128.org, for course information, lecture slides, and course materials.\nD2L, for course feedback and non-public course materials.\nSlack, for course communication, troubleshooting, and questions.\n\nCourse Description:\nThis course covers foundational skills needed to work efficiently within a computing environment. The course serves as an introduction to exploratory data analysis (EDA) using spreadsheet software and the R programming language. Use of R focuses on cleaning, structuring, and enriching raw data to facilitate EDA. The course is designed as a general precursor for subsequent discipline-specific courses. Learning occurs in a hands-on active environment with topics motivated using real datasets from environmental and biological sciences."
+  },
+  {
+    "objectID": "syllabus.html#useful-information",
+    "href": "syllabus.html#useful-information",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Instructor: Grayson White (whitegra@msu.edu, Room 211 Natural Resources Building)\nLinks:\n\nThe course website, www.for128.org, for course information, lecture slides, and course materials.\nD2L, for course feedback and non-public course materials.\nSlack, for course communication, troubleshooting, and questions.\n\nCourse Description:\nThis course covers foundational skills needed to work efficiently within a computing environment. The course serves as an introduction to exploratory data analysis (EDA) using spreadsheet software and the R programming language. Use of R focuses on cleaning, structuring, and enriching raw data to facilitate EDA. The course is designed as a general precursor for subsequent discipline-specific courses. Learning occurs in a hands-on active environment with topics motivated using real datasets from environmental and biological sciences."
+  },
+  {
+    "objectID": "syllabus.html#learning-outcomes",
+    "href": "syllabus.html#learning-outcomes",
+    "title": "Syllabus",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nUpon completion of this course students should be able to:\n\napply best practices for naming and organizing files within a directory structure to facilitate an efficient and reproducible workflow,\ntransform raw data into more readily used formats, i.e., perform key “data wrangling” tasks such as data cleaning, structuring, enriching, and validating,\nconduct basic Exploratory Data Analysis (EDA), i.e., apply built-in and costume written functions to explore data characteristics and communicate findings using summary tables, graphics, and basic summary statistics."
+  },
+  {
+    "objectID": "syllabus.html#learning-materials-tools",
+    "href": "syllabus.html#learning-materials-tools",
+    "title": "Syllabus",
+    "section": "Learning Materials & Tools",
+    "text": "Learning Materials & Tools\nTextbook: Introduction to Forestry Data Analysis with R, by Andrew O. Finley and Jeffrey W. Doser. Available free, online: www.finley-lab.com/files/ifdar/\nR and RStudio: R is a free and open source programming language, and RStudio is an Integrated Development Environment (IDE) which allows for streamlined use of the R programming language. Both are free to install, and installation instructions will be provided in this course. A laptop that can run R and RStudio is required for this course."
+  },
+  {
+    "objectID": "syllabus.html#meetings-office-hours",
+    "href": "syllabus.html#meetings-office-hours",
+    "title": "Syllabus",
+    "section": "Meetings & Office Hours",
+    "text": "Meetings & Office Hours"
+  },
+  {
+    "objectID": "syllabus.html#assessments",
+    "href": "syllabus.html#assessments",
+    "title": "Syllabus",
+    "section": "Assessments",
+    "text": "Assessments"
+  },
+  {
+    "objectID": "syllabus.html#ai-policy-for-for-128",
+    "href": "syllabus.html#ai-policy-for-for-128",
+    "title": "Syllabus",
+    "section": "AI Policy for FOR 128",
+    "text": "AI Policy for FOR 128\nArtificial intelligence (AI) tools, such as ChatGPT, are being used to generate code, analyze data, and much more. However, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently write code and extract knowledge from data. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.\nViolations of this policy are considered academic misconduct."
   }
 ]

@@ -1,20 +1,40 @@
 project:
   type: website
   output-dir: docs
+  render:
+    - "*.qmd"
 
 website:
-  title: "Math-141.github.io"
+  title: "Math 141"
+  image: assets/math141-hex.png
+  site-url: "https://www.math-141.github.io/"
+  favicon: assets/favicon.ico
   navbar:
+    title: false
+    logo: assets/for128-hex.png
+    logo-alt: "Math 141 logo"
+    background: white
+    foreground: "gray-800"
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
+      - href: syllabus.qmd
+        text: Syllabus
+      - text: Slides
+        menu:
+          - href: slides/w1d1.qmd
+            text: "Week 1 Day 1"
+      - href: assignments.qmd
+        text: Assignments
 
 format:
   html:
-    theme: cosmo
-    css: styles.css
+    theme: sandstone
+    css: assets/styles.scss
     toc: true
 
+resources: 
+  - CNAME
 
+editor: visual
 

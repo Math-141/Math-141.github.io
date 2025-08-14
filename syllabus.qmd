@@ -1,0 +1,79 @@
+---
+title: "Syllabus"
+subtitle: "Math 141: Introduction to Probability and Statistics, Fall 2025"
+format:
+  html: default
+  pdf: default
+editor: 
+  mode: source
+---
+
+\vspace{-2.5cm}
+
+## Useful Information
+
+**Instructor**: Grayson White ([grwhite@reed.edu](mailto:grwhite@reed.edu), Office: Library 390)
+
+**Links**:
+
+-   The course website, [www.math-141.github.io](https://www.math-141.github.io), for course information, lecture slides, and course materials.
+
+**Course Description**: (from the Reed College Catalog)
+
+The basic ideas of probability including properties of expectation, the law of large numbers, and the central limit theorem are discussed. These ideas are applied to the problems of statistical inference, including estimation and hypothesis testing. The linear regression model is introduced, and the problems of statistical inference and model validation are studied in this context. A portion of the course is devoted to statistical computing and graphics.
+
+
+------------------------------------------------------------------------
+
+## Learning Materials & Tools
+
+**Textbooks**: 
+
+**R and RStudio**: R is a free and open source programming language, and RStudio is an Integrated Development Environment (IDE) which allows for streamlined use of the R programming language. Both are free to install, and installation instructions will be provided in this course. A laptop that can run R and RStudio is required for this course.
+
+------------------------------------------------------------------------
+
+## Meetings & Office Hours
+
+We'll have a lecture-style meeting three times a week, and a lab meeting once a week.
+
+-   Lectures are on Mondays, Wednesdays, and Fridays, 9:10am - 10am, Natural Resources Building, Room 152.
+
+-   Labs are on Thursdays, 10:20am - 12:10pm, Natural Resources Building, Room 223.
+
+Outside of lectures and labs, I will also hold *office hours*.
+
+-   Office hours will be held Tuesdays (10:30am - 11:30am) and Thursdays (1:30pm - 2:30pm), Natural Resources Building, Room 211.
+
+-   If these times do not work for you, we also hold office hours by appointment. Please email to set up a time to meet. 
+
+Office hours are a great way to get help on assignments you are stuck on, ask questions you didn't get a chance to ask in class, familiarize yourself with the instructor and course expectations, and much more! Further, office hours can be a very helpful tool for your success in this course and beyond in college. Attending office hours is a great habit!
+
+------------------------------------------------------------------------
+
+## Late work policy
+
+-   TBD
+------------------------------------------------------------------------
+
+## Collaboration Policy for FOR 128
+
+Working with your classmates on difficult and interesting problems can not only help your learning, but help you get to know each other. Therefore, we allow and encourage collaboration on lab reports, homework, and lecture tickets. However, collaboration on exams and quizzes is strictly prohibited and will be considered academic misconduct.
+
+If you choose to collaborate with a classmate, please add their name to the top of your assignment, and list them as a collaborator, e.g.:
+
+Collaborator(s): Elliot Shannon, Romain Boutelet
+
+**But what *is* collaboration?**
+
+For Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you must write up your own problem solutions individually and cannot copy other's solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited and will be considered academic misconduct.
+
+------------------------------------------------------------------------
+
+## AI Policy for FOR 128
+
+Artificial intelligence (AI) tools, such as ChatGPT, are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.
+
+Violations of this policy are considered academic misconduct.
+
+------------------------------------------------------------------------
