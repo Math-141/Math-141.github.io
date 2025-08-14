@@ -1,131 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Probability and Statistics",
-    "section": "",
-    "text": "Math 141 Reed College\nFall 2025\n\n\n\n\nNo class, holiday"
-  },
-  {
-    "objectID": "index.html#week-9-october-20---26",
-    "href": "index.html#week-9-october-20---26",
-    "title": "Introduction to Probability and Statistics",
-    "section": "Week 9, October 20 - 26",
-    "text": "Week 9, October 20 - 26\n\nWednesday office hours: 12:30 - 2:30"
-  },
-  {
-    "objectID": "index.html#week-6-september-29---october-5",
-    "href": "index.html#week-6-september-29---october-5",
-    "title": "Introduction to Probability and Statistics",
-    "section": "Week 6, September 29 - October 5",
-    "text": "Week 6, September 29 - October 5\n\nMidterm I this week."
-  },
-  {
-    "objectID": "index.html#week-5-september-22---28",
-    "href": "index.html#week-5-september-22---28",
-    "title": "Introduction to Probability and Statistics",
-    "section": "Week 5, September 22 - 28",
-    "text": "Week 5, September 22 - 28\nExtra office hours this week:\n\nMonday 9/23: 10:30am - 11:30am\nTuesday 9/24: 10am - 11am (note the 30 minute change)\nWednesday 9/25: 12:30pm - 2pm\nThursday 9/26: 1:30pm - 2:30pm (regular time)"
-  },
-  {
-    "objectID": "index.html#week-4-september-15---21",
-    "href": "index.html#week-4-september-15---21",
-    "title": "Introduction to Probability and Statistics",
-    "section": "Week 4, September 15 - 21",
-    "text": "Week 4, September 15 - 21\n\nTuesday\n\nThe lecture notes are available."
-  },
-  {
-    "objectID": "index.html#week-3-september-8---14",
-    "href": "index.html#week-3-september-8---14",
-    "title": "Introduction to Probability and Statistics",
-    "section": "Week 3, September 8 - 14",
-    "text": "Week 3, September 8 - 14\n\nTuesday\n\nWe’ll go through vectors.qmd in class.\n\n\n\nThursday\n\nLecture materials:\n\nIn-class work: vectors_dataframes.qmd\nData for in-class work: Loblolly.csv\n\nSupplementary lab materials:\n\nExample R script lab setup: lab_03_example.R\nLab 3 data: FEF_trees.csv"
-  },
-  {
-    "objectID": "index.html#week-2-september-1---7",
-    "href": "index.html#week-2-september-1---7",
-    "title": "Introduction to Probability and Statistics",
-    "section": "Week 2, September 1 - 7",
-    "text": "Week 2, September 1 - 7\n\nTuesday\n\nOffice hours will be moved to 1:30 - 2:30 today.\nLab 1 is due Wednesday on D2L.\n\n\n\nThursday"
-  },
-  {
-    "objectID": "index.html#week-1-august-25---31",
-    "href": "index.html#week-1-august-25---31",
-    "title": "Introduction to Probability and Statistics",
-    "section": "",
-    "text": "Before coming to class, please read the syllabus.\nNo lecture ticket today.\n\n\n\n\n\nWe’ll have a lecture ticket due at the beginning of class. See the assignments page.\nLab 1, also available on the assignments page, will be assigned."
-  },
-  {
-    "objectID": "labs/lab_01.html",
-    "href": "labs/lab_01.html",
-    "title": "Getting started with R",
-    "section": "",
-    "text": "Welcome to Lab 1! Today, we’ll get started with a few data science tools (R, RStudio, and Quarto), learn to use R as a calculator, and get a glimpse into graphics with R.\n\n\n\nMake sure R and RStudio are set up correctly.\nSet up folders on your computer for saving your work.\nBegin working with Quarto (.qmd) documents.\nLearn to save and render your work with Quarto.\nStart using R as a calculator.\nGain familiarity with graphics in R\n\n\n\n\nUpload your rendered PDF (lab_01.pdf) and Quarto (lab_01.qmd) document to the lab drop box. Make sure the Quarto document properly renders to PDF.\n\n\n\nList any collaborators you worked with in the space below."
-  },
-  {
-    "objectID": "labs/lab_01.html#welcome",
-    "href": "labs/lab_01.html#welcome",
-    "title": "Getting started with R",
-    "section": "",
-    "text": "Welcome to Lab 1! Today, we’ll get started with a few data science tools (R, RStudio, and Quarto), learn to use R as a calculator, and get a glimpse into graphics with R.\n\n\n\nMake sure R and RStudio are set up correctly.\nSet up folders on your computer for saving your work.\nBegin working with Quarto (.qmd) documents.\nLearn to save and render your work with Quarto.\nStart using R as a calculator.\nGain familiarity with graphics in R\n\n\n\n\nUpload your rendered PDF (lab_01.pdf) and Quarto (lab_01.qmd) document to the lab drop box. Make sure the Quarto document properly renders to PDF.\n\n\n\nList any collaborators you worked with in the space below."
-  },
-  {
-    "objectID": "labs/lab_01.html#exercise-1",
-    "href": "labs/lab_01.html#exercise-1",
-    "title": "Getting started with R",
-    "section": "Exercise 1",
-    "text": "Exercise 1\nCreate a folder on your computer where you’ll store all your work for this course. We do not suggest putting this on your Desktop. A better place would be your Documents folder or your home directory. Make sure to give the folder an informative name like for128 or for128_f24 or something else. Put this file (lab_01.qmd) in your new folder.\nNow, run the following code chunk (press the green arrow on the far right of the code chunk). The output should include this file. What do you think the list.files() function does in this case? For all lab exercises in this course, please answer between the rows of dashed lines.\n\nlist.files()\n\n[1] \"lab_01.qmd\"       \"lab_01.rmarkdown\""
-  },
-  {
-    "objectID": "labs/lab_01.html#exercise-2",
-    "href": "labs/lab_01.html#exercise-2",
-    "title": "Getting started with R",
-    "section": "Exercise 2",
-    "text": "Exercise 2\nGo to D2L and download the datasets.zip file. This file contains datasets needed to work with our textbook. Use your computer to “unzip” the file (a folder called “datasets” should appear). Move this folder into the folder you just created in Exercise 1. For now, we’ll leave this directory alone, but we will use it for future labs.\nNow, run the following code chunk. What do you think specifying the path argument in the list.files() function did?\n\nlist.files()\n\n[1] \"lab_01.qmd\"       \"lab_01.rmarkdown\"\n\nlist.files(path = \"datasets/\")\n\ncharacter(0)"
-  },
-  {
-    "objectID": "labs/lab_01.html#exercise-3",
-    "href": "labs/lab_01.html#exercise-3",
-    "title": "Getting started with R",
-    "section": "Exercise 3",
-    "text": "Exercise 3\nRender this document by clicking “Render” towards the top of the RStudio window. What does it look like? Does the output of your code from Exercises 1 and 2 look the same? If it doesn’t, why do you think that is the case?\nNote: You can answer this Exercise just with words, so there is no need for a code chunk for this Exercise."
-  },
-  {
-    "objectID": "labs/lab_01.html#exercise-4",
-    "href": "labs/lab_01.html#exercise-4",
-    "title": "Getting started with R",
-    "section": "Exercise 4",
-    "text": "Exercise 4\nDo Exercise 2.1 from IFDAR in the following code chunk.\n\n\n# put your code on the following line"
-  },
-  {
-    "objectID": "labs/lab_01.html#exercise-5",
-    "href": "labs/lab_01.html#exercise-5",
-    "title": "Getting started with R",
-    "section": "Exercise 5",
-    "text": "Exercise 5\nDo Exercise 2.2 from IFDAR in the following code chunk."
-  },
-  {
-    "objectID": "labs/lab_01.html#exercise-6",
-    "href": "labs/lab_01.html#exercise-6",
-    "title": "Getting started with R",
-    "section": "Exercise 6",
-    "text": "Exercise 6\nDo Exercise 2.3 from IFDAR. Note, you’ll have to make your own code chunk.\nHint: on Windows and Linux you can create a new code chunk with control + alt + I and on macOS you can make a new code chunk with command + alt + I. Otherwise, you can create a new code chunk by clicking the code dropdown menu in RStudio and then clicking Insert Chunk."
-  },
-  {
-    "objectID": "labs/lab_01.html#exercise-7",
-    "href": "labs/lab_01.html#exercise-7",
-    "title": "Getting started with R",
-    "section": "Exercise 7",
-    "text": "Exercise 7\nDo Exercise 2.4 from IFDAR. Note, you’ll have to make your own code chunk."
-  },
-  {
-    "objectID": "labs/lab_01.html#exercise-8",
-    "href": "labs/lab_01.html#exercise-8",
-    "title": "Getting started with R",
-    "section": "Exercise 8",
-    "text": "Exercise 8\n\nPart (a)\nRun the following code to install the ggplot2 package. Note the eval: false setting. This means this code will not run when you render the document (we don’t want to install ggplot2 every time we render the document, rather we’d like to install it just once when we run the chunk by hand). Do not change the eval setting for this code chunk.\n\ninstall.packages(\"ggplot2\")\n\nIf everything has gone correctly, the following chunk should return TRUE:\n\n\"ggplot2\" %in% installed.packages()\n\n[1] TRUE\n\n\n\n\nPart (b)\nUse the rnorm() function to generate 100 random numbers with a mean of 0 and a sd of 1. Save these numbers to an R object called draws.\n\n\n\n\nPart (c)\nOnce you have completed parts (a) and (b), set the eval option from false to true in the following chunk. Then run the following code and comment on what you see. What happens if you change the number of bins from 10 to 20? to 50? to 100? to 1?\nNote: You are not expected to understand the following code at this stage of the course, but it is a good glimpse into what we’ll do as the course progresses.\n\nlibrary(ggplot2)\n\ndat &lt;- data.frame(draws = draws)\n\nggplot(data = dat, mapping = aes(x = draws)) + \n  geom_histogram(bins = 10)"
-  },
-  {
     "objectID": "syllabus.html",
     "href": "syllabus.html",
     "title": "Syllabus",
@@ -140,13 +14,6 @@
     "text": "Instructor: Grayson White (grwhite@reed.edu, Office: Library 390)\nLinks:\n\nThe course website, www.math-141.github.io, for course information, lecture slides, and course materials.\n\nCourse Description: (from the Reed College Catalog)\nThe basic ideas of probability including properties of expectation, the law of large numbers, and the central limit theorem are discussed. These ideas are applied to the problems of statistical inference, including estimation and hypothesis testing. The linear regression model is introduced, and the problems of statistical inference and model validation are studied in this context. A portion of the course is devoted to statistical computing and graphics."
   },
   {
-    "objectID": "syllabus.html#learning-outcomes",
-    "href": "syllabus.html#learning-outcomes",
-    "title": "Syllabus",
-    "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nUpon completion of this course students should be able to:\n\napply best practices for naming and organizing files within a directory structure to facilitate an efficient and reproducible workflow,\ntransform raw data into more readily used formats, i.e., perform key “data wrangling” tasks such as data cleaning, structuring, enriching, and validating,\nconduct basic Exploratory Data Analysis (EDA), i.e., apply built-in and costume written functions to explore data characteristics and communicate findings using summary tables, graphics, and basic summary statistics."
-  },
-  {
     "objectID": "syllabus.html#learning-materials-tools",
     "href": "syllabus.html#learning-materials-tools",
     "title": "Syllabus",
@@ -158,14 +25,7 @@
     "href": "syllabus.html#meetings-office-hours",
     "title": "Syllabus",
     "section": "Meetings & Office Hours",
-    "text": "Meetings & Office Hours\nWe’ll have a lecture-style meeting three times a week, and a lab meeting once a week.\n\nLectures are on Mondays, Wednesdays, and Fridays, 9:10am - 10am, Natural Resources Building, Room 152.\nLabs are on Thursdays, 10:20am - 12:10pm, Natural Resources Building, Room 223.\n\nOutside of lectures and labs, I will also hold office hours.\n\nOffice hours will be held Tuesdays (10:30am - 11:30am) and Thursdays (1:30pm - 2:30pm), Natural Resources Building, Room 211.\nIf these times do not work for you, we also hold office hours by appointment. Please email to set up a time to meet.\n\nOffice hours are a great way to get help on assignments you are stuck on, ask questions you didn’t get a chance to ask in class, familiarize yourself with the instructor and course expectations, and much more! Further, office hours can be a very helpful tool for your success in this course and beyond in college. Attending office hours is a great habit!"
-  },
-  {
-    "objectID": "syllabus.html#assessments",
-    "href": "syllabus.html#assessments",
-    "title": "Syllabus",
-    "section": "Assessments",
-    "text": "Assessments\nIn this course, you’ll be assessed based on your work and participation. In particular:\n\nLab reports (40%)\n\nLab reports are assigned on Thursdays during lab time, and due the following Wednesday at 5pm on D2L. We will have a lab each week (except for the week of the midterm exam).\nThe lowest lab grade is dropped.\n\nMidterm Exams (20%)\n\nThere will be two midterm exams, one on week 6 and one on week 12. Each midterm is worth 10% of the final grade.\n\nFinal Project (15%)\n\nRather than a final exam, we will have a final group project with project presentations during the final exam time period. More details to come as the semester goes on.\n\nIn-class quizzes (15%)\n\nIn-class quizzes do not have a regular schedule and will occur based on the material we get through.\nThe lowest in-class quiz grade is dropped.\n\nLecture tickets (10%)\n\nLecture tickets are due at the beginning of every lecture, handed in in-person, by you.\nThe lowest three (3) lecture ticket grades will be dropped.\n\n\nGrades are calculated on a four point scale and correspond to the following grade percent:\n\n\n\nGrade percent\nGrade points\n\n\n\n\n90% - 100%\n4.0\n\n\n85.0% - 89.9%\n3.5\n\n\n80.0% - 84.9%\n3.0\n\n\n75.0% - 79.9%\n2.5\n\n\n70.0% - 74.9%\n2.0\n\n\n65.0% - 69.9%\n1.5\n\n\n60.0 - 64.9%\n1.0\n\n\n0% - 60%\n0.0"
+    "text": "Meetings & Office Hours\nWe’ll have a lecture-style meeting three times a week, and a lab meeting once a week.\n\nLectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.\nLabs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3pm (sections: F03 & F13), Library, Room 389.\n\nOutside of lectures and labs, I will also hold office hours.\n\nOffice hours times will be held TBD.\nIf these times do not work for you, I am more than happy to schedule a meeting by appointment. Please email me to set up a time to meet.\n\nOffice hours are a great way to get help on assignments you are stuck on, ask questions you didn’t get a chance to ask in class, familiarize yourself with the instructor and course expectations, and much more! Further, office hours can be a very helpful tool for your success in this course and beyond in college. Attending office hours is a great habit!"
   },
   {
     "objectID": "syllabus.html#late-work-policy",
@@ -175,60 +35,18 @@
     "text": "Late work policy\n\nTBD"
   },
   {
-    "objectID": "syllabus.html#collaboration-policy-for-for-128",
-    "href": "syllabus.html#collaboration-policy-for-for-128",
+    "objectID": "syllabus.html#collaboration-policy-for-math-141",
+    "href": "syllabus.html#collaboration-policy-for-math-141",
     "title": "Syllabus",
-    "section": "Collaboration Policy for FOR 128",
-    "text": "Collaboration Policy for FOR 128\nWorking with your classmates on difficult and interesting problems can not only help your learning, but help you get to know each other. Therefore, we allow and encourage collaboration on lab reports, homework, and lecture tickets. However, collaboration on exams and quizzes is strictly prohibited and will be considered academic misconduct.\nIf you choose to collaborate with a classmate, please add their name to the top of your assignment, and list them as a collaborator, e.g.:\nCollaborator(s): Elliot Shannon, Romain Boutelet\nBut what is collaboration?\nFor Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you must write up your own problem solutions individually and cannot copy other’s solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited and will be considered academic misconduct."
+    "section": "Collaboration Policy for Math 141",
+    "text": "Collaboration Policy for Math 141\nWorking with your classmates on difficult and interesting problems can not only help your learning, but help you get to know each other. Therefore, we allow and encourage collaboration on lab reports, homework, and lecture tickets. However, collaboration on exams and quizzes is strictly prohibited and will be considered academic misconduct.\nIf you choose to collaborate with a classmate, please add their name to the top of your assignment, and list them as a collaborator, e.g.:\nCollaborator(s): Elliot Shannon, Romain Boutelet\nBut what is collaboration?\nFor Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you must write up your own problem solutions individually and cannot copy other’s solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited and will be considered academic misconduct."
   },
   {
-    "objectID": "syllabus.html#ai-policy-for-for-128",
-    "href": "syllabus.html#ai-policy-for-for-128",
+    "objectID": "syllabus.html#ai-policy-for-math-141",
+    "href": "syllabus.html#ai-policy-for-math-141",
     "title": "Syllabus",
-    "section": "AI Policy for FOR 128",
-    "text": "AI Policy for FOR 128\nArtificial intelligence (AI) tools, such as ChatGPT, are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.\nViolations of this policy are considered academic misconduct."
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "Labs are turned in on D2L.\n\n\n\nAssignment\nAvailable\nDue\n\n\n\n\nLab 1\nThursday 8/27 (at lab time)\nWednesday 9/4 (at 5pm)\n\n\nLab 2\nThursday 9/5 (at lab time)\nWednesday 9/11 (at 5pm)\n\n\nLab 3\nThursday 9/12 (at lab time)\nWednesday 9/18 (at 5pm)\n\n\nLab 4\nThursday 9/19 (at lab time)\nWednesday 9/25 (at 5pm)\n\n\nLab 5\nThursday 9/26 (at lab time)\nWednesday 10/2 (at 5pm)\n\n\nLab 6\nThursday 10/10 (at lab time)\nWednesday 10/16 (at 5pm)\n\n\nLab 7, Instructions & Output\nThursday 10/17 (at lab time)\nWednesday 10/23 (at 5pm)\n\n\nLab 8, Instructions & Output\nThursday 10/24 (at lab time)\nWednesday 10/30 (at 5pm)\n\n\nLab 9, Instructions & Output, Data\nThursday 10/31 (at lab time)\nWednesday 11/6 (at 5pm)\n\n\nLab 10, Instructions & Output\nThursday 11/7 (at lab time)\nWednesday 11/13 (at 5pm)\n\n\nLab 11\nThursday 11/14 (at lab time)\nWednesday 11/20 (at 5pm)"
-  },
-  {
-    "objectID": "assignments.html#labs",
-    "href": "assignments.html#labs",
-    "title": "Assignments",
-    "section": "",
-    "text": "Labs are turned in on D2L.\n\n\n\nAssignment\nAvailable\nDue\n\n\n\n\nLab 1\nThursday 8/27 (at lab time)\nWednesday 9/4 (at 5pm)\n\n\nLab 2\nThursday 9/5 (at lab time)\nWednesday 9/11 (at 5pm)\n\n\nLab 3\nThursday 9/12 (at lab time)\nWednesday 9/18 (at 5pm)\n\n\nLab 4\nThursday 9/19 (at lab time)\nWednesday 9/25 (at 5pm)\n\n\nLab 5\nThursday 9/26 (at lab time)\nWednesday 10/2 (at 5pm)\n\n\nLab 6\nThursday 10/10 (at lab time)\nWednesday 10/16 (at 5pm)\n\n\nLab 7, Instructions & Output\nThursday 10/17 (at lab time)\nWednesday 10/23 (at 5pm)\n\n\nLab 8, Instructions & Output\nThursday 10/24 (at lab time)\nWednesday 10/30 (at 5pm)\n\n\nLab 9, Instructions & Output, Data\nThursday 10/31 (at lab time)\nWednesday 11/6 (at 5pm)\n\n\nLab 10, Instructions & Output\nThursday 11/7 (at lab time)\nWednesday 11/13 (at 5pm)\n\n\nLab 11\nThursday 11/14 (at lab time)\nWednesday 11/20 (at 5pm)"
-  },
-  {
-    "objectID": "assignments.html#lecture-tickets",
-    "href": "assignments.html#lecture-tickets",
-    "title": "Assignments",
-    "section": "Lecture Tickets",
-    "text": "Lecture Tickets\nLecture tickets are turned in on a piece of paper in-person at lecture.\n\n\n\nAssignment\nAvailable\nDue\n\n\n\n\nLecture ticket 1\nTuesday 8/27 (by 5pm)\nThursday 8/29 (in lecture)\n\n\nLecture ticket 2\nThursday 8/29 (by 5pm)\nTuesday 9/3 (in lecture)\n\n\nLecture ticket 3\nTuesday 9/3 (by 5pm)\nThursday 9/5 (in lecture)\n\n\nLecture ticket 4\nThursday 9/5 (by 5pm)\nTuesday 9/10 (in lecture)\n\n\nLecture ticket 5\nTuesday 9/10 (by 5pm)\nThursday 9/12 (in lecture)\n\n\nLecture ticket 6\nThursday 9/12 (by 5pm)\nTuesday 9/17 (in lecture)\n\n\nLecture ticket 7\nTuesday 9/17 (by 5pm)\nThursday 9/19 (in lecture)\n\n\nLecture ticket 8\nThursday 9/19 (by 5pm)\nTuesday 9/24 (in lecture)\n\n\nLecture ticket 9\nTuesday 9/24 (by 5pm)\nThursday 9/26 (in lecture)\n\n\nLecture ticket 10\nThursday 9/26 (by 5pm)\nTuesday 10/1 (in lecture)\n\n\nLecture ticket 11\nTuesday 10/1 (by 5pm)\nThursday 10/3 (in lecture)\n\n\nLecture ticket 12\nThursday 10/3 (by 5pm)\nTuesday 10/8 (in lecture)\n\n\nLecture ticket 13\nTuesday 10/8 (by 5pm)\nThursday 10/10 (in lecture)\n\n\nLecture ticket 14\nThursday 10/10 (by 5pm)\nTuesday 10/15 (in lecture)\n\n\nLecture ticket 15\nTuesday 10/15 (by 5pm)\nThursday 10/17 (in lecture)\n\n\nLecture ticket 16\nThursday 10/17 (by 5pm)\nThursday 10/24 (in lecture)\n\n\nLecture ticket 17\nThursday 10/24 (by 5pm)\nTuesday 10/29 (in lecture)\n\n\nLecture ticket 18\nTuesday 10/29 (by 5pm)\nThursday 10/31 (in lecture)\n\n\nLecture ticket 19\nThursday 10/31 (by 5pm)\nTuesday 11/5 (in lecture)\n\n\nLecture ticket 20\nTuesday 11/5 (by 5pm)\nThursday 11/7 (in lecture)\n\n\nLecture ticket 21\nThursday 11/7 (by 5pm)\nTuesday 11/12 (in lecture)\n\n\nLecture ticket 22\nTuesday 11/12 (by 5pm)\nThursday 11/14 (in lecture)\n\n\nLecture ticket 23\nThursday 11/14 (by 5pm)\nTuesday 11/19 (in lecture)\n\n\nLecture ticket 24\nTuesday 11/19 (by 5pm)\nTuesday 11/26 (in lecture)\n\n\nLecture ticket 25\nTuesday 11/26 (by 5pm)\nThursday 11/28 (in lecture)\n\n\nLecture ticket 26\nThursday 11/28 (by 5pm)\nTuesday 12/3 (in lecture)\n\n\nLecture ticket 27\nTuesday 12/3 (by 5pm)\nThursday 12/5 (in lecture)"
-  },
-  {
-    "objectID": "tickets/ticket_01.html",
-    "href": "tickets/ticket_01.html",
-    "title": "Lecture Ticket 1",
-    "section": "",
-    "text": "Read the following sections of IFDAR.\n\nChapter 1\nBegin Chapter 2 (STOP at the bottom of page 19)"
-  },
-  {
-    "objectID": "tickets/ticket_01.html#reading",
-    "href": "tickets/ticket_01.html#reading",
-    "title": "Lecture Ticket 1",
-    "section": "",
-    "text": "Read the following sections of IFDAR.\n\nChapter 1\nBegin Chapter 2 (STOP at the bottom of page 19)"
-  },
-  {
-    "objectID": "tickets/ticket_01.html#tasks",
-    "href": "tickets/ticket_01.html#tasks",
-    "title": "Lecture Ticket 1",
-    "section": "Tasks",
-    "text": "Tasks\n\n1. Install R and RStudio\nAs discussed in IFDAR, go to Posit’s website. Install R first, and then install RStudio.\n\n\n2. Run your first R command\nIn the console, type in the following command and press Enter to run it:\n\nrnorm(1)\n\n\n\n3. Record your result\nCome to class on Thursday with a piece of paper with your name on it that includes the result (it will be a number) from running rnorm(1) in task 2.\nIf you were unable to install R and RStudio and ran into issues, instead come to class with a piece of paper with your name on it that explains the issue you were having with installation."
+    "section": "AI Policy for Math 141",
+    "text": "AI Policy for Math 141\nArtificial intelligence (AI) tools, such as ChatGPT, are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.\nViolations of this policy are considered academic misconduct."
   },
   {
     "objectID": "recordings.html",
@@ -245,18 +63,11 @@
     "text": "Week 1, day 1: Welcome to the course. Available here.\nWeek 1, day 2: Data science tools. Available here.\nWeek 2, day 1: Practical computing. Available here.\nWeek 2, day 2: Reading and writing data. Available here.\nWeek 3, day 1: No recording available.\nWeek 3, day 2: Data structures. Available here.\nWeek 4, day 1: No recording available.\nWeek 4, day 2: Review of data structures & intro to functions. Available here.\nWeek 5, day 1: Functions and conditionals. Available here.\nWeek 5, day 2: Functions. NOTE: audio issues. Available here.\nWeek 6, day 1: Welcome to the tidyverse. Available here.\nWeek 6, day 2: Midterm review day. No recording.\nWeek 7, day 1: tibble and readr. Available here.\nWeek 7, day 2: Introduction to data wrangling with dplyr. Available here.\nWeek 8, day 1: More data wrangling with dplyr. Available here.\nWeek 8, day 2: Advanced grouping and summarizing. Available here.\nWeek 9, day 1: Combining multiple tibbles. Available here.\nWeek 10, day 1: Reshaping data with tidyr. Available here.\nWeek 10, day 2: Reshaping data with tidyr, part 2. Available here.\nWeek 11, day 1: The grammar of graphics. Available here.\nWeek 11, day 2: Final project explanation and more plotting with ggplot2. Available here.\nWeek 12, day 1: More plotting with ggplot2. Available here.\nWeek 12, day 2: Building graphics incrementally, composing plots with patchwork, and saving plots. Available here.\nWeek 13, day 1: Spatial data with sf. Available here.\nWeek 14, day 1: Project and midterms and quizzes, galore! Available here."
   },
   {
-    "objectID": "index.html#week-8-october-13---19",
-    "href": "index.html#week-8-october-13---19",
+    "objectID": "index.html",
+    "href": "index.html",
     "title": "Introduction to Probability and Statistics",
-    "section": "Week 8, October 13 - 19",
-    "text": "Week 8, October 13 - 19"
-  },
-  {
-    "objectID": "index.html#week-7-october-6---12",
-    "href": "index.html#week-7-october-6---12",
-    "title": "Introduction to Probability and Statistics",
-    "section": "Week 7, October 6 - 12",
-    "text": "Week 7, October 6 - 12"
+    "section": "",
+    "text": "Math 141 Reed College\nFall 2025\n\n\n\n\nNo class, holiday"
   },
   {
     "objectID": "index.html#week-1-august-31---september-6",
@@ -264,5 +75,61 @@
     "title": "Introduction to Probability and Statistics",
     "section": "",
     "text": "No class, holiday"
+  },
+  {
+    "objectID": "assignments.html",
+    "href": "assignments.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "Labs are turned in on D2L.\n\n\n\nAssignment\nAvailable\nDue\n\n\n\n\nLab 1\nThursday 8/27 (at lab time)\nWednesday 9/4 (at 5pm)"
+  },
+  {
+    "objectID": "assignments.html#labs",
+    "href": "assignments.html#labs",
+    "title": "Assignments",
+    "section": "",
+    "text": "Labs are turned in on D2L.\n\n\n\nAssignment\nAvailable\nDue\n\n\n\n\nLab 1\nThursday 8/27 (at lab time)\nWednesday 9/4 (at 5pm)"
+  },
+  {
+    "objectID": "final_project.html",
+    "href": "final_project.html",
+    "title": "Final Project",
+    "section": "",
+    "text": "In this class, we’ve learned how to analyze data in the R programming language. From reading in the data, to tidying and reshaping, to wrangling, and finally to plotting. The final project asks you to find a dataset that is interesting to you and analyze it with the tools we’ve learned in class. The dataset you use for the class should be environmental in some sense. It could relate to forestry, water and water quality, animals, climate, etc. We will include some datasets that could be a good choice for this project, but you are not limited to these datasets.\nThis is a group project, with groups of 3-5 people. You can choose your groups, but if you are having trouble finding a group or your group is too small (&lt; 3 people), please let Grayson know and we will combine you or your group with others."
+  },
+  {
+    "objectID": "final_project.html#description",
+    "href": "final_project.html#description",
+    "title": "Final Project",
+    "section": "",
+    "text": "In this class, we’ve learned how to analyze data in the R programming language. From reading in the data, to tidying and reshaping, to wrangling, and finally to plotting. The final project asks you to find a dataset that is interesting to you and analyze it with the tools we’ve learned in class. The dataset you use for the class should be environmental in some sense. It could relate to forestry, water and water quality, animals, climate, etc. We will include some datasets that could be a good choice for this project, but you are not limited to these datasets.\nThis is a group project, with groups of 3-5 people. You can choose your groups, but if you are having trouble finding a group or your group is too small (&lt; 3 people), please let Grayson know and we will combine you or your group with others."
+  },
+  {
+    "objectID": "final_project.html#components",
+    "href": "final_project.html#components",
+    "title": "Final Project",
+    "section": "Components",
+    "text": "Components\nThe final project will be composed of four components: a group member submission, a proposal, a blog post, and a presentation. For each component, your group will submit one document via D2L.\n\nThe group member submission\nDue date: Tuesday, November 12th, 5pm.\nPlease submit a document to D2L with the names of your group members. Remember, groups of 3-5 people are allowed. If you are having trouble finding a group or your group is too small (&lt; 3 people), please let Grayson know and we will combine you or your group with others.\n\n\nThe proposal\nDue date: Saturday, November 23rd, 5pm.\nPlease submit a brief proposal of the project you would like to do. This should be a (no longer than 2 page) document outlining the data you will use and an idea of the story or information that you’d like to try to extract from the data. For this part, it is strongly recommended that you download the data you would like to use and take a look at it. In the proposal, describe any challenges you anticipate having working with the data, and the steps needed to get the data into a form that will be easy to work with in R. It is expected that this document is well-written, explains the data you’d like to work with, and conveys your ideas and hopes for what you’d like to do with the data (i.e. what your blog post will be about).\n\n\nThe blog post\nDue date: Monday, December 9th, 5pm.\nThe blog post is the heart of the final project. You and your group members will write a blog post in a Quarto document that takes the raw data you are using and tells a story with it. The blog post will include the story of getting the data, wrangling the data, and plots and summaries of the data. The blog posts will be posted on the course website (with groups permission), you have the right to not include your blog post on the course website, or to anonymize your blog post for the course website.\nThe blog post has the following parameters:\n\nI expect the post to be approximately 1000 words. This is a “soft” minimum: i.e., I wouldn’t want to see a significantly shorter blog post, and it would be fine if you went significantly over this limit. In general, I want your blog post to convey the story you are telling in a thoughtful way that doesn’t have too much “fluff” but isn’t overly terse either. In other words, write naturally and thoughtfully.\nYour blog post should include at least three (3) graphics created with ggplot2 and at least one tabular summary of the data. For displaying tables in beautiful ways in your blog post, check out the gt R package.\nYour blog post will be written in Quarto as a fully reproducible document. You will load in the data and necessary packages at the beginning of the blog post, do the necessary wrangling and cleaning in the blog post, and make the plots in the blog post. It is okay (and even encouraged) to work in separate documents to begin, but one final blog post will be the final product.\nYou likely should break your blog post into different sections. I suggest (but surely do not limit you to) the following sections:\n\nIntroduction: Give some background on the data and the questions you’d like to answer with it,\nMethods: Include how you got the data, and the steps necessary to load it into R and wrangle it into appropriate format for data analysis,\nAnalysis / Results: Talk about and display your figures, tables, and findings from the data,\nConclusions: Summarize your findings and discuss the implications. Discuss possible future directions for working with these data.\n\nYour blog post will Render to HTML. You must submit your .qmd file, along with any data files (.csv, etc.) necessary for Rendering the document to D2L by the deadline, December 9th at 5pm.\n\n\n\nThe presentation\nDue date: Slides submitted by Wednesday, December 11th, 5pm. Presentations to be completed in class during the final exam slot on December 12th.\nYou and your group will present the results from your analyses (i.e. findings from the blog post) in slide show form to your classmates during the final exam slot. Groups will present together, and presentation time should be shared relatively equally between group members.\nMore details to come on the presentation."
+  },
+  {
+    "objectID": "final_project.html#potential-datasets",
+    "href": "final_project.html#potential-datasets",
+    "title": "Final Project",
+    "section": "Potential Datasets",
+    "text": "Potential Datasets\nWhile you can come up with your own dataset for the final project, we have provided some datasets that might be nice to explore.\n\nPenobscot Experimental Forest\nHJ Andrews Experimental Forest\nHarvard Forest\nNational Ecological Observatory Network\nHubbard Brook Ecosystem Study\nBartlett Experimental Forest\nFernow Experimental Forest\nNational Park Service DataStore"
+  },
+  {
+    "objectID": "final_project.html#evaluation",
+    "href": "final_project.html#evaluation",
+    "title": "Final Project",
+    "section": "Evaluation",
+    "text": "Evaluation\nThe final project is worth 15% of your final grade. The proposal, blog post, and presentation will contribute to this 15%."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141",
+    "href": "slides/math141_wk01wed.html#getting-started-in-math-141",
+    "title": "Math 141",
+    "section": "Getting Started in Math 141",
+    "text": "Getting Started in Math 141\nStep 1: Course website\n[insert nice image]\n\nlibrary(tidyverse)\nmtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarize(avg_mpg = mean(mpg))\n\n# A tibble: 3 × 2\n    cyl avg_mpg\n  &lt;dbl&gt;   &lt;dbl&gt;\n1     4    26.7\n2     6    19.7\n3     8    15.1"
   }
 ]

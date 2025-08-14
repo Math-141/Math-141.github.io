@@ -1,43 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.for128.org/index.html</loc>
-    <lastmod>2025-08-11T20:06:21.661Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.for128.org/labs/lab_01.html</loc>
-    <lastmod>2025-08-11T20:07:18.740Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.for128.org/syllabus.html</loc>
-    <lastmod>2024-12-12T20:39:43.926Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.for128.org/assignments.html</loc>
-    <lastmod>2024-12-04T18:23:04.463Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.for128.org/tickets/ticket_01.html</loc>
-    <lastmod>2024-08-21T20:45:35.710Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.for128.org/recordings.html</loc>
-    <lastmod>2024-12-03T13:56:49.907Z</lastmod>
+    <loc>https://www.math-141.github.io/syllabus.html</loc>
+    <lastmod>2025-08-14T18:15:10.765Z</lastmod>
   </url>
   <url>
     <loc>https://www.math-141.github.io/recordings.html</loc>
-    <lastmod>2024-12-03T13:56:49.907Z</lastmod>
+    <lastmod>2025-08-14T17:59:23.956Z</lastmod>
   </url>
   <url>
     <loc>https://www.math-141.github.io/index.html</loc>
-    <lastmod>2025-08-11T21:11:16.230Z</lastmod>
-  </url>
-  <url>
-    <loc>https://www.math-141.github.io/syllabus.html</loc>
-    <lastmod>2025-08-11T21:09:41.958Z</lastmod>
+    <lastmod>2025-08-14T17:59:23.954Z</lastmod>
   </url>
   <url>
     <loc>https://www.math-141.github.io/assignments.html</loc>
-    <lastmod>2024-12-04T18:23:04.463Z</lastmod>
+    <lastmod>2025-08-14T23:45:43.268Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.math-141.github.io/final_project.html</loc>
+    <lastmod>2025-08-14T17:59:23.954Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.math-141.github.io/slides/math141_wk01wed.html</loc>
+    <lastmod>2025-08-14T23:44:02.738Z</lastmod>
   </url>
 </urlset>

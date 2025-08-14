@@ -37,15 +37,15 @@ The basic ideas of probability including properties of expectation, the law of l
 
 We'll have a lecture-style meeting three times a week, and a lab meeting once a week.
 
--   Lectures are on Mondays, Wednesdays, and Fridays, 9:10am - 10am, Natural Resources Building, Room 152.
+-   Lectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.
 
--   Labs are on Thursdays, 10:20am - 12:10pm, Natural Resources Building, Room 223.
+-   Labs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3pm (sections: F03 & F13), Library, Room 389.
 
 Outside of lectures and labs, I will also hold *office hours*.
 
--   Office hours will be held Tuesdays (10:30am - 11:30am) and Thursdays (1:30pm - 2:30pm), Natural Resources Building, Room 211.
+-   Office hours times will be held TBD. 
 
--   If these times do not work for you, we also hold office hours by appointment. Please email to set up a time to meet. 
+-   If these times do not work for you, I am more than happy to schedule a meeting by appointment. Please email me to set up a time to meet. 
 
 Office hours are a great way to get help on assignments you are stuck on, ask questions you didn't get a chance to ask in class, familiarize yourself with the instructor and course expectations, and much more! Further, office hours can be a very helpful tool for your success in this course and beyond in college. Attending office hours is a great habit!
 
@@ -56,7 +56,7 @@ Office hours are a great way to get help on assignments you are stuck on, ask qu
 -   TBD
 ------------------------------------------------------------------------
 
-## Collaboration Policy for FOR 128
+## Collaboration Policy for Math 141
 
 Working with your classmates on difficult and interesting problems can not only help your learning, but help you get to know each other. Therefore, we allow and encourage collaboration on lab reports, homework, and lecture tickets. However, collaboration on exams and quizzes is strictly prohibited and will be considered academic misconduct.
 
@@ -70,7 +70,7 @@ For Math 141, collaboration can look like: working with classmates together on a
 
 ------------------------------------------------------------------------
 
-## AI Policy for FOR 128
+## AI Policy for Math 141
 
 Artificial intelligence (AI) tools, such as ChatGPT, are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.
 

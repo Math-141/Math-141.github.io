@@ -12,50 +12,6 @@ Labs are turned in on [D2L](https://d2l.msu.edu).
 | Assignment               | Available                   | Due                     |
 |------------------------------|---------------------|---------------------|
 | [Lab 1](labs/lab_01.qmd) | Thursday 8/27 (at lab time) | Wednesday 9/4 (at 5pm)  |
-| [Lab 2](labs/lab_02.qmd) | Thursday 9/5 (at lab time)  | Wednesday 9/11 (at 5pm) |
-| [Lab 3](labs/lab_03.qmd) | Thursday 9/12 (at lab time)  | Wednesday 9/18 (at 5pm) |
-| [Lab 4](labs/lab_04.qmd) | Thursday 9/19 (at lab time)  | Wednesday 9/25 (at 5pm) |
-| [Lab 5](labs/lab_05.qmd) | Thursday 9/26 (at lab time)  | Wednesday 10/2 (at 5pm) |
-| [Lab 6](labs/lab_06.qmd) | Thursday 10/10 (at lab time)  | Wednesday 10/16 (at 5pm) |
-| [Lab 7](labs/lab_07.qmd), [Instructions & Output](labs/lab_07_web.qmd) | Thursday 10/17 (at lab time)  | Wednesday 10/23 (at 5pm) |
-| [Lab 8](labs/lab_08.qmd), [Instructions & Output](labs/lab_08_web.qmd) | Thursday 10/24 (at lab time) | Wednesday 10/30 (at 5pm) |
-| [Lab 9](labs/lab_09.qmd), [Instructions & Output](labs/lab_09_web.qmd), [Data](labs/data_lab9.zip)  | Thursday 10/31 (at lab time)  | Wednesday 11/6 (at 5pm) |
-| [Lab 10](labs/lab_10.qmd), [Instructions & Output](labs/lab_10_web.qmd) | Thursday 11/7 (at lab time)  | Wednesday 11/13 (at 5pm) |
-| [Lab 11](labs/lab_11.qmd) | Thursday 11/14 (at lab time)  | Wednesday 11/20 (at 5pm) |
 
 
-
-## Lecture Tickets
-
-Lecture tickets are turned in on a piece of paper in-person at lecture.
-
-| Assignment                                | Available             | Due                        |
-|-------------------------------------------|-----------------------|----------------------------|
-| [Lecture ticket 1](tickets/ticket_01.qmd) | Tuesday 8/27 (by 5pm) | Thursday 8/29 (in lecture) |
-| [Lecture ticket 2](tickets/ticket_02.qmd) | Thursday 8/29 (by 5pm)| Tuesday 9/3 (in lecture)   |
-| [Lecture ticket 3](tickets/ticket_03.qmd) | Tuesday  9/3 (by 5pm) | Thursday 9/5 (in lecture)  |
-| [Lecture ticket 4](tickets/ticket_04.qmd) | Thursday  9/5 (by 5pm)| Tuesday 9/10 (in lecture)  |
-| [Lecture ticket 5](tickets/ticket_05.qmd) | Tuesday  9/10 (by 5pm) | Thursday 9/12 (in lecture)  |
-| [Lecture ticket 6](tickets/ticket_06.qmd) | Thursday  9/12 (by 5pm) | Tuesday 9/17 (in lecture)  |
-| [Lecture ticket 7](tickets/ticket_07.qmd) | Tuesday  9/17 (by 5pm) | Thursday 9/19 (in lecture)  |
-| [Lecture ticket 8](tickets/ticket_08.qmd) | Thursday  9/19 (by 5pm) | Tuesday 9/24 (in lecture)  |
-| [Lecture ticket 9](tickets/ticket_09.qmd) | Tuesday  9/24 (by 5pm) | Thursday 9/26 (in lecture)  |
-| [Lecture ticket 10](tickets/ticket_10.qmd) | Thursday  9/26 (by 5pm) | Tuesday 10/1 (in lecture)  |
-| [Lecture ticket 11](tickets/ticket_11.qmd) | Tuesday  10/1 (by 5pm) | Thursday 10/3 (in lecture)  |
-| [Lecture ticket 12](tickets/ticket_12.qmd) | Thursday  10/3 (by 5pm) | Tuesday 10/8 (in lecture)  |
-| [Lecture ticket 13](tickets/ticket_13.qmd) | Tuesday  10/8 (by 5pm) | Thursday 10/10 (in lecture)  |
-| [Lecture ticket 14](tickets/ticket_14.qmd) | Thursday  10/10 (by 5pm) | Tuesday 10/15 (in lecture)  |
-| [Lecture ticket 15](tickets/ticket_15.qmd) | Tuesday  10/15 (by 5pm) | Thursday 10/17 (in lecture)  |
-| [Lecture ticket 16](tickets/ticket_16.qmd) | Thursday  10/17 (by 5pm) | Thursday 10/24 (in lecture)  |
-| [Lecture ticket 17](tickets/ticket_17.qmd) | Thursday  10/24 (by 5pm) | Tuesday 10/29 (in lecture)  |
-| [Lecture ticket 18](tickets/ticket_18.qmd) | Tuesday  10/29 (by 5pm) | Thursday 10/31 (in lecture)  |
-| [Lecture ticket 19](tickets/ticket_19.qmd) | Thursday  10/31 (by 5pm) | Tuesday 11/5 (in lecture)  |
-| [Lecture ticket 20](tickets/ticket_20.qmd) | Tuesday  11/5 (by 5pm) | Thursday 11/7 (in lecture)  |
-| [Lecture ticket 21](tickets/ticket_21.qmd) | Thursday  11/7 (by 5pm) | Tuesday 11/12 (in lecture)  |
-| [Lecture ticket 22](tickets/ticket_22.qmd) | Tuesday  11/12 (by 5pm) | Thursday 11/14 (in lecture)  |
-| [Lecture ticket 23](tickets/ticket_23.qmd) | Thursday  11/14 (by 5pm) | Tuesday 11/19 (in lecture)  |
-| [Lecture ticket 24](tickets/ticket_24.qmd) | Tuesday  11/19 (by 5pm) | Tuesday 11/26 (in lecture)  |
-| [Lecture ticket 25](tickets/ticket_25.qmd) | Tuesday  11/26 (by 5pm) | Thursday 11/28 (in lecture)  |
-| [Lecture ticket 26](tickets/ticket_26.qmd) | Thursday  11/28 (by 5pm) | Tuesday 12/3 (in lecture)  |
-| [Lecture ticket 27](tickets/ticket_27.qmd) | Tuesday  12/3 (by 5pm) | Thursday 12/5 (in lecture)  |
 

@@ -1,0 +1,74 @@
+---
+pagetitle: "Statistical Thinking"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+
+# set width of code output
+# options(width = 65)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Statistical Thinking]{.custom-title}
+
+<br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 1 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Getting Started in Math 141
+
+#### Step 1: Course website
+
+[insert nice image]
+
+```{r}
+library(tidyverse)
+mtcars %>%
+  group_by(cyl) %>%
+  summarize(avg_mpg = mean(mpg))
+```
+
+
+
+
+
