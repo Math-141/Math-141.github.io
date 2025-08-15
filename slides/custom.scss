@@ -1,10 +1,10 @@
 /*-- scss:defaults --*/
 @import url(https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap);
-@import url(https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap);
+@import url(https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,600;1,400&display=swap);
 @import url(https://fonts.googleapis.com/css?family=Fira+Mono&display=swap);
 
 $font-family-serif: 'Source Serif 4';
-$font-family-sans-serif: 'Inter';
+$font-family-sans-serif: 'Source Sans Pro';
 $presentation-heading-font: 'Source Serif 4';
 
 // $presentation-font-size-root: 38px;
@@ -29,9 +29,9 @@ $presentation-heading-color: $reed-red;
 
 // $presentation-heading-color: $blue-bridge;
 $presentation-heading-font: 'Source Serif 4';
-$body-color: $reed-black;
+$body-color: $blue-bridge;
 $link-color: $reed-red;
-$light-bg-text-color: $reed-black;
+$light-bg-text-color: $blue-bridge;
 $light-bg-link-color: $reed-red;
 $code-color: $adirondack;
 $code-block-border-left: $adirondack;
@@ -96,7 +96,7 @@ text-align: center;
 }
 strong {
   font-weight: bold;
-  color: #4682b4;
+  color: #DAA520;
 }
 
 h1, h2, h3, h4, h5, h6 {
