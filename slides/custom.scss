@@ -6,12 +6,8 @@
 $font-family-serif: 'Source Serif 4';
 $font-family-sans-serif: 'Inter';
 $presentation-heading-font: 'Source Serif 4';
-// $h1-font-size: 'Roboto Slab';
-// $h2-font-size: 'Roboto Slab';
-// $h3-font-size: 'Roboto Slab';
-// $h4-font-size: 'Roboto Slab';
 
-$presentation-font-size-root: 42px;
+// $presentation-font-size-root: 38px;
 
 // Reed College Primary Colors
 $reed-red: #A70E16;
@@ -27,7 +23,11 @@ $parchment: #FFF7E9;
 $canyon-fern: #7E8A65;
 $newsprint: #ECEAE4;
 
-$presentation-heading-color: $blue-bridge;
+// $body-bg: $reactor-core;
+// $presentation-background-color: $reactor-core;
+$presentation-heading-color: $reed-red;
+
+// $presentation-heading-color: $blue-bridge;
 $presentation-heading-font: 'Source Serif 4';
 $body-color: $reed-black;
 $link-color: $reed-red;
@@ -96,7 +96,7 @@ text-align: center;
 }
 strong {
   font-weight: bold;
-  color: $adirondack;
+  color: #4682b4;
 }
 
 h1, h2, h3, h4, h5, h6 {

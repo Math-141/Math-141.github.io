@@ -59,7 +59,7 @@ library(tidyverse)
 
 #### Step 1: Course website
 
-[insert nice image]
+[insert nice image] some **bold text** and some *italics* and some `code`
 
 ```{r}
 library(tidyverse)
@@ -67,6 +67,53 @@ mtcars %>%
   group_by(cyl) %>%
   summarize(avg_mpg = mean(mpg))
 ```
+
+------------------------------------------------------------------------
+
+## centered title {.center}
+
+
+------------------------------------------------------------------------
+
+## Announcements
+
+-   bullet point
+
+    -   sub-point
+-   another bullet point
+
+-   **Highlighted text.**
+
+
+# Also, the Math 141 Teaching Team are so excited to support your learning!
+
+------------------------------------------------------------------------
+
+## Math 141 is about developing our **statistical thinking** skills. {.center}
+
+<br>
+
+::: {.fragment .fade-up .midi}
+What is **statistical thinking**?
+:::
+
+<br>
+
+::: {.fragment .fade-up .midi}
+It is not the same as mathematical thinking.
+:::
+
+<br>
+
+::: {.fragment .fade-up .midi}
+Let's discover what **statistical thinking** is through some examples.
+:::
+
+------------------------------------------------------------------------
+
+## Data in Math 141
+
+Will use a wide-range of **real** and **relevant** data examples
 
 
 

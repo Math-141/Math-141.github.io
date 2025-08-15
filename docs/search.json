@@ -130,6 +130,34 @@
     "href": "slides/math141_wk01wed.html#getting-started-in-math-141",
     "title": "Math 141",
     "section": "Getting Started in Math 141",
-    "text": "Getting Started in Math 141\nStep 1: Course website\n[insert nice image]\n\nlibrary(tidyverse)\nmtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarize(avg_mpg = mean(mpg))\n\n# A tibble: 3 × 2\n    cyl avg_mpg\n  &lt;dbl&gt;   &lt;dbl&gt;\n1     4    26.7\n2     6    19.7\n3     8    15.1"
+    "text": "Getting Started in Math 141\nStep 1: Course website\n[insert nice image] some bold text and some italics and some code\n\nlibrary(tidyverse)\nmtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarize(avg_mpg = mean(mpg))\n\n# A tibble: 3 × 2\n    cyl avg_mpg\n  &lt;dbl&gt;   &lt;dbl&gt;\n1     4    26.7\n2     6    19.7\n3     8    15.1"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#centered-title",
+    "href": "slides/math141_wk01wed.html#centered-title",
+    "title": "Math 141",
+    "section": "centered title",
+    "text": "centered title"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#announcements",
+    "href": "slides/math141_wk01wed.html#announcements",
+    "title": "Math 141",
+    "section": "Announcements",
+    "text": "Announcements\n\nbullet point\n\nsub-point\n\nanother bullet point\nHighlighted text."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#math-141-is-about-developing-our-statistical-thinking-skills.",
+    "href": "slides/math141_wk01wed.html#math-141-is-about-developing-our-statistical-thinking-skills.",
+    "title": "Math 141",
+    "section": "Math 141 is about developing our statistical thinking skills.",
+    "text": "Math 141 is about developing our statistical thinking skills.\n\n\nWhat is statistical thinking?\n\n\n\nIt is not the same as mathematical thinking.\n\n\n\nLet’s discover what statistical thinking is through some examples."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#data-in-math-141",
+    "href": "slides/math141_wk01wed.html#data-in-math-141",
+    "title": "Math 141",
+    "section": "Data in Math 141",
+    "text": "Data in Math 141\nWill use a wide-range of real and relevant data examples"
   }
 ]
