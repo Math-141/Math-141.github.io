@@ -12,7 +12,11 @@ editor:
 
 ## Useful Information
 
-**Instructor**: Grayson White ([grwhite@reed.edu](mailto:grwhite@reed.edu), Office: Library 390)
+**Lecture and Lab Instructor**: Grayson White (he/him) 
+
+-   Email: [gwhite@reed.edu](mailto:gwhite@reed.edu)
+-   Office: Library 390
+-   Office hours: TBD
 
 **Links**:
 
@@ -41,6 +45,20 @@ We'll have a lecture-style meeting three times a week, and a lab meeting once a 
 
 -   Labs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3pm (sections: F03 & F13), Library, Room 389.
 
+See the below table for a visual schedule. 
+
+```{r}
+#| echo: false
+gt::gt(tibble::tibble(
+  Section = c("F01", "F02", "F03", "F11", "F12", "F13"),
+  `Lecture (M/W/F)` = c(rep("10am - 10:50am", 3), rep("11am - 11:50am", 3)),
+  `Lab (Th)` = c(rep(
+    c("9am - 10:20am", "10:30am - 11:50am", "1:40pm - 3pm"), 2
+  ))
+))
+```
+
+
 Outside of lectures and labs, I will also hold *office hours*.
 
 -   Office hours times will be held TBD. 
@@ -58,7 +76,7 @@ Office hours are a great way to get help on assignments you are stuck on, ask qu
 
 ## Collaboration Policy for Math 141
 
-Working with your classmates on difficult and interesting problems can not only help your learning, but help you get to know each other. Therefore, we allow and encourage collaboration on lab reports, homework, and lecture tickets. However, collaboration on exams and quizzes is strictly prohibited and will be considered academic misconduct.
+Working with your classmates on difficult and interesting problems can not only help your learning, but help you get to know each other. Therefore, we allow and encourage collaboration on lab reports, homework assignments, and lecture tickets. However, collaboration on exams and quizzes is strictly prohibited and will be considered academic misconduct.
 
 If you choose to collaborate with a classmate, please add their name to the top of your assignment, and list them as a collaborator, e.g.:
 
@@ -66,7 +84,7 @@ Collaborator(s): Elliot Shannon, Romain Boutelet
 
 **But what *is* collaboration?**
 
-For Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you must write up your own problem solutions individually and cannot copy other's solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited and will be considered academic misconduct.
+For Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you **must** write up your own problem solutions individually and cannot copy other's solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited and will be considered academic misconduct.
 
 ------------------------------------------------------------------------
 

@@ -4,14 +4,14 @@
     "href": "syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "Instructor: Grayson White (grwhite@reed.edu, Office: Library 390)\nLinks:\n\nThe course website, www.math-141.github.io, for course information, lecture slides, and course materials.\n\nCourse Description: (from the Reed College Catalog)\nThe basic ideas of probability including properties of expectation, the law of large numbers, and the central limit theorem are discussed. These ideas are applied to the problems of statistical inference, including estimation and hypothesis testing. The linear regression model is introduced, and the problems of statistical inference and model validation are studied in this context. A portion of the course is devoted to statistical computing and graphics."
+    "text": "Lecture and Lab Instructor: Grayson White (he/him)\n\nEmail: gwhite@reed.edu\nOffice: Library 390\nOffice hours: TBD\n\nLinks:\n\nThe course website, www.math-141.github.io, for course information, lecture slides, and course materials.\n\nCourse Description: (from the Reed College Catalog)\nThe basic ideas of probability including properties of expectation, the law of large numbers, and the central limit theorem are discussed. These ideas are applied to the problems of statistical inference, including estimation and hypothesis testing. The linear regression model is introduced, and the problems of statistical inference and model validation are studied in this context. A portion of the course is devoted to statistical computing and graphics."
   },
   {
     "objectID": "syllabus.html#useful-information",
     "href": "syllabus.html#useful-information",
     "title": "Syllabus",
     "section": "",
-    "text": "Instructor: Grayson White (grwhite@reed.edu, Office: Library 390)\nLinks:\n\nThe course website, www.math-141.github.io, for course information, lecture slides, and course materials.\n\nCourse Description: (from the Reed College Catalog)\nThe basic ideas of probability including properties of expectation, the law of large numbers, and the central limit theorem are discussed. These ideas are applied to the problems of statistical inference, including estimation and hypothesis testing. The linear regression model is introduced, and the problems of statistical inference and model validation are studied in this context. A portion of the course is devoted to statistical computing and graphics."
+    "text": "Lecture and Lab Instructor: Grayson White (he/him)\n\nEmail: gwhite@reed.edu\nOffice: Library 390\nOffice hours: TBD\n\nLinks:\n\nThe course website, www.math-141.github.io, for course information, lecture slides, and course materials.\n\nCourse Description: (from the Reed College Catalog)\nThe basic ideas of probability including properties of expectation, the law of large numbers, and the central limit theorem are discussed. These ideas are applied to the problems of statistical inference, including estimation and hypothesis testing. The linear regression model is introduced, and the problems of statistical inference and model validation are studied in this context. A portion of the course is devoted to statistical computing and graphics."
   },
   {
     "objectID": "syllabus.html#learning-materials-tools",
@@ -25,7 +25,7 @@
     "href": "syllabus.html#meetings-office-hours",
     "title": "Syllabus",
     "section": "Meetings & Office Hours",
-    "text": "Meetings & Office Hours\nWe’ll have a lecture-style meeting three times a week, and a lab meeting once a week.\n\nLectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.\nLabs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3pm (sections: F03 & F13), Library, Room 389.\n\nOutside of lectures and labs, I will also hold office hours.\n\nOffice hours times will be held TBD.\nIf these times do not work for you, I am more than happy to schedule a meeting by appointment. Please email me to set up a time to meet.\n\nOffice hours are a great way to get help on assignments you are stuck on, ask questions you didn’t get a chance to ask in class, familiarize yourself with the instructor and course expectations, and much more! Further, office hours can be a very helpful tool for your success in this course and beyond in college. Attending office hours is a great habit!"
+    "text": "Meetings & Office Hours\nWe’ll have a lecture-style meeting three times a week, and a lab meeting once a week.\n\nLectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.\nLabs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3pm (sections: F03 & F13), Library, Room 389.\n\nSee the below table for a visual schedule.\n\n\n\n\n\n\n\n\nSection\nLecture (M/W/F)\nLab (Th)\n\n\n\n\nF01\n10am - 10:50am\n9am - 10:20am\n\n\nF02\n10am - 10:50am\n10:30am - 11:50am\n\n\nF03\n10am - 10:50am\n1:40pm - 3pm\n\n\nF11\n11am - 11:50am\n9am - 10:20am\n\n\nF12\n11am - 11:50am\n10:30am - 11:50am\n\n\nF13\n11am - 11:50am\n1:40pm - 3pm\n\n\n\n\n\n\n\nOutside of lectures and labs, I will also hold office hours.\n\nOffice hours times will be held TBD.\nIf these times do not work for you, I am more than happy to schedule a meeting by appointment. Please email me to set up a time to meet.\n\nOffice hours are a great way to get help on assignments you are stuck on, ask questions you didn’t get a chance to ask in class, familiarize yourself with the instructor and course expectations, and much more! Further, office hours can be a very helpful tool for your success in this course and beyond in college. Attending office hours is a great habit!"
   },
   {
     "objectID": "syllabus.html#late-work-policy",
@@ -39,7 +39,7 @@
     "href": "syllabus.html#collaboration-policy-for-math-141",
     "title": "Syllabus",
     "section": "Collaboration Policy for Math 141",
-    "text": "Collaboration Policy for Math 141\nWorking with your classmates on difficult and interesting problems can not only help your learning, but help you get to know each other. Therefore, we allow and encourage collaboration on lab reports, homework, and lecture tickets. However, collaboration on exams and quizzes is strictly prohibited and will be considered academic misconduct.\nIf you choose to collaborate with a classmate, please add their name to the top of your assignment, and list them as a collaborator, e.g.:\nCollaborator(s): Elliot Shannon, Romain Boutelet\nBut what is collaboration?\nFor Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you must write up your own problem solutions individually and cannot copy other’s solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited and will be considered academic misconduct."
+    "text": "Collaboration Policy for Math 141\nWorking with your classmates on difficult and interesting problems can not only help your learning, but help you get to know each other. Therefore, we allow and encourage collaboration on lab reports, homework assignments, and lecture tickets. However, collaboration on exams and quizzes is strictly prohibited and will be considered academic misconduct.\nIf you choose to collaborate with a classmate, please add their name to the top of your assignment, and list them as a collaborator, e.g.:\nCollaborator(s): Elliot Shannon, Romain Boutelet\nBut what is collaboration?\nFor Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you must write up your own problem solutions individually and cannot copy other’s solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited and will be considered academic misconduct."
   },
   {
     "objectID": "syllabus.html#ai-policy-for-math-141",
@@ -63,20 +63,6 @@
     "text": "Week 1, day 1: Welcome to the course. Available here.\nWeek 1, day 2: Data science tools. Available here.\nWeek 2, day 1: Practical computing. Available here.\nWeek 2, day 2: Reading and writing data. Available here.\nWeek 3, day 1: No recording available.\nWeek 3, day 2: Data structures. Available here.\nWeek 4, day 1: No recording available.\nWeek 4, day 2: Review of data structures & intro to functions. Available here.\nWeek 5, day 1: Functions and conditionals. Available here.\nWeek 5, day 2: Functions. NOTE: audio issues. Available here.\nWeek 6, day 1: Welcome to the tidyverse. Available here.\nWeek 6, day 2: Midterm review day. No recording.\nWeek 7, day 1: tibble and readr. Available here.\nWeek 7, day 2: Introduction to data wrangling with dplyr. Available here.\nWeek 8, day 1: More data wrangling with dplyr. Available here.\nWeek 8, day 2: Advanced grouping and summarizing. Available here.\nWeek 9, day 1: Combining multiple tibbles. Available here.\nWeek 10, day 1: Reshaping data with tidyr. Available here.\nWeek 10, day 2: Reshaping data with tidyr, part 2. Available here.\nWeek 11, day 1: The grammar of graphics. Available here.\nWeek 11, day 2: Final project explanation and more plotting with ggplot2. Available here.\nWeek 12, day 1: More plotting with ggplot2. Available here.\nWeek 12, day 2: Building graphics incrementally, composing plots with patchwork, and saving plots. Available here.\nWeek 13, day 1: Spatial data with sf. Available here.\nWeek 14, day 1: Project and midterms and quizzes, galore! Available here."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Probability and Statistics",
-    "section": "",
-    "text": "Math 141 Reed College\nFall 2025\n\n\n\n\nNo class, holiday\n\n\n\nStatistical thinking\n\n\n\nLab"
-  },
-  {
-    "objectID": "index.html#week-1-august-31---september-6",
-    "href": "index.html#week-1-august-31---september-6",
-    "title": "Introduction to Probability and Statistics",
-    "section": "",
-    "text": "No class, holiday\n\n\n\nStatistical thinking\n\n\n\nLab"
-  },
-  {
     "objectID": "assignments.html",
     "href": "assignments.html",
     "title": "Assignments",
@@ -89,6 +75,20 @@
     "title": "Assignments",
     "section": "",
     "text": "Labs are turned in on D2L.\n\n\n\nAssignment\nAvailable\nDue\n\n\n\n\nLab 1\nThursday 8/27 (at lab time)\nWednesday 9/4 (at 5pm)"
+  },
+  {
+    "objectID": "CopyOfindex.html",
+    "href": "CopyOfindex.html",
+    "title": "Introduction to Probability and Statistics",
+    "section": "",
+    "text": "Math 141 Reed College\nFall 2025\n\n\n\n\nNo class, holiday\n\n\n\nStatistical thinking\n\n\n\nLab"
+  },
+  {
+    "objectID": "CopyOfindex.html#week-1-august-31---september-6",
+    "href": "CopyOfindex.html#week-1-august-31---september-6",
+    "title": "Introduction to Probability and Statistics",
+    "section": "",
+    "text": "No class, holiday\n\n\n\nStatistical thinking\n\n\n\nLab"
   },
   {
     "objectID": "final_project.html",

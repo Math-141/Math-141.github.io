@@ -26,11 +26,21 @@ website:
             text: "Week 1 Wednesday"
       - href: assignments.qmd
         text: Assignments
+    tools:
+      - icon: chat-fill
+        href: https://join.slack.com/t/reedmath141fall2025/shared_invite/zt-3blne8yip-sTe8uLWC4UbexLAAA7Z~Vw
+      # - icon: bar-chart-fill
+      #   href: https://www.gradescope.com/courses/XXXXX
+      #   aria-label: Gradescope
+      - icon: r-circle-fill
+        href: https://rstudio.reed.edu/
+        aria-label: RStudio Server
 
 format:
   html:
-    theme: sandstone
-    css: assets/styles.scss
+    theme:
+      - sandstone
+      - assets/styles.scss
     toc: true
 
 resources: 

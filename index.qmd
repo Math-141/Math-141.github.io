@@ -1,29 +1,36 @@
 ---
-format: 
-  html:
-    toc: false
-editor: 
-  mode: source
+toc: false
+editor: source
+page-layout: custom
+resources:
+  - "homepage-readings"
+listing:
+  id: schedule-listing
+  contents: scheduled-docs_files/schedule.yml
+  template: _extensions/qmd-lab/course-website-ejs/schedule-1.ejs
 ---
 
-# Introduction to<a><img src="assets/math141-hex.png" align="right" height="200"/></a> <br/>Probability and Statistics
+:::::::: content-block
+::::::: grid
+::::: {#banner .g-col-12 .g-col-md-6 style="margin: 3em 1em 0em 1em"}
+:::: {.content-visible unless-profile="staff-site"}
+::: banner-text
+Introduction to Probability and Statistics
+:::
 
 [Math 141 Reed College]{.smallcaps}
+::::
+:::::
 
-[Fall 2025]{.smallcaps}
+::: {#hex .g-col-12 .g-col-md-6 .text-center style="margin: 0em 1em 0em 1em"}
+\
 
-## Week 1, August 31 - September 6
+![](assets/math141-hex.png){.img-fluid fig-alt="Hex logo of Stat 20 showing a golden bear." width="250"}
+:::
+:::::::
+::::::::
 
-### Monday
-
-No class, holiday
-
-### Wednesday
-
-Statistical thinking
-
-### Thursday
-
-Lab
-
-### Friday 
+:::: content-block
+::: {#schedule-listing}
+:::
+::::
