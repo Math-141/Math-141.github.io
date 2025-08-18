@@ -18,7 +18,8 @@ listing:
 Introduction to Probability and Statistics
 :::
 
-[Math 141 Reed College]{.smallcaps}
+[Math 141 Reed College, Fall 2025]{.smallcaps}
+
 ::::
 :::::
 
