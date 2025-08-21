@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 9/1/25
+  draft-after: 10/1/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -11,11 +11,11 @@ scheduled-docs:
     - week: 1
       days:
         - topic: "Welcome to the Course"
-          display-date: Sep 1
-          date: 9/1/25
+          display-date: Wednesday, Sep 3
+          date: 9/3/25
           docs:
-            # - type: Notes
-            #   href: 1-questions-and-data/01-understanding-the-world/notes.qmd
+            - type: Reading
+              href: readings/readings_wk01_wed.qmd
             - type: Slides
               href: slides/math141_wk01wed.qmd
             # - type: Lab

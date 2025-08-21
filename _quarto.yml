@@ -20,21 +20,18 @@ website:
         text: Home
       - href: syllabus.qmd
         text: Syllabus
-      - text: Slides
-        menu:
-          - href: slides/math141_wk01wed.qmd
-            text: "Week 1 Wednesday"
-      - href: assignments.qmd
-        text: Assignments
     tools:
       - icon: chat-fill
         href: https://join.slack.com/t/reedmath141fall2025/shared_invite/zt-3blne8yip-sTe8uLWC4UbexLAAA7Z~Vw
-      # - icon: bar-chart-fill
-      #   href: https://www.gradescope.com/courses/XXXXX
-      #   aria-label: Gradescope
       - icon: r-circle-fill
         href: https://rstudio.reed.edu/
         aria-label: RStudio Server
+      # - icon: bar-chart-fill
+      #   href: https://www.gradescope.com/courses/XXXXX
+      #   aria-label: Gradescope
+      # - icon: ???
+      #   href: https://www.moodle.reed.edu
+      #   aria-label: Moodle
 
 format:
   html:

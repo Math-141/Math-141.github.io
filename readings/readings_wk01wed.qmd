@@ -1,0 +1,7 @@
+---
+title: "Math 141: Readings"
+date: 9/3/25
+editor: source
+---
+
+-   [The syllabus](../syllabus.qmd)

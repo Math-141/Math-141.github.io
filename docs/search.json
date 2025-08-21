@@ -49,67 +49,11 @@
     "text": "AI Policy for Math 141\nArtificial intelligence (AI) tools, such as ChatGPT, are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.\nViolations of this policy are considered academic misconduct."
   },
   {
-    "objectID": "recordings.html",
-    "href": "recordings.html",
-    "title": "Lecture Recordings",
+    "objectID": "readings/readings_wk01wed.html",
+    "href": "readings/readings_wk01wed.html",
+    "title": "Math 141: Readings",
     "section": "",
-    "text": "Week 1, day 1: Welcome to the course. Available here.\nWeek 1, day 2: Data science tools. Available here.\nWeek 2, day 1: Practical computing. Available here.\nWeek 2, day 2: Reading and writing data. Available here.\nWeek 3, day 1: No recording available.\nWeek 3, day 2: Data structures. Available here.\nWeek 4, day 1: No recording available.\nWeek 4, day 2: Review of data structures & intro to functions. Available here.\nWeek 5, day 1: Functions and conditionals. Available here.\nWeek 5, day 2: Functions. NOTE: audio issues. Available here.\nWeek 6, day 1: Welcome to the tidyverse. Available here.\nWeek 6, day 2: Midterm review day. No recording.\nWeek 7, day 1: tibble and readr. Available here.\nWeek 7, day 2: Introduction to data wrangling with dplyr. Available here.\nWeek 8, day 1: More data wrangling with dplyr. Available here.\nWeek 8, day 2: Advanced grouping and summarizing. Available here.\nWeek 9, day 1: Combining multiple tibbles. Available here.\nWeek 10, day 1: Reshaping data with tidyr. Available here.\nWeek 10, day 2: Reshaping data with tidyr, part 2. Available here.\nWeek 11, day 1: The grammar of graphics. Available here.\nWeek 11, day 2: Final project explanation and more plotting with ggplot2. Available here.\nWeek 12, day 1: More plotting with ggplot2. Available here.\nWeek 12, day 2: Building graphics incrementally, composing plots with patchwork, and saving plots. Available here.\nWeek 13, day 1: Spatial data with sf. Available here.\nWeek 14, day 1: Project and midterms and quizzes, galore! Available here."
-  },
-  {
-    "objectID": "recordings.html#recordings",
-    "href": "recordings.html#recordings",
-    "title": "Lecture Recordings",
-    "section": "",
-    "text": "Week 1, day 1: Welcome to the course. Available here.\nWeek 1, day 2: Data science tools. Available here.\nWeek 2, day 1: Practical computing. Available here.\nWeek 2, day 2: Reading and writing data. Available here.\nWeek 3, day 1: No recording available.\nWeek 3, day 2: Data structures. Available here.\nWeek 4, day 1: No recording available.\nWeek 4, day 2: Review of data structures & intro to functions. Available here.\nWeek 5, day 1: Functions and conditionals. Available here.\nWeek 5, day 2: Functions. NOTE: audio issues. Available here.\nWeek 6, day 1: Welcome to the tidyverse. Available here.\nWeek 6, day 2: Midterm review day. No recording.\nWeek 7, day 1: tibble and readr. Available here.\nWeek 7, day 2: Introduction to data wrangling with dplyr. Available here.\nWeek 8, day 1: More data wrangling with dplyr. Available here.\nWeek 8, day 2: Advanced grouping and summarizing. Available here.\nWeek 9, day 1: Combining multiple tibbles. Available here.\nWeek 10, day 1: Reshaping data with tidyr. Available here.\nWeek 10, day 2: Reshaping data with tidyr, part 2. Available here.\nWeek 11, day 1: The grammar of graphics. Available here.\nWeek 11, day 2: Final project explanation and more plotting with ggplot2. Available here.\nWeek 12, day 1: More plotting with ggplot2. Available here.\nWeek 12, day 2: Building graphics incrementally, composing plots with patchwork, and saving plots. Available here.\nWeek 13, day 1: Spatial data with sf. Available here.\nWeek 14, day 1: Project and midterms and quizzes, galore! Available here."
-  },
-  {
-    "objectID": "assignments.html",
-    "href": "assignments.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "Labs are turned in on D2L.\n\n\n\nAssignment\nAvailable\nDue\n\n\n\n\nLab 1\nThursday 8/27 (at lab time)\nWednesday 9/4 (at 5pm)"
-  },
-  {
-    "objectID": "assignments.html#labs",
-    "href": "assignments.html#labs",
-    "title": "Assignments",
-    "section": "",
-    "text": "Labs are turned in on D2L.\n\n\n\nAssignment\nAvailable\nDue\n\n\n\n\nLab 1\nThursday 8/27 (at lab time)\nWednesday 9/4 (at 5pm)"
-  },
-  {
-    "objectID": "final_project.html",
-    "href": "final_project.html",
-    "title": "Final Project",
-    "section": "",
-    "text": "In this class, we’ve learned how to analyze data in the R programming language. From reading in the data, to tidying and reshaping, to wrangling, and finally to plotting. The final project asks you to find a dataset that is interesting to you and analyze it with the tools we’ve learned in class. The dataset you use for the class should be environmental in some sense. It could relate to forestry, water and water quality, animals, climate, etc. We will include some datasets that could be a good choice for this project, but you are not limited to these datasets.\nThis is a group project, with groups of 3-5 people. You can choose your groups, but if you are having trouble finding a group or your group is too small (&lt; 3 people), please let Grayson know and we will combine you or your group with others."
-  },
-  {
-    "objectID": "final_project.html#description",
-    "href": "final_project.html#description",
-    "title": "Final Project",
-    "section": "",
-    "text": "In this class, we’ve learned how to analyze data in the R programming language. From reading in the data, to tidying and reshaping, to wrangling, and finally to plotting. The final project asks you to find a dataset that is interesting to you and analyze it with the tools we’ve learned in class. The dataset you use for the class should be environmental in some sense. It could relate to forestry, water and water quality, animals, climate, etc. We will include some datasets that could be a good choice for this project, but you are not limited to these datasets.\nThis is a group project, with groups of 3-5 people. You can choose your groups, but if you are having trouble finding a group or your group is too small (&lt; 3 people), please let Grayson know and we will combine you or your group with others."
-  },
-  {
-    "objectID": "final_project.html#components",
-    "href": "final_project.html#components",
-    "title": "Final Project",
-    "section": "Components",
-    "text": "Components\nThe final project will be composed of four components: a group member submission, a proposal, a blog post, and a presentation. For each component, your group will submit one document via D2L.\n\nThe group member submission\nDue date: Tuesday, November 12th, 5pm.\nPlease submit a document to D2L with the names of your group members. Remember, groups of 3-5 people are allowed. If you are having trouble finding a group or your group is too small (&lt; 3 people), please let Grayson know and we will combine you or your group with others.\n\n\nThe proposal\nDue date: Saturday, November 23rd, 5pm.\nPlease submit a brief proposal of the project you would like to do. This should be a (no longer than 2 page) document outlining the data you will use and an idea of the story or information that you’d like to try to extract from the data. For this part, it is strongly recommended that you download the data you would like to use and take a look at it. In the proposal, describe any challenges you anticipate having working with the data, and the steps needed to get the data into a form that will be easy to work with in R. It is expected that this document is well-written, explains the data you’d like to work with, and conveys your ideas and hopes for what you’d like to do with the data (i.e. what your blog post will be about).\n\n\nThe blog post\nDue date: Monday, December 9th, 5pm.\nThe blog post is the heart of the final project. You and your group members will write a blog post in a Quarto document that takes the raw data you are using and tells a story with it. The blog post will include the story of getting the data, wrangling the data, and plots and summaries of the data. The blog posts will be posted on the course website (with groups permission), you have the right to not include your blog post on the course website, or to anonymize your blog post for the course website.\nThe blog post has the following parameters:\n\nI expect the post to be approximately 1000 words. This is a “soft” minimum: i.e., I wouldn’t want to see a significantly shorter blog post, and it would be fine if you went significantly over this limit. In general, I want your blog post to convey the story you are telling in a thoughtful way that doesn’t have too much “fluff” but isn’t overly terse either. In other words, write naturally and thoughtfully.\nYour blog post should include at least three (3) graphics created with ggplot2 and at least one tabular summary of the data. For displaying tables in beautiful ways in your blog post, check out the gt R package.\nYour blog post will be written in Quarto as a fully reproducible document. You will load in the data and necessary packages at the beginning of the blog post, do the necessary wrangling and cleaning in the blog post, and make the plots in the blog post. It is okay (and even encouraged) to work in separate documents to begin, but one final blog post will be the final product.\nYou likely should break your blog post into different sections. I suggest (but surely do not limit you to) the following sections:\n\nIntroduction: Give some background on the data and the questions you’d like to answer with it,\nMethods: Include how you got the data, and the steps necessary to load it into R and wrangle it into appropriate format for data analysis,\nAnalysis / Results: Talk about and display your figures, tables, and findings from the data,\nConclusions: Summarize your findings and discuss the implications. Discuss possible future directions for working with these data.\n\nYour blog post will Render to HTML. You must submit your .qmd file, along with any data files (.csv, etc.) necessary for Rendering the document to D2L by the deadline, December 9th at 5pm.\n\n\n\nThe presentation\nDue date: Slides submitted by Wednesday, December 11th, 5pm. Presentations to be completed in class during the final exam slot on December 12th.\nYou and your group will present the results from your analyses (i.e. findings from the blog post) in slide show form to your classmates during the final exam slot. Groups will present together, and presentation time should be shared relatively equally between group members.\nMore details to come on the presentation."
-  },
-  {
-    "objectID": "final_project.html#potential-datasets",
-    "href": "final_project.html#potential-datasets",
-    "title": "Final Project",
-    "section": "Potential Datasets",
-    "text": "Potential Datasets\nWhile you can come up with your own dataset for the final project, we have provided some datasets that might be nice to explore.\n\nPenobscot Experimental Forest\nHJ Andrews Experimental Forest\nHarvard Forest\nNational Ecological Observatory Network\nHubbard Brook Ecosystem Study\nBartlett Experimental Forest\nFernow Experimental Forest\nNational Park Service DataStore"
-  },
-  {
-    "objectID": "final_project.html#evaluation",
-    "href": "final_project.html#evaluation",
-    "title": "Final Project",
-    "section": "Evaluation",
-    "text": "Evaluation\nThe final project is worth 15% of your final grade. The proposal, blog post, and presentation will contribute to this 15%."
+    "text": "The syllabus"
   },
   {
     "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141",
