@@ -21,14 +21,14 @@ editor:
 
 **Lab Assistants**: TBD (9am - 10:20am), TBD (10:30am - 11:50am), and TBD (1:40pm - 3pm)
 
-**Office Hours**: Available [here](office_hours.qmd). 
+**Office Hours**: Available [here](https://math-141.github.io/office_hours.html). 
 
 If the available times do not work for you, I (Grayson) am more than happy to schedule a meeting by appointment. Please [email me](mailto:gwhite@reed.edu) or send me a Slack message to set up a time to meet. Do not request the lab assistants to hold extra office hours. 
 
 
 **Links and course resources**:
 
-The course website, [www.math-141.github.io](https://www.math-141.github.io), inlcludes information on the course, lecture slides, public course materials, and links to all other course resources:
+The course website, [math-141.github.io](https://math-141.github.io/), inlcludes information on the course, lecture slides, public course materials, and links to all other course resources:
 
 -   Slack, for course correspondance,
 -   Moodle, for private course materials, and
