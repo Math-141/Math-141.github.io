@@ -18,22 +18,15 @@ scheduled-docs:
               href: readings/readings_wk01_wed.qmd
             - type: Slides
               href: slides/math141_wk01wed.qmd
-            # - type: Lab
-            #   href: 1-questions-and-data/labs/00-getting-started/lab.qmd
-      #   - topic: "Taxonomy of Data"
-      #     unit: Understanding the World with Data
-      #     display-date: Jan 18
-      #     date: 1/18/24
-      #     docs:
-      #       - type: Notes
-      #         href: 1-questions-and-data/02-taxonomy-of-data/notes.qmd
-      #       - type: Slides
-      #         href: 1-questions-and-data/02-taxonomy-of-data/slides.qmd
-      #       - type: PS
-      #         href: 1-questions-and-data/02-taxonomy-of-data/ps.qmd
-      # resources:
-      #   - '<a href="https://markdownlivepreview.com">Markdown Live Preview</a>'
-      #   - '<a href="https://www.stat20.org/1-questions-and-data/01-understanding-the-world/extra-practice.pdf">Extra Practice</a>'
+        - topic: "Introduction to R, RStudio, and Quarto"
+          display-date: Thursday, Sep 4
+          date: 9/3/25
+          docs:
+            - type: Lab
+            - type: Slides
+      resources:
+        - '<a href="https://moderndive.com/v2">ModernDive</a>'
+        - 'Some text'
     # - week: 2
     #   unit: Summarization
     #   days:
