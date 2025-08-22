@@ -1,0 +1,18 @@
+---
+date: 9/4/25
+editor: source
+---
+
+# Math 141: Readings for {{< meta date >}}
+
+## Reading 
+
+Before coming to lecture today, please read the following material: 
+
+-   
+
+## Reading Assignment
+
+After you've completed the reading, please complete the following reading assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
+
+-   

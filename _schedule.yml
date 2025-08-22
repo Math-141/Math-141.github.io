@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 10/1/25
+  draft-after: 9/3/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -15,361 +15,451 @@ scheduled-docs:
           date: 9/3/25
           docs:
             - type: Reading
-              href: readings/readings_wk01_wed.qmd
+              href: readings/readings_wk01wed.qmd
             - type: Slides
               href: slides/math141_wk01wed.qmd
         - topic: "Introduction to R, RStudio, and Quarto"
           display-date: Thursday, Sep 4
-          date: 9/3/25
+          date: 9/4/25
           docs:
             - type: Lab
+              href: labs/lab_01.qmd
             - type: Slides
+              href: slides/math141_wk01thu.qmd
+            - type: Reading
+              href: readings/readings_wk01thu.qmd
+        - topic: "Data"
+          display-date: Friday, Sep 5
+          date: 9/5/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk01fri.qmd
+            - type: Slides
+              href: slides/math141_wk01fri.qmd
       resources:
         - '<a href="https://moderndive.com/v2">ModernDive</a>'
         - 'Some text'
-    # - week: 2
-    #   unit: Summarization
-    #   days:
-    #     - topic: "Summarizing Categorical Data"
-    #       display-date: Jan 23
-    #       date: 1/23/24
-    #       docs:
-    #         - type: Notes
-    #           href: 2-summarizing-data/01-summarizing-categorical-data/notes.qmd
-    #         - type: Slides
-    #           href: 2-summarizing-data/01-summarizing-categorical-data/slides.qmd
-    #         - type: PS
-    #           href: 2-summarizing-data/01-summarizing-categorical-data/ps.qmd
-    #         - type: Lab
-    #           href: 2-summarizing-data/labs/02-class-survey/lab.qmd
-    #     - topic: "Summarizing Numerical Data"
-    #       display-date: Jan 25
-    #       date: 1/25/24
-    #       docs:
-    #         - type: Notes
-    #           href: 2-summarizing-data/02-summarizing-numerical-data/notes.qmd
-    #         - type: Slides
-    #           href: 2-summarizing-data/02-summarizing-numerical-data/slides.qmd
-    #         - type: PS
-    #           href: 2-summarizing-data/02-summarizing-numerical-data/ps.qmd
-    # - week: 3
-    #   unit: Summarization
-    #   days:
-    #     - topic: "Lab 1 Workshop"
-    #       display-date: Jan 29
-    #     - topic: "Data Pipelines"
-    #       display-date: Jan 30
-    #       date: 1/30/24
-    #       docs:
-    #         - type: Notes
-    #           href: 2-summarizing-data/04-conditioning/notes.qmd
-    #         - type: Slides
-    #           href: 2-summarizing-data/04-conditioning/slides.qmd
-    #         - type: PS
-    #           href: 2-summarizing-data/04-conditioning/ps.qmd
-    #         - type: Lab
-    #           href: 2-summarizing-data/labs/03-flights/lab.qmd
-    #     - topic: "A Grammar of Graphics"
-    #       display-date: Feb 1
-    #       date: 2/1/24
-    #       docs:
-    #         - type: Notes
-    #           href: 2-summarizing-data/03-a-grammar-of-graphics/notes.qmd
-    #         - type: Slides
-    #           href: 2-summarizing-data/03-a-grammar-of-graphics/slides.qmd
-    #   resources:
-    #     - '<a href="https://www.stat20.org/2-summarizing-data/03-a-grammar-of-graphics/ps.pdf">Extra Practice</a>'
-    # - week: 4
-    #   unit: Summarization
-    #   days:
-    #     - topic: "Lab 2 Workshop"
-    #       display-date: Feb 5
-    #     - topic: "Summarizing Associations"
-    #       display-date: Feb 6
-    #       date: 2/6/24
-    #       docs:
-    #         - type: Notes
-    #           href: 2-summarizing-data/06-summarizing-associations/notes.qmd
-    #         - type: Slides
-    #           href: 2-summarizing-data/06-summarizing-associations/slides.qmd
-    #         - type: PS
-    #           href: 2-summarizing-data/06-summarizing-associations/ps.qmd
-    #     - topic: "Multiple Linear Regression"
-    #       display-date: Feb 8
-    #       date: 2/8/24
-    #       docs:
-    #         - type: Notes
-    #           href: 2-summarizing-data/07-multiple-linear-regression/notes.qmd
-    #         - type: Slides
-    #           href: 2-summarizing-data/07-multiple-linear-regression/slides.qmd
-    #   resources:
-    #     - '<a href="https://www.stat20.org/2-summarizing-data/07-multiple-linear-regression/extra-practice.pdf"">Extra Practice</a>'
-    # - week: 5
-    #   unit: Generalization
-    #   days:
-    #     - topic: "Quiz 1"
-    #       display-date: Feb 12
-    #     - topic: "Intro to Probability"
-    #       display-date: Feb 13
-    #       date: 2/13/24
-    #       docs:
-    #         - type: Notes
-    #           href: 3-probability/01-chance-intro/notes.qmd
-    #         - type: Slides
-    #           href: 3-probability/01-chance-intro/slides.qmd
-    #         - type: PS
-    #           href: 3-probability/01-chance-intro/ps.qmd
-    #     - topic: "Conditional Probability"
-    #       display-date: Feb 15
-    #       date: 2/15/24
-    #       docs:
-    #         - type: Notes
-    #           href: 3-probability/02-cond-prob-indep/notes.qmd
-    #         - type: Slides
-    #           href: 3-probability/02-cond-prob-indep/slides.qmd
-    #         - type: PS
-    #           href: 3-probability/02-cond-prob-indep/ps.qmd
-    # - week: 6
-    #   unit: Generalization
-    #   days:
-    #     - topic: "Holiday! (no class)"
-    #       display-date: Feb 19
-    #     - topic: "Probability Distributions"
-    #       display-date: Feb 20
-    #       date: 2/20/24
-    #       docs:
-    #         - type: Notes
-    #           href: 3-probability/03-probability-dsns/notes.qmd
-    #         - type: Slides
-    #           href: 3-probability/03-probability-dsns/slides.qmd
-    #         - type: PS
-    #           href: 3-probability/03-probability-dsns/ps.qmd
-    #     - topic: "Random Variables"
-    #       display-date: Feb 22
-    #       date: 2/22/24
-    #       docs:
-    #         - type: Notes
-    #           href: 3-probability/04-random-variables/notes.qmd
-    #         - type: Slides
-    #           href: 3-probability/04-random-variables/slides.qmd
-    #         - type: PS
-    #           href: 3-probability/04-random-variables/ps.qmd
-    # - week: 7
-    #   unit: Generalization
-    #   days:
-    #     - topic: "Lab Workshop / Review"
-    #       display-date: Feb 26
-    #     - topic: "Expected Value and Variance"
-    #       display-date: Feb 27
-    #       date: 2/27/24
-    #       docs:
-    #         - type: Notes
-    #           href: 3-probability/05-ev-se/notes.qmd
-    #         - type: Slides
-    #           href: 3-probability/05-ev-se/slides.qmd
-    #         - type: PS
-    #           href: 3-probability/05-ev-se/ps.qmd
-    #         - type: Lab
-    #           href: 3-probability/labs/04-elections/lab.qmd
-    #     - topic: "Normal Approximation"
-    #       display-date: Feb 29
-    #       date: 2/29/24
-    #       docs:
-    #         - type: Notes
-    #           href: 3-probability/06-normal-approx/notes.qmd
-    #         - type: Slides
-    #           href: 3-probability/06-normal-approx/slides.qmd
-    #         - type: PS
-    #           href: 3-probability/06-normal-approx/ps.qmd
-    #   resources:
-    #     - '<a href="https://www.stat20.org/3-probability/06-normal-approx/extra-practice.pdf"">Extra Practice</a>'
-    # - week: 8
-    #   unit: Generalization
-    #   days:
-    #     - topic: "Quiz 2"
-    #       display-date: Mar 4
-    #     - topic: 'Sampling Distributions'
-    #       display-date: Mar 5
-    #       date: 3/05/24
-    #       docs:
-    #         - type: Notes
-    #           href: 4-generalization/01-sampling-distributions/notes.qmd
-    #         - type: Slides
-    #           href: 4-generalization/01-sampling-distributions/slides.qmd
-    #         - type: PS
-    #           href: 4-generalization/01-sampling-distributions/ps.qmd
-    #         - type: Lab
-    #           href: 4-generalization/labs/05-peoples-park/lab.qmd
-    #     - topic: "Confidence Intervals"
-    #       display-date: Mar 7
-    #       date: 3/07/24
-    #       docs:
-    #         - type: Notes
-    #           href: 4-generalization/02-confidence-intervals/notes.qmd
-    #         - type: Slides
-    #           href: 4-generalization/02-confidence-intervals/slides.qmd
-    # - week: 9
-    #   unit: Generalization
-    #   days:
-    #     - topic: "Lab 4 Workshop"
-    #       display-date: Mar 11
-    #     - topic: "Bootstrapping"
-    #       display-date: Mar 12
-    #       date: 3/12/24
-    #       docs:
-    #         - type: Notes
-    #           href: 4-generalization/03-bootstrapping/notes.qmd
-    #         - type: Slides
-    #           href: 4-generalization/03-bootstrapping/slides.qmd
-    #         - type: PS
-    #           href: 4-generalization/03-bootstrapping/ps.qmd
-    #     - topic: "Intro to Hypothesis Tests"
-    #       display-date: Mar 14
-    #       date: 3/14/24
-    #       docs:
-    #         - type: Notes
-    #           href: 4-generalization/04-hypothesis-tests/notes.qmd
-    #         - type: Slides
-    #           href: 4-generalization/04-hypothesis-tests/slides.qmd
-    #         - type: PS
-    #           href: 4-generalization/04-hypothesis-tests/ps.qmd
-    # - week: 10
-    #   unit: Generalization
-    #   days:
-    #     - topic: "Quiz Review"
-    #       display-date: Mar 18
-    #     - topic: "Types of Hypothesis Tests"
-    #       display-date: Mar 19
-    #       date: 3/19/24
-    #       docs:
-    #         - type: Notes
-    #           href: 4-generalization/05-hypothesis-tests-2/notes.qmd
-    #         - type: Slides
-    #           href: 4-generalization/05-hypothesis-tests-2/slides.qmd
-    #         - type: PS
-    #           href: 4-generalization/05-hypothesis-tests-2/ps.qmd
-    #     - topic: "Quiz 3, Wrong By Design"
-    #       display-date: "Mar 21/22"
-    #       date: 3/21/24
-    #       docs:
-    #         - type: Notes
-    #           href: 4-generalization/06-wrong-by-design/notes.qmd
-    #         - type: Slides
-    #           href: 4-generalization/06-wrong-by-design/slides.qmd
-    #         - type: PS
-    #           href: 4-generalization/06-wrong-by-design/ps.qmd
-    # - week: "Spring Break"
-    #   days: 
-    #     - topic: "No Class"
-    # - week: 10
-    #   unit: Prediction
-    #   days:
-    #     - topic: "Final Review Day/Cheatsheet Pickup"
-    #       display-date: Apr 1
-    #     - topic: "The Method of Least Squares"
-    #       display-date: Apr 2
-    #       date: 4/02/24
-    #       docs:
-    #         - type: Notes
-    #           href: 6-prediction/01-method-of-least-squares/notes.qmd
-    #         - type: Slides
-    #           href: 6-prediction/01-method-of-least-squares/slides.qmd
-    #         - type: PS
-    #           href: 6-prediction/01-method-of-least-squares/ps.qmd
-    #         - type: Lab
-    #           href: 6-prediction/labs/07-baseball/lab.qmd
-    #         - type: Extra Practice
-    #           href: 6-prediction/01-method-of-least-squares/extra-practice.qmd
-    #     - topic: "Evaluating and Improving Predictions"
-    #       display-date: Apr 4
-    #       date: 4/4/24
-    #       docs:
-    #         - type: Notes
-    #           href: 6-prediction/02-improving-predictions/notes.qmd
-    #         - type: Slides
-    #           href: 6-prediction/02-improving-predictions/slides.qmd
-    #         - type: PS
-    #           href: 6-prediction/02-improving-predictions/ps.qmd
-    # - week: 12
-    #   unit: Prediction
-    #   days:
-    #     - topic: "Lab 5 Workshop"
-    #       display-date: Apr 8
-    #     - topic: "Overfitting"
-    #       display-date: Apr 9
-    #       date: 4/9/24
-    #       docs:
-    #         - type: Notes
-    #           href: 6-prediction/03-overfitting/notes.qmd
-    #         - type: Slides
-    #           href: 6-prediction/03-overfitting/slides.qmd
-    #         - type: PS
-    #           href: 6-prediction/03-overfitting/ps.qmd
-    #         - type: Lab
-    #           href: 6-prediction/labs/08-cancer/lab.qmd
-    #     - topic: "Logistic Regression"
-    #       display-date: Apr 11
-    #       date: 4/11/24
-    #       docs:
-    #         - type: Notes
-    #           href: 6-prediction/05-logistic-regression/notes.qmd
-    #         - type: Slides
-    #           href: 6-prediction/05-logistic-regression/slides.qmd
-    #         - type: Extra Practice
-    #           href: 6-prediction/05-logistic-regression/extra-practice.qmd
-    # - week: 13
-    #   unit: Causation
-    #   days:
-    #     - topic: "Quiz 4"
-    #       display-date: Apr 15
-    #     - topic: "Defining Causality"
-    #       display-date: Apr 16
-    #       date: 4/16/24
-    #       docs:
-    #         - type: Notes
-    #           href: 5-causation/01-defining-causality/notes.qmd
-    #         - type: Slides
-    #           href: 5-causation/01-defining-causality/slides.qmd
-    #         - type: Lab
-    #           href: 5-causation/labs/06-taste-test/lab.qmd
-    #     - topic: "Randomized Experiments"
-    #       display-date: Apr 18
-    #       date: 4/18/24
-    #       docs:
-    #         - type: Notes
-    #           href: 5-causation/02-experiments/notes.qmd
-    #         - type: Slides
-    #           href: 5-causation/02-experiments/slides.qmd
-    # - week: 14
-    #   unit: Causation
-    #   days:
-    #     - topic: "Lab 7 Workshop"
-    #       display-date: Apr 22
-    #     - topic: "Causal Effects in Observational Studies"
-    #       display-date: Apr 23
-    #       date: 4/23/24
-    #       docs:
-    #         - type: Notes
-    #           href: 5-causation/03-matching/notes.qmd
-    #         - type: Slides
-    #           href: 5-causation/03-matching/slides.qmd
-    #         - type: PS
-    #           href: 5-causation/03-matching/ps.qmd
-    #     - topic: "Using Time to Measure Causal effects"
-    #       display-date: Apr 25
-    #       date: 4/25/24
-    #       docs:
-    #         - type: Notes
-    #           href: 5-causation/04-time/notes.qmd
-    #         - type: Slides
-    #           href: 5-causation/04-time/slides.qmd
-    #         - type: PS
-    #           href: 5-causation/04-time/ps.qmd
-    # - week: "RRR"
-    #   days:
-    #     - topic: "No Class"
-    # - week: "Final Exams"
-    #   days:
-    #     - topic: "Stat 20 Final"
-    #       display-date: May 9
-  
+    - week: 2
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Sep 8
+          date: 9/8/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk02mon.qmd
+            - type: Slides
+              href: slides/math141_wk02mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Sep 10
+          date: 9/10/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk02wed.qmd
+            - type: Slides
+              href: slides/math141_wk02wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Sep 11
+          date: 9/11/25
+          docs:
+            - type: Lab
+              href: labs/lab_02.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Sep 12
+          date: 9/12/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk02fri.qmd
+            - type: Slides
+              href: slides/math141_wk02fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 3
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Sep 15
+          date: 9/15/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk03mon.qmd
+            - type: Slides
+              href: slides/math141_wk03mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Sep 17
+          date: 9/17/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk03wed.qmd
+            - type: Slides
+              href: slides/math141_wk03wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Sep 18
+          date: 9/18/25
+          docs:
+            - type: Lab
+              href: labs/lab_03.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Sep 19
+          date: 9/19/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk03fri.qmd
+            - type: Slides
+              href: slides/math141_wk03fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 4
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Sep 22
+          date: 9/22/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk04mon.qmd
+            - type: Slides
+              href: slides/math141_wk04mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Sep 24
+          date: 9/24/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk04wed.qmd
+            - type: Slides
+              href: slides/math141_wk04wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Sep 25
+          date: 9/25/25
+          docs:
+            - type: Lab
+              href: labs/lab_04.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Sep 26
+          date: 9/26/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk04fri.qmd
+            - type: Slides
+              href: slides/math141_wk04fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 5
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Sep 29
+          date: 9/29/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk05mon.qmd
+            - type: Slides
+              href: slides/math141_wk05mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Oct 1
+          date: 10/1/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk05wed.qmd
+            - type: Slides
+              href: slides/math141_wk05wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Oct 2
+          date: 10/2/25
+          docs:
+            - type: Lab
+              href: labs/lab_5.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Oct 3
+          date: 10/3/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk05fri.qmd
+            - type: Slides
+              href: slides/math141_wk05fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 6
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Oct 6
+          date: 10/6/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk06mon.qmd
+            - type: Slides
+              href: slides/math141_wk06mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Oct 8
+          date: 10/8/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk06wed.qmd
+            - type: Slides
+              href: slides/math141_wk06wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Oct 9
+          date: 10/9/25
+          docs:
+            - type: Lab
+              href: labs/lab_06.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Oct 10
+          date: 10/10/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk06fri.qmd
+            - type: Slides
+              href: slides/math141_wk06fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 7
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Oct 13
+          date: 10/13/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk07mon.qmd
+            - type: Slides
+              href: slides/math141_wk07mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Oct 15
+          date: 10/15/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk07wed.qmd
+            - type: Slides
+              href: slides/math141_wk07wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Oct 16
+          date: 10/16/25
+          docs:
+            - type: Lab
+              href: labs/lab_07.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Oct 17
+          date: 10/17/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk07fri.qmd
+            - type: Slides
+              href: slides/math141_wk07fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: Fall Break
+      days:
+        - topic: "No Class"
+          display-date: Saturday, Oct 18 - Sunday, Oct 26
+    - week: 8
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Oct 27
+          date: 10/27/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk08mon.qmd
+            - type: Slides
+              href: slides/math141_wk08mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Oct 29
+          date: 10/29/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk08wed.qmd
+            - type: Slides
+              href: slides/math141_wk08wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Oct 30
+          date: 10/30/25
+          docs:
+            - type: Lab
+              href: labs/lab_08.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Oct 31
+          date: 10/31/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk08fri.qmd
+            - type: Slides
+              href: slides/math141_wk08fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 9
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Nov 3
+          date: 11/3/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk09mon.qmd
+            - type: Slides
+              href: slides/math141_wk09mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Nov 5
+          date: 11/5/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk09wed.qmd
+            - type: Slides
+              href: slides/math141_wk09wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Nov 6
+          date: 11/6/25
+          docs:
+            - type: Lab
+              href: labs/lab_09.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Nov 7
+          date: 11/7/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk09fri.qmd
+            - type: Slides
+              href: slides/math141_wk09fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 10
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Nov 10
+          date: 11/10/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk10mon.qmd
+            - type: Slides
+              href: slides/math141_wk10mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Nov 12
+          date: 11/12/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk10wed.qmd
+            - type: Slides
+              href: slides/math141_wk10wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Nov 13
+          date: 11/13/25
+          docs:
+            - type: Lab
+              href: labs/lab_10.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Nov 14
+          date: 11/14/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk10fri.qmd
+            - type: Slides
+              href: slides/math141_wk10fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 11
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Nov 17
+          date: 11/17/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk11mon.qmd
+            - type: Slides
+              href: slides/math141_wk11mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Nov 19
+          date: 11/19/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk11wed.qmd
+            - type: Slides
+              href: slides/math141_wk11wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Nov 20
+          date: 11/20/25
+          docs:
+            - type: Lab
+              href: labs/lab_11.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Nov 21
+          date: 11/21/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk11fri.qmd
+            - type: Slides
+              href: slides/math141_wk11fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 12
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Nov 24
+          date: 11/24/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk12mon.qmd
+            - type: Slides
+              href: slides/math141_wk12mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Nov 26
+          date: 11/26/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk12wed.qmd
+            - type: Slides
+              href: slides/math141_wk12wed.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 13
+      days:
+        - topic: "Data Visualization"
+          display-date: Monday, Dec 1
+          date: 12/1/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk13mon.qmd
+            - type: Slides
+              href: slides/math141_wk13mon.qmd
+        - topic: "Data Visualization"
+          display-date: Wednesday, Dec 3
+          date: 12/3/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk13wed.qmd
+            - type: Slides
+              href: slides/math141_wk13wed.qmd
+        - topic: "Data Vis"
+          display-date: Thursday, Dec 4
+          date: 12/4/25
+          docs:
+            - type: Lab
+              href: labs/lab_12.qmd
+        - topic: "Data Viz"
+          display-date: Friday, Dec 5
+          date: 12/5/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk13fri.qmd
+            - type: Slides
+              href: slides/math141_wk13fri.qmd
+      # resources:
+      #   - 'Some text'
+    - week: 14
+      days:
+        - topic: "Regular lecture day"
+          display-date: Monday, Dec 8
+          date: 12/8/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk14mon.qmd
+            - type: Slides
+              href: slides/math141_wk14mon.qmd
+        - topic: "Lab meets"
+          display-date: Tuesday, Dec 9
+          date: 12/9/25
+          docs:
+            - type: Lab
+              href: labs/lab_13.qmd
+        - topic: "Last Day of Class"
+          display-date: Wednesday, Dec 10
+          date: 12/10/25
+          docs:
+            - type: Reading
+              href: readings/readings_wk14wed.qmd
+            - type: Slides
+              href: slides/math141_wk14wed.qmd
+      # resources:
+      #   - 'Some text'

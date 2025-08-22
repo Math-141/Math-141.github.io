@@ -42,18 +42,18 @@ We'll have a lecture-style meeting three times a week, and a lab meeting once a 
 
 -   Labs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3pm (sections: F03 & F13), Library, Room 389.
 
-See the below table for a visual schedule. 
+<!-- See the below table for a visual schedule.  -->
 
-```{r}
-#| echo: false
-gt::gt(tibble::tibble(
-  Section = c("F01", "F02", "F03", "F11", "F12", "F13"),
-  `Lecture (M/W/F)` = c(rep("10am - 10:50am (Eliot 314)", 3), rep("11am - 11:50am  (Eliot 314)", 3)),
-  `Lab (Th)` = c(rep(
-    c("9am - 10:20am (Lib 389)", "10:30am - 11:50am (Lib 389)", "1:40pm - 3pm (Lib 389)"), 2
-  ))
-))
-```
+<!-- ```{r} -->
+<!-- #| echo: false -->
+<!-- gt::gt(tibble::tibble( -->
+<!--   Section = c("F01", "F02", "F03", "F11", "F12", "F13"), -->
+<!--   `Lecture (M/W/F)` = c(rep("10am - 10:50am (Eliot 314)", 3), rep("11am - 11:50am  (Eliot 314)", 3)), -->
+<!--   `Lab (Th)` = c(rep( -->
+<!--     c("9am - 10:20am (Lib 389)", "10:30am - 11:50am (Lib 389)", "1:40pm - 3pm (Lib 389)"), 2 -->
+<!--   )) -->
+<!-- )) -->
+<!-- ``` -->
 
 
 
@@ -65,11 +65,7 @@ In this course, you will learn how to think critically with data by engaging in 
 
 By the end of the course, you will have improved your data acumen and your ability to think statistically. More concretely, you will be better able to accomplish the following tasks, which have been broken down by steps of the data analysis workflow:
 
-```{r}
-#| echo: FALSE
-#| fig.align: 'center'
-knitr::include_graphics("slides/img/DAW.jpeg")
-```
+![](slides/img/DAW.jpeg){width=65% fig-align='center'}
 
 **Question formulation:**
 
@@ -143,7 +139,7 @@ We'll have a variety of assignments and exams for this course. In particular:
     - To help with various circumstances (expected and unexpected), you have up to 4 additional extensions days that you can use as you need (e.g., 1 additional day for 4 labs, 4 additional days for 1 lab, ...) but the extension days must be rounded up to the nearest day (e.g., 2 extra hours = 1 extension day). If you need to use any extension days, send Grayson an **email** (not a Slack message) with the title: "Math 141 Extension Days" that includes the lab number you are using an extension for, and the number of day(s) used. 
 
 -   **Reading questions**:
-    - On many days, along with the assigned reading, I will assign questions related to the reading to be turned in at the beginning of class. 
+    - For most lecture class periods, along with the assigned reading, I will assign questions related to the reading to be turned in at the beginning of class. 
     - These will be turned in by you in person, as a hard copy, at the beginning of class. If you arrive to class late, please wait until the end of class to turn in these questions. 
     - No late reading questions are accepted, but up to three missed reading question assignments will be dropped from your final grade. 
     

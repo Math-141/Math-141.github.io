@@ -1,7 +1,18 @@
 ---
-title: "Math 141: Readings"
 date: 9/3/25
 editor: source
 ---
 
+# Math 141: Readings for {{< meta date >}}
+
+## Reading 
+
+Before coming to lecture today, please read the following material: 
+
 -   [The syllabus](../syllabus.qmd)
+
+## Reading Assignment
+
+After you've completed the reading, please complete the following reading assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
+
+-   None today. 
