@@ -949,14 +949,14 @@
     "href": "slides/math141_wk01wed.html#getting-started-in-math-141",
     "title": "Math 141",
     "section": "Getting Started in Math 141",
-    "text": "Getting Started in Math 141\nStep 1: Course website\n[insert nice image] some bold text and some italics and some code\n\nlibrary(tidyverse)\nmtcars %&gt;%\n  group_by(cyl) %&gt;%\n  summarize(avg_mpg = mean(mpg))\n\n# A tibble: 3 × 2\n    cyl avg_mpg\n  &lt;dbl&gt;   &lt;dbl&gt;\n1     4    26.7\n2     6    19.7\n3     8    15.1"
+    "text": "Getting Started in Math 141\nCourse website\n\n\n\n\n\nThe course website, math-141.github.io, will be the central location for all our course materials.\nWe’ll use a few other tools to navigate Math 141, but all other tools can be accessed by the quick links in the course website!"
   },
   {
     "objectID": "slides/math141_wk01wed.html#centered-title",
     "href": "slides/math141_wk01wed.html#centered-title",
     "title": "Math 141",
     "section": "centered title",
-    "text": "centered title"
+    "text": "centered title\n- Reed's RStudio server, for coursework,\n- Slack, for course communication,\n- Moodle, for private course materials, and\n- Gradescope, for turning in assignments and exams."
   },
   {
     "objectID": "slides/math141_wk01wed.html#announcements",
@@ -978,5 +978,40 @@
     "title": "Math 141",
     "section": "Data in Math 141",
     "text": "Data in Math 141\nWill use a wide-range of real and relevant data examples"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#before-we-get-started-waitlist",
+    "href": "slides/math141_wk01wed.html#before-we-get-started-waitlist",
+    "title": "Math 141",
+    "section": "Before we get started: waitlist",
+    "text": "Before we get started: waitlist\nIf you are on the waitlist, please sign in to class here:"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#agenda",
+    "href": "slides/math141_wk01wed.html#agenda",
+    "title": "Math 141",
+    "section": "Agenda",
+    "text": "Agenda\n\nGetting started in Math 141\n\nCourse structure and technologies\nWhere to find resources\nSyllabus et al. \n\nStatistical thinking"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#research-interests",
+    "href": "slides/math141_wk01wed.html#research-interests",
+    "title": "Math 141",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nStatistical modeling with environmental applications"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#research-interests-1",
+    "href": "slides/math141_wk01wed.html#research-interests-1",
+    "title": "Math 141",
+    "section": "Research Interests",
+    "text": "Research Interests\nAdvising Undergraduate Forestry Data Science Research"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html",
+    "href": "slides/math141_wk01wed.html",
+    "title": "But first, let me quickly introduce myself…",
+    "section": "",
+    "text": "Statistical Thinking\n   \nGrayson White\nMath 141  Week 1 | Fall 2025"
   }
 ]

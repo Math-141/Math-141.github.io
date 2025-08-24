@@ -10,7 +10,7 @@ scheduled-docs:
   schedule:
     - week: 1
       days:
-        - topic: "Course Welcome & Statistical Thinking"
+        - topic: "Course Introduction & Statistical Thinking"
           display-date: Wednesday, Sep 3
           date: 9/3/25
           docs:
@@ -18,7 +18,7 @@ scheduled-docs:
               href: readings/readings_wk01wed.qmd
             - type: Slides
               href: slides/math141_wk01wed.qmd
-        - topic: "Introduction to R, RStudio, and Quarto"
+        - topic: "Lab: Introduction to R, RStudio, and Quarto"
           display-date: Thursday, Sep 4
           date: 9/4/25
           docs:
@@ -37,8 +37,8 @@ scheduled-docs:
             - type: Slides
               href: slides/math141_wk01fri.qmd
       resources:
-        - '<a href="https://moderndive.com/v2">ModernDive</a>'
-        - 'Some text'
+        - '<a href="https://join.slack.com/t/reedmath141fall2025/shared_invite/zt-3blne8yip-sTe8uLWC4UbexLAAA7Z~Vw">Join Slack</a>'
+        - 'Gradescope course code: TBD'
     - week: 2
       days:
         - topic: "Data Visualization"

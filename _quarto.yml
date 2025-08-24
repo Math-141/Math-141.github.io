@@ -23,17 +23,18 @@ website:
       - href: office_hours.qmd
         text: Office Hours & Tutoring
     tools:
-      - icon: chat-fill
-        href: https://join.slack.com/t/reedmath141fall2025/shared_invite/zt-3blne8yip-sTe8uLWC4UbexLAAA7Z~Vw
+      - icon: chat-dots-fill
+        href: https://reedmath141fall2025.slack.com
+        aria-label: Slack
       - icon: r-circle-fill
         href: https://rstudio.reed.edu/
         aria-label: RStudio Server
-      # - icon: bar-chart-fill
-      #   href: https://www.gradescope.com/courses/XXXXX
-      #   aria-label: Gradescope
-      # - icon: ???
-      #   href: https://www.moodle.reed.edu
-      #   aria-label: Moodle
+      - icon: bar-chart-fill
+        href: https://www.gradescope.com/courses/XXXXX
+        aria-label: Gradescope
+      - icon: door-closed-fill
+        href: https://www.moodle.reed.edu
+        aria-label: Moodle
 
 format:
   html:

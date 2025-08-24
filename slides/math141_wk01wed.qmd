@@ -52,23 +52,150 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
+## Before we get started: waitlist
+
+If you are on the waitlist, please sign in to class here: 
+
+------------------------------------------------------------------------
+
+## Agenda
+
+-   Getting started in Math 141
+    - Course structure and technologies
+    - Where to find resources 
+    - Course expectations
+-   Statistical thinking activity 
+
+
+# But first, let me quickly introduce myself...
+
+------------------------------------------------------------------------
+
+### Let's start with my path (back) to Reed...
+
+```{r, echo = FALSE, dev.args = list(bg = 'transparent'), fig.asp = .6, out.width = '80%'}
+library(tidyverse)
+library(shadowtext)
+
+MainStates <- map_data("state")
+
+ggplot() +
+  geom_polygon(
+    data = MainStates,
+    aes(x = long, y = lat, group = group),
+    
+    color = "white",
+    fill = "#1F2041",
+    size = 1.25
+  ) +
+  theme_void() +
+  geom_shadowtext(
+    aes(
+      x = -111.8881,
+      y = 40.7606,
+      label = "Forest Service"
+    ),
+    color = "white",
+    size = 5,
+    bg.color = "#1F2041"
+  ) +
+  geom_shadowtext(
+    aes(
+      y = 45.523064 - 0.5,
+      x = -122.676483 + 1,
+      label = "Reed College"
+    ),
+    color = "white",
+    size = 5,
+    bg.color = "#1F2041"
+  ) +
+  geom_shadowtext(
+    aes(
+      y = 42.7336,
+      x = -84.5539,
+      label = "Michigan State\nUniversity"
+    ),
+    color = "white",
+    size = 5,
+    bg.color = "#1F2041"
+  ) + 
+  geom_segment(aes(x = -122.676483 + 1, y = 45.523064 - 0.5,
+                   xend = -111.8881, yend = 41.5),
+               color = "red", arrow.fill = "red",
+    arrow = arrow(type = "closed")) +
+    geom_segment(aes(xend = -116.5, yend = 45.523064 - 0.5,
+                   x = -90, y = 42.7),
+               color = "red", arrow.fill = "red",
+    arrow = arrow(type = "closed")) +
+    geom_segment(aes(xend = -90, yend = 42.7,
+                   x = -106, y = 40.7606),
+               color = "red", arrow.fill = "red",
+    arrow = arrow(type = "closed")) +
+  theme(legend.position = "none")
+```
+
+------------------------------------------------------------------------
+
+## Research Interests {.center}
+
+::: {.fragment .fade-up .midi}
+
+#### Statistical modeling with environmental applications 
+
+![](img/env-modeling.png)
+
+:::
+
+------------------------------------------------------------------------
+
+## Research Interests {.center}
+
+#### Advising Undergraduate Forestry Data Science Research
+
+::: {.fragment .fade-up .midi}
+
+![](img/ufds.png){width=60%}
+
+:::
+
+
+
+
 ## Getting Started in Math 141
 
-#### Step 1: Course website
+#### Course website
 
-[insert nice image] some **bold text** and some *italics* and some `code`
+:::: {.columns}
 
-```{r}
-library(tidyverse)
-mtcars %>%
-  group_by(cyl) %>%
-  summarize(avg_mpg = mean(mpg))
-```
+::: {.column width="70%"}
+
+![](img/course-website.png){height=30%}
+
+:::
+
+
+::: {.column width="30%"}
+
+-   The course website, [math-141.github.io](https://math-141.github.io/), will be the central location for all our course materials. 
+
+-   We'll use a few other tools to navigate Math 141, but all other tools can be accessed by the quick links in the course website! 
+
+:::
+
+::::
+
+
 
 ------------------------------------------------------------------------
 
 ## centered title {.center}
 
+
+
+    - Reed's RStudio server, for coursework,
+    - Slack, for course communication,
+    - Moodle, for private course materials, and
+    - Gradescope, for turning in assignments and exams. 
 
 ------------------------------------------------------------------------
 
