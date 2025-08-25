@@ -52,9 +52,13 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
-## Before we get started: waitlist
+::: {style="margin-top: 80px; font-size: 3em; color: #3F6574; text-align: center;"}
 
-If you are on the waitlist, please sign in to class here: 
+Before we get started...
+
+if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-wait](https://tinyurl.com/math141-wait)
+:::
+
 
 ------------------------------------------------------------------------
 
@@ -85,7 +89,7 @@ ggplot() +
     aes(x = long, y = lat, group = group),
     
     color = "white",
-    fill = "#1F2041",
+    fill = "#7E8A65",
     size = 1.25
   ) +
   theme_void() +
@@ -97,7 +101,7 @@ ggplot() +
     ),
     color = "white",
     size = 5,
-    bg.color = "#1F2041"
+    bg.color = "#7E8A65"
   ) +
   geom_shadowtext(
     aes(
@@ -107,7 +111,7 @@ ggplot() +
     ),
     color = "white",
     size = 5,
-    bg.color = "#1F2041"
+    bg.color = "#7E8A65"
   ) +
   geom_shadowtext(
     aes(
@@ -117,7 +121,7 @@ ggplot() +
     ),
     color = "white",
     size = 5,
-    bg.color = "#1F2041"
+    bg.color = "#7E8A65"
   ) + 
   geom_segment(aes(x = -122.676483 + 1, y = 45.523064 - 0.5,
                    xend = -111.8881, yend = 41.5),
@@ -178,7 +182,7 @@ ggplot() +
 
 -   The course website, [math-141.github.io](https://math-141.github.io/), will be the central location for all our course materials. 
 
--   We'll use a few other tools to navigate Math 141, but all other tools can be accessed by the quick links in the course website! 
+-   We'll use a few other resources to navigate Math 141, but all other tools can be accessed by the quick links in the course website! 
 
 :::
 
@@ -188,30 +192,236 @@ ggplot() +
 
 ------------------------------------------------------------------------
 
-## centered title {.center}
+## Getting Started in Math 141
 
+#### Other Resources 
 
+<br>
 
-    - Reed's RStudio server, for coursework,
-    - Slack, for course communication,
-    - Moodle, for private course materials, and
-    - Gradescope, for turning in assignments and exams. 
+::: {.fragment .fade-up .midi}
+
+Reed's **RStudio Server**, for coursework,
+
+:::
+
+<br>
+
+::: {.fragment .fade-up .midi}
+
+A course-wide **Slack** workspace, for course communication,
+
+:::
+
+<br>
+
+::: {.fragment .fade-up .midi}
+
+**Gradescope**, for turning in assignments and exams, and
+
+:::
+
+<br>
+
+::: {.fragment .fade-up .midi}
+
+**Moodle**, sparingly, for private course materials
+
+:::
 
 ------------------------------------------------------------------------
 
-## Announcements
 
--   bullet point
+## Getting Started in Math 141: Finding Resources
 
-    -   sub-point
--   another bullet point
+:::: {.columns}
 
--   **Highlighted text.**
+::: {.column width="20%"}
+
+:::
+
+::: {.column width="60%"}
+
+![](img/course-website.png){height=30%}
+
+:::
+
+
+::: {.column width="20%"}
+
+:::
+
+::::
+------------------------------------------------------------------------
+
+
+
+## Getting Started in Math 141: Finding Resources
+
+![](img/resources1.png){fig-align='center'}
+
+------------------------------------------------------------------------
+
+## Getting Started in Math 141: Finding Resources
+
+![](img/resources2.png){fig-align='center'}
+
+
+# Let's take a look at the course website...
+
+**[math-141.github.io](https://math-141.github.io/)**
+
+
+## Course expectations and structure 
+
+::: {.fragment .fade-up .midi}
+
+![](img/SillyBus_bus.jpg)
+
+:::
+
+------------------------------------------------------------------------
+
+
+## My info {.center}
+
+<br>
+
+::: {.fragment .fade-up .midi}
+
+
+**Name**: Grayson White (he/him), you can call me 'Grayson'
+
+**Email**: [gwhite@reed.edu](mailto:gwhite@reed.edu)
+
+**Office**: Library 390
+
+**Office hours**: Monday 2:30-4, Wednesday 1-2:30, or by appointment
+
+:::
+
+
+------------------------------------------------------------------------
+
+## A typical day in Math 141 {.center}
+
+
+![](img/typical-day.png)
+
 
 
 # Also, the Math 141 Teaching Team are so excited to support your learning!
 
+Course assistant office hours coming soon! 
+
 ------------------------------------------------------------------------
+
+## Learning Outcomes {.center}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+![](img/DAW.jpeg)
+
+:::
+
+
+::: {.column width="50%"}
+
+-   In this course, you will learn how to think critically with data by engaging in the entire data analysis process.
+
+-   Most of our time will be spent in the **Exploration and Visualization**  and **Modeling and Inference** steps, but we will spend some time in each cog!
+    - First ~3 weeks in **Exploration and Visualization**
+    - Next ~3 weeks in **Modeling**
+    - Final ~half of the course in **Inference**
+
+:::
+
+::::
+
+
+<!-- ## Learning Materials {.center} -->
+
+<!-- <br> -->
+
+<!-- ::: {.fragment .fade-up} -->
+
+<!-- **Textbooks** -->
+
+<!-- -   [Statistical Inference via Data Science: A ModernDive into R and the tidyverse, Second Edition](https://moderndive.com/v2) (**MD**) -->
+<!-- -   [Introduction to Modern Statistics, Second Edition](https://www.openintro.org/book/ims/) (**IMS**) -->
+<!-- -   [OpenIntro Statistics, Fourth Edition](https://www.openintro.org/book/os/) (**OI**) -->
+
+
+<!-- ::: -->
+
+<!-- <br> -->
+
+<!-- ::: {.fragment .fade-up} -->
+
+
+<!-- **Technologies** -->
+
+<!-- -   **R**, **RStudio**, and **Quarto**. More on these in lab tomorrow! -->
+
+<!-- ::: -->
+
+<!-- ------------------------------------------------------------------------ -->
+
+## Assignments and Exams
+
+
+
+::: {.nonincremental}
+
+:::: {.columns}
+
+::: {.column width="45%"}
+
+::: {.fragment .fade-up}
+
+-   **Lab assignments (*weekly-ish*)**
+    - Assigned Thursday in lab
+    - Due the following Thursday at 9am
+    - Assigned each week besides exam weeks
+    
+:::
+
+::: {.fragment .fade-up}
+
+-   **Homework assignments (*daily-ish*)**
+    - Assigned most days in lecture
+    - Due in person at the following lecture
+    - Much shorter than the labs, often related to the daily reading
+    
+:::
+
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="45%"}
+
+::: {.fragment .fade-up}
+
+-   **Exams (*1 midterm, 1 final*)**
+    - Both have a written component and an oral component.
+    - Midterm written: 10/12 - 10/14
+    - Midterm orals: 10/15-10/16
+    - Final written: reading week
+    - Final orals: finals week
+    
+:::
+
+:::
+
+
+::::
+
+:::
+
 
 ## Math 141 is about developing our **statistical thinking** skills. {.center}
 

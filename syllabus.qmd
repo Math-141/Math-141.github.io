@@ -18,6 +18,7 @@ editor:
 
 -   Email: [gwhite@reed.edu](mailto:gwhite@reed.edu)
 -   Office: Library 390
+-   Office hours: Monday 2:30pm-4:00pm, Wednesday 1:00pm-2:30pm, or by appointment. 
 
 **Lab Assistants**: TBD (9am - 10:20am), TBD (10:30am - 11:50am), and TBD (1:40pm - 3pm)
 
@@ -133,19 +134,20 @@ By the end of the course, you will have improved your data acumen and your abili
 We'll have a variety of assignments and exams for this course. In particular: 
 
 -   **Lab assignments**:
-    - Almost every week, we will have a lab assignment. The lab assignments will be assigned on Thursday at lab time and due the following week on Wednesday at 11:59pm. 
+    - Almost every week, we will have a lab assignment. The lab assignments will be assigned on Thursday at lab time and due the following week on Thursday at 9:00am. 
     - Lab assignments will include both computational and theoretical questions.
     - These lab assignments will be turned in via Gradescope. 
     - To help with various circumstances (expected and unexpected), you have up to 4 additional extensions days that you can use as you need (e.g., 1 additional day for 4 labs, 4 additional days for 1 lab, ...) but the extension days must be rounded up to the nearest day (e.g., 2 extra hours = 1 extension day). If you need to use any extension days, send Grayson an **email** (not a Slack message) with the title: "Math 141 Extension Days" that includes the lab number you are using an extension for, and the number of day(s) used. 
 
--   **Reading questions**:
-    - For most lecture class periods, along with the assigned reading, I will assign questions related to the reading to be turned in at the beginning of class. 
-    - These will be turned in by you in person, as a hard copy, at the beginning of class. If you arrive to class late, please wait until the end of class to turn in these questions. 
-    - No late reading questions are accepted, but up to three missed reading question assignments will be dropped from your final grade. 
+-   **Homework assignments**:
+    - For most lecture class periods, along with the assigned reading, I will assign a short set of homework questions related to the reading to be turned in at the beginning of class. 
+    - These will be turned in by you in person, as a hard copy, at the beginning of class. If you arrive to class late, please wait until the end of class to turn in your answers. 
+    - No late homework assignments are accepted, but up to three missed homework assignments will be dropped from your final grade. 
     
 -   **Exams**:
-    - We'll have a midterm exam and final exam for this course. Each exam will have a take-home component and an oral component. 
-    - The midterm exam will occur shortly after fall break (exact date TBD), and the final exam will be due during reading week, with the oral component occuring during finals week. 
+    - We'll have a midterm exam and final exam for this course. Each exam will have a written take-home component and an in-person oral component. 
+    - The written component of the midterm exam will be released on Monday 10/12 and will be due by Wednesday 10/14. The oral component of the midterm exam will occur on Thursday 10/15 and Friday 10/16.
+    - The written component of the final exam will be released on Wednesday 12/7, the last day of classes, and will be due at the end of reading week. The oral component of the final exam will occur during finals week. 
     - No late exams are accepted.
 
 
