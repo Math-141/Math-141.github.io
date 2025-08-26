@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 9/3/25
+  draft-after: 9/5/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -32,20 +32,20 @@ scheduled-docs:
           display-date: Friday, Sep 5
           date: 9/5/25
           docs:
-            - type: Reading
+            - type: Reading + HW + HW
               href: readings/readings_wk01fri.qmd
             - type: Slides
               href: slides/math141_wk01fri.qmd
       resources:
         - '<a href="https://join.slack.com/t/reedmath141fall2025/shared_invite/zt-3blne8yip-sTe8uLWC4UbexLAAA7Z~Vw">Join Slack</a>'
-        - 'Gradescope course code: TBD'
+        - 'Gradescope course entry code: 7XJR4K'
     - week: 2
       days:
         - topic: "Data Visualization"
           display-date: Monday, Sep 8
           date: 9/8/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk02mon.qmd
             - type: Slides
               href: slides/math141_wk02mon.qmd
@@ -53,7 +53,7 @@ scheduled-docs:
           display-date: Wednesday, Sep 10
           date: 9/10/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk02wed.qmd
             - type: Slides
               href: slides/math141_wk02wed.qmd
@@ -67,7 +67,7 @@ scheduled-docs:
           display-date: Friday, Sep 12
           date: 9/12/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk02fri.qmd
             - type: Slides
               href: slides/math141_wk02fri.qmd
@@ -79,7 +79,7 @@ scheduled-docs:
           display-date: Monday, Sep 15
           date: 9/15/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk03mon.qmd
             - type: Slides
               href: slides/math141_wk03mon.qmd
@@ -87,7 +87,7 @@ scheduled-docs:
           display-date: Wednesday, Sep 17
           date: 9/17/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk03wed.qmd
             - type: Slides
               href: slides/math141_wk03wed.qmd
@@ -101,7 +101,7 @@ scheduled-docs:
           display-date: Friday, Sep 19
           date: 9/19/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk03fri.qmd
             - type: Slides
               href: slides/math141_wk03fri.qmd
@@ -113,7 +113,7 @@ scheduled-docs:
           display-date: Monday, Sep 22
           date: 9/22/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk04mon.qmd
             - type: Slides
               href: slides/math141_wk04mon.qmd
@@ -121,7 +121,7 @@ scheduled-docs:
           display-date: Wednesday, Sep 24
           date: 9/24/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk04wed.qmd
             - type: Slides
               href: slides/math141_wk04wed.qmd
@@ -135,7 +135,7 @@ scheduled-docs:
           display-date: Friday, Sep 26
           date: 9/26/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk04fri.qmd
             - type: Slides
               href: slides/math141_wk04fri.qmd
@@ -147,7 +147,7 @@ scheduled-docs:
           display-date: Monday, Sep 29
           date: 9/29/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk05mon.qmd
             - type: Slides
               href: slides/math141_wk05mon.qmd
@@ -155,7 +155,7 @@ scheduled-docs:
           display-date: Wednesday, Oct 1
           date: 10/1/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk05wed.qmd
             - type: Slides
               href: slides/math141_wk05wed.qmd
@@ -169,7 +169,7 @@ scheduled-docs:
           display-date: Friday, Oct 3
           date: 10/3/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk05fri.qmd
             - type: Slides
               href: slides/math141_wk05fri.qmd
@@ -181,7 +181,7 @@ scheduled-docs:
           display-date: Monday, Oct 6
           date: 10/6/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk06mon.qmd
             - type: Slides
               href: slides/math141_wk06mon.qmd
@@ -189,7 +189,7 @@ scheduled-docs:
           display-date: Wednesday, Oct 8
           date: 10/8/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk06wed.qmd
             - type: Slides
               href: slides/math141_wk06wed.qmd
@@ -203,7 +203,7 @@ scheduled-docs:
           display-date: Friday, Oct 10
           date: 10/10/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk06fri.qmd
             - type: Slides
               href: slides/math141_wk06fri.qmd
@@ -215,7 +215,7 @@ scheduled-docs:
           display-date: Monday, Oct 13
           date: 10/13/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk07mon.qmd
             - type: Slides
               href: slides/math141_wk07mon.qmd
@@ -223,7 +223,7 @@ scheduled-docs:
           display-date: Wednesday, Oct 15
           date: 10/15/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk07wed.qmd
             - type: Slides
               href: slides/math141_wk07wed.qmd
@@ -237,7 +237,7 @@ scheduled-docs:
           display-date: Friday, Oct 17
           date: 10/17/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk07fri.qmd
             - type: Slides
               href: slides/math141_wk07fri.qmd
@@ -253,7 +253,7 @@ scheduled-docs:
           display-date: Monday, Oct 27
           date: 10/27/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk08mon.qmd
             - type: Slides
               href: slides/math141_wk08mon.qmd
@@ -261,7 +261,7 @@ scheduled-docs:
           display-date: Wednesday, Oct 29
           date: 10/29/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk08wed.qmd
             - type: Slides
               href: slides/math141_wk08wed.qmd
@@ -275,7 +275,7 @@ scheduled-docs:
           display-date: Friday, Oct 31
           date: 10/31/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk08fri.qmd
             - type: Slides
               href: slides/math141_wk08fri.qmd
@@ -287,7 +287,7 @@ scheduled-docs:
           display-date: Monday, Nov 3
           date: 11/3/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk09mon.qmd
             - type: Slides
               href: slides/math141_wk09mon.qmd
@@ -295,7 +295,7 @@ scheduled-docs:
           display-date: Wednesday, Nov 5
           date: 11/5/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk09wed.qmd
             - type: Slides
               href: slides/math141_wk09wed.qmd
@@ -309,7 +309,7 @@ scheduled-docs:
           display-date: Friday, Nov 7
           date: 11/7/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk09fri.qmd
             - type: Slides
               href: slides/math141_wk09fri.qmd
@@ -321,7 +321,7 @@ scheduled-docs:
           display-date: Monday, Nov 10
           date: 11/10/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk10mon.qmd
             - type: Slides
               href: slides/math141_wk10mon.qmd
@@ -329,7 +329,7 @@ scheduled-docs:
           display-date: Wednesday, Nov 12
           date: 11/12/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk10wed.qmd
             - type: Slides
               href: slides/math141_wk10wed.qmd
@@ -343,7 +343,7 @@ scheduled-docs:
           display-date: Friday, Nov 14
           date: 11/14/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk10fri.qmd
             - type: Slides
               href: slides/math141_wk10fri.qmd
@@ -355,7 +355,7 @@ scheduled-docs:
           display-date: Monday, Nov 17
           date: 11/17/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk11mon.qmd
             - type: Slides
               href: slides/math141_wk11mon.qmd
@@ -363,7 +363,7 @@ scheduled-docs:
           display-date: Wednesday, Nov 19
           date: 11/19/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk11wed.qmd
             - type: Slides
               href: slides/math141_wk11wed.qmd
@@ -377,7 +377,7 @@ scheduled-docs:
           display-date: Friday, Nov 21
           date: 11/21/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk11fri.qmd
             - type: Slides
               href: slides/math141_wk11fri.qmd
@@ -389,7 +389,7 @@ scheduled-docs:
           display-date: Monday, Nov 24
           date: 11/24/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk12mon.qmd
             - type: Slides
               href: slides/math141_wk12mon.qmd
@@ -397,7 +397,7 @@ scheduled-docs:
           display-date: Wednesday, Nov 26
           date: 11/26/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk12wed.qmd
             - type: Slides
               href: slides/math141_wk12wed.qmd
@@ -409,7 +409,7 @@ scheduled-docs:
           display-date: Monday, Dec 1
           date: 12/1/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk13mon.qmd
             - type: Slides
               href: slides/math141_wk13mon.qmd
@@ -417,7 +417,7 @@ scheduled-docs:
           display-date: Wednesday, Dec 3
           date: 12/3/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk13wed.qmd
             - type: Slides
               href: slides/math141_wk13wed.qmd
@@ -431,7 +431,7 @@ scheduled-docs:
           display-date: Friday, Dec 5
           date: 12/5/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk13fri.qmd
             - type: Slides
               href: slides/math141_wk13fri.qmd
@@ -443,7 +443,7 @@ scheduled-docs:
           display-date: Monday, Dec 8
           date: 12/8/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk14mon.qmd
             - type: Slides
               href: slides/math141_wk14mon.qmd
@@ -457,7 +457,7 @@ scheduled-docs:
           display-date: Wednesday, Dec 10
           date: 12/10/25
           docs:
-            - type: Reading
+            - type: Reading + HW
               href: readings/readings_wk14wed.qmd
             - type: Slides
               href: slides/math141_wk14wed.qmd

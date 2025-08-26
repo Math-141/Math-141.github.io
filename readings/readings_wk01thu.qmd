@@ -7,12 +7,8 @@ editor: source
 
 ## Reading 
 
-Before coming to lecture today, please read the following material: 
+Before coming to lab today, please read the following material: 
 
--   
+-   MD Chapter 1 (skip section 1.1.1)
 
-## Reading Assignment
 
-After you've completed the reading, please complete the following reading assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
-
--   
