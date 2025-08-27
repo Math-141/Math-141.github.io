@@ -46,9 +46,9 @@ In order to access the lab each week, you'll have to follow these steps. Here, w
 
 ::::
 
-4. A pop-up will appear to ask how you'd like to create the project. You'll need to click "Version Control" and the "Git" to access the lab materials. After you've clicked "Version Control" and "Git", add the link to the lab materials in the "Repository URL" section: 
+4. A pop-up will appear to ask how you'd like to create the project. You'll need to click "Version Control" and the "Git" to access the lab materials. After you've clicked "Version Control" and "Git", add the link to the lab materials in the "Repository URL" section:[^2] 
 
-    **https://github.com/Math-141/lab01.git**[^2]
+    **https://github.com/Math-141/lab01.git**
     
     Finally, give the Project Directory the name "lab01"
 

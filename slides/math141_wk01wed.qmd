@@ -468,31 +468,43 @@ countdown::countdown(1)
 
 :::
 
-##  {background-image="img/elephant.png" background-size="contain"}
 
-## Artificial Intelligence (AI)
-
-::::: {.columns}
-:::  {.column width="60%"}
-
-Artificial intelligence (AI) tools, such as ChatGPT, Claude, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.
-
-:::
+## Artificial Intelligence (AI) Policy
 
 
-::: {.column width="40%"}
-```{r}
-#| fig-align: 'right'
-#| echo: false
-knitr::include_graphics("img/elephant.png")
-```
+> Artificial intelligence (AI) tools, such as ChatGPT, Claude, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.
 
 ```{r}
 #| echo: false
 countdown::countdown(1)
 ```
+
+
+
+- Why this policy?
+
+
+
+
+## Engagement
+
+::::: columns
+::: {.column width="50%"}
+<br> <br>
+
+![](img/elephant.png){width="90%" fig-align="center"}
+
+-   Being **actively present** is key.
+:::
+
+::: {.column width="50%"}
+-   During lecture and lab, remove distractions.
+    -   When we are on our computers, close email, social media, news, etc.
+    -   Hide your phone.
+-   I have high expectations but know that all of you (regardless of your stats, math, or computing background) have the ability to meet them.
 :::
 :::::
+
 
 
 # Course or syllabus questions? 
@@ -596,20 +608,150 @@ Alberto Cairo, a journalist and designer, created the second graph of the Georgi
 -   From these graphs, can we get an accurate estimate of the COVID prevalence in these Georgian counties over this two week period?
 
 
-# Statistical thinking exercise
+## Statistical Thinking
+
+-   About developing **reasoning** (not just learning definitions and formulae).
+
+-   Statistical thinking requires **judgment** that takes time to develop.
+
+    -   Will see **examples** and **practice** applying statistical thinking throughout the course.
+
+-   Developing our statistical thinking skills will allow us to soundly **extract knowledge from data**!
+
+------------------------------------------------------------------------
+
+## [What are/is Data?]{.center}
 
 <br>
-<br>
-<br>
-<br>
-<br>
+
 <br>
 
+::: blockquote
+*"'Raw data' is an oxymoron."* -- Lisa Gitelman
+:::
+
+<br>
+
+::: blockquote
+*"Data ... is information made tractable."* -- Catherine D'Ignazio and Lauren Klein
+:::
+
+------------------------------------------------------------------------
+
+## Data Frames
+
+Data in **spreadsheet**-like format where:
+
+-   Rows = Observations/cases
+
+-   Columns = Variables
 
 ```{r}
 #| echo: false
-countdown::countdown(15)
+# pak::pak("simonpcouch/detectors")
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(detectors)
+
+detectors %>%
+  mutate(ID = row_number()) %>%
+  relocate(ID) %>%
+  select(-document_id, -prompt) %>%
+  head() %>%
+
+  kable() %>%   
+  kable_styling(bootstrap_options = c("responsive", "bordered", "striped", "compact"),
+                font_size = 32)
+
 ```
+
+-   Data from **GPT Detectors Are Biased Against Non-Native English Writers.** *Weixin Liang*, *Mert Yuksekgonul*, *Yining Mao*, *Eric Wu*, *James Zou.* [CellPress Patterns](https://doi.org/10.1016/j.patter.2023.100779) and available in the `R` package `detectors`.
+
+------------------------------------------------------------------------
+
+## Data Frames
+
+```{r}
+#| echo: false
+
+detectors %>%
+  mutate(ID = row_number()) %>%
+  relocate(ID) %>%
+  select(-document_id, -prompt) %>%
+  head() %>%
+
+  kable() %>%   
+  kable_styling(bootstrap_options = c("responsive", "bordered", "striped", "compact"),
+                font_size = 32)
+
+```
+
+Rows = Observations/cases
+
+**What are the cases? What does each row represent?**
+
+------------------------------------------------------------------------
+
+## Data Frames
+
+```{r}
+#| echo: false
+
+detectors %>%
+  mutate(ID = row_number()) %>%
+  relocate(ID) %>%
+  select(-document_id, -prompt) %>%
+  head() %>%
+
+  kable() %>%   
+  kable_styling(bootstrap_options = c("responsive", "bordered", "striped", "compact"),
+                font_size = 32)
+
+```
+
+Columns = Variables
+
+**Variables**: Describe characteristics of the observations
+
+-   **Quantitative**: Numerical in nature
+
+-   **Categorical**: Values are categories
+
+-   **Identification**: Uniquely identify each case
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+
+detectors %>%
+  mutate(ID = row_number()) %>%
+  relocate(ID) %>%
+  select(-document_id, -prompt) %>%
+  head() %>%
+
+  kable() %>%   
+  kable_styling(bootstrap_options = c("responsive", "bordered", "striped", "compact"),
+                font_size = 32)
+
+```
+
+Every time you get a new dataset, spend time exploring the variables.
+
+Example questions:
+
+-   Is each variable capturing the desired information?
+
+-   For categorical variables, what are the categories? Do those categories adequately represent that variable?
+
+-   For quantitative variables, what values are possible? Were the data rounded or binned? Are those values actually encoding categories? What are the units of measurement?
+
+
+## Next time 
+
+-   We'll start thinking more about data and data visualization!
+-   Bring a laptop to lab tomorrow! 
 
 
 

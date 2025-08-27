@@ -1,0 +1,201 @@
+---
+pagetitle: "Hand-drawn Data Viz"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Hand-drawn Data Viz]{.custom-title}
+
+<br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 1 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+# Goal: Start collecting data from your life so that you can visualize it!.
+
+------------------------------------------------------------------------
+
+## Hand-Drawn Data Viz
+
+-   Once we have collected data, a common next step is to visualize it.
+
+-   Two key aspects of data visualization:
+
+    -   Determining how you want to display the data.
+
+    -   Figuring out how to tell the computer to do that mapping.
+
+-   Hand-drawn data visualizations allow us to focus on the first part with full control over the **creative** process!
+
+------------------------------------------------------------------------
+
+## Hand-Drawn Data Viz Examples
+
+[Dear Data](http://www.dear-data.com/theproject)
+
+::: blockquote
+*"Each week, and for a year, we collected and measured a particular type of data about our lives, used this data to make a drawing on a postcard-sized sheet of paper, and then dropped the postcard in an English"postbox" (Stefanie) or an American "mailbox" (Giorgia)!"*
+:::
+
+------------------------------------------------------------------------
+
+### Dear Data Examples
+
+:::: {.columns}
+
+::: {.column width = "10%"}
+
+:::
+
+::: {.column width = "80%"}
+
+![](img/complaints.png){width="100%" fig-align="center"}
+
+:::
+
+::: {.column width = "10%"}
+
+:::
+
+::::
+
+------------------------------------------------------------------------
+
+### Dear Data Examples
+
+:::: {.columns}
+
+::: {.column width = "10%"}
+
+:::
+
+::: {.column width = "80%"}
+
+![](img/complaints.png){width="100%" fig-align="center"}
+
+:::
+
+::: {.column width = "10%"}
+
+:::
+
+::::
+------------------------------------------------------------------------
+
+### More Dear Data Examples
+
+-   Becky Cooper handed out hand-drawn maps of Manhattan to strangers and asked them to ["map their Manhattan."](https://www.goodreads.com/book/show/15842664-mapping-manhattan?from_search=true)
+
+![Map drawn by New Yorker staff writer Patricia Marx](img/mapmanhattan.png){width="80%" fig-align="center"}
+
+-   What would the data frame for this visualization look like?
+
+------------------------------------------------------------------------
+
+### More Dear Data Examples
+
+![](img/postcards_stat100s22.001.jpeg){width="90%" fig-align="center"}
+
+-   What would the data frame for this visualization look like?
+
+------------------------------------------------------------------------
+
+### More Dear Data Examples
+
+![](img/postcards_stat100s22.002.jpeg){width="80%" fig-align="center"}
+
+-   What would the data frame for this visualization look like?
+
+------------------------------------------------------------------------
+
+## Goal: Over the next few days, collect data from your life so that you can visualize it on P-Set 1.
+
+<br>
+
+::: fragment
+#### Recommendations
+:::
+
+-   Store the data in your favorite spreadsheet program (Google Sheets, Numbers, Excel).
+
+-   Determine what your cases/observations will be.
+
+-   Collect data on **more** variables than you will likely visualize. It is hard to know beforehand what the interesting relationships will be.
+
+::: fragment
+#### In Section
+
+-   Will get a blank postcard and further guidance on the visualization with P-Set 1.
+:::
+
+------------------------------------------------------------------------
+
+##  {.center data-menu-title="RStudio"}
+
+::: {style="margin-top: 80px; font-size: 2em; color: #19647E;"}
+Demo of accessing the RStudio Server
+:::
+
+
+------------------------------------------------------------------------
+
+
+### Problem 3 of Lab 1: Create your own Dear Data postcard!
+
+::::: columns
+::: {.column .center width="40%"}
+![](img/supplies.jpg){width="70%" fig-align="center"}
+:::
+
+::: {.column width="\"60%"}
+-   **Step 1**: Collect data on some aspect of your life.
+
+-   **Step 2**: Find a story in your data and determine your postcard recipient.
+
+-   **Step 3**: Figure out how you want to visualize the story.
+
+-   **Step 4+**: Visualize your data on a blank postcard.
+
+:::
+:::::
