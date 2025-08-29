@@ -9,10 +9,10 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   MD 2.1 - 2.3
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+-   MD Learning Checks: LC2.2, LC2.4, LC2.5, LC2.7, LC2.8

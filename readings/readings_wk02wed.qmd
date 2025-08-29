@@ -9,7 +9,7 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   Review MD Chapter 2
 
 ## Homework Assignment
 

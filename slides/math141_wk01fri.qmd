@@ -1,0 +1,67 @@
+---
+pagetitle: "Data Visualization"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Statistical Thinking]{.custom-title}
+
+<br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 1 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+::: {style="margin-top: 80px; font-size: 3em; color: #3F6574; text-align: center;"}
+
+Before we get started...
+
+if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-wait](https://tinyurl.com/math141-wait)
+:::
+
+
+------------------------------------------------------------------------
+
+## Agenda
+
+-   

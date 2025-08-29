@@ -68,7 +68,8 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
     - Course structure and technologies
     - Where to find resources 
     - Course expectations
--   Statistical thinking activity 
+-   Statistical thinking 
+-   Data Frames
 
 
 # But first, let me quickly introduce myself...
@@ -404,6 +405,16 @@ Course assistant office hours coming soon!
 
 ::: {.fragment .fade-up}
 
+-   **In-class activities (*semi-regular*)**
+    - Individual activities
+    - Group activities
+    - Low-stakes quizzes
+    
+:::
+
+::: {.fragment .fade-up}
+
+
 -   **Exams (*1 midterm, 1 final*)**
     - Both have a written component and an oral component.
     - Midterm written: 10/12 - 10/14
@@ -423,17 +434,22 @@ Course assistant office hours coming soon!
 
 ## Course Climate 
 
+::: blockquote
+
 We expect everyone in this class to strive to foster a learning environment that is equitable, inclusive, and welcoming. If you experience any barriers to learning, please come to Professor Grayson White or a college administrator with your concerns.
 
 <br>
 
 **Code of Conduct**:
 
+
 We expect all members of Math 141 to make participation a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.
 
 We expect everyone to act and interact in ways that contribute to an open, welcoming, inclusive, and healthy community of learners. You can contribute to a positive learning environment by demonstrating empathy and kindness, being respectful of differing viewpoints and experiences, and giving and gracefully accepting constructive feedback.[^1]
 
 [^1]: This Code of Conduct is adapted from the [Contributor Covenant](https://www.contributor-covenant.org/version/2/0/code_of_conduct.html), version 2.0.
+
+:::
 
 ```{r}
 #| echo: false
@@ -462,7 +478,13 @@ countdown::countdown(1)
 
 :::{.fragment .fade-up}
 
--   **Exams**: no late exams are accepted
+-   **In-class assignments**: cannot be made up.
+
+:::
+
+:::{.fragment .fade-up}
+
+-   **Exams**: no late exams are accepted.
 
 :::
 
@@ -472,7 +494,11 @@ countdown::countdown(1)
 ## Artificial Intelligence (AI) Policy
 
 
-> Artificial intelligence (AI) tools, such as ChatGPT, Claude, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.
+::: blockquote
+
+Artificial intelligence (AI) tools, such as ChatGPT, Claude, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.
+
+:::
 
 ```{r}
 #| echo: false
@@ -747,10 +773,30 @@ Example questions:
 
 -   For quantitative variables, what values are possible? Were the data rounded or binned? Are those values actually encoding categories? What are the units of measurement?
 
+## Next time
 
 ## Next time 
 
--   We'll start thinking more about data and data visualization!
+### Problem 1 of Lab 1: Create your own Dear Data postcard!
+
+::::: columns
+::: {.column .center width="40%"}
+![](img/supplies.jpg){width="70%" fig-align="center"}
+:::
+
+::: {.column width="\"60%"}
+-   **Step 1**: Collect data on some aspect of your life.
+
+-   **Step 2**: Find a story in your data and determine your postcard recipient.
+
+-   **Step 3**: Figure out how you want to visualize the story.
+
+-   **Step 4+**: Visualize your data on a blank postcard.
+
+:::
+:::::
+
+
 -   Bring a laptop to lab tomorrow! 
 
 

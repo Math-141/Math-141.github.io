@@ -19,21 +19,29 @@ editor:
 -   Email: [gwhite@reed.edu](mailto:gwhite@reed.edu)
 -   Office: Library 390
 -   Office hours: Monday 2:30pm-4:00pm, Wednesday 1:00pm-2:30pm, or by appointment. 
+    - If the available times do not work for you, I am more than happy to schedule a meeting by appointment. Please [email me](mailto:gwhite@reed.edu) or send me a Slack message to set up a time to meet. 
 
-**Lab Assistants**: TBD (9am - 10:20am), TBD (10:30am - 11:50am), and TBD (1:40pm - 3pm)
+**Course Assistants**: We have three course assistants for Math 141 this semester. A course assistant will be present at each lab section. Further, each course assistant will hold office hours during the week. *All course assistant office hours will be held in **ETC 105B***. Feel free to go to any course assistant's office hours, even if they are not the course assistant for your lab section. The course assistants are:
 
-**Office Hours**: Available [here](https://math-141.github.io/office_hours.html). 
-
-If the available times do not work for you, I (Grayson) am more than happy to schedule a meeting by appointment. Please [email me](mailto:gwhite@reed.edu) or send me a Slack message to set up a time to meet. Do not request the lab assistants to hold extra office hours. 
+-   TBD 
+    - Lab section: 9am - 10:20am
+    - Office hours: TBD
+-   TBD 
+    - Lab section: 10:30am - 11:50am
+    - Office Hours: TBD
+-   TBD 
+    - Lab section: 1:40pm - 3:00pm Lab
+    - Office Hours: TBD
 
 
 **Links and course resources**:
 
 The course website, [math-141.github.io](https://math-141.github.io/), inlcludes information on the course, lecture slides, public course materials, and links to all other course resources:
 
--   Slack, for course correspondance,
--   Moodle, for private course materials, and
--   Gradescope, for turning in assignments.
+-   Slack, for course correspondence,
+-   Gradescope, for turning in assignments, and
+-   Moodle, (sparingly) for private course materials
+
 
 **Meeting Times**:
 
@@ -41,22 +49,7 @@ We'll have a lecture-style meeting three times a week, and a lab meeting once a 
 
 -   Lectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.
 
--   Labs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3pm (sections: F03 & F13), Library, Room 389.
-
-<!-- See the below table for a visual schedule.  -->
-
-<!-- ```{r} -->
-<!-- #| echo: false -->
-<!-- gt::gt(tibble::tibble( -->
-<!--   Section = c("F01", "F02", "F03", "F11", "F12", "F13"), -->
-<!--   `Lecture (M/W/F)` = c(rep("10am - 10:50am (Eliot 314)", 3), rep("11am - 11:50am  (Eliot 314)", 3)), -->
-<!--   `Lab (Th)` = c(rep( -->
-<!--     c("9am - 10:20am (Lib 389)", "10:30am - 11:50am (Lib 389)", "1:40pm - 3pm (Lib 389)"), 2 -->
-<!--   )) -->
-<!-- )) -->
-<!-- ``` -->
-
-
+-   Labs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3:00pm (sections: F03 & F13). The morning Labs (9:00am - 10:20am and 10:30am - 11:50am) will meet in the Performing Arts Building, Room 104. The afternoon lab (1:40pm - 3:00pm) will meet in the Library, Room 340. 
 
 
 
@@ -129,9 +122,9 @@ By the end of the course, you will have improved your data acumen and your abili
 
 
 
-## Assignments and exams
+## Assignments, activities, and exams
 
-We'll have a variety of assignments and exams for this course. In particular: 
+We'll have a variety of assignments, activities, and exams for this course. In particular: 
 
 -   **Lab assignments**:
     - Almost every week, we will have a lab assignment. The lab assignments will be assigned on Thursday at lab time and due the following week on Thursday at 9:00am. 
@@ -143,6 +136,12 @@ We'll have a variety of assignments and exams for this course. In particular:
     - For most lecture class periods, along with the assigned reading, I will assign a short set of homework questions related to the reading to be turned in at the beginning of class. 
     - These will be turned in by you in person, as a hard copy, at the beginning of class. If you arrive to class late, please wait until the end of class to turn in your answers. 
     - No late homework assignments are accepted, but up to three missed homework assignments will be dropped from your final grade. 
+    
+-   **In-class activities**:
+    - During lecture and lab, we will include some in-class activities. Including but not limited to: 
+        - group activities,
+        - independent activities,
+        - low-stakes quizzes.
     
 -   **Exams**:
     - We'll have a midterm exam and final exam for this course. Each exam will have a written take-home component and an in-person oral component. 
@@ -200,5 +199,5 @@ For Math 141, collaboration can look like: working with classmates together on a
 
 **AI Policy**:
 
-Artificial intelligence (AI) tools, such as ChatGPT, Claude, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.
+Artificial intelligence (AI) tools, such as ChatGPT, Claude, Co-Pilot, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.
 

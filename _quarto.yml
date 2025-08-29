@@ -20,8 +20,6 @@ website:
         text: Home
       - href: syllabus.qmd
         text: Syllabus
-      - href: office_hours.qmd
-        text: Office Hours & Tutoring
     tools:
       - icon: chat-dots-fill
         href: https://reedmath141fall2025.slack.com
