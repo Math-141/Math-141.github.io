@@ -172,7 +172,7 @@ ggplot() +
 
 ::: {.column width="70%"}
 
-![](img/course-website.png){height=30%}
+![](img/course-website.png)
 
 :::
 
