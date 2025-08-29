@@ -31,7 +31,7 @@ website:
         href: https://www.gradescope.com/courses/1100763
         aria-label: Gradescope
       - icon: door-closed-fill
-        href: https://www.moodle.reed.edu
+        href: https://moodle.reed.edu/
         aria-label: Moodle
 
 format:
