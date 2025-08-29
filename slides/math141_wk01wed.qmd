@@ -240,7 +240,7 @@ A course-wide **Slack** workspace, for course communication,
 
 ::: {.column width="60%"}
 
-![](img/course-website.png){height=30%}
+![](img/course-website.png){fig-align='center'}
 
 :::
 

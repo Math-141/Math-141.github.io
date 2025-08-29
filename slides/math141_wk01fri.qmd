@@ -64,4 +64,8 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 
 ## Agenda
 
+-   Introduction to the grammar of graphics
 -   
+
+
+
