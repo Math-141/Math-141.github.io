@@ -136,7 +136,7 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Statistical Thinking</span></p>
+<p><span class="custom-title">Data Visualization</span></p>
 <p><br> <br> <br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
 <p><span class="custom-subtitle">Math 141 <br> Week 1 | Fall 2025</span></p>
@@ -155,9 +155,352 @@
 <li class="fragment">Introduction to the grammar of graphics</li>
 <li class="fragment"></li>
 </ul>
+</section>
+<section id="goals-for-today" class="slide level2">
+<h2>Goals for Today</h2>
+<div class="columns">
+<div class="column" style="width:&quot;50%;">
+<p><strong>First Segment:</strong></p>
+<div>
+<ul>
+<li>Motivate data visualizations.</li>
+<li>Develop <strong>language</strong> to talk about the components of a graphic.</li>
+<li>Practice deconstructing graphics.</li>
+<li>Discuss good graphical practices.</li>
+</ul>
+</div>
+</div><div class="column" style="width:&quot;50%;">
+<p><strong>Second Segment:</strong></p>
+<div>
+<ul>
+<li>Learn the general structure of <code>ggplot2</code>.</li>
+<li>Learn a few standard graphs for numerical/quantitative data:
+<ul>
+<li><strong>Histogram</strong>: one numerical variable</li>
+<li><strong>Side-by-side boxplot</strong>: one numerical variable and one categorical variable</li>
+<li><strong>Side-by-side violin plot</strong>: one numerical variable and one categorical variable</li>
+</ul></li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="why-construct-a-graph" class="slide level2 center">
+<h2>Why construct a graph?</h2>
+<p><br></p>
+<div class="fragment fade-up midi">
+<p>To <strong>explore</strong> the data.</p>
+</div>
+<div class="fragment fade-up midi">
+<p>To <strong>summarize</strong> the data.</p>
+</div>
+<div class="fragment fade-up midi">
+<p>To showcase <strong>trends</strong> and make <strong>comparisons</strong>.</p>
+</div>
+<div class="fragment fade-up midi">
+<p>To tell a compelling <strong>story</strong>.</p>
+</div>
+</section>
+<section id="challenger" class="slide level2">
+<h2>Challenger</h2>
+<ul>
+<li class="fragment"><p>On January 27th, 1986, engineers from Morton Thiokol recommended NASA delay launch of space shuttle <em>Challenger</em> due to cold weather.</p>
+<ul>
+<li class="fragment">Believed cold weather impacted the o-rings that held the rockets together.</li>
+<li class="fragment">Used 13 charts in their argument.</li>
+</ul></li>
+<li class="fragment"><p>After a two hour conference call, the engineer’s recommendation was overruled due to lack of persuasive evidence and the launch proceeded.</p></li>
+<li class="fragment"><p>The Challenger exploded 73 seconds into launch.</p></li>
+</ul>
+</section>
+<section id="challenger-1" class="slide level2">
+<h2>Challenger</h2>
+<p>Here’s one of those charts.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/table_o_rings.jpg" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+</figure>
+</div>
+</section>
+<section id="challenger-2" class="slide level2">
+<h2>Challenger</h2>
+<p>Here’s another one of those charts.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/o_ring_rockets.jpg" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
+</figure>
+</div>
+</section>
+<section id="challenger-3" class="slide level2">
+<h2>Challenger</h2>
+<p>Here’s a graphic I created from <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>’s data.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="challenger-4" class="slide level2">
+<h2>Challenger</h2>
+<p>This adaptation is a recreation of Edward Tufte’s graphic.</p>
 
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<aside><div>
+<p>For more information on this example and other examples, check out <a href="https://www.edwardtufte.com/tufte/books_visex">Tufte’s book</a>.</p>
+</div></aside></section>
+<section id="now-lets-learn-the-grammar-of-graphics." class="slide level2 center">
+<h2>Now let’s learn the <strong>Grammar of Graphics</strong>.</h2>
+<div class="fragment fade-up midi">
+<p>We will use this grammar to:</p>
+</div>
+<div class="fragment fade-up midi">
+<p>Decompose and understand existing graphs.</p>
+</div>
+<div class="fragment fade-up midi">
+<p>Create our own graphs with the <code>R</code> package <code>ggplot2</code>.</p>
+</div>
+</section>
+<section id="grammar-of-graphics" class="slide level2">
+<h2>Grammar of Graphics</h2>
+<ul>
+<li class="fragment"><strong>data</strong>: Data frame that contains the raw data
+<ul>
+<li class="fragment">Variables used in the graph</li>
+</ul></li>
+<li class="fragment"><strong>geom</strong>: Geometric <strong>shape</strong> that the data are mapped to.
+<ul>
+<li class="fragment">EX: Point, line, bar, text, …</li>
+</ul></li>
+<li class="fragment"><strong>aesthetic</strong>: Visual properties of the <strong>geom</strong>
+<ul>
+<li class="fragment">EX: X (horizontal) position, y (vertical) position, color, fill, shape</li>
+</ul></li>
+<li class="fragment"><strong>scale</strong>: Controls how data are mapped to the visual values of the aesthetic.
+<ul>
+<li class="fragment">EX: particular colors, log scale</li>
+</ul></li>
+<li class="fragment"><strong>guide</strong>: Legend/key to help user convert visual display back to the data</li>
+</ul>
+<div class="fragment">
+<p>For right now, we won’t focus on the <strong>names</strong> of particular types of graphs (e.g., scatterplot) but on the <strong>elements</strong> of graphs.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="example-1">Example 1</h3>
+<div>
+<ul>
+<li>What are the variables?</li>
+<li>What <strong>geom</strong> are the variables map to?</li>
+<li>What are the <strong>aesthetic</strong>s of the <strong>geom</strong>?</li>
+<li>How is each variable mapped to an <strong>aesthetic</strong>?</li>
+<li>What additional context is provided?</li>
+<li>What story is the graph telling?</li>
+</ul>
+</div>
+</div><div class="column" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/anne_hathaway.png" class="quarto-figure quarto-figure-center" style="width:85.0%" data-fig-dpi="200"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:30%;">
+<h3 id="example-2">Example 2</h3>
+<div>
+<ul>
+<li>What are the variables?</li>
+<li>What <strong>geom</strong> are the variables map to?</li>
+<li>What are the <strong>aesthetic</strong>s of the <strong>geom</strong>?</li>
+<li>How is each variable mapped to an <strong>aesthetic</strong>?</li>
+<li>What additional context is provided?</li>
+<li>What story is the graph telling?</li>
+</ul>
+</div>
+</div><div class="column center" style="width:70%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/harassment_graphic.png" class="quarto-figure quarto-figure-center" style="width:75.0%" data-fig-dpi="200"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section>
+<section id="visualization-considerations" class="title-slide slide level1 center">
+<h1>Visualization Considerations</h1>
 
 </section>
+<section class="slide level2">
+
+<h3 id="what-additional-context-should-my-graphs-have">What additional context should my graphs have?</h3>
+<ul>
+<li class="fragment"><p>For context, at a minimum include</p>
+<ul>
+<li class="fragment">Axis labels (with units reported).</li>
+<li class="fragment">Legends.</li>
+<li class="fragment">Data source.</li>
+</ul></li>
+<li class="fragment"><p>Think about the <strong>stories/questions</strong> your visualization answers.</p></li>
+<li class="fragment"><p>Determine what <strong>context/background information</strong> your viewer needs.</p></li>
+<li class="fragment"><p>Visualizing data involves <strong>editorial choices</strong>.</p>
+<ul>
+<li class="fragment">What to highlight.</li>
+<li class="fragment">What comparisons to make easy to see.</li>
+<li class="fragment">What scales to use.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="context-example">Context Example</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/moma_size.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="water-lilies">Water Lilies</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/lilies.jpg" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="what-visual-cues-are-easier-to-compare">What visual cues are easier to compare?</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/visual_cues.png" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="what-to-consider-with-color">What to consider with color?</h3>
+<p>Consider color blindness.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="color-palettes-sequential">Color Palettes – Sequential</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/dude.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+<div class="{aside}">
+<p>Maps, like the <a href="https://qz.com/316906/the-dude-map-how-american-men-refer-to-their-bros/">Dude map</a> are also a great way to provide context!</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="color-palettes-diverging">Color Palettes – Diverging</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/nba_2015.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+<div class="{aside}">
+<p><a href="https://roadtolarissa.com/nba-minutes/">Adam Pearce’s 2015 NBA Games</a></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="color-palettes-qualitative">Color Palettes – Qualitative</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/dogs.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+<div class="{aside}">
+<p><a href="https://www.informationisbeautiful.net/visualizations/best-in-show-whats-the-top-data-dog/">information is beautiful’s Best in Show</a></p>
+</div>
+</section>
+<section id="many-ways-to-visually-tell-a-story" class="slide level2">
+<h2>Many Ways To Visually Tell A Story</h2>
+<p>Washington Post’s Approach:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/wp_shooter.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+<p><a href="https://guns.periscopic.com/?year=2013">Periscopic’s Approach</a></p>
+</section>
+<section id="bad-graphics" class="slide level2">
+<h2>Bad Graphics</h2>
+<p>Because of all the design choices, it is much easier to make a bad graph than a good graph.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/pizza_pie.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+</section>
+<section id="misleading-graphics" class="slide level2">
+<h2>Misleading Graphics</h2>
+<p>Be careful that your design choices don’t cause your viewer to draw incorrect conclusions about the data:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/FLguns.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+</figure>
+</div>
+<ul>
+<li class="fragment">Just letting the software make all the design choices can still lead to misleading graphs (recall the Georgia COVID graph).</li>
+</ul>
+</section>
+<section id="summary-thoughts-on-graphical-considerations" class="slide level2">
+<h2>Summary Thoughts on Graphical Considerations</h2>
+<ul>
+<li class="fragment"><p>Good graphics are one’s where the findings and insights are <strong>obvious</strong> to the viewer.</p>
+<ul>
+<li class="fragment">Add information and key <strong>context</strong>.</li>
+</ul></li>
+<li class="fragment"><p>Facilitate the <strong>comparisons</strong> that correspond to the research question.</p>
+<ul>
+<li class="fragment">Recall the three Georgia COVID counts graphs from Day 1!</li>
+</ul></li>
+<li class="fragment"><p>Data visualizations are <strong>not neutral</strong>.</p></li>
+<li class="fragment"><p>It is easier to see the differences and similarities between different types of graphics if we learn the <strong>grammar of graphics</strong>.</p></li>
+<li class="fragment"><p>Practicing <strong>decomposing</strong> graphics should make it easier for us to <strong>compose</strong> our own graphics.</p></li>
+</ul>
+</section>
+<section id="next-time" class="slide level2">
+<h2>Next time</h2>
+<div>
+<ul>
+<li>We’ll learn the <strong>grammar of graphics</strong> so that we can create our own graphics!</li>
+</ul>
+</div>
+
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

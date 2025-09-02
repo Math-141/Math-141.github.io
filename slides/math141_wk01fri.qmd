@@ -40,7 +40,7 @@ library(tidyverse)
 ::: {.column .center width="40%"}
 <br>
 
-[Statistical Thinking]{.custom-title}
+[Data Visualization]{.custom-title}
 
 <br> <br> <br> <br>
 
@@ -67,5 +67,341 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 -   Introduction to the grammar of graphics
 -   
 
+## Goals for Today
+
+::::::: columns
+:::: {.column width="\"50%"}
+**First Segment:**
+
+::: nonincremental
+-   Motivate data visualizations.
+-   Develop **language** to talk about the components of a graphic.
+-   Practice deconstructing graphics.
+-   Discuss good graphical practices.
+:::
+::::
+
+:::: {.column width="\"50%"}
+**Second Segment:**
+
+::: nonincremental
+-   Learn the general structure of `ggplot2`.
+-   Learn a few standard graphs for numerical/quantitative data:
+    -   **Histogram**: one numerical variable
+    -   **Side-by-side boxplot**: one numerical variable and one categorical variable
+    -   **Side-by-side violin plot**: one numerical variable and one categorical variable
+:::
+::::
+:::::::
+
+------------------------------------------------------------------------
+
+## Why construct a graph? {.center}
+
+<br>
+
+::: {.fragment .fade-up .midi}
+To **explore** the data.
+:::
+
+::: {.fragment .fade-up .midi}
+To **summarize** the data.
+:::
+
+::: {.fragment .fade-up .midi}
+To showcase **trends** and make **comparisons**.
+:::
+
+::: {.fragment .fade-up .midi}
+To tell a compelling **story**.
+:::
+
+------------------------------------------------------------------------
+
+## Challenger
+
+-   On January 27th, 1986, engineers from Morton Thiokol recommended NASA delay launch of space shuttle *Challenger* due to cold weather.
+
+    -   Believed cold weather impacted the o-rings that held the rockets together.
+    -   Used 13 charts in their argument.
+
+-   After a two hour conference call, the engineer's recommendation was overruled due to lack of persuasive evidence and the launch proceeded.
+
+-   The Challenger exploded 73 seconds into launch.
+
+------------------------------------------------------------------------
+
+## Challenger
+
+Here's one of those charts.
+
+![](img/table_o_rings.jpg){width="90%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Challenger
+
+Here's another one of those charts.
+
+![](img/o_ring_rockets.jpg){width="30%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Challenger
+
+Here's a graphic I created from [Edward Tufte](https://en.wikipedia.org/wiki/Edward_Tufte)'s data.
+
+```{r, echo = FALSE, out.width = "60%", fig.asp = .6}
+library(ggplot2)
+library(dplyr)
+library(readr)
+Challenger <- read_delim("data/Challenger2.txt", 
+                         "\t", escape_double =
+                           FALSE, trim_ws = TRUE)
+
+
+
+ggplot(data = Challenger, mapping = aes(x = T, y = I)) + geom_point(alpha = 0.5, color = "orange", size = 5) + labs(y = "Tufte's O-ring damage index", x = "Temperature (degrees F) at launch") #+ geom_smooth(se = FALSE)
+```
+
+------------------------------------------------------------------------
+
+## Challenger
+
+This adaptation is a recreation of Edward Tufte's graphic.
+
+::: aside
+For more information on this example and other examples, check out [Tufte's book](https://www.edwardtufte.com/tufte/books_visex).
+:::
+
+```{r, echo = FALSE, out.width = "60%", fig.align='center', fig.asp= .6}
+
+ggplot() + geom_point(data = Challenger, mapping = aes(x = T, y = I),alpha = 0.5, color = "orange", size = 5) + labs(y = "Tufte's O-ring damage index", x = "Temperature (degrees F) at launch") +
+  xlim(22, 85) +
+  geom_rect(mapping = aes(xmin = 26, xmax = 29, ymin = 0, ymax = 11), alpha = 0.2) +  annotate(geom = "text", x = 28, y = 6, label = "Forcasted \ntemperature \nfor \nJanuary 27th")#+ geom_smooth(se = FALSE) 
+```
+
+## Now let's learn the **Grammar of Graphics**. {.center}
+
+::: {.fragment .fade-up .midi}
+We will use this grammar to:
+:::
+
+::: {.fragment .fade-up .midi}
+Decompose and understand existing graphs.
+:::
+
+::: {.fragment .fade-up .midi}
+Create our own graphs with the `R` package `ggplot2`.
+:::
+
+------------------------------------------------------------------------
+
+## Grammar of Graphics
+
+-   **data**: Data frame that contains the raw data
+    -   Variables used in the graph
+-   **geom**: Geometric **shape** that the data are mapped to.
+    -   EX: Point, line, bar, text, ...
+-   **aesthetic**: Visual properties of the **geom**
+    -   EX: X (horizontal) position, y (vertical) position, color, fill, shape
+-   **scale**: Controls how data are mapped to the visual values of the aesthetic.
+    -   EX: particular colors, log scale
+-   **guide**: Legend/key to help user convert visual display back to the data
+
+::: fragment
+For right now, we won't focus on the **names** of particular types of graphs (e.g., scatterplot) but on the **elements** of graphs.
+:::
+
+------------------------------------------------------------------------
+
+:::::: columns
+:::: {.column width="30%"}
+### Example 1
+
+::: nonincremental
+-   What are the variables?
+-   What **geom** are the variables map to?
+-   What are the **aesthetic**s of the **geom**?
+-   How is each variable mapped to an **aesthetic**?
+-   What additional context is provided?
+-   What story is the graph telling?
+:::
+::::
+
+::: {.column width="70%"}
+![](img/anne_hathaway.png){width="85%" fig-align="center" fig-dpi="200"}
+:::
+::::::
+
+------------------------------------------------------------------------
+
+:::::: columns
+:::: {.column width="30%"}
+### Example 2
+
+::: nonincremental
+-   What are the variables?
+-   What **geom** are the variables map to?
+-   What are the **aesthetic**s of the **geom**?
+-   How is each variable mapped to an **aesthetic**?
+-   What additional context is provided?
+-   What story is the graph telling?
+:::
+::::
+
+::: {.column .center width="70%"}
+![](img/harassment_graphic.png){width="75%" fig-align="center" fig-dpi="200"}
+:::
+::::::
+
+# Visualization Considerations
+
+------------------------------------------------------------------------
+
+### What additional context should my graphs have?
+
+-   For context, at a minimum include
+
+    -   Axis labels (with units reported).
+    -   Legends.
+    -   Data source.
+
+-   Think about the **stories/questions** your visualization answers.
+
+-   Determine what **context/background information** your viewer needs.
+
+-   Visualizing data involves **editorial choices**.
+
+    -   What to highlight.
+    -   What comparisons to make easy to see.
+    -   What scales to use.
+
+------------------------------------------------------------------------
+
+### Context Example
+
+![](img/moma_size.png){width="70%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+### Water Lilies
+
+![](img/lilies.jpg){width="70%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+### What visual cues are easier to compare?
+
+![](img/visual_cues.png){width="35%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+### What to consider with color?
+
+Consider color blindness.
+
+```{r, echo = FALSE, fig.asp = .4}
+library(colorBlindness)
+mat <- matrix(1:81, nrow = 9, ncol = 9)
+
+library(ggplot2)
+library(reshape2)
+mat1 <- melt(t(mat[9:1, ]))
+len <- length(Blue2DarkRed12Steps)-1
+mat1$v2 <- cut(mat1$value,
+              breaks = seq(0,ceiling(81/len)*len, 
+                           length.out = len+1))
+ht <- ggplot(mat1) + 
+  geom_tile(aes(x=Var1, y=Var2, fill=v2)) + 
+  scale_fill_manual(values=Blue2DarkRed12Steps) + 
+  theme_bw() +
+  guides(fill = 'none')
+# check the plot by CVD simulator
+cvdPlot(ht)
+```
+
+------------------------------------------------------------------------
+
+### Color Palettes -- Sequential
+
+![](img/dude.png){width="60%" fig-align="center"}
+
+::: {aside}
+Maps, like the [Dude map](https://qz.com/316906/the-dude-map-how-american-men-refer-to-their-bros/) are also a great way to provide context!
+:::
+
+------------------------------------------------------------------------
+
+### Color Palettes -- Diverging
+
+![](img/nba_2015.png){width="60%" fig-align="center"}
+
+::: {aside}
+[Adam Pearce's 2015 NBA Games](https://roadtolarissa.com/nba-minutes/)
+:::
+
+------------------------------------------------------------------------
+
+### Color Palettes -- Qualitative
+
+![](img/dogs.png){width="60%" fig-align="center"}
+
+::: {aside}
+[information is beautiful's Best in Show](https://www.informationisbeautiful.net/visualizations/best-in-show-whats-the-top-data-dog/)
+:::
+
+------------------------------------------------------------------------
+
+## Many Ways To Visually Tell A Story
+
+Washington Post's Approach:
+
+![](img/wp_shooter.png){width="50%" fig-align="center"}
+
+[Periscopic's Approach](https://guns.periscopic.com/?year=2013)
+
+------------------------------------------------------------------------
+
+## Bad Graphics
+
+Because of all the design choices, it is much easier to make a bad graph than a good graph.
+
+![](img/pizza_pie.png){width="40%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Misleading Graphics
+
+Be careful that your design choices don't cause your viewer to draw incorrect conclusions about the data:
+
+![](img/FLguns.jpg){width="40%" fig-align="center"}
+
+-   Just letting the software make all the design choices can still lead to misleading graphs (recall the Georgia COVID graph).
+
+------------------------------------------------------------------------
+
+## Summary Thoughts on Graphical Considerations
+
+-   Good graphics are one's where the findings and insights are **obvious** to the viewer.
+
+    -   Add information and key **context**.
+
+-   Facilitate the **comparisons** that correspond to the research question.
+
+    -   Recall the three Georgia COVID counts graphs from Day 1!
+
+-   Data visualizations are **not neutral**.
+
+-   It is easier to see the differences and similarities between different types of graphics if we learn the **grammar of graphics**.
+
+-   Practicing **decomposing** graphics should make it easier for us to **compose** our own graphics.
+
+
+## Next time
+
+::: nonincremental
+-   We'll learn the **grammar of graphics** so that we can create our own graphics!
+:::
 
 

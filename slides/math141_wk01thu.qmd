@@ -177,8 +177,9 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 
 ##  {.center data-menu-title="RStudio"}
 
-::: {style="margin-top: 80px; font-size: 2em; color: #19647E;"}
-Demo of accessing the RStudio Server
+::: {style="margin-top: 80px; font-size: 2em; color: #3F6574;"}
+Demo of accessing the RStudio Server \
+and intro to Quarto
 :::
 
 

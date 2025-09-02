@@ -1,0 +1,482 @@
+---
+pagetitle: "The Grammar of Graphics"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[The Grammar of Graphics]{.custom-title}
+
+<br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 2 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+
+## Goals for Today
+
+::: nonincremental
+-   Recall our motivation for good graphics
+-   Learn the general structure of `ggplot2`.
+-   Learn a few standard graphs for numerical/quantitative data:
+    -   **Histogram**: one numerical variable
+    -   **Side-by-side boxplot**: one numerical variable and one categorical variable
+    -   **Side-by-side violin plot**: one numerical variable and one categorical variable
+:::
+
+------------------------------------------------------------------------
+
+## Load Necessary Packages
+
+![](img/ggplot2.png){width="15%" fig-align="center"}
+
+`ggplot2` is part of this collection of data science packages.
+
+```{r}
+#| message: true
+#| warning: true
+# Load necessary packages
+library(tidyverse)
+```
+
+------------------------------------------------------------------------
+
+## Data Setting: [Portland Bikeshare Historical Data](https://biketownpdx.com/system-data)
+
+::::: columns
+::: {.column width="40%" fig-align="center"}
+![](img/bikepdx.jpg){width="100%"}
+:::
+
+::: {.column width="60%" fig-align="center"}
+![](img/citymap.jpg){width="100%"}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Import the Data
+
+```{r}
+#| echo: false
+#| eval: false
+pdx_july <- read_csv("data/2019_07.csv")
+pdx_july <- pdx_july %>%
+  mutate(Date = mdy(StartDate)) %>%
+  mutate(Occasion = if_else(Date == mdy("07/04/2019"),
+                            "Fourth of July",
+                            "Normal Thursday")) %>%
+  filter(Distance_Miles_ < 15) %>%
+  select(PaymentPlan, Date, Duration, Occasion, Distance_Miles = Distance_Miles_, Start_Latitude, Start_Longitude, End_Latitude, End_Longitude)
+
+bike_counter <- pdx_july %>%
+  group_by(Date) %>%
+  summarize(n = n(),
+            n_miles = sum(Distance_Miles),
+            avg_miles = mean(Distance_Miles)) %>%
+  mutate(Occasion = if_else(Date == mdy("07/04/2019"),
+                              "Fourth of July",
+                              "Normal Thursday"))
+
+write_csv(pdx_july, "data/pdx_july_2019.csv")
+write_csv(bike_counter, "data/pdx_july_2019_counts.csv")
+```
+
+```{r}
+july_2019 <- read_csv("data/pdx_july_2019.csv")
+
+# Inspect the data
+glimpse(july_2019)
+```
+
+
+
+
+------------------------------------------------------------------------
+
+## Inspect the Data
+
+```{r}
+# Look at first few rows
+head(july_2019)
+```
+
+What does a row represent here?
+
+------------------------------------------------------------------------
+
+## Inspect the Data
+
+```{r}
+# Determine type
+# To access one variable: dataset$variable
+class(july_2019$Date)
+class(july_2019$Distance_Miles)
+class(july_2019)
+
+```
+
+------------------------------------------------------------------------
+
+## Grammar of Graphics
+
+::: nonincremental
+-   **data**: Data frame that contains the raw data
+    -   Variables used in the graph
+-   **geom**: Geometric **shape** that the data are mapped to.
+    -   EX: Point, line, bar, text, ...
+-   **aesthetic**: Visual properties of the **geom**
+    -   EX: X (horizontal) position, y (vertical) position, color, fill, shape
+-   **scale**: Controls how data are mapped to the visual values of the aesthetic.
+    -   EX: particular colors, log scale
+-   **guide**: Legend/key to help user convert visual display back to the data
+:::
+
+------------------------------------------------------------------------
+
+## `ggplot2` example code
+
+**Guiding Principle**: We will map variables from the **data** to the **aes**thetic attributes (e.g. location, size, shape, color) of **geom**etric objects (e.g. points, lines, bars).
+
+```{r, eval = FALSE, tidy = FALSE}
+ggplot(data = ---, mapping = aes(---)) +
+  geom_---(---) 
+```
+
+-   There are other layers, such as `scales_---_---()` and `labs()`, but we will wait on those.
+
+------------------------------------------------------------------------
+
+## Histograms
+
+::::: columns
+::: {.column width="33%"}
+-   Binned counts of data.
+
+-   Great for assessing shape.
+:::
+
+::: {.column width="66%"}
+```{r, echo = FALSE}
+# Create histogram
+ggplot(data = july_2019, mapping = aes(x = Distance_Miles)) +
+  geom_histogram()
+
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Data Shapes
+
+```{r, echo=FALSE, fig.width = 12, fig.asp = .4}
+dat <- data_frame(x1 = rf(200,12,8), x2 = rnorm(200), x3 = (-1)*rf(200, 12, 8)+20)
+p1 <- ggplot(dat, aes(x = x1)) +
+  geom_histogram(bins = 20) +
+  labs(title = "Right Skewed Shape")
+p2 <- ggplot(dat, aes(x = x2)) +
+  geom_histogram(bins = 15) +
+  labs(title = "Bell Shaped \nand Symmetric")
+p3 <- ggplot(dat, aes(x = x3)) +
+  geom_histogram(bins = 15) + 
+  labs(title = "Left Skewed Shape")
+library(cowplot)
+plot_grid(p1, p2, p3, ncol = 3)
+```
+
+------------------------------------------------------------------------
+
+## Histograms
+
+```{r hist}
+#| output-location: column
+# Create histogram
+ggplot(data = july_2019, 
+       mapping = aes(x = Distance_Miles)) +
+  geom_histogram()
+```
+
+------------------------------------------------------------------------
+
+## Histograms
+
+```{r hist2}
+#| output-location: column
+#| code-line-numbers: "4-6"
+# Create histogram
+ggplot(data = july_2019, 
+       mapping = aes(x = Distance_Miles)) +
+  geom_histogram(color = "white",
+                 fill = "violetred1",
+                 bins = 50)
+```
+
+-   **mapping** to a variable goes in `aes()`
+-   **setting** to a specific value goes in the `geom_---()`
+
+------------------------------------------------------------------------
+
+## Boxplots
+
+::::: columns
+::: {.column width="50%"}
+-   **Five number summary**:
+    -   Minimum
+    -   First quartile (Q1)
+    -   Median
+    -   Third quartile (Q3)
+    -   Maximum
+-   Interquartile range (IQR) $=$ Q3 $-$ Q1
+-   Outliers: **unusual** points
+    -   Boxplot defines unusual as being beyond $1.5*IQR$ from $Q1$ or $Q3$.
+-   Whiskers: reach out to the furthest point that is NOT an outlier
+:::
+
+::: {.column width="50%"}
+```{r echo = FALSE}
+ggplot(data = july_2019, 
+       mapping = aes(x = Occasion, 
+                     y = Distance_Miles)) +
+  geom_boxplot()
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Boxplots
+
+```{r}
+#| output-location: column
+# Create boxplot
+ggplot(data = july_2019, 
+       mapping = aes(x = Occasion, 
+                     y = Distance_Miles)) +
+  geom_boxplot()
+```
+
+------------------------------------------------------------------------
+
+## Boxplots
+
+```{r box2}
+#| output-location: column
+#| code-line-numbers: "4"
+ggplot(data = july_2019, 
+       mapping = aes(x = Occasion, 
+                     y = Distance_Miles)) +
+  geom_boxplot(fill = "springgreen3")
+```
+
+------------------------------------------------------------------------
+
+## Boxplots
+
+```{r box3}
+#| output-location: column
+#| code-line-numbers: "4"
+ggplot(data = july_2019, 
+       mapping = aes(x = Occasion, 
+                     y = Distance_Miles,
+                     fill = Occasion)) +
+  geom_boxplot()
+```
+
+------------------------------------------------------------------------
+
+## Boxplots
+
+```{r box4}
+#| output-location: column
+#| code-line-numbers: "6"
+ggplot(data = july_2019, 
+       mapping = aes(x = Occasion, 
+                     y = Distance_Miles,
+                     fill = Occasion)) +
+  geom_boxplot() +
+  guides(fill = "none")
+```
+
+------------------------------------------------------------------------
+
+## Violin Plots
+
+```{r vio}
+#| output-location: column
+ggplot(data = july_2019, 
+       mapping = aes(x = Occasion, 
+                     y = Distance_Miles,
+                     fill = Occasion)) +
+  geom_violin() +
+  guides(fill = "none")
+```
+
+------------------------------------------------------------------------
+
+## Boxplot Versus Violin Plots
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(data = july_2019, 
+       mapping = aes(x = Occasion, 
+                     y = Distance_Miles,
+                     fill = Occasion)) +
+  geom_boxplot() +
+  guides(fill = "none")
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(data = july_2019, 
+       mapping = aes(x = Occasion, 
+                     y = Distance_Miles,
+                     fill = Occasion)) +
+  geom_violin() +
+  guides(fill = "none")
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+
+## Scatterplots
+
+-   Explore relationships between numerical variables.
+    -   We will be especially interested in **linear** relationships.
+
+::: fragment
+```{r}
+#| output-location: column
+
+ggplot(data = july_2019,
+       mapping = aes(x = Duration,
+                     y = Distance_Miles)) +
+  geom_point(size = 2)
+```
+:::
+
+------------------------------------------------------------------------
+
+## Scatterplots
+
+```{r}
+#| output-location: column
+
+
+ggplot(data = july_2019,
+       mapping = aes(x = Duration,
+                     y = Distance_Miles)) +
+  geom_point(size = 2, alpha = 0.25)
+```
+
+-   Fix over-plotting
+-   What's going on in this graph?
+
+------------------------------------------------------------------------
+
+## Scatterplots
+
+```{r}
+#| output-location: column
+
+
+ggplot(data = july_2019,
+       mapping = aes(x = Duration,
+                     y = Distance_Miles,
+                     color = Occasion)) +
+  geom_point(size = 2, alpha = 0.6)
+```
+
+------------------------------------------------------------------------
+
+## Linegraphs
+
+Also called **time series plot** when time is represented on the x axis.
+
+```{r}
+#| output-location: column
+
+ggplot(data = july_2019,
+       mapping = aes(x = Duration,
+                     y = Distance_Miles,
+                     color = Occasion)) +
+  geom_line(alpha = 0.6)
+```
+
+------------------------------------------------------------------------
+
+## Linegraphs
+
+Also called **time series plot** when time is represented on the x axis.
+
+```{r}
+#| output-location: column
+
+
+# ggplot(data = july_2019,
+#        mapping = aes(x = Time,
+#                      y = Total,
+#                      color = Occasion)) +
+#   geom_line(alpha = 0.6) +
+#   theme(legend.pos = "bottom")
+```
+
+------------------------------------------------------------------------
+
+## Recap: `ggplot2`
+
+```{r, eval = FALSE, tidy = FALSE}
+library(tidyverse)
+ggplot(data = ---, mapping = aes(---)) +
+  geom_---(---) 
+```
+
+
+
+
