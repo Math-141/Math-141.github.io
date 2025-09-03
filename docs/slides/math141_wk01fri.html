@@ -123,6 +123,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -149,18 +151,8 @@
 <p>if you are on the waitlist, please sign in to class here: <a href="https://tinyurl.com/math141-wait">tinyurl.com/math141-wait</a></p>
 </div>
 </section>
-<section id="agenda" class="slide level2">
-<h2>Agenda</h2>
-<ul>
-<li class="fragment">Introduction to the grammar of graphics</li>
-<li class="fragment"></li>
-</ul>
-</section>
 <section id="goals-for-today" class="slide level2">
 <h2>Goals for Today</h2>
-<div class="columns">
-<div class="column" style="width:&quot;50%;">
-<p><strong>First Segment:</strong></p>
 <div>
 <ul>
 <li>Motivate data visualizations.</li>
@@ -169,20 +161,6 @@
 <li>Discuss good graphical practices.</li>
 </ul>
 </div>
-</div><div class="column" style="width:&quot;50%;">
-<p><strong>Second Segment:</strong></p>
-<div>
-<ul>
-<li>Learn the general structure of <code>ggplot2</code>.</li>
-<li>Learn a few standard graphs for numerical/quantitative data:
-<ul>
-<li><strong>Histogram</strong>: one numerical variable</li>
-<li><strong>Side-by-side boxplot</strong>: one numerical variable and one categorical variable</li>
-<li><strong>Side-by-side violin plot</strong>: one numerical variable and one categorical variable</li>
-</ul></li>
-</ul>
-</div>
-</div></div>
 </section>
 <section id="why-construct-a-graph" class="slide level2 center">
 <h2>Why construct a graph?</h2>
@@ -232,7 +210,7 @@
 </section>
 <section id="challenger-3" class="slide level2">
 <h2>Challenger</h2>
-<p>Here’s a graphic I created from <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>’s data.</p>
+<p>Here’s a graphic created in <code>R</code> from <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>’s data.</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -311,13 +289,21 @@
 <li>What story is the graph telling?</li>
 </ul>
 </div>
-</div><div class="column" style="width:70%;">
+</div><div class="column" style="width:60%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
 <p><img data-src="img/anne_hathaway.png" class="quarto-figure quarto-figure-center" style="width:85.0%" data-fig-dpi="200"></p>
 </figure>
 </div>
 </div></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="countdown" id="timer_8ebd4f9e" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
@@ -341,6 +327,14 @@
 </figure>
 </div>
 </div></div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="countdown" id="timer_89e24d91" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
 </section>
 <section>
 <section id="visualization-considerations" class="title-slide slide level1 center">
@@ -402,7 +396,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
