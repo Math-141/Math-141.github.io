@@ -62,7 +62,7 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 
 ------------------------------------------------------------------------
 
-## Agenda
+## Goals for Today
 
 -   Getting started in Math 141
     - Course structure and technologies
@@ -268,6 +268,23 @@ A course-wide **Slack** workspace, for course communication,
 # Let's take a look at the course website...
 
 **[math-141.github.io](https://math-141.github.io/)**
+
+
+## Math 141: The whole game {.center}
+
+:::: {.columns}
+
+::: {.column width="50%"}
+
+::: {.fragment .fade-up .midi}
+
+![](img/DAW.jpeg)
+
+:::
+
+:::
+
+::::
 
 
 ## Course expectations and structure 
@@ -567,7 +584,7 @@ Will use a wide-range of **real** and **relevant** data examples
 :::
 
 ::: {.column .center width="50%"}
-![](img/cambridge_trees.png){width="80%"}
+![](img/irving_park.png){width="80%"}
 :::
 :::::
 
@@ -593,7 +610,7 @@ Will use a wide-range of **real** and **relevant** data examples
 
 ------------------------------------------------------------------------
 
-## Example: Visualizing COVID Prevalence {.smaller}
+## Example: Visualizing COVID Prevalence
 
 -   In May of 2020, the Georgia Department of Public Health posted the following graph:
 
@@ -601,13 +618,13 @@ Will use a wide-range of **real** and **relevant** data examples
 ![](img/GAcovid.jpg){width="50%" fig-align="center"}
 :::
 
--   At a quick first glance, what story does the Georgia Department of Public Health graph appear to be telling?
+-   At a quick first glance, what story does the graph appear to be telling?
 
--   What is misleading about the Georgia Department of Public Health graph? How could we fix this issue?
+-   What is misleading about the graph? How could we fix this issue?
 
 ------------------------------------------------------------------------
 
-## Example: Visualizing COVID Prevalence {.smaller}
+## Example: Visualizing COVID Prevalence
 
 -   After public outcry, the Georgia Department of Public Health said they made a mistake and posted the following updated graph:
 
@@ -619,7 +636,7 @@ Will use a wide-range of **real** and **relevant** data examples
 
 ------------------------------------------------------------------------
 
-## Example: Visualizing COVID Prevalence {.smaller}
+## Example: Visualizing COVID Prevalence 
 
 Alberto Cairo, a journalist and designer, created the second graph of the Georgia COVID-19 data:
 

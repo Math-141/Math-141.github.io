@@ -62,16 +62,8 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 
 ------------------------------------------------------------------------
 
-## Agenda
-
--   Introduction to the grammar of graphics
--   
 
 ## Goals for Today
-
-::::::: columns
-:::: {.column width="\"50%"}
-**First Segment:**
 
 ::: nonincremental
 -   Motivate data visualizations.
@@ -79,20 +71,6 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 -   Practice deconstructing graphics.
 -   Discuss good graphical practices.
 :::
-::::
-
-:::: {.column width="\"50%"}
-**Second Segment:**
-
-::: nonincremental
--   Learn the general structure of `ggplot2`.
--   Learn a few standard graphs for numerical/quantitative data:
-    -   **Histogram**: one numerical variable
-    -   **Side-by-side boxplot**: one numerical variable and one categorical variable
-    -   **Side-by-side violin plot**: one numerical variable and one categorical variable
-:::
-::::
-:::::::
 
 ------------------------------------------------------------------------
 
@@ -149,7 +127,7 @@ Here's another one of those charts.
 
 ## Challenger
 
-Here's a graphic I created from [Edward Tufte](https://en.wikipedia.org/wiki/Edward_Tufte)'s data.
+Here's a graphic created in `R` from [Edward Tufte](https://en.wikipedia.org/wiki/Edward_Tufte)'s data.
 
 ```{r, echo = FALSE, out.width = "60%", fig.asp = .6}
 library(ggplot2)
@@ -229,10 +207,15 @@ For right now, we won't focus on the **names** of particular types of graphs (e.
 :::
 ::::
 
-::: {.column width="70%"}
+::: {.column width="60%"}
 ![](img/anne_hathaway.png){width="85%" fig-align="center" fig-dpi="200"}
 :::
 ::::::
+
+```{r}
+#| echo: false
+countdown::countdown(2)
+```
 
 ------------------------------------------------------------------------
 
@@ -254,6 +237,11 @@ For right now, we won't focus on the **names** of particular types of graphs (e.
 ![](img/harassment_graphic.png){width="75%" fig-align="center" fig-dpi="200"}
 :::
 ::::::
+
+```{r}
+#| echo: false
+countdown::countdown(2)
+```
 
 # Visualization Considerations
 

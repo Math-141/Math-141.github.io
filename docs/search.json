@@ -63,11 +63,11 @@
     "text": "Footnotes\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0.↩︎"
   },
   {
-    "objectID": "slides/math141_wk01wed.html#agenda",
-    "href": "slides/math141_wk01wed.html#agenda",
+    "objectID": "slides/math141_wk01wed.html#goals-for-today",
+    "href": "slides/math141_wk01wed.html#goals-for-today",
     "title": "Math 141",
-    "section": "Agenda",
-    "text": "Agenda\n\nGetting started in Math 141\n\nCourse structure and technologies\nWhere to find resources\nCourse expectations\n\nStatistical thinking\nData Frames"
+    "section": "Goals for Today",
+    "text": "Goals for Today\n\nGetting started in Math 141\n\nCourse structure and technologies\nWhere to find resources\nCourse expectations\n\nStatistical thinking\nData Frames"
   },
   {
     "objectID": "slides/math141_wk01wed.html#research-interests",
@@ -117,6 +117,13 @@
     "title": "Math 141",
     "section": "Getting Started in Math 141: Finding Resources",
     "text": "Getting Started in Math 141: Finding Resources"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#math-141-the-whole-game",
+    "href": "slides/math141_wk01wed.html#math-141-the-whole-game",
+    "title": "Math 141",
+    "section": "Math 141: The whole game",
+    "text": "Math 141: The whole game"
   },
   {
     "objectID": "slides/math141_wk01wed.html#course-expectations-and-structure",
@@ -207,7 +214,7 @@
     "href": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-1",
     "title": "Math 141",
     "section": "Example: Visualizing COVID Prevalence",
-    "text": "Example: Visualizing COVID Prevalence\n\nIn May of 2020, the Georgia Department of Public Health posted the following graph:\n\n\n\n\n\n\n\n\n\nAt a quick first glance, what story does the Georgia Department of Public Health graph appear to be telling?\nWhat is misleading about the Georgia Department of Public Health graph? How could we fix this issue?"
+    "text": "Example: Visualizing COVID Prevalence\n\nIn May of 2020, the Georgia Department of Public Health posted the following graph:\n\n\n\n\n\n\n\n\n\nAt a quick first glance, what story does the graph appear to be telling?\nWhat is misleading about the graph? How could we fix this issue?"
   },
   {
     "objectID": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-2",
@@ -273,18 +280,11 @@
     "text": "Next time\nProblem 1 of Lab 1: Create your own Dear Data postcard!\n\n\n\n\n\n\n\n\n\nStep 1: Collect data on some aspect of your life.\nStep 2: Find a story in your data and determine your postcard recipient.\nStep 3: Figure out how you want to visualize the story.\nStep 4+: Visualize your data on a blank postcard.\n\n\n\nBring a laptop to lab tomorrow!"
   },
   {
-    "objectID": "slides/math141_wk01fri.html#agenda",
-    "href": "slides/math141_wk01fri.html#agenda",
-    "title": "Math 141",
-    "section": "Agenda",
-    "text": "Agenda\n\nIntroduction to the grammar of graphics"
-  },
-  {
     "objectID": "slides/math141_wk01fri.html#goals-for-today",
     "href": "slides/math141_wk01fri.html#goals-for-today",
     "title": "Math 141",
     "section": "Goals for Today",
-    "text": "Goals for Today\n\n\nFirst Segment:\n\n\nMotivate data visualizations.\nDevelop language to talk about the components of a graphic.\nPractice deconstructing graphics.\nDiscuss good graphical practices.\n\n\n\nSecond Segment:\n\n\nLearn the general structure of ggplot2.\nLearn a few standard graphs for numerical/quantitative data:\n\nHistogram: one numerical variable\nSide-by-side boxplot: one numerical variable and one categorical variable\nSide-by-side violin plot: one numerical variable and one categorical variable"
+    "text": "Goals for Today\n\n\nMotivate data visualizations.\nDevelop language to talk about the components of a graphic.\nPractice deconstructing graphics.\nDiscuss good graphical practices."
   },
   {
     "objectID": "slides/math141_wk01fri.html#why-construct-a-graph",
@@ -319,7 +319,7 @@
     "href": "slides/math141_wk01fri.html#challenger-3",
     "title": "Math 141",
     "section": "Challenger",
-    "text": "Challenger\nHere’s a graphic I created from Edward Tufte’s data."
+    "text": "Challenger\nHere’s a graphic created in R from Edward Tufte’s data."
   },
   {
     "objectID": "slides/math141_wk01fri.html#challenger-4",
@@ -781,7 +781,7 @@
     "href": "readings/readings_wk01thu.html",
     "title": "Math 141: Readings for September 4, 2025",
     "section": "",
-    "text": "Before coming to lab today, please read the following material:\n\nMD Chapter 1 (skip section 1.1.1)"
+    "text": "Before coming to lab today, please read the following material:\n\nMD Chapter 1 (skip section 1.1.1)\n\n\n\n\nBefore coming to lab today, please complete the following tasks:\n\nIntroduce yourself on Slack in the #in-class channel."
   },
   {
     "objectID": "readings/readings_wk01thu.html#reading",
@@ -789,6 +789,13 @@
     "title": "Math 141: Readings for September 4, 2025",
     "section": "",
     "text": "Before coming to lab today, please read the following material:\n\nMD Chapter 1 (skip section 1.1.1)"
+  },
+  {
+    "objectID": "readings/readings_wk01thu.html#homework",
+    "href": "readings/readings_wk01thu.html#homework",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lab today, please complete the following tasks:\n\nIntroduce yourself on Slack in the #in-class channel."
   },
   {
     "objectID": "labs/lab_01_instructions.html",
@@ -1278,7 +1285,7 @@
     "href": "slides/math141_wk01thu.html#goal-over-the-next-few-days-collect-data-from-your-life-so-that-you-can-visualize-it-on-lab-1.",
     "title": "Math 141",
     "section": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.",
-    "text": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.\n\n\nRecommendations\n\n\nStore the data in your favorite spreadsheet program (Google Sheets, Numbers, Excel).\nDetermine what your cases/observations will be.\nCollect data on more variables than you will likely visualize. It is hard to know beforehand what the interesting relationships will be."
+    "text": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.\n\n\nRecommendations\n\n\nStore the data in your favorite spreadsheet program (Google Sheets, Numbers, Excel).\nDetermine what your cases/observations will be.\nCollect data on more variables than you will likely visualize. It is hard to know beforehand what the interesting relationships will be.\nCome to my office (Library 390) to borrow art supplies (colored pencils and felt-tip markers)!"
   },
   {
     "objectID": "slides/math141_wk01thu.html#section",
