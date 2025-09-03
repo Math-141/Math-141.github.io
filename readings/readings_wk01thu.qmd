@@ -11,4 +11,8 @@ Before coming to lab today, please read the following material:
 
 -   MD Chapter 1 (skip section 1.1.1)
 
+## Homework
 
+Before coming to lab today, please complete the following tasks: 
+
+-   Introduce yourself on Slack in the #in-class channel.

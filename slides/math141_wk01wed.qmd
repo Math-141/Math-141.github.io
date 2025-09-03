@@ -64,12 +64,16 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 
 ## Goals for Today
 
+::: {.nonincremental}
+
 -   Getting started in Math 141
     - Course structure and technologies
     - Where to find resources 
     - Course expectations
 -   Statistical thinking 
 -   Data Frames
+
+:::
 
 
 # But first, let me quickly introduce myself...
