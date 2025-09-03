@@ -23,13 +23,13 @@ editor:
 
 **Course Assistants**: We have three course assistants for Math 141 this semester. A course assistant will be present at each lab section. Further, each course assistant will hold office hours during the week. *All course assistant office hours will be held in **ETC 105B***. Feel free to go to any course assistant's office hours, even if they are not the course assistant for your lab section. The course assistants are:
 
--   TBD 
+-   Remy Pham 
     - Lab section: 9am - 10:20am
     - Office hours: TBD
--   TBD 
+-   Alayne Zhang 
     - Lab section: 10:30am - 11:50am
     - Office Hours: TBD
--   TBD 
+-   Nat Lincoln 
     - Lab section: 1:40pm - 3:00pm Lab
     - Office Hours: TBD
 
