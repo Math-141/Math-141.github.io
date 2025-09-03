@@ -346,8 +346,8 @@ Course assistant office hours coming soon!
 
 -   In this course, you will learn how to think critically with data by engaging in the entire data analysis process.
 
--   Most of our time will be spent in the **Exploration and Visualization**  and **Modeling and Inference** steps, but we will spend some time in each cog!
-    - First ~3 weeks in **Exploration and Visualization**
+-   Most of our time will be spent in the **Exploration and Visualization**, **Data Wrangling**,  and **Modeling and Inference** steps, but we will spend some time in each cog!
+    - First ~3 weeks in **Exploration and Visualization** and **Data Wrangling**
     - Next ~3 weeks in **Modeling**
     - Final ~half of the course in **Inference**
 
