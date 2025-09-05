@@ -40,9 +40,9 @@ library(tidyverse)
 ::: {.column .center width="40%"}
 <br>
 
-[The Grammar of Graphics]{.custom-title}
+[Intro to `ggplot2`]{.custom-title}
 
-<br> <br>
+<br> <br> <br> <br> <br>
 
 [Grayson White]{.custom-subtitle}
 
@@ -62,6 +62,8 @@ library(tidyverse)
     -   **Histogram**: one numerical variable
     -   **Side-by-side boxplot**: one numerical variable and one categorical variable
     -   **Side-by-side violin plot**: one numerical variable and one categorical variable
+    -   **Scatterplot**: two numerical variables
+    -   **Linegraph**: two numerical variables
 :::
 
 ------------------------------------------------------------------------
@@ -81,7 +83,7 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
-## Data Setting: [Portland Bikeshare Historical Data](https://biketownpdx.com/system-data)
+## Data Setting: [Portland Bikeshare Data](https://biketownpdx.com)
 
 ::::: columns
 ::: {.column width="40%" fig-align="center"}
@@ -98,35 +100,10 @@ library(tidyverse)
 ## Import the Data
 
 ```{r}
-#| echo: false
-#| eval: false
-pdx_july <- read_csv("data/2019_07.csv")
-pdx_july <- pdx_july %>%
-  mutate(Date = mdy(StartDate)) %>%
-  mutate(Occasion = if_else(Date == mdy("07/04/2019"),
-                            "Fourth of July",
-                            "Normal Thursday")) %>%
-  filter(Distance_Miles_ < 15) %>%
-  select(PaymentPlan, Date, Duration, Occasion, Distance_Miles = Distance_Miles_, Start_Latitude, Start_Longitude, End_Latitude, End_Longitude)
-
-bike_counter <- pdx_july %>%
-  group_by(Date) %>%
-  summarize(n = n(),
-            n_miles = sum(Distance_Miles),
-            avg_miles = mean(Distance_Miles)) %>%
-  mutate(Occasion = if_else(Date == mdy("07/04/2019"),
-                              "Fourth of July",
-                              "Normal Thursday"))
-
-write_csv(pdx_july, "data/pdx_july_2019.csv")
-write_csv(bike_counter, "data/pdx_july_2019_counts.csv")
-```
-
-```{r}
-july_2019 <- read_csv("data/pdx_july_2019.csv")
+biketown <- read_csv("data/biketown.csv")
 
 # Inspect the data
-glimpse(july_2019)
+glimpse(biketown)
 ```
 
 
@@ -138,7 +115,7 @@ glimpse(july_2019)
 
 ```{r}
 # Look at first few rows
-head(july_2019)
+head(biketown)
 ```
 
 What does a row represent here?
@@ -150,9 +127,9 @@ What does a row represent here?
 ```{r}
 # Determine type
 # To access one variable: dataset$variable
-class(july_2019$Date)
-class(july_2019$Distance_Miles)
-class(july_2019)
+class(biketown$BikeName)
+class(biketown$Distance_Miles)
+class(biketown)
 
 ```
 
@@ -199,7 +176,7 @@ ggplot(data = ---, mapping = aes(---)) +
 ::: {.column width="66%"}
 ```{r, echo = FALSE}
 # Create histogram
-ggplot(data = july_2019, mapping = aes(x = Distance_Miles)) +
+ggplot(data = biketown, mapping = aes(x = Distance_Miles)) +
   geom_histogram()
 
 ```
@@ -232,7 +209,7 @@ plot_grid(p1, p2, p3, ncol = 3)
 ```{r hist}
 #| output-location: column
 # Create histogram
-ggplot(data = july_2019, 
+ggplot(data = biketown, 
        mapping = aes(x = Distance_Miles)) +
   geom_histogram()
 ```
@@ -245,7 +222,7 @@ ggplot(data = july_2019,
 #| output-location: column
 #| code-line-numbers: "4-6"
 # Create histogram
-ggplot(data = july_2019, 
+ggplot(data = biketown, 
        mapping = aes(x = Distance_Miles)) +
   geom_histogram(color = "white",
                  fill = "violetred1",
@@ -275,8 +252,8 @@ ggplot(data = july_2019,
 
 ::: {.column width="50%"}
 ```{r echo = FALSE}
-ggplot(data = july_2019, 
-       mapping = aes(x = Occasion, 
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
                      y = Distance_Miles)) +
   geom_boxplot()
 ```
@@ -290,8 +267,8 @@ ggplot(data = july_2019,
 ```{r}
 #| output-location: column
 # Create boxplot
-ggplot(data = july_2019, 
-       mapping = aes(x = Occasion, 
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
                      y = Distance_Miles)) +
   geom_boxplot()
 ```
@@ -303,8 +280,8 @@ ggplot(data = july_2019,
 ```{r box2}
 #| output-location: column
 #| code-line-numbers: "4"
-ggplot(data = july_2019, 
-       mapping = aes(x = Occasion, 
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
                      y = Distance_Miles)) +
   geom_boxplot(fill = "springgreen3")
 ```
@@ -316,10 +293,10 @@ ggplot(data = july_2019,
 ```{r box3}
 #| output-location: column
 #| code-line-numbers: "4"
-ggplot(data = july_2019, 
-       mapping = aes(x = Occasion, 
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
                      y = Distance_Miles,
-                     fill = Occasion)) +
+                     fill = PaymentPlan)) +
   geom_boxplot()
 ```
 
@@ -330,10 +307,10 @@ ggplot(data = july_2019,
 ```{r box4}
 #| output-location: column
 #| code-line-numbers: "6"
-ggplot(data = july_2019, 
-       mapping = aes(x = Occasion, 
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
                      y = Distance_Miles,
-                     fill = Occasion)) +
+                     fill = PaymentPlan)) +
   geom_boxplot() +
   guides(fill = "none")
 ```
@@ -344,10 +321,10 @@ ggplot(data = july_2019,
 
 ```{r vio}
 #| output-location: column
-ggplot(data = july_2019, 
-       mapping = aes(x = Occasion, 
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
                      y = Distance_Miles,
-                     fill = Occasion)) +
+                     fill = PaymentPlan)) +
   geom_violin() +
   guides(fill = "none")
 ```
@@ -360,10 +337,10 @@ ggplot(data = july_2019,
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
-ggplot(data = july_2019, 
-       mapping = aes(x = Occasion, 
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
                      y = Distance_Miles,
-                     fill = Occasion)) +
+                     fill = PaymentPlan)) +
   geom_boxplot() +
   guides(fill = "none")
 ```
@@ -372,10 +349,10 @@ ggplot(data = july_2019,
 ::: {.column width="50%"}
 ```{r}
 #| echo: false
-ggplot(data = july_2019, 
-       mapping = aes(x = Occasion, 
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
                      y = Distance_Miles,
-                     fill = Occasion)) +
+                     fill = PaymentPlan)) +
   geom_violin() +
   guides(fill = "none")
 ```
@@ -383,6 +360,44 @@ ggplot(data = july_2019,
 :::::
 
 ------------------------------------------------------------------------
+
+
+## New Data Context: `pdxTrees`
+
+-   The `pdxTrees` R package contains data on all the trees in the Portland Metro Area. 
+-   Today, we'll look at the Maple, Oak, Pine, Cedar, and Douglas-fir trees in a few parks near Reed. 
+-   Let's load the data
+
+## New Data Context: `pdxTrees`
+
+::: {.nonincremental}
+
+-   The `pdxTrees` R package contains data on all the trees in the Portland Metro Area. 
+-   Today, we'll look at the Maple, Oak, Pine, Cedar, and Douglas-fir trees in a few parks near Reed. 
+-   Let's load the data
+-   Don't worry, we haven't learned the below code yet. 
+
+:::
+
+```{r}
+library(pdxTrees)
+near_Reed <- get_pdxTrees_parks(park = c("Woodstock Park", "Sellwood Riverfront Park", "Kenilworth Park")) %>%
+  filter(Genus %in% c("Acer", "Quercus", "Pinus", "Thuja", "Pseudotsuga"))
+```
+
+## Inspect the data
+
+```{r}
+glimpse(near_Reed)
+```
+
+## Inspect the data
+
+```{r}
+head(near_Reed)
+```
+
+
 
 
 ## Scatterplots
@@ -394,9 +409,9 @@ ggplot(data = july_2019,
 ```{r}
 #| output-location: column
 
-ggplot(data = july_2019,
-       mapping = aes(x = Duration,
-                     y = Distance_Miles)) +
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb)) +
   geom_point(size = 2)
 ```
 :::
@@ -409,9 +424,9 @@ ggplot(data = july_2019,
 #| output-location: column
 
 
-ggplot(data = july_2019,
-       mapping = aes(x = Duration,
-                     y = Distance_Miles)) +
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb)) +
   geom_point(size = 2, alpha = 0.25)
 ```
 
@@ -426,48 +441,79 @@ ggplot(data = july_2019,
 #| output-location: column
 
 
-ggplot(data = july_2019,
-       mapping = aes(x = Duration,
-                     y = Distance_Miles,
-                     color = Occasion)) +
-  geom_point(size = 2, alpha = 0.6)
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_point(size = 2, alpha = 0.25)
 ```
+
 
 ------------------------------------------------------------------------
 
 ## Linegraphs
 
-Also called **time series plot** when time is represented on the x axis.
 
 ```{r}
 #| output-location: column
 
-ggplot(data = july_2019,
-       mapping = aes(x = Duration,
-                     y = Distance_Miles,
-                     color = Occasion)) +
-  geom_line(alpha = 0.6)
-```
 
-------------------------------------------------------------------------
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb)) +
+  geom_line(size = 2)
+```
 
 ## Linegraphs
 
-Also called **time series plot** when time is represented on the x axis.
 
 ```{r}
 #| output-location: column
 
 
-# ggplot(data = july_2019,
-#        mapping = aes(x = Time,
-#                      y = Total,
-#                      color = Occasion)) +
-#   geom_line(alpha = 0.6) +
-#   theme(legend.pos = "bottom")
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_line(size = 2)
 ```
 
-------------------------------------------------------------------------
+## Linegraphs vs scatterplots
+
+::::: columns
+::: {.column width="50%"}
+
+
+```{r}
+#| echo: false
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_line(size = 2)
+```
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_point(size = 2)
+```
+
+:::
+
+::::
+
+
+- Which do you prefer?
+- Does it depend on context?
+- Which might be better if we put **time** on the x-axis
+
 
 ## Recap: `ggplot2`
 

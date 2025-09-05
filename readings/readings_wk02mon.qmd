@@ -9,10 +9,10 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   MD 2.4 - 2.9
+-   MD 2.4, 2.5, 2.7
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+-   LC2.11, LC2.12, LC2.14, LC2.15, LC2.23, LC2.25

@@ -214,7 +214,7 @@ For right now, we won't focus on the **names** of particular types of graphs (e.
 
 ```{r}
 #| echo: false
-countdown::countdown(2)
+countdown::countdown(5)
 ```
 
 ------------------------------------------------------------------------
@@ -240,7 +240,7 @@ countdown::countdown(2)
 
 ```{r}
 #| echo: false
-countdown::countdown(2)
+countdown::countdown(5)
 ```
 
 # Visualization Considerations
@@ -386,10 +386,12 @@ Be careful that your design choices don't cause your viewer to draw incorrect co
 -   Practicing **decomposing** graphics should make it easier for us to **compose** our own graphics.
 
 
+# The DataLab @ Reed
+
 ## Next time
 
 ::: nonincremental
--   We'll learn the **grammar of graphics** so that we can create our own graphics!
+-   We'll learn the `ggplot2` so that we use the grammar of graphics to create our own plots!
 :::
 
 

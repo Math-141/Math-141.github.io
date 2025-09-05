@@ -1,0 +1,453 @@
+---
+pagetitle: "The Grammar of Graphics"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[More `ggplot2`]{.custom-title}
+
+<br> <br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 2 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+
+## Goals for Today
+
+::: nonincremental
+-   Recall the graphs for numerical/quantitative data from last time:
+    -   **Histogram**: one numerical variable
+    -   **Side-by-side boxplot**: one numerical variable and one categorical variable
+    -   **Side-by-side violin plot**: one numerical variable and one categorical variable
+    -   **Scatterplot**: two numerical variables
+    -   **Linegraph**: two numerical variables
+-   Introduce graphs for categorical data:
+    -   **Barplot**: one categorical variable
+    -   **Segmented barplot**: two categorical variables
+-   Also cover some common extensions and customizations.
+
+:::
+
+------------------------------------------------------------------------
+
+
+## Data Setting: [Dog Names in Cambridge, MA](https://data.cambridgema.gov/General-Government/Dogs-of-Cambridge/sckh-3xyx)
+
+Based on dog license data collected by Cambridge's Animal Commission
+
+```{r}
+# Import and inspect data
+dogs <- read_csv("https://data.cambridgema.gov/api/views/sckh-3xyx/rows.csv")
+glimpse(dogs)
+```
+
+------------------------------------------------------------------------
+
+## Data Wrangling
+
+**We haven't learned this topic yet.**
+
+**I only included this code for completeness/transparency.**
+
+```{r}
+# Create a column for Breed
+dogs <- mutate(dogs, Breed = if_else(
+                       Dog_Breed == "Mixed Breed",
+                       "Mixed", "Single"))
+
+
+# Find the 5 top most common names
+top5names <- count(dogs, Dog_Name) %>%
+  slice_max(n = 5, order_by = n) %>%
+  select(Dog_Name) %>%
+  pull()
+  
+# Filter dataset to only the 5 top most common names
+dogs_top5 <- filter(dogs,
+                     Dog_Name %in% top5names)
+
+
+```
+
+# Before we graph the data, do we have any guesses on popular dog names?
+
+------------------------------------------------------------------------
+
+## Barplots
+
+::::: columns
+::: {.column width="50%"}
+Displays the frequency for each category.
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+# Create barplot
+ggplot(data = dogs_top5, 
+    mapping = aes(x = Dog_Name)) +
+  geom_bar()
+
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Barplots
+
+```{r}
+#| output-location: column
+# Create barplot
+ggplot(data = dogs_top5, 
+    mapping = aes(x = Dog_Name)) +
+  geom_bar()
+
+```
+
+How could we make this graph better?
+
+------------------------------------------------------------------------
+
+## Barplots
+
+```{r}
+#| output-location: column
+
+# Create barplot
+ggplot(data = dogs_top5, 
+  mapping = aes(x = fct_infreq(Dog_Name))) +
+  geom_bar()
+```
+
+------------------------------------------------------------------------
+
+## Segmented Barplots
+
+```{r}
+#| output-location: column
+
+# Create segmented barplot
+ggplot(data = dogs_top5, 
+       mapping = aes(x = fct_infreq(Dog_Name),
+                     fill = Breed)) +
+  geom_bar() +
+  theme(legend.pos = "bottom")
+```
+
+-   Each bar is divided into the frequencies of the `fill` variable.
+
+-   Hard to make comparisons across categories.
+
+------------------------------------------------------------------------
+
+## Segmented Barplots
+
+```{r}
+#| output-location: column
+
+
+# Create segmented barplot
+ggplot(data = dogs_top5, 
+       mapping = aes(x = fct_infreq(Dog_Name),
+                     fill = Breed)) +
+  geom_bar(position = "dodge") +
+  theme(legend.pos = "bottom")
+```
+
+-   Can add the `position` argument into the `geom_bar()`.
+
+------------------------------------------------------------------------
+
+## Segmented Barplots
+
+```{r}
+#| output-location: column
+
+
+# Create segmented barplot
+ggplot(data = dogs_top5, 
+       mapping = aes(fill = fct_infreq(Dog_Name),
+                     x = Breed)) +
+  geom_bar(position = "fill") +
+  theme(legend.pos = "bottom")
+```
+
+-   Now each bar is divided into **proportions** based on the `fill` variable.
+
+------------------------------------------------------------------------
+
+## Adding More Variables
+
+-   Two main approaches:
+    -   Utilize other `aes`thetics of the `geom`
+    -   Facet: Create multiple plots across the categories of a categorical variable.
+
+------------------------------------------------------------------------
+
+## Utilize other `aes`thetics
+
+```{r}
+#| output-location: column
+library(pdxTrees)
+near_Reed <- get_pdxTrees_parks(park = c("Woodstock Park", "Sellwood Riverfront Park", "Kenilworth Park")) %>%
+  filter(Genus %in% c("Acer", "Quercus", "Pinus", "Thuja", "Pseudotsuga"))
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_point(size = 2) + 
+  theme(legend.position = "bottom")
+```
+
+-   Already saw how to add a third variable to a scatterplot via `color`.
+    -   Can also change size or type.
+
+------------------------------------------------------------------------
+
+## Facet
+
+```{r fac}
+#| output-location: column
+ggplot(data = dogs_top5,
+       mapping = aes(x = Longitude_masked,
+                     y = Latitude_masked)) +
+  geom_point(size = 2) +
+  facet_wrap(~Dog_Name)
+```
+
+------------------------------------------------------------------------
+
+## Facet
+
+```{r}
+#| output-location: column
+ggplot(data = dogs_top5,
+       mapping = aes(x = Longitude_masked,
+                     y = Latitude_masked)) +
+  geom_point(size = 2)  +
+  facet_grid(Breed~Dog_Name)
+```
+
+------------------------------------------------------------------------
+
+## Consider Doing Both!
+
+```{r both}
+#| output-location: column
+ggplot(data = dogs_top5,
+       mapping = aes(x = Longitude_masked,
+                     y = Latitude_masked,
+                     color = Breed)) +
+  geom_point(size = 2) +
+  facet_wrap(~Dog_Name, ncol = 2)
+```
+
+------------------------------------------------------------------------
+
+## Adding Some Context
+
+```{r line3}
+#| output-location: column
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_point(size = 2) + 
+  theme(legend.position = "bottom") + 
+  labs(x = "Diameter at Breast Height",
+       y = "Carbon Storage (lbs)",
+       color = "What Species?",
+       caption = "Data Collected as part of the Urban Forestry Tree Inventory Project",
+       title = "Tree Species Relationships Near Reed College")
+```
+
+------------------------------------------------------------------------
+
+## Customizing your `ggplot2` Plots
+
+-   There are so **many** ways you can customize the look of your `ggplot2` plots.
+
+-   Let's look at some common changes:
+
+    -   Fussing with labels
+    -   Zooming in
+    -   Using multiple `geoms`
+    -   Color!
+    -   Themes
+
+------------------------------------------------------------------------
+
+## Fussing with Labels: Rotate
+
+```{r bar4}
+#| output-location: column
+ggplot(data = dogs_top5,
+       mapping = aes(x = Longitude_masked,
+                     y = Latitude_masked)) +
+  geom_point(size = 2)  +
+  facet_grid(Breed~Dog_Name) + 
+  theme(axis.text.x =
+          element_text(angle = 45,
+                       vjust = 1,
+                       hjust = 1))
+
+```
+
+------------------------------------------------------------------------
+
+## Zooming In
+
+```{r}
+#| output-location: column
+biketown <- read_csv("data/biketown.csv")
+
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
+                     y = Distance_Miles,
+                     fill = PaymentPlan)) +
+  geom_boxplot() +
+  guides(fill = "none")
+```
+
+------------------------------------------------------------------------
+
+## Zooming In
+
+```{r box5}
+#| output-location: column
+
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
+                     y = Distance_Miles,
+                     fill = PaymentPlan)) +
+  geom_boxplot() +
+  guides(fill = "none") +
+  coord_cartesian(ylim = c(0, 10))
+```
+
+------------------------------------------------------------------------
+
+## Multiple `geom`s
+
+```{r}
+#| output-location: column
+ggplot(data = biketown, 
+       mapping = aes(x = PaymentPlan, 
+                     y = Distance_Miles,
+                     fill = PaymentPlan)) +
+  geom_boxplot() +
+  guides(fill = "none") +
+  coord_cartesian(ylim = c(0, 10)) +
+  geom_jitter(width = 0.1,
+              height = 0, 
+              alpha = 0.2)
+```
+
+------------------------------------------------------------------------
+
+## Multiple `geom`s
+
+```{r}
+#| output-location: column
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_line() +
+  theme(legend.position = "bottom") +
+  geom_point(size = 2)
+```
+
+------------------------------------------------------------------------
+
+## Change the Color
+
+```{r}
+colors()
+```
+
+------------------------------------------------------------------------
+
+## Change the Color
+
+```{r}
+#| output-location: column
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_line(size = 2) +
+  theme(legend.position = "bottom") +
+  scale_color_manual(values = c("violetred2",
+                                "steelblue4",
+                                "forestgreen",
+                                "goldenrod",
+                                "maroon"))
+```
+
+------------------------------------------------------------------------
+
+## Use a [Different Theme](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+
+```{r}
+#| output-location: column
+ggplot(data = near_Reed,
+       mapping = aes(x = DBH,
+                     y = Carbon_Storage_lb,
+                     color = Genus)) +
+  geom_line(size = 2) +
+  scale_color_manual(values = c("violetred2",
+                                "steelblue4",
+                                "forestgreen",
+                                "goldenrod",
+                                "maroon")) +
+  theme_bw() +
+  theme(legend.position = "bottom") 
+```
+
+# What `ggplot2` questions do we have?
+
+
+
