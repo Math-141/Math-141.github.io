@@ -85,6 +85,20 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
     - Coverage every week day! 
 -   Other resources
     - Individual tutoring
+    
+    
+## Math 141 Office Hours Schedule {.center}
+
+
+:::: {.columns}
+
+::: {.column width = "80%"}
+
+![](img/office_hours.png)
+:::
+
+
+::::
 
 
 ## Data Frames
@@ -493,6 +507,10 @@ Be careful that your design choices don't cause your viewer to draw incorrect co
 
 -   Practicing **decomposing** graphics should make it easier for us to **compose** our own graphics.
 
+
+# Live Coding
+
+(Time permitting)
 
 # The DataLab @ Reed
 
