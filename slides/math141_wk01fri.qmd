@@ -66,6 +66,7 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 ## Goals for Today
 
 ::: nonincremental
+-   Review data frames.
 -   Motivate data visualizations.
 -   Develop **language** to talk about the components of a graphic.
 -   Practice deconstructing graphics.
@@ -73,6 +74,113 @@ if you are on the waitlist, please sign in to class here: [tinyurl.com/math141-w
 :::
 
 ------------------------------------------------------------------------
+
+## Reminders
+
+-   DAR accommodations.
+-   **Slack** for communication.
+    - `general-qa` and `coding-qa` channels
+-   Course assistant (CA) office hours are now posted
+    - CA Office hours start next week
+    - Coverage every week day! 
+-   Other resources
+    - Individual tutoring
+
+
+## Data Frames
+
+Data in **spreadsheet**-like format where:
+
+-   Rows = Observations/cases
+
+-   Columns = Variables
+
+```{r}
+#| echo: false
+# pak::pak("simonpcouch/detectors")
+library(tidyverse)
+library(knitr)
+library(kableExtra)
+library(detectors)
+
+detectors %>%
+  mutate(ID = row_number()) %>%
+  relocate(ID) %>%
+  select(-document_id, -prompt) %>%
+  head() %>%
+
+  kable() %>%   
+  kable_styling(bootstrap_options = c("responsive", "bordered", "striped", "compact"),
+                font_size = 32)
+
+```
+
+-   Data from **GPT Detectors Are Biased Against Non-Native English Writers.** *Weixin Liang*, *Mert Yuksekgonul*, *Yining Mao*, *Eric Wu*, *James Zou.* [CellPress Patterns](https://doi.org/10.1016/j.patter.2023.100779) and available in the `R` package `detectors`.
+
+------------------------------------------------------------------------
+
+## Data Frames
+
+```{r}
+#| echo: false
+
+detectors %>%
+  mutate(ID = row_number()) %>%
+  relocate(ID) %>%
+  select(-document_id, -prompt) %>%
+  head() %>%
+
+  kable() %>%   
+  kable_styling(bootstrap_options = c("responsive", "bordered", "striped", "compact"),
+                font_size = 32)
+
+```
+
+Columns = Variables
+
+**Variables**: Describe characteristics of the observations
+
+-   **Quantitative**: Numerical in nature
+
+-   **Categorical**: Values are categories
+
+-   **Identification**: Uniquely identify each case
+
+------------------------------------------------------------------------
+
+
+## Types of variables
+
+:::: {.columns}
+
+::: {.column width = "50%"}
+
+-   **Identification**: Uniquely identify each case
+
+<br>
+
+-   **Quantitative**: Numerical in nature
+    - Those that can take a range of values are called **\rred{continuous}** (e.g., age, income)
+    - Those that only take particular (often whole number) values are called **discrete** (e.g., result of a dice roll)
+    - Not every variable involving numbers is quantitative!
+
+:::
+
+::: {.column width = "50%"}
+
+-   **Categorical**: Values are categories
+    - Usually take \textit{non-numeric} values (e.g., Race/Ethnicity or Gender)
+    - But can take numeric values! (e.g., zip code)
+    - The values that a categorical variable can take are called its **levels** 
+    - **Ordinal** categorical variables can be ordered (e.g., level of education, variables collected with a Likert scale)
+    - Categorical variables that cannot be ordered are called **nominal** (e.g., Race/Ethnicity)
+  
+
+
+:::
+
+
+::::
 
 ## Why construct a graph? {.center}
 

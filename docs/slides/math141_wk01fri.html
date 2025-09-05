@@ -123,6 +123,8 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
   <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
   <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 </head>
@@ -155,12 +157,250 @@
 <h2>Goals for Today</h2>
 <div>
 <ul>
+<li>Review data frames.</li>
 <li>Motivate data visualizations.</li>
 <li>Develop <strong>language</strong> to talk about the components of a graphic.</li>
 <li>Practice deconstructing graphics.</li>
 <li>Discuss good graphical practices.</li>
 </ul>
 </div>
+</section>
+<section id="reminders" class="slide level2">
+<h2>Reminders</h2>
+<ul>
+<li class="fragment">DAR accommodations.</li>
+<li class="fragment"><strong>Slack</strong> for communication.
+<ul>
+<li class="fragment"><code>general-qa</code> and <code>coding-qa</code> channels</li>
+</ul></li>
+<li class="fragment">Course assistant (CA) office hours are now posted
+<ul>
+<li class="fragment">CA Office hours start next week</li>
+<li class="fragment">Coverage every week day!</li>
+</ul></li>
+<li class="fragment">Other resources
+<ul>
+<li class="fragment">Individual tutoring</li>
+</ul></li>
+</ul>
+</section>
+<section id="data-frames" class="slide level2">
+<h2>Data Frames</h2>
+<p>Data in <strong>spreadsheet</strong>-like format where:</p>
+<ul>
+<li class="fragment"><p>Rows = Observations/cases</p></li>
+<li class="fragment"><p>Columns = Variables</p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-bordered table-striped caption-top" data-quarto-postprocess="true" style="font-size: 32px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">kind</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">.pred_AI</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.pred_class</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">detector</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">native</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">0.9999942</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">Sapling</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Real TOEFL</td>
+<td style="text-align: left;">Human</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">0.8281448</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">Crossplag</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Real TOEFL</td>
+<td style="text-align: left;">Human</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">0.0002137</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">Crossplag</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Real College Essays</td>
+<td style="text-align: left;">Human</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">ZeroGPT</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Fake CS224N - GPT3</td>
+<td style="text-align: left;">GPT3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: right;">0.0017841</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">OriginalityAI</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Fake CS224N - GPT3, PE</td>
+<td style="text-align: left;">GPT4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">0.0001783</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">HFOpenAI</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Real CS224N</td>
+<td style="text-align: left;">Human</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+<ul>
+<li class="fragment">Data from <strong>GPT Detectors Are Biased Against Non-Native English Writers.</strong> <em>Weixin Liang</em>, <em>Mert Yuksekgonul</em>, <em>Yining Mao</em>, <em>Eric Wu</em>, <em>James Zou.</em> <a href="https://doi.org/10.1016/j.patter.2023.100779">CellPress Patterns</a> and available in the <code>R</code> package <code>detectors</code>.</li>
+</ul>
+</section>
+<section id="data-frames-1" class="slide level2">
+<h2>Data Frames</h2>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-bordered table-striped caption-top" data-quarto-postprocess="true" style="font-size: 32px; margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">ID</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">kind</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">.pred_AI</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">.pred_class</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">detector</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">native</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">0.9999942</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">Sapling</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Real TOEFL</td>
+<td style="text-align: left;">Human</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">0.8281448</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: left;">Crossplag</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Real TOEFL</td>
+<td style="text-align: left;">Human</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">0.0002137</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">Crossplag</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Real College Essays</td>
+<td style="text-align: left;">Human</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">ZeroGPT</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Fake CS224N - GPT3</td>
+<td style="text-align: left;">GPT3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">AI</td>
+<td style="text-align: right;">0.0017841</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">OriginalityAI</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: left;">Fake CS224N - GPT3, PE</td>
+<td style="text-align: left;">GPT4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: right;">0.0001783</td>
+<td style="text-align: left;">Human</td>
+<td style="text-align: left;">HFOpenAI</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Real CS224N</td>
+<td style="text-align: left;">Human</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+<p>Columns = Variables</p>
+<p><strong>Variables</strong>: Describe characteristics of the observations</p>
+<ul>
+<li class="fragment"><p><strong>Quantitative</strong>: Numerical in nature</p></li>
+<li class="fragment"><p><strong>Categorical</strong>: Values are categories</p></li>
+<li class="fragment"><p><strong>Identification</strong>: Uniquely identify each case</p></li>
+</ul>
+</section>
+<section id="types-of-variables" class="slide level2">
+<h2>Types of variables</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><strong>Identification</strong>: Uniquely identify each case</li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment"><strong>Quantitative</strong>: Numerical in nature
+<ul>
+<li class="fragment">Those that can take a range of values are called <strong></strong> (e.g., age, income)</li>
+<li class="fragment">Those that only take particular (often whole number) values are called <strong>discrete</strong> (e.g., result of a dice roll)</li>
+<li class="fragment">Not every variable involving numbers is quantitative!</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<ul>
+<li class="fragment"><strong>Categorical</strong>: Values are categories
+<ul>
+<li class="fragment">Usually take values (e.g., Race/Ethnicity or Gender)</li>
+<li class="fragment">But can take numeric values! (e.g., zip code)</li>
+<li class="fragment">The values that a categorical variable can take are called its <strong>levels</strong></li>
+<li class="fragment"><strong>Ordinal</strong> categorical variables can be ordered (e.g., level of education, variables collected with a Likert scale)</li>
+<li class="fragment">Categorical variables that cannot be ordered are called <strong>nominal</strong> (e.g., Race/Ethnicity)</li>
+</ul></li>
+</ul>
+</div></div>
 </section>
 <section id="why-construct-a-graph" class="slide level2 center">
 <h2>Why construct a graph?</h2>
@@ -215,7 +455,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
 </figure>
 </div>
 </div>
@@ -229,7 +469,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
 </figure>
 </div>
 </div>
@@ -298,7 +538,7 @@
 </div></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_3bdb4458" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_e2c43086" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -329,7 +569,7 @@
 </div></div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_6e3ff92d" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_ddd847a1" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
@@ -396,7 +636,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
