@@ -1,68 +1,5 @@
 [
   {
-    "objectID": "syllabus.html",
-    "href": "syllabus.html",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Lecture and Lab Instructor: Grayson White (he/him)\n\nEmail: gwhite@reed.edu\nOffice: Library 390\nOffice hours: Monday 2:30pm-4:00pm, Wednesday 1:00pm-2:30pm, or by appointment.\n\nIf the available times do not work for you, I am more than happy to schedule a meeting by appointment. Please email me or send me a Slack message to set up a time to meet.\n\n\nCourse Assistants: We have three course assistants for Math 141 this semester. A course assistant will be present at each lab section. Further, each course assistant will hold office hours during the week. All course assistant office hours will be held in ETC 105B. Feel free to go to any course assistant’s office hours, even if they are not the course assistant for your lab section. The course assistants are:\n\nRemy Pham\n\nLab section: 9am - 10:20am\nOffice hours: Monday & Friday: 5pm - 6:30pm\n\nAlayne Zhang\n\nLab section: 10:30am - 11:50am\nOffice Hours: Tuesday & Thursday: 5pm - 6:30pm\n\nNat Lincoln\n\nLab section: 1:40pm - 3:00pm Lab\nOffice Hours: Wednesday: 5pm - 7pm, Monday: 6:30pm - 7:30pm\n\n\nLinks and course resources:\nThe course website, math-141.github.io, inlcludes information on the course, lecture slides, public course materials, and links to all other course resources:\n\nSlack, for course correspondence,\nGradescope, for turning in assignments, and\nMoodle, (sparingly) for private course materials\n\nMeeting Times:\nWe’ll have a lecture-style meeting three times a week, and a lab meeting once a week.\n\nLectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.\nLabs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3:00pm (sections: F03 & F13). The morning Labs (9:00am - 10:20am and 10:30am - 11:50am) will meet in the Performing Arts Building, Room 104. The afternoon lab (1:40pm - 3:00pm) will meet in the Library, Room 340."
-  },
-  {
-    "objectID": "syllabus.html#useful-information",
-    "href": "syllabus.html#useful-information",
-    "title": "Syllabus",
-    "section": "",
-    "text": "Lecture and Lab Instructor: Grayson White (he/him)\n\nEmail: gwhite@reed.edu\nOffice: Library 390\nOffice hours: Monday 2:30pm-4:00pm, Wednesday 1:00pm-2:30pm, or by appointment.\n\nIf the available times do not work for you, I am more than happy to schedule a meeting by appointment. Please email me or send me a Slack message to set up a time to meet.\n\n\nCourse Assistants: We have three course assistants for Math 141 this semester. A course assistant will be present at each lab section. Further, each course assistant will hold office hours during the week. All course assistant office hours will be held in ETC 105B. Feel free to go to any course assistant’s office hours, even if they are not the course assistant for your lab section. The course assistants are:\n\nRemy Pham\n\nLab section: 9am - 10:20am\nOffice hours: Monday & Friday: 5pm - 6:30pm\n\nAlayne Zhang\n\nLab section: 10:30am - 11:50am\nOffice Hours: Tuesday & Thursday: 5pm - 6:30pm\n\nNat Lincoln\n\nLab section: 1:40pm - 3:00pm Lab\nOffice Hours: Wednesday: 5pm - 7pm, Monday: 6:30pm - 7:30pm\n\n\nLinks and course resources:\nThe course website, math-141.github.io, inlcludes information on the course, lecture slides, public course materials, and links to all other course resources:\n\nSlack, for course correspondence,\nGradescope, for turning in assignments, and\nMoodle, (sparingly) for private course materials\n\nMeeting Times:\nWe’ll have a lecture-style meeting three times a week, and a lab meeting once a week.\n\nLectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.\nLabs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3:00pm (sections: F03 & F13). The morning Labs (9:00am - 10:20am and 10:30am - 11:50am) will meet in the Performing Arts Building, Room 104. The afternoon lab (1:40pm - 3:00pm) will meet in the Library, Room 340."
-  },
-  {
-    "objectID": "syllabus.html#learning-outcomes",
-    "href": "syllabus.html#learning-outcomes",
-    "title": "Syllabus",
-    "section": "Learning Outcomes",
-    "text": "Learning Outcomes\nIn this course, you will learn how to think critically with data by engaging in the entire data analysis process. While most of our time will be spent learning techniques related to the Exploration and Visualization step and the Modeling and Inference step, you will also practice the other important components of analyzing data. Furthermore, since computation is an integral part of modern statistical work, you will learn to write R code – leveraging the RStudio user interface – to analyze data and will become familiar with several tidyverse R packages. You will also develop a reproducible and shareable workflow by using Quarto documents for all analyses.\nBy the end of the course, you will have improved your data acumen and your ability to think statistically. More concretely, you will be better able to accomplish the following tasks, which have been broken down by steps of the data analysis workflow:\n\n\n\n\n\nQuestion formulation:\n\nTranslate a research problem into a set of questions that can be answered with data.\nFormulate data questions as measurable statements about parameters in a model.\n\nData acquisition:\n\nDetermine the necessary data to conduct analyses.\nReflect on how design structures and data collection impact potential conclusions.\nIdentify potential ethical concerns surrounding data collection and data privacy.\n\nData wrangling:\n\nExplore datasets to determine what wrangling may be required (e.g., removing missing values, filtering out variables or observations, collapsing categories of a categorical variable).\nApply basic data wrangling operations.\n\nExploration and Visualization:\n\nUnderstand key principles of designing and creating effective data visualizations.\nMaster creating graphs and drawing sound conclusions from graphs.\nCompute and interpret summary statistics.\n\nModeling and Inference:\n\nUnderstand and be able to explain key probabilistic and inferential concepts, such as, sampling, variability, random variables, distributions, confidence, and significance.\nDetermine the correct model for a given problem and set of data.\nAppropriately apply and draw inferences from a statistical model, including quantifying and interpreting the uncertainty in model estimates.\nConsider the ethical implications of various modeling practices.\n\nCommunicating Findings:\n\nDevelop a reproducible workflow using Quarto documents.\nInterpret and communicate results of statistical analyses effectively for both a statistical and a non-statistical audience.\nBe able to reflect on the data involved in an analysis and show a curiosity for other ways of examining and thinking about the data."
-  },
-  {
-    "objectID": "syllabus.html#learning-materials-tools",
-    "href": "syllabus.html#learning-materials-tools",
-    "title": "Syllabus",
-    "section": "Learning Materials & Tools",
-    "text": "Learning Materials & Tools\nTextbooks: We’ll use three textbooks for our course, all of which are freely available online:\n\nStatistical Inference via Data Science: A ModernDive into R and the tidyverse, Second Edition\n\nReading abbreviation: MD\n\nIntroduction to Modern Statistics, Second Edition\n\nReading abbreviation: IMS\n\nOpenIntro Statistics, Fourth Edition\n\nReading abbreviation: OI\n\n\nTechnologies (R, RStudio, and Quarto): R is a free and open source programming language, RStudio is an Integrated Development Environment (IDE) which allows for streamlined use of the R programming language, and Quarto is a markdown language that allows for reproducible documents that include R code, text, images, and much more! We will access these technologies via the RStudio Server for this course. A laptop that can access the internet and use the RStudio Server is required for this course."
-  },
-  {
-    "objectID": "syllabus.html#assignments-activities-and-exams",
-    "href": "syllabus.html#assignments-activities-and-exams",
-    "title": "Syllabus",
-    "section": "Assignments, activities, and exams",
-    "text": "Assignments, activities, and exams\nWe’ll have a variety of assignments, activities, and exams for this course. In particular:\n\nLab assignments:\n\nAlmost every week, we will have a lab assignment. The lab assignments will be assigned on Thursday at lab time and due the following week on Thursday at 9:00am.\nLab assignments will include both computational and theoretical questions.\nThese lab assignments will be turned in via Gradescope.\nTo help with various circumstances (expected and unexpected), you have up to 4 additional extensions days that you can use as you need (e.g., 1 additional day for 4 labs, 4 additional days for 1 lab, …) but the extension days must be rounded up to the nearest day (e.g., 2 extra hours = 1 extension day). If you need to use any extension days, send Grayson an email (not a Slack message) with the title: “Math 141 Extension Days” that includes the lab number you are using an extension for, and the number of day(s) used.\n\nHomework assignments:\n\nFor most lecture class periods, along with the assigned reading, I will assign a short set of homework questions related to the reading to be turned in at the beginning of class.\nThese will be turned in by you in person, as a hard copy, at the beginning of class. If you arrive to class late, please wait until the end of class to turn in your answers.\nNo late homework assignments are accepted, but up to three missed homework assignments will be dropped from your final grade.\n\nIn-class activities:\n\nDuring lecture and lab, we will include some in-class activities. Including but not limited to:\n\ngroup activities,\nindependent activities,\nlow-stakes quizzes.\n\n\nExams:\n\nWe’ll have a midterm exam and final exam for this course. Each exam will have a written take-home component and an in-person oral component.\nThe written component of the midterm exam will be released on Monday 10/12 and will be due by Wednesday 10/14. The oral component of the midterm exam will occur on Thursday 10/15 and Friday 10/16.\nThe written component of the final exam will be released on Wednesday 12/7, the last day of classes, and will be due at the end of reading week. The oral component of the final exam will occur during finals week.\nNo late exams are accepted."
-  },
-  {
-    "objectID": "syllabus.html#distribution-requirements",
-    "href": "syllabus.html#distribution-requirements",
-    "title": "Syllabus",
-    "section": "Distribution Requirements",
-    "text": "Distribution Requirements\nThis course can be used towards your Group III, “Natural, Mathematical, and Psychological Science” requirement. It accomplishes the following learning goals for the group:\n\nUse and evaluate quantitative data or modeling, or use logical/mathematical reasoning to evaluate, test or prove statements.\nGiven a problem or question, formulate a hypothesis or conjecture, and design an experiment, collect data or use mathematical reasoning to test or validate it.\nCollect, analyze, and interpret data.\n\nThis course does satisfy the “primary data collection and analysis” requirement."
-  },
-  {
-    "objectID": "syllabus.html#course-climate",
-    "href": "syllabus.html#course-climate",
-    "title": "Syllabus",
-    "section": "Course Climate",
-    "text": "Course Climate\nWe expect everyone in this class to strive to foster a learning environment that is equitable, inclusive, and welcoming. If you experience any barriers to learning, please come to Professor Grayson White or a college administrator with your concerns.\nCode of Conduct:\nWe expect all members of Math 141 to make participation a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.\nWe expect everyone to act and interact in ways that contribute to an open, welcoming, inclusive, and healthy community of learners. You can contribute to a positive learning environment by demonstrating empathy and kindness, being respectful of differing viewpoints and experiences, and giving and gracefully accepting constructive feedback.1"
-  },
-  {
-    "objectID": "syllabus.html#policies",
-    "href": "syllabus.html#policies",
-    "title": "Syllabus",
-    "section": "Policies",
-    "text": "Policies\nLate work policy:\nPlease see the late work policy for each individual assignment type that is included in the Assignments and exams section of the syllabus.\nCollaboration Policy and Academic Honesty:\nWorking with your classmates on difficult and interesting problems can not only help your learning, but also help you get to know each other! Therefore, I encourage you to collaborate on assignments but every piece of work you do must be your own. Copying and pasting other people’s work or code is not acceptable. The Honor Principle must guide your conduct in this class.\nIf you choose to collaborate with a classmate, you must add their name to the top of your assignment, and list them as a collaborator, e.g.:\nCollaborator(s): Elliot Shannon, Romain Boutelet\nBut what is collaboration?:\nFor Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you must write up your own problem solutions individually and cannot copy other’s solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited.\nAI Policy:\nArtificial intelligence (AI) tools, such as ChatGPT, Claude, Co-Pilot, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it."
-  },
-  {
-    "objectID": "syllabus.html#footnotes",
-    "href": "syllabus.html#footnotes",
-    "title": "Syllabus",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0.↩︎"
-  },
-  {
     "objectID": "slides/math141_wk02mon.html#goals-for-today",
     "href": "slides/math141_wk02mon.html#goals-for-today",
     "title": "Math 141",
@@ -273,6 +210,223 @@
     "text": "Recap: ggplot2\n\nlibrary(tidyverse)\nggplot(data = ---, mapping = aes(---)) +\n  geom_---(---)"
   },
   {
+    "objectID": "slides/math141_wk01wed.html#goals-for-today",
+    "href": "slides/math141_wk01wed.html#goals-for-today",
+    "title": "Math 141",
+    "section": "Goals for Today",
+    "text": "Goals for Today\n\n\nGetting started in Math 141\n\nCourse structure and technologies\nWhere to find resources\nCourse expectations\n\nStatistical thinking\nData Frames"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#research-interests",
+    "href": "slides/math141_wk01wed.html#research-interests",
+    "title": "Math 141",
+    "section": "Research Interests",
+    "text": "Research Interests\n\n\nStatistical modeling with environmental applications"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#research-interests-1",
+    "href": "slides/math141_wk01wed.html#research-interests-1",
+    "title": "Math 141",
+    "section": "Research Interests",
+    "text": "Research Interests\nAdvising Undergraduate Forestry Data Science Research"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141",
+    "href": "slides/math141_wk01wed.html#getting-started-in-math-141",
+    "title": "Math 141",
+    "section": "Getting Started in Math 141",
+    "text": "Getting Started in Math 141\nCourse website\n\n\n\n\n\nThe course website, math-141.github.io, will be the central location for all our course materials.\nWe’ll use a few other resources to navigate Math 141, but all other tools can be accessed by the quick links in the course website!"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141-1",
+    "href": "slides/math141_wk01wed.html#getting-started-in-math-141-1",
+    "title": "Math 141",
+    "section": "Getting Started in Math 141",
+    "text": "Getting Started in Math 141\nOther Resources\n\n\nReed’s RStudio Server, for coursework,\n\n\n\nA course-wide Slack workspace, for course communication,\n\n\n\nGradescope, for turning in assignments and exams, and\n\n\n\nMoodle, sparingly, for private course materials"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources",
+    "href": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources",
+    "title": "Math 141",
+    "section": "Getting Started in Math 141: Finding Resources",
+    "text": "Getting Started in Math 141: Finding Resources"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources-1",
+    "href": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources-1",
+    "title": "Math 141",
+    "section": "Getting Started in Math 141: Finding Resources",
+    "text": "Getting Started in Math 141: Finding Resources"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources-2",
+    "href": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources-2",
+    "title": "Math 141",
+    "section": "Getting Started in Math 141: Finding Resources",
+    "text": "Getting Started in Math 141: Finding Resources"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#math-141-the-whole-game",
+    "href": "slides/math141_wk01wed.html#math-141-the-whole-game",
+    "title": "Math 141",
+    "section": "Math 141: The whole game",
+    "text": "Math 141: The whole game"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#course-expectations-and-structure",
+    "href": "slides/math141_wk01wed.html#course-expectations-and-structure",
+    "title": "Math 141",
+    "section": "Course expectations and structure",
+    "text": "Course expectations and structure"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#my-info",
+    "href": "slides/math141_wk01wed.html#my-info",
+    "title": "Math 141",
+    "section": "My info",
+    "text": "My info\n\n\nName: Grayson White (he/him), you can call me ‘Grayson’\nEmail: gwhite@reed.edu\nOffice: Library 390\nOffice hours: Monday 2:30-4, Wednesday 1-2:30, or by appointment"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#a-typical-day-in-math-141",
+    "href": "slides/math141_wk01wed.html#a-typical-day-in-math-141",
+    "title": "Math 141",
+    "section": "A typical day in Math 141",
+    "text": "A typical day in Math 141"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#learning-outcomes",
+    "href": "slides/math141_wk01wed.html#learning-outcomes",
+    "title": "Math 141",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\n\n\n\n\n\nIn this course, you will learn how to think critically with data by engaging in the entire data analysis process.\nMost of our time will be spent in the Exploration and Visualization, Data Wrangling, and Modeling and Inference steps, but we will spend some time in each cog!\n\nFirst ~3 weeks in Exploration and Visualization and Data Wrangling\nNext ~3 weeks in Modeling\nFinal ~half of the course in Inference"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#assignments-and-exams",
+    "href": "slides/math141_wk01wed.html#assignments-and-exams",
+    "title": "Math 141",
+    "section": "Assignments and Exams",
+    "text": "Assignments and Exams\n\n\n\n\n\nLab assignments (weekly-ish)\n\nAssigned Thursday in lab\nDue the following Thursday at 9am\nAssigned each week besides exam weeks\n\n\n\n\n\nHomework assignments (daily-ish)\n\nAssigned most days in lecture\nDue in person at the following lecture\nMuch shorter than the labs, often related to the daily reading\n\n\n\n\n\n\n\n\nIn-class activities (semi-regular)\n\nIndividual activities\nGroup activities\nLow-stakes quizzes\n\n\n\n\n\nExams (1 midterm, 1 final)\n\nBoth have a written component and an oral component.\nMidterm written: 10/12 - 10/14\nMidterm orals: 10/15-10/16\nFinal written: reading week\nFinal orals: finals week"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#course-climate",
+    "href": "slides/math141_wk01wed.html#course-climate",
+    "title": "Math 141",
+    "section": "Course Climate",
+    "text": "Course Climate\n\nWe expect everyone in this class to strive to foster a learning environment that is equitable, inclusive, and welcoming. If you experience any barriers to learning, please come to Professor Grayson White or a college administrator with your concerns.\n\nCode of Conduct:\nWe expect all members of Math 141 to make participation a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.\nWe expect everyone to act and interact in ways that contribute to an open, welcoming, inclusive, and healthy community of learners. You can contribute to a positive learning environment by demonstrating empathy and kindness, being respectful of differing viewpoints and experiences, and giving and gracefully accepting constructive feedback.1\n\n\n\n\n−+\n01:00\n\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#late-work",
+    "href": "slides/math141_wk01wed.html#late-work",
+    "title": "Math 141",
+    "section": "Late Work",
+    "text": "Late Work\n\n\n\nLabs: up to 4 extensions days can be used throughout the semester.\n\ne.g., 1 additional day for 4 labs, 4 additional days for 1 lab, …\nrounding days up\n\n\n\n\n\nHomeworks: no late homework assignments are accepted, but the lowest three scores will be dropped.\n\n\n\n\nIn-class assignments: cannot be made up.\n\n\n\n\nExams: no late exams are accepted."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#artificial-intelligence-ai-policy",
+    "href": "slides/math141_wk01wed.html#artificial-intelligence-ai-policy",
+    "title": "Math 141",
+    "section": "Artificial Intelligence (AI) Policy",
+    "text": "Artificial Intelligence (AI) Policy\n\nArtificial intelligence (AI) tools, such as ChatGPT, Claude, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.\n\n\n\n\n−+\n01:00\n\n\n\n\nWhy this policy?"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#engagement",
+    "href": "slides/math141_wk01wed.html#engagement",
+    "title": "Math 141",
+    "section": "Engagement",
+    "text": "Engagement\n\n\n \n\n\n\n\n\n\nBeing actively present is key.\n\n\n\nDuring lecture and lab, remove distractions.\n\nWhen we are on our computers, close email, social media, news, etc.\nHide your phone.\n\nI have high expectations but know that all of you (regardless of your stats, math, or computing background) have the ability to meet them."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#math-141-is-about-developing-our-statistical-thinking-skills.",
+    "href": "slides/math141_wk01wed.html#math-141-is-about-developing-our-statistical-thinking-skills.",
+    "title": "Math 141",
+    "section": "Math 141 is about developing our statistical thinking skills.",
+    "text": "Math 141 is about developing our statistical thinking skills.\n\n\nWhat is statistical thinking?\n\n\n\nIt is not the same as mathematical thinking.\n\n\n\nLet’s discover what statistical thinking is through some examples."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#data-in-math-141",
+    "href": "slides/math141_wk01wed.html#data-in-math-141",
+    "title": "Math 141",
+    "section": "Data in Math 141",
+    "text": "Data in Math 141\nWill use a wide-range of real and relevant data examples"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#data-in-math-141-1",
+    "href": "slides/math141_wk01wed.html#data-in-math-141-1",
+    "title": "Math 141",
+    "section": "Data in Math 141",
+    "text": "Data in Math 141\n\n\n\n\n\n\n\nI understand that some of these topics have likely had profound impacts on your lives.\nWe will focus class time on the key course objectives but will use these current topics to empower ourselves and to see how we can productively participate with data."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-1",
+    "href": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-1",
+    "title": "Math 141",
+    "section": "Example: Visualizing COVID Prevalence",
+    "text": "Example: Visualizing COVID Prevalence\n\nIn May of 2020, the Georgia Department of Public Health posted the following graph:\n\n\n\n\n\n\n\n\n\nAt a quick first glance, what story does the graph appear to be telling?\nWhat is misleading about the graph? How could we fix this issue?"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-2",
+    "href": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-2",
+    "title": "Math 141",
+    "section": "Example: Visualizing COVID Prevalence",
+    "text": "Example: Visualizing COVID Prevalence\n\nAfter public outcry, the Georgia Department of Public Health said they made a mistake and posted the following updated graph:\n\n\n\n\n\n\n\n\n\nHow do your conclusions about COVID-19 cases in Georgia change when now interpreting this new graph?"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-3",
+    "href": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-3",
+    "title": "Math 141",
+    "section": "Example: Visualizing COVID Prevalence",
+    "text": "Example: Visualizing COVID Prevalence\nAlberto Cairo, a journalist and designer, created the second graph of the Georgia COVID-19 data:\n\n \n\n\nA key principle of data visualization is to “help the viewer make meaningful comparisons”.\nWhat comparisons are made easy by the lefthand graph? What about by the righthand graph?\nFrom these graphs, can we get an accurate estimate of the COVID prevalence in these Georgian counties over this two week period?"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#statistical-thinking",
+    "href": "slides/math141_wk01wed.html#statistical-thinking",
+    "title": "Math 141",
+    "section": "Statistical Thinking",
+    "text": "Statistical Thinking\n\nAbout developing reasoning (not just learning definitions and formulae).\nStatistical thinking requires judgment that takes time to develop.\n\nWill see examples and practice applying statistical thinking throughout the course.\n\nDeveloping our statistical thinking skills will allow us to soundly extract knowledge from data!"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#what-areis-data",
+    "href": "slides/math141_wk01wed.html#what-areis-data",
+    "title": "Math 141",
+    "section": "What are/is Data?",
+    "text": "What are/is Data?\n\n\n\n“‘Raw data’ is an oxymoron.” – Lisa Gitelman\n\n\n\n“Data … is information made tractable.” – Catherine D’Ignazio and Lauren Klein"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#data-frames",
+    "href": "slides/math141_wk01wed.html#data-frames",
+    "title": "Math 141",
+    "section": "Data Frames",
+    "text": "Data Frames\nData in spreadsheet-like format where:\n\nRows = Observations/cases\nColumns = Variables\n\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\n\nData from GPT Detectors Are Biased Against Non-Native English Writers. Weixin Liang, Mert Yuksekgonul, Yining Mao, Eric Wu, James Zou. CellPress Patterns and available in the R package detectors."
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#data-frames-1",
+    "href": "slides/math141_wk01wed.html#data-frames-1",
+    "title": "Math 141",
+    "section": "Data Frames",
+    "text": "Data Frames\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\nRows = Observations/cases\nWhat are the cases? What does each row represent?"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#data-frames-2",
+    "href": "slides/math141_wk01wed.html#data-frames-2",
+    "title": "Math 141",
+    "section": "Data Frames",
+    "text": "Data Frames\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\nColumns = Variables\nVariables: Describe characteristics of the observations\n\nQuantitative: Numerical in nature\nCategorical: Values are categories\nIdentification: Uniquely identify each case"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#next-time",
+    "href": "slides/math141_wk01wed.html#next-time",
+    "title": "Math 141",
+    "section": "Next time",
+    "text": "Next time"
+  },
+  {
+    "objectID": "slides/math141_wk01wed.html#next-time-1",
+    "href": "slides/math141_wk01wed.html#next-time-1",
+    "title": "Math 141",
+    "section": "Next time",
+    "text": "Next time\nProblem 1 of Lab 1: Create your own Dear Data postcard!\n\n\n\n\n\n\n\n\n\nStep 1: Collect data on some aspect of your life.\nStep 2: Find a story in your data and determine your postcard recipient.\nStep 3: Figure out how you want to visualize the story.\nStep 4+: Visualize your data on a blank postcard.\n\n\n\nBring a laptop to lab tomorrow!"
+  },
+  {
     "objectID": "slides/math141_wk01thu.html#hand-drawn-data-viz",
     "href": "slides/math141_wk01thu.html#hand-drawn-data-viz",
     "title": "Math 141",
@@ -287,15 +441,22 @@
     "text": "Hand-Drawn Data Viz Examples\nDear Data\n\n“Each week, and for a year, we collected and measured a particular type of data about our lives, used this data to make a drawing on a postcard-sized sheet of paper, and then dropped the postcard in an English”postbox” (Stefanie) or an American “mailbox” (Giorgia)!“"
   },
   {
+    "objectID": "slides/math141_wk01thu.html#section",
+    "href": "slides/math141_wk01thu.html#section",
+    "title": "Math 141",
+    "section": "::::",
+    "text": "::::\nMore Dear Data Examples\n\nBecky Cooper handed out hand-drawn maps of Manhattan to strangers and asked them to “map their Manhattan.”\n\n\n\n\nMap drawn by New Yorker staff writer Patricia Marx\n\n\n\nWhat would the data frame for this visualization look like?"
+  },
+  {
     "objectID": "slides/math141_wk01thu.html#goal-over-the-next-few-days-collect-data-from-your-life-so-that-you-can-visualize-it-on-lab-1.",
     "href": "slides/math141_wk01thu.html#goal-over-the-next-few-days-collect-data-from-your-life-so-that-you-can-visualize-it-on-lab-1.",
     "title": "Math 141",
     "section": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.",
-    "text": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.\n\n\nRecommendations\n\n\nStore the data in your favorite spreadsheet program (Google Sheets, Numbers, Excel).\nDetermine what your cases/observations will be.\nCollect data on more variables than you will likely visualize. It is hard to know beforehand what the interesting relationships will be.\nCome to my office (Library 390) to borrow art supplies (colored pencils and felt-tip markers)!"
+    "text": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.\n\n\n\nRecommendations\n\n\nStore the data in your favorite spreadsheet program (Google Sheets, Numbers, Excel).\nDetermine what your cases/observations will be.\nCollect data on more variables than you will likely visualize. It is hard to know beforehand what the interesting relationships will be.\nCome to my office (Library 390) to borrow art supplies (colored pencils and felt-tip markers)!"
   },
   {
-    "objectID": "slides/math141_wk01thu.html#section",
-    "href": "slides/math141_wk01thu.html#section",
+    "objectID": "slides/math141_wk01thu.html#section-1",
+    "href": "slides/math141_wk01thu.html#section-1",
     "title": "Math 141",
     "section": "",
     "text": "Demo of accessing the RStudio Server\nand intro to Quarto"
@@ -1190,6 +1351,69 @@
     "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
   },
   {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Lecture and Lab Instructor: Grayson White (he/him)\n\nEmail: gwhite@reed.edu\nOffice: Library 390\nOffice hours: Monday 2:30pm-4:00pm, Wednesday 1:00pm-2:30pm, or by appointment.\n\nIf the available times do not work for you, I am more than happy to schedule a meeting by appointment. Please email me or send me a Slack message to set up a time to meet.\n\n\nCourse Assistants: We have three course assistants for Math 141 this semester. A course assistant will be present at each lab section. Further, each course assistant will hold office hours during the week. All course assistant office hours will be held in ETC 105B. Feel free to go to any course assistant’s office hours, even if they are not the course assistant for your lab section. The course assistants are:\n\nRemy Pham\n\nLab section: 9am - 10:20am\nOffice hours: Monday & Friday: 5pm - 6:30pm\n\nAlayne Zhang\n\nLab section: 10:30am - 11:50am\nOffice Hours: Tuesday & Thursday: 5:15pm - 6:45pm\n\nNat Lincoln\n\nLab section: 1:40pm - 3:00pm Lab\nOffice Hours: Wednesday: 5pm - 7pm, Monday: 6:30pm - 7:30pm\n\n\nLinks and course resources:\nThe course website, math-141.github.io, inlcludes information on the course, lecture slides, public course materials, and links to all other course resources:\n\nSlack, for course correspondence,\nGradescope, for turning in assignments, and\nMoodle, (sparingly) for private course materials\n\nMeeting Times:\nWe’ll have a lecture-style meeting three times a week, and a lab meeting once a week.\n\nLectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.\nLabs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3:00pm (sections: F03 & F13). The morning Labs (9:00am - 10:20am and 10:30am - 11:50am) will meet in the Performing Arts Building, Room 104. The afternoon lab (1:40pm - 3:00pm) will meet in the Library, Room 340."
+  },
+  {
+    "objectID": "syllabus.html#useful-information",
+    "href": "syllabus.html#useful-information",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Lecture and Lab Instructor: Grayson White (he/him)\n\nEmail: gwhite@reed.edu\nOffice: Library 390\nOffice hours: Monday 2:30pm-4:00pm, Wednesday 1:00pm-2:30pm, or by appointment.\n\nIf the available times do not work for you, I am more than happy to schedule a meeting by appointment. Please email me or send me a Slack message to set up a time to meet.\n\n\nCourse Assistants: We have three course assistants for Math 141 this semester. A course assistant will be present at each lab section. Further, each course assistant will hold office hours during the week. All course assistant office hours will be held in ETC 105B. Feel free to go to any course assistant’s office hours, even if they are not the course assistant for your lab section. The course assistants are:\n\nRemy Pham\n\nLab section: 9am - 10:20am\nOffice hours: Monday & Friday: 5pm - 6:30pm\n\nAlayne Zhang\n\nLab section: 10:30am - 11:50am\nOffice Hours: Tuesday & Thursday: 5:15pm - 6:45pm\n\nNat Lincoln\n\nLab section: 1:40pm - 3:00pm Lab\nOffice Hours: Wednesday: 5pm - 7pm, Monday: 6:30pm - 7:30pm\n\n\nLinks and course resources:\nThe course website, math-141.github.io, inlcludes information on the course, lecture slides, public course materials, and links to all other course resources:\n\nSlack, for course correspondence,\nGradescope, for turning in assignments, and\nMoodle, (sparingly) for private course materials\n\nMeeting Times:\nWe’ll have a lecture-style meeting three times a week, and a lab meeting once a week.\n\nLectures are on Mondays, Wednesdays, and Fridays, 10:00am - 10:50am (sections: F01, F02, F03) or 11:00am - 11:50am (sections: F11, F12, F13), Eliot Hall, Room 314.\nLabs are on Thursdays, 9:00am - 10:20am (sections: F01 & F11), 10:30am - 11:50am (sections: F02 & F12), or 1:40pm - 3:00pm (sections: F03 & F13). The morning Labs (9:00am - 10:20am and 10:30am - 11:50am) will meet in the Performing Arts Building, Room 104. The afternoon lab (1:40pm - 3:00pm) will meet in the Library, Room 340."
+  },
+  {
+    "objectID": "syllabus.html#learning-outcomes",
+    "href": "syllabus.html#learning-outcomes",
+    "title": "Syllabus",
+    "section": "Learning Outcomes",
+    "text": "Learning Outcomes\nIn this course, you will learn how to think critically with data by engaging in the entire data analysis process. While most of our time will be spent learning techniques related to the Exploration and Visualization step and the Modeling and Inference step, you will also practice the other important components of analyzing data. Furthermore, since computation is an integral part of modern statistical work, you will learn to write R code – leveraging the RStudio user interface – to analyze data and will become familiar with several tidyverse R packages. You will also develop a reproducible and shareable workflow by using Quarto documents for all analyses.\nBy the end of the course, you will have improved your data acumen and your ability to think statistically. More concretely, you will be better able to accomplish the following tasks, which have been broken down by steps of the data analysis workflow:\n\n\n\n\n\nQuestion formulation:\n\nTranslate a research problem into a set of questions that can be answered with data.\nFormulate data questions as measurable statements about parameters in a model.\n\nData acquisition:\n\nDetermine the necessary data to conduct analyses.\nReflect on how design structures and data collection impact potential conclusions.\nIdentify potential ethical concerns surrounding data collection and data privacy.\n\nData wrangling:\n\nExplore datasets to determine what wrangling may be required (e.g., removing missing values, filtering out variables or observations, collapsing categories of a categorical variable).\nApply basic data wrangling operations.\n\nExploration and Visualization:\n\nUnderstand key principles of designing and creating effective data visualizations.\nMaster creating graphs and drawing sound conclusions from graphs.\nCompute and interpret summary statistics.\n\nModeling and Inference:\n\nUnderstand and be able to explain key probabilistic and inferential concepts, such as, sampling, variability, random variables, distributions, confidence, and significance.\nDetermine the correct model for a given problem and set of data.\nAppropriately apply and draw inferences from a statistical model, including quantifying and interpreting the uncertainty in model estimates.\nConsider the ethical implications of various modeling practices.\n\nCommunicating Findings:\n\nDevelop a reproducible workflow using Quarto documents.\nInterpret and communicate results of statistical analyses effectively for both a statistical and a non-statistical audience.\nBe able to reflect on the data involved in an analysis and show a curiosity for other ways of examining and thinking about the data."
+  },
+  {
+    "objectID": "syllabus.html#learning-materials-tools",
+    "href": "syllabus.html#learning-materials-tools",
+    "title": "Syllabus",
+    "section": "Learning Materials & Tools",
+    "text": "Learning Materials & Tools\nTextbooks: We’ll use three textbooks for our course, all of which are freely available online:\n\nStatistical Inference via Data Science: A ModernDive into R and the tidyverse, Second Edition\n\nReading abbreviation: MD\n\nIntroduction to Modern Statistics, Second Edition\n\nReading abbreviation: IMS\n\nOpenIntro Statistics, Fourth Edition\n\nReading abbreviation: OI\n\n\nTechnologies (R, RStudio, and Quarto): R is a free and open source programming language, RStudio is an Integrated Development Environment (IDE) which allows for streamlined use of the R programming language, and Quarto is a markdown language that allows for reproducible documents that include R code, text, images, and much more! We will access these technologies via the RStudio Server for this course. A laptop that can access the internet and use the RStudio Server is required for this course."
+  },
+  {
+    "objectID": "syllabus.html#assignments-activities-and-exams",
+    "href": "syllabus.html#assignments-activities-and-exams",
+    "title": "Syllabus",
+    "section": "Assignments, activities, and exams",
+    "text": "Assignments, activities, and exams\nWe’ll have a variety of assignments, activities, and exams for this course. In particular:\n\nLab assignments:\n\nAlmost every week, we will have a lab assignment. The lab assignments will be assigned on Thursday at lab time and due the following week on Thursday at 9:00am.\nLab assignments will include both computational and theoretical questions.\nThese lab assignments will be turned in via Gradescope.\nTo help with various circumstances (expected and unexpected), you have up to 4 additional extensions days that you can use as you need (e.g., 1 additional day for 4 labs, 4 additional days for 1 lab, …) but the extension days must be rounded up to the nearest day (e.g., 2 extra hours = 1 extension day). If you need to use any extension days, send Grayson an email (not a Slack message) with the title: “Math 141 Extension Days” that includes the lab number you are using an extension for, and the number of day(s) used.\n\nHomework assignments:\n\nFor most lecture class periods, along with the assigned reading, I will assign a short set of homework questions related to the reading to be turned in at the beginning of class.\nThese will be turned in by you in person, as a hard copy, at the beginning of class. If you arrive to class late, please wait until the end of class to turn in your answers.\nNo late homework assignments are accepted, but up to three missed homework assignments will be dropped from your final grade.\n\nIn-class activities:\n\nDuring lecture and lab, we will include some in-class activities. Including but not limited to:\n\ngroup activities,\nindependent activities,\nlow-stakes quizzes.\n\n\nExams:\n\nWe’ll have a midterm exam and final exam for this course. Each exam will have a written take-home component and an in-person oral component.\nThe written component of the midterm exam will be released on Monday 10/12 and will be due by Wednesday 10/14. The oral component of the midterm exam will occur on Thursday 10/15 and Friday 10/16.\nThe written component of the final exam will be released on Wednesday 12/7, the last day of classes, and will be due at the end of reading week. The oral component of the final exam will occur during finals week.\nNo late exams are accepted."
+  },
+  {
+    "objectID": "syllabus.html#distribution-requirements",
+    "href": "syllabus.html#distribution-requirements",
+    "title": "Syllabus",
+    "section": "Distribution Requirements",
+    "text": "Distribution Requirements\nThis course can be used towards your Group III, “Natural, Mathematical, and Psychological Science” requirement. It accomplishes the following learning goals for the group:\n\nUse and evaluate quantitative data or modeling, or use logical/mathematical reasoning to evaluate, test or prove statements.\nGiven a problem or question, formulate a hypothesis or conjecture, and design an experiment, collect data or use mathematical reasoning to test or validate it.\nCollect, analyze, and interpret data.\n\nThis course does satisfy the “primary data collection and analysis” requirement."
+  },
+  {
+    "objectID": "syllabus.html#course-climate",
+    "href": "syllabus.html#course-climate",
+    "title": "Syllabus",
+    "section": "Course Climate",
+    "text": "Course Climate\nWe expect everyone in this class to strive to foster a learning environment that is equitable, inclusive, and welcoming. If you experience any barriers to learning, please come to Professor Grayson White or a college administrator with your concerns.\nCode of Conduct:\nWe expect all members of Math 141 to make participation a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.\nWe expect everyone to act and interact in ways that contribute to an open, welcoming, inclusive, and healthy community of learners. You can contribute to a positive learning environment by demonstrating empathy and kindness, being respectful of differing viewpoints and experiences, and giving and gracefully accepting constructive feedback.1"
+  },
+  {
+    "objectID": "syllabus.html#policies",
+    "href": "syllabus.html#policies",
+    "title": "Syllabus",
+    "section": "Policies",
+    "text": "Policies\nLate work policy:\nPlease see the late work policy for each individual assignment type that is included in the Assignments and exams section of the syllabus.\nCollaboration Policy and Academic Honesty:\nWorking with your classmates on difficult and interesting problems can not only help your learning, but also help you get to know each other! Therefore, I encourage you to collaborate on assignments but every piece of work you do must be your own. Copying and pasting other people’s work or code is not acceptable. The Honor Principle must guide your conduct in this class.\nIf you choose to collaborate with a classmate, you must add their name to the top of your assignment, and list them as a collaborator, e.g.:\nCollaborator(s): Elliot Shannon, Romain Boutelet\nBut what is collaboration?:\nFor Math 141, collaboration can look like: working with classmates together on a given problem, doing scratch work, helping each other get un-stuck on a part of a problem, and even coming to a solution. However, you must write up your own problem solutions individually and cannot copy other’s solutions (even those who you have collaborated with). Further, copying code from a collaborator, classmate, or generative AI tool (see the following section) is strictly prohibited.\nAI Policy:\nArtificial intelligence (AI) tools, such as ChatGPT, Claude, Co-Pilot, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it."
+  },
+  {
+    "objectID": "syllabus.html#footnotes",
+    "href": "syllabus.html#footnotes",
+    "title": "Syllabus",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0.↩︎"
+  },
+  {
     "objectID": "slides/math141_wk01fri.html#goals-for-today",
     "href": "slides/math141_wk01fri.html#goals-for-today",
     "title": "Math 141",
@@ -1208,7 +1432,7 @@
     "href": "slides/math141_wk01fri.html#math-141-office-hours-schedule",
     "title": "Math 141",
     "section": "Math 141 Office Hours Schedule",
-    "text": "Math 141 Office Hours Schedule"
+    "text": "Math 141 Office Hours Schedule\n\n::: {.column width = “80%”}\n\n::::"
   },
   {
     "objectID": "slides/math141_wk01fri.html#data-frames",
@@ -1229,7 +1453,7 @@
     "href": "slides/math141_wk01fri.html#types-of-variables",
     "title": "Math 141",
     "section": "Types of variables",
-    "text": "Types of variables\n\n\n\nIdentification: Uniquely identify each case\n\n\n\nQuantitative: Numerical in nature\n\nThose that can take a range of values are called  (e.g., age, income)\nThose that only take particular (often whole number) values are called discrete (e.g., result of a dice roll)\nNot every variable involving numbers is quantitative!\n\n\n\n\nCategorical: Values are categories\n\nUsually take values (e.g., Race/Ethnicity or Gender)\nBut can take numeric values! (e.g., zip code)\nThe values that a categorical variable can take are called its levels\nOrdinal categorical variables can be ordered (e.g., level of education, variables collected with a Likert scale)\nCategorical variables that cannot be ordered are called nominal (e.g., Race/Ethnicity)"
+    "text": "Types of variables\n\n::: {.column width = “50%”}\nIdentification: Uniquely identify each case\n\nQuantitative: Numerical in nature\n\nThose that can take a range of values are called  (e.g., age, income)\nThose that only take particular (often whole number) values are called discrete (e.g., result of a dice roll)\nNot every variable involving numbers is quantitative!\n\n\n\n::: {.column width = “50%”}\n\nCategorical: Values are categories\n\nUsually take values (e.g., Race/Ethnicity or Gender)\nBut can take numeric values! (e.g., zip code)\nThe values that a categorical variable can take are called its levels\nOrdinal categorical variables can be ordered (e.g., level of education, variables collected with a Likert scale)\nCategorical variables that cannot be ordered are called nominal (e.g., Race/Ethnicity)\n\n\n:::\n::::"
   },
   {
     "objectID": "slides/math141_wk01fri.html#why-construct-a-graph",
@@ -1321,223 +1545,6 @@
     "title": "Math 141",
     "section": "Next time",
     "text": "Next time\n\n\nWe’ll learn the ggplot2 so that we use the grammar of graphics to create our own plots!"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#goals-for-today",
-    "href": "slides/math141_wk01wed.html#goals-for-today",
-    "title": "Math 141",
-    "section": "Goals for Today",
-    "text": "Goals for Today\n\n\nGetting started in Math 141\n\nCourse structure and technologies\nWhere to find resources\nCourse expectations\n\nStatistical thinking\nData Frames"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#research-interests",
-    "href": "slides/math141_wk01wed.html#research-interests",
-    "title": "Math 141",
-    "section": "Research Interests",
-    "text": "Research Interests\n\nStatistical modeling with environmental applications"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#research-interests-1",
-    "href": "slides/math141_wk01wed.html#research-interests-1",
-    "title": "Math 141",
-    "section": "Research Interests",
-    "text": "Research Interests\nAdvising Undergraduate Forestry Data Science Research"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141",
-    "href": "slides/math141_wk01wed.html#getting-started-in-math-141",
-    "title": "Math 141",
-    "section": "Getting Started in Math 141",
-    "text": "Getting Started in Math 141\nCourse website\n\n\n\n\n\nThe course website, math-141.github.io, will be the central location for all our course materials.\nWe’ll use a few other resources to navigate Math 141, but all other tools can be accessed by the quick links in the course website!"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141-1",
-    "href": "slides/math141_wk01wed.html#getting-started-in-math-141-1",
-    "title": "Math 141",
-    "section": "Getting Started in Math 141",
-    "text": "Getting Started in Math 141\nOther Resources\n\n\nReed’s RStudio Server, for coursework,\n\n\n\nA course-wide Slack workspace, for course communication,\n\n\n\nGradescope, for turning in assignments and exams, and\n\n\n\nMoodle, sparingly, for private course materials"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources",
-    "href": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources",
-    "title": "Math 141",
-    "section": "Getting Started in Math 141: Finding Resources",
-    "text": "Getting Started in Math 141: Finding Resources"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources-1",
-    "href": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources-1",
-    "title": "Math 141",
-    "section": "Getting Started in Math 141: Finding Resources",
-    "text": "Getting Started in Math 141: Finding Resources"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources-2",
-    "href": "slides/math141_wk01wed.html#getting-started-in-math-141-finding-resources-2",
-    "title": "Math 141",
-    "section": "Getting Started in Math 141: Finding Resources",
-    "text": "Getting Started in Math 141: Finding Resources"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#math-141-the-whole-game",
-    "href": "slides/math141_wk01wed.html#math-141-the-whole-game",
-    "title": "Math 141",
-    "section": "Math 141: The whole game",
-    "text": "Math 141: The whole game"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#course-expectations-and-structure",
-    "href": "slides/math141_wk01wed.html#course-expectations-and-structure",
-    "title": "Math 141",
-    "section": "Course expectations and structure",
-    "text": "Course expectations and structure"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#my-info",
-    "href": "slides/math141_wk01wed.html#my-info",
-    "title": "Math 141",
-    "section": "My info",
-    "text": "My info\n\n\nName: Grayson White (he/him), you can call me ‘Grayson’\nEmail: gwhite@reed.edu\nOffice: Library 390\nOffice hours: Monday 2:30-4, Wednesday 1-2:30, or by appointment"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#a-typical-day-in-math-141",
-    "href": "slides/math141_wk01wed.html#a-typical-day-in-math-141",
-    "title": "Math 141",
-    "section": "A typical day in Math 141",
-    "text": "A typical day in Math 141"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#learning-outcomes",
-    "href": "slides/math141_wk01wed.html#learning-outcomes",
-    "title": "Math 141",
-    "section": "Learning Outcomes",
-    "text": "Learning Outcomes\n\n\n\n\n\nIn this course, you will learn how to think critically with data by engaging in the entire data analysis process.\nMost of our time will be spent in the Exploration and Visualization, Data Wrangling, and Modeling and Inference steps, but we will spend some time in each cog!\n\nFirst ~3 weeks in Exploration and Visualization and Data Wrangling\nNext ~3 weeks in Modeling\nFinal ~half of the course in Inference"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#assignments-and-exams",
-    "href": "slides/math141_wk01wed.html#assignments-and-exams",
-    "title": "Math 141",
-    "section": "Assignments and Exams",
-    "text": "Assignments and Exams\n\n\n\n\n\nLab assignments (weekly-ish)\n\nAssigned Thursday in lab\nDue the following Thursday at 9am\nAssigned each week besides exam weeks\n\n\n\n\n\nHomework assignments (daily-ish)\n\nAssigned most days in lecture\nDue in person at the following lecture\nMuch shorter than the labs, often related to the daily reading\n\n\n\n\n\n\n\n\nIn-class activities (semi-regular)\n\nIndividual activities\nGroup activities\nLow-stakes quizzes\n\n\n\n\n\nExams (1 midterm, 1 final)\n\nBoth have a written component and an oral component.\nMidterm written: 10/12 - 10/14\nMidterm orals: 10/15-10/16\nFinal written: reading week\nFinal orals: finals week"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#course-climate",
-    "href": "slides/math141_wk01wed.html#course-climate",
-    "title": "Math 141",
-    "section": "Course Climate",
-    "text": "Course Climate\n\nWe expect everyone in this class to strive to foster a learning environment that is equitable, inclusive, and welcoming. If you experience any barriers to learning, please come to Professor Grayson White or a college administrator with your concerns.\n\nCode of Conduct:\nWe expect all members of Math 141 to make participation a harassment-free experience for everyone, regardless of age, body size, visible or invisible disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.\nWe expect everyone to act and interact in ways that contribute to an open, welcoming, inclusive, and healthy community of learners. You can contribute to a positive learning environment by demonstrating empathy and kindness, being respectful of differing viewpoints and experiences, and giving and gracefully accepting constructive feedback.1\n\n\n\n\n−+\n01:00\n\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0."
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#late-work",
-    "href": "slides/math141_wk01wed.html#late-work",
-    "title": "Math 141",
-    "section": "Late Work",
-    "text": "Late Work\n\n\n\nLabs: up to 4 extensions days can be used throughout the semester.\n\ne.g., 1 additional day for 4 labs, 4 additional days for 1 lab, …\nrounding days up\n\n\n\n\n\nHomeworks: no late homework assignments are accepted, but the lowest three scores will be dropped.\n\n\n\n\nIn-class assignments: cannot be made up.\n\n\n\n\nExams: no late exams are accepted."
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#artificial-intelligence-ai-policy",
-    "href": "slides/math141_wk01wed.html#artificial-intelligence-ai-policy",
-    "title": "Math 141",
-    "section": "Artificial Intelligence (AI) Policy",
-    "text": "Artificial Intelligence (AI) Policy\n\nArtificial intelligence (AI) tools, such as ChatGPT, Claude, Gemini, and others are being used to generate code, analyze data, and much more. However, learning to think critically about a problem at hand, and engaging with your peers, tutors, and instructors when not understanding a concept or question are integral components of a liberal arts education. Further, a key goal of this course is for you to learn how to thoughtfully, ethically, and independently extract knowledge from data and engage in statistical reasoning. Therefore, the use of generative AI tools, such as ChatGPT and others, are strictly prohibited in any stage of the work process for this course. If you have questions about whether a tool is allowed for this course, ask the Instructor before using it.\n\n\n\n\n−+\n01:00\n\n\n\n\nWhy this policy?"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#engagement",
-    "href": "slides/math141_wk01wed.html#engagement",
-    "title": "Math 141",
-    "section": "Engagement",
-    "text": "Engagement\n\n\n \n\n\n\n\n\n\nBeing actively present is key.\n\n\n\nDuring lecture and lab, remove distractions.\n\nWhen we are on our computers, close email, social media, news, etc.\nHide your phone.\n\nI have high expectations but know that all of you (regardless of your stats, math, or computing background) have the ability to meet them."
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#math-141-is-about-developing-our-statistical-thinking-skills.",
-    "href": "slides/math141_wk01wed.html#math-141-is-about-developing-our-statistical-thinking-skills.",
-    "title": "Math 141",
-    "section": "Math 141 is about developing our statistical thinking skills.",
-    "text": "Math 141 is about developing our statistical thinking skills.\n\n\nWhat is statistical thinking?\n\n\n\nIt is not the same as mathematical thinking.\n\n\n\nLet’s discover what statistical thinking is through some examples."
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#data-in-math-141",
-    "href": "slides/math141_wk01wed.html#data-in-math-141",
-    "title": "Math 141",
-    "section": "Data in Math 141",
-    "text": "Data in Math 141\nWill use a wide-range of real and relevant data examples"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#data-in-math-141-1",
-    "href": "slides/math141_wk01wed.html#data-in-math-141-1",
-    "title": "Math 141",
-    "section": "Data in Math 141",
-    "text": "Data in Math 141\n\n\n\n\n\n\n\nI understand that some of these topics have likely had profound impacts on your lives.\nWe will focus class time on the key course objectives but will use these current topics to empower ourselves and to see how we can productively participate with data."
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-1",
-    "href": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-1",
-    "title": "Math 141",
-    "section": "Example: Visualizing COVID Prevalence",
-    "text": "Example: Visualizing COVID Prevalence\n\nIn May of 2020, the Georgia Department of Public Health posted the following graph:\n\n\n\n\n\n\n\n\n\nAt a quick first glance, what story does the graph appear to be telling?\nWhat is misleading about the graph? How could we fix this issue?"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-2",
-    "href": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-2",
-    "title": "Math 141",
-    "section": "Example: Visualizing COVID Prevalence",
-    "text": "Example: Visualizing COVID Prevalence\n\nAfter public outcry, the Georgia Department of Public Health said they made a mistake and posted the following updated graph:\n\n\n\n\n\n\n\n\n\nHow do your conclusions about COVID-19 cases in Georgia change when now interpreting this new graph?"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-3",
-    "href": "slides/math141_wk01wed.html#example-visualizing-covid-prevalence-3",
-    "title": "Math 141",
-    "section": "Example: Visualizing COVID Prevalence",
-    "text": "Example: Visualizing COVID Prevalence\nAlberto Cairo, a journalist and designer, created the second graph of the Georgia COVID-19 data:\n\n \n\n\nA key principle of data visualization is to “help the viewer make meaningful comparisons”.\nWhat comparisons are made easy by the lefthand graph? What about by the righthand graph?\nFrom these graphs, can we get an accurate estimate of the COVID prevalence in these Georgian counties over this two week period?"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#statistical-thinking",
-    "href": "slides/math141_wk01wed.html#statistical-thinking",
-    "title": "Math 141",
-    "section": "Statistical Thinking",
-    "text": "Statistical Thinking\n\nAbout developing reasoning (not just learning definitions and formulae).\nStatistical thinking requires judgment that takes time to develop.\n\nWill see examples and practice applying statistical thinking throughout the course.\n\nDeveloping our statistical thinking skills will allow us to soundly extract knowledge from data!"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#what-areis-data",
-    "href": "slides/math141_wk01wed.html#what-areis-data",
-    "title": "Math 141",
-    "section": "What are/is Data?",
-    "text": "What are/is Data?\n\n\n\n“‘Raw data’ is an oxymoron.” – Lisa Gitelman\n\n\n\n“Data … is information made tractable.” – Catherine D’Ignazio and Lauren Klein"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#data-frames",
-    "href": "slides/math141_wk01wed.html#data-frames",
-    "title": "Math 141",
-    "section": "Data Frames",
-    "text": "Data Frames\nData in spreadsheet-like format where:\n\nRows = Observations/cases\nColumns = Variables\n\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\n\nData from GPT Detectors Are Biased Against Non-Native English Writers. Weixin Liang, Mert Yuksekgonul, Yining Mao, Eric Wu, James Zou. CellPress Patterns and available in the R package detectors."
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#data-frames-1",
-    "href": "slides/math141_wk01wed.html#data-frames-1",
-    "title": "Math 141",
-    "section": "Data Frames",
-    "text": "Data Frames\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\nRows = Observations/cases\nWhat are the cases? What does each row represent?"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#data-frames-2",
-    "href": "slides/math141_wk01wed.html#data-frames-2",
-    "title": "Math 141",
-    "section": "Data Frames",
-    "text": "Data Frames\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\nColumns = Variables\nVariables: Describe characteristics of the observations\n\nQuantitative: Numerical in nature\nCategorical: Values are categories\nIdentification: Uniquely identify each case"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#next-time",
-    "href": "slides/math141_wk01wed.html#next-time",
-    "title": "Math 141",
-    "section": "Next time",
-    "text": "Next time"
-  },
-  {
-    "objectID": "slides/math141_wk01wed.html#next-time-1",
-    "href": "slides/math141_wk01wed.html#next-time-1",
-    "title": "Math 141",
-    "section": "Next time",
-    "text": "Next time\nProblem 1 of Lab 1: Create your own Dear Data postcard!\n\n\n\n\n\n\n\n\n\nStep 1: Collect data on some aspect of your life.\nStep 2: Find a story in your data and determine your postcard recipient.\nStep 3: Figure out how you want to visualize the story.\nStep 4+: Visualize your data on a blank postcard.\n\n\n\nBring a laptop to lab tomorrow!"
   },
   {
     "objectID": "slides/math141_wk02wed.html#goals-for-today",
