@@ -63,7 +63,7 @@ scheduled-docs:
           docs:
             - type: Lab
               href: labs/lab_02.qmd
-        - topic: "Data Summarization"
+        - topic: "Summary Statistics"
           display-date: Friday, Sep 12
           date: 9/12/25
           docs:

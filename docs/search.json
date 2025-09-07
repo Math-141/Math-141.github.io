@@ -273,1056 +273,6 @@
     "text": "Recap: ggplot2\n\nlibrary(tidyverse)\nggplot(data = ---, mapping = aes(---)) +\n  geom_---(---)"
   },
   {
-    "objectID": "slides/math141_wk01thu.html#hand-drawn-data-viz",
-    "href": "slides/math141_wk01thu.html#hand-drawn-data-viz",
-    "title": "Math 141",
-    "section": "Hand-Drawn Data Viz",
-    "text": "Hand-Drawn Data Viz\n\nOnce we have collected data, a common next step is to visualize it.\nTwo key aspects of data visualization:\n\nDetermining how you want to display the data.\nFiguring out how to tell the computer to do that mapping.\n\nHand-drawn data visualizations allow us to focus on the first part with full control over the creative process!"
-  },
-  {
-    "objectID": "slides/math141_wk01thu.html#hand-drawn-data-viz-examples",
-    "href": "slides/math141_wk01thu.html#hand-drawn-data-viz-examples",
-    "title": "Math 141",
-    "section": "Hand-Drawn Data Viz Examples",
-    "text": "Hand-Drawn Data Viz Examples\nDear Data\n\n“Each week, and for a year, we collected and measured a particular type of data about our lives, used this data to make a drawing on a postcard-sized sheet of paper, and then dropped the postcard in an English”postbox” (Stefanie) or an American “mailbox” (Giorgia)!“"
-  },
-  {
-    "objectID": "slides/math141_wk01thu.html#goal-over-the-next-few-days-collect-data-from-your-life-so-that-you-can-visualize-it-on-lab-1.",
-    "href": "slides/math141_wk01thu.html#goal-over-the-next-few-days-collect-data-from-your-life-so-that-you-can-visualize-it-on-lab-1.",
-    "title": "Math 141",
-    "section": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.",
-    "text": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.\n\n\nRecommendations\n\n\nStore the data in your favorite spreadsheet program (Google Sheets, Numbers, Excel).\nDetermine what your cases/observations will be.\nCollect data on more variables than you will likely visualize. It is hard to know beforehand what the interesting relationships will be.\nCome to my office (Library 390) to borrow art supplies (colored pencils and felt-tip markers)!"
-  },
-  {
-    "objectID": "slides/math141_wk01thu.html#section",
-    "href": "slides/math141_wk01thu.html#section",
-    "title": "Math 141",
-    "section": "",
-    "text": "Demo of accessing the RStudio Server\nand intro to Quarto"
-  },
-  {
-    "objectID": "readings/readings_wk14wed.html",
-    "href": "readings/readings_wk14wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk14wed.html#reading",
-    "href": "readings/readings_wk14wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk14wed.html#homework-assignment",
-    "href": "readings/readings_wk14wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk13wed.html",
-    "href": "readings/readings_wk13wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk13wed.html#reading",
-    "href": "readings/readings_wk13wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk13wed.html#homework-assignment",
-    "href": "readings/readings_wk13wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk13fri.html",
-    "href": "readings/readings_wk13fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk13fri.html#reading",
-    "href": "readings/readings_wk13fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk13fri.html#homework-assignment",
-    "href": "readings/readings_wk13fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk12mon.html",
-    "href": "readings/readings_wk12mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk12mon.html#reading",
-    "href": "readings/readings_wk12mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk12mon.html#homework-assignment",
-    "href": "readings/readings_wk12mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk11wed.html",
-    "href": "readings/readings_wk11wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk11wed.html#reading",
-    "href": "readings/readings_wk11wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk11wed.html#homework-assignment",
-    "href": "readings/readings_wk11wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk11fri.html",
-    "href": "readings/readings_wk11fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk11fri.html#reading",
-    "href": "readings/readings_wk11fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk11fri.html#homework-assignment",
-    "href": "readings/readings_wk11fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk10mon.html",
-    "href": "readings/readings_wk10mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk10mon.html#reading",
-    "href": "readings/readings_wk10mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk10mon.html#homework-assignment",
-    "href": "readings/readings_wk10mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk09wed.html",
-    "href": "readings/readings_wk09wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk09wed.html#reading",
-    "href": "readings/readings_wk09wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk09wed.html#homework-assignment",
-    "href": "readings/readings_wk09wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk09fri.html",
-    "href": "readings/readings_wk09fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk09fri.html#reading",
-    "href": "readings/readings_wk09fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk09fri.html#homework-assignment",
-    "href": "readings/readings_wk09fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk08mon.html",
-    "href": "readings/readings_wk08mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk08mon.html#reading",
-    "href": "readings/readings_wk08mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk08mon.html#homework-assignment",
-    "href": "readings/readings_wk08mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk07wed.html",
-    "href": "readings/readings_wk07wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk07wed.html#reading",
-    "href": "readings/readings_wk07wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk07wed.html#homework-assignment",
-    "href": "readings/readings_wk07wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk07fri.html",
-    "href": "readings/readings_wk07fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk07fri.html#reading",
-    "href": "readings/readings_wk07fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk07fri.html#homework-assignment",
-    "href": "readings/readings_wk07fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk06mon.html",
-    "href": "readings/readings_wk06mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk06mon.html#reading",
-    "href": "readings/readings_wk06mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk06mon.html#homework-assignment",
-    "href": "readings/readings_wk06mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk05wed.html",
-    "href": "readings/readings_wk05wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk05wed.html#reading",
-    "href": "readings/readings_wk05wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk05wed.html#homework-assignment",
-    "href": "readings/readings_wk05wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk05fri.html",
-    "href": "readings/readings_wk05fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk05fri.html#reading",
-    "href": "readings/readings_wk05fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk05fri.html#homework-assignment",
-    "href": "readings/readings_wk05fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk04mon.html",
-    "href": "readings/readings_wk04mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk04mon.html#reading",
-    "href": "readings/readings_wk04mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk04mon.html#homework-assignment",
-    "href": "readings/readings_wk04mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk03wed.html",
-    "href": "readings/readings_wk03wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk03wed.html#reading",
-    "href": "readings/readings_wk03wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk03wed.html#homework-assignment",
-    "href": "readings/readings_wk03wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk03fri.html",
-    "href": "readings/readings_wk03fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk03fri.html#reading",
-    "href": "readings/readings_wk03fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk03fri.html#homework-assignment",
-    "href": "readings/readings_wk03fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk02mon.html",
-    "href": "readings/readings_wk02mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.4, 2.5, 2.7\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC2.11, LC2.12, LC2.14, LC2.15, LC2.23, LC2.25"
-  },
-  {
-    "objectID": "readings/readings_wk02mon.html#reading",
-    "href": "readings/readings_wk02mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.4, 2.5, 2.7"
-  },
-  {
-    "objectID": "readings/readings_wk02mon.html#homework-assignment",
-    "href": "readings/readings_wk02mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC2.11, LC2.12, LC2.14, LC2.15, LC2.23, LC2.25"
-  },
-  {
-    "objectID": "readings/readings_wk01wed.html",
-    "href": "readings/readings_wk01wed.html",
-    "title": "Math 141: Readings for September 3, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nThe syllabus\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nNone today."
-  },
-  {
-    "objectID": "readings/readings_wk01wed.html#reading",
-    "href": "readings/readings_wk01wed.html#reading",
-    "title": "Math 141: Readings for September 3, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nThe syllabus"
-  },
-  {
-    "objectID": "readings/readings_wk01wed.html#homework-assignment",
-    "href": "readings/readings_wk01wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 3, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nNone today."
-  },
-  {
-    "objectID": "readings/readings_wk01fri.html",
-    "href": "readings/readings_wk01fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.1 - 2.3\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nMD Learning Checks: LC2.2, LC2.4, LC2.5, LC2.7, LC2.8"
-  },
-  {
-    "objectID": "readings/readings_wk01fri.html#reading",
-    "href": "readings/readings_wk01fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.1 - 2.3"
-  },
-  {
-    "objectID": "readings/readings_wk01fri.html#homework-assignment",
-    "href": "readings/readings_wk01fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nMD Learning Checks: LC2.2, LC2.4, LC2.5, LC2.7, LC2.8"
-  },
-  {
-    "objectID": "labs/lab_01_instructions.html",
-    "href": "labs/lab_01_instructions.html",
-    "title": "Instructions for Accessing Math 141 Labs",
-    "section": "",
-    "text": "R is a wonderful programming language that we will frequently use in our course to visualize and tidy data, create programs to assist computations, create data models, and perform statistical inference. It is free, open-source, and has a large community of users who care about statistics and data science.\nTo begin, note that there are 3 closely related computer processes that we will work with: R, RStudio, and Quarto. It’s worth taking a moment to distinguish between them.\n\nR is a programming language, which can be accessed by typing particular commands into the console or at the command prompt.\nRStudio is an integrated development environment (IDE), and provides a clean user interface for writing and executing R code. This is the main tool we will use to interact with the R language.\nQuarto is a file type we’ll use to write R code and text (similar to .docx, but for programming!). It can record R code, text, and graphical outputs. One of the easiest ways to share your results with others is to distribute your Quarto (or .qmd) file. It’s a “one-stop shop” of statistical work!\n\nRStudio comes in two varieties: RStudio Desktop and RStudio Server. The desktop version is a program you can install on your personal computer, and uses your computer’s resources to perform calculations. On the other hand, the server version can be accessed just using a web-browser, and will perform calculations on Reed’s server; there is no need to install any additional programs. For class purposes, we will use the RStudio Server."
-  },
-  {
-    "objectID": "labs/lab_01_instructions.html#introduction",
-    "href": "labs/lab_01_instructions.html#introduction",
-    "title": "Instructions for Accessing Math 141 Labs",
-    "section": "",
-    "text": "R is a wonderful programming language that we will frequently use in our course to visualize and tidy data, create programs to assist computations, create data models, and perform statistical inference. It is free, open-source, and has a large community of users who care about statistics and data science.\nTo begin, note that there are 3 closely related computer processes that we will work with: R, RStudio, and Quarto. It’s worth taking a moment to distinguish between them.\n\nR is a programming language, which can be accessed by typing particular commands into the console or at the command prompt.\nRStudio is an integrated development environment (IDE), and provides a clean user interface for writing and executing R code. This is the main tool we will use to interact with the R language.\nQuarto is a file type we’ll use to write R code and text (similar to .docx, but for programming!). It can record R code, text, and graphical outputs. One of the easiest ways to share your results with others is to distribute your Quarto (or .qmd) file. It’s a “one-stop shop” of statistical work!\n\nRStudio comes in two varieties: RStudio Desktop and RStudio Server. The desktop version is a program you can install on your personal computer, and uses your computer’s resources to perform calculations. On the other hand, the server version can be accessed just using a web-browser, and will perform calculations on Reed’s server; there is no need to install any additional programs. For class purposes, we will use the RStudio Server."
-  },
-  {
-    "objectID": "labs/lab_01_instructions.html#accessing-this-lab",
-    "href": "labs/lab_01_instructions.html#accessing-this-lab",
-    "title": "Instructions for Accessing Math 141 Labs",
-    "section": "Accessing this Lab",
-    "text": "Accessing this Lab\nIn order to access the lab each week, you’ll have to follow these steps. Here, we detail the process of logging in to the RStudio Server and “cloning” a GitHub repository to get the lab materials. “Cloning”, in this case, means making a copy of my a folder I’ve uploaded with all files and data needed so that you can complete the lab. Anyways, here are the steps:\n\nUse your web browser to navigate to the Reed RStudio server at https://rstudio.reed.edu.\nLog-in using your Reed username and password (the one you use for Moodle, Gmail, etc.).\nIn the Projects dropdown (typically upper right) of RStudio, click the “Project: (None)” button1. Then, click “New Project…”.\n\n\n\n\n\n\nThe project button\n\n\n\n\n\n\n\n\nSelecting “New Project…”\n\n\n\n\n\nA pop-up will appear to ask how you’d like to create the project. You’ll need to click “Version Control” and the “Git” to access the lab materials. After you’ve clicked “Version Control” and “Git”, add the link to the lab materials in the “Repository URL” section:2\nhttps://github.com/Math-141/lab01.git\nFinally, give the Project Directory the name “lab01”\n\n\n\n\n\n\nSelecting Version Control from the pop-up\n\n\n\n\n\n\n\n\nHow things should look after you’ve added the link and project name\n\n\n\n\n\nPress “Create Project”. If all has gone well, you should see “lab01” in the top right corner of RStudio, and some new files for the lab in the bottom right corner of RStudio.\n\n\n\n\n\n\nThe Create Project button\n\n\n\n\n\n\n\n\nA successful cloning of the lab!\n\n\n\n\n\nOpen lab01_yourname.qmd. This is the Quarto document that you’ll complete the lab in. You can (and should) rename this file to include your actual name by checking the box next to the file, clicking “Rename”, and modifying the text to include your name, e.g. lab01_graysonwhite.qmd, rather than lab01_yourname.qmd.\n\nWe’ve also provided a gif of steps 3-6 to help minimize confusion in these steps:\n\n\n\nSteps 3-6, via gif"
-  },
-  {
-    "objectID": "labs/lab_01_instructions.html#footnotes",
-    "href": "labs/lab_01_instructions.html#footnotes",
-    "title": "Instructions for Accessing Math 141 Labs",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\nIf you’re already in a project, this button will show that projects name. This shouldn’t be the case for the first lab, but will likely be the case for the remaining labs.↩︎\nThis link will always be the same, but updated for the lab number, e.g. https://github.com/Math-141/lab02.git for lab 2, https://github.com/Math-141/lab10.git for lab 10, etc. You won’t be able to access these projects until the day that the lab is released, though.↩︎"
-  },
-  {
-    "objectID": "readings/readings_wk01thu.html",
-    "href": "readings/readings_wk01thu.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lab today, please read the following material:\n\nMD Chapter 1 (skip section 1.1.1)\n\n\n\n\nBefore coming to lab today, please complete the following tasks:\n\nIntroduce yourself on Slack in the #in-class channel."
-  },
-  {
-    "objectID": "readings/readings_wk01thu.html#reading",
-    "href": "readings/readings_wk01thu.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lab today, please read the following material:\n\nMD Chapter 1 (skip section 1.1.1)"
-  },
-  {
-    "objectID": "readings/readings_wk01thu.html#homework",
-    "href": "readings/readings_wk01thu.html#homework",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lab today, please complete the following tasks:\n\nIntroduce yourself on Slack in the #in-class channel."
-  },
-  {
-    "objectID": "readings/readings_wk02fri.html",
-    "href": "readings/readings_wk02fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk02fri.html#reading",
-    "href": "readings/readings_wk02fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk02fri.html#homework-assignment",
-    "href": "readings/readings_wk02fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk02wed.html",
-    "href": "readings/readings_wk02wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.6, 2.8, 2.9\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC2.19, LC2.20, LC2.26, LC2.27, LC2.30, LC2.31, LC2.32, LC2.34, LC2.36"
-  },
-  {
-    "objectID": "readings/readings_wk02wed.html#reading",
-    "href": "readings/readings_wk02wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.6, 2.8, 2.9"
-  },
-  {
-    "objectID": "readings/readings_wk02wed.html#homework-assignment",
-    "href": "readings/readings_wk02wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC2.19, LC2.20, LC2.26, LC2.27, LC2.30, LC2.31, LC2.32, LC2.34, LC2.36"
-  },
-  {
-    "objectID": "readings/readings_wk03mon.html",
-    "href": "readings/readings_wk03mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk03mon.html#reading",
-    "href": "readings/readings_wk03mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk03mon.html#homework-assignment",
-    "href": "readings/readings_wk03mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk04fri.html",
-    "href": "readings/readings_wk04fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk04fri.html#reading",
-    "href": "readings/readings_wk04fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk04fri.html#homework-assignment",
-    "href": "readings/readings_wk04fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk04wed.html",
-    "href": "readings/readings_wk04wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk04wed.html#reading",
-    "href": "readings/readings_wk04wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk04wed.html#homework-assignment",
-    "href": "readings/readings_wk04wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk05mon.html",
-    "href": "readings/readings_wk05mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk05mon.html#reading",
-    "href": "readings/readings_wk05mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk05mon.html#homework-assignment",
-    "href": "readings/readings_wk05mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk06fri.html",
-    "href": "readings/readings_wk06fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk06fri.html#reading",
-    "href": "readings/readings_wk06fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk06fri.html#homework-assignment",
-    "href": "readings/readings_wk06fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk06wed.html",
-    "href": "readings/readings_wk06wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk06wed.html#reading",
-    "href": "readings/readings_wk06wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk06wed.html#homework-assignment",
-    "href": "readings/readings_wk06wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk07mon.html",
-    "href": "readings/readings_wk07mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk07mon.html#reading",
-    "href": "readings/readings_wk07mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk07mon.html#homework-assignment",
-    "href": "readings/readings_wk07mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk08fri.html",
-    "href": "readings/readings_wk08fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk08fri.html#reading",
-    "href": "readings/readings_wk08fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk08fri.html#homework-assignment",
-    "href": "readings/readings_wk08fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk08wed.html",
-    "href": "readings/readings_wk08wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk08wed.html#reading",
-    "href": "readings/readings_wk08wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk08wed.html#homework-assignment",
-    "href": "readings/readings_wk08wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk09mon.html",
-    "href": "readings/readings_wk09mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk09mon.html#reading",
-    "href": "readings/readings_wk09mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk09mon.html#homework-assignment",
-    "href": "readings/readings_wk09mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk10fri.html",
-    "href": "readings/readings_wk10fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk10fri.html#reading",
-    "href": "readings/readings_wk10fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk10fri.html#homework-assignment",
-    "href": "readings/readings_wk10fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk10wed.html",
-    "href": "readings/readings_wk10wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk10wed.html#reading",
-    "href": "readings/readings_wk10wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk10wed.html#homework-assignment",
-    "href": "readings/readings_wk10wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk11mon.html",
-    "href": "readings/readings_wk11mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk11mon.html#reading",
-    "href": "readings/readings_wk11mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk11mon.html#homework-assignment",
-    "href": "readings/readings_wk11mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk12fri.html",
-    "href": "readings/readings_wk12fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk12fri.html#reading",
-    "href": "readings/readings_wk12fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk12fri.html#homework-assignment",
-    "href": "readings/readings_wk12fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk12wed.html",
-    "href": "readings/readings_wk12wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk12wed.html#reading",
-    "href": "readings/readings_wk12wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk12wed.html#homework-assignment",
-    "href": "readings/readings_wk12wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk13mon.html",
-    "href": "readings/readings_wk13mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk13mon.html#reading",
-    "href": "readings/readings_wk13mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk13mon.html#homework-assignment",
-    "href": "readings/readings_wk13mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk14mon.html",
-    "href": "readings/readings_wk14mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "readings/readings_wk14mon.html#reading",
-    "href": "readings/readings_wk14mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
-  },
-  {
-    "objectID": "readings/readings_wk14mon.html#homework-assignment",
-    "href": "readings/readings_wk14mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
-    "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#goals-for-today",
-    "href": "slides/math141_wk01fri.html#goals-for-today",
-    "title": "Math 141",
-    "section": "Goals for Today",
-    "text": "Goals for Today\n\n\nReview data frames.\nMotivate data visualizations.\nDevelop language to talk about the components of a graphic.\nPractice deconstructing graphics.\nDiscuss good graphical practices."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#reminders",
-    "href": "slides/math141_wk01fri.html#reminders",
-    "title": "Math 141",
-    "section": "Reminders",
-    "text": "Reminders\n\nDAR accommodations.\nSlack for communication.\n\ngeneral-qa and coding-qa channels\n\nCourse assistant (CA) office hours are now posted\n\nCA Office hours start next week\nCoverage every week day!\n\nOther resources\n\nIndividual tutoring"
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#math-141-office-hours-schedule",
-    "href": "slides/math141_wk01fri.html#math-141-office-hours-schedule",
-    "title": "Math 141",
-    "section": "Math 141 Office Hours Schedule",
-    "text": "Math 141 Office Hours Schedule"
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#data-frames",
-    "href": "slides/math141_wk01fri.html#data-frames",
-    "title": "Math 141",
-    "section": "Data Frames",
-    "text": "Data Frames\nData in spreadsheet-like format where:\n\nRows = Observations/cases\nColumns = Variables\n\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\n\nData from GPT Detectors Are Biased Against Non-Native English Writers. Weixin Liang, Mert Yuksekgonul, Yining Mao, Eric Wu, James Zou. CellPress Patterns and available in the R package detectors."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#data-frames-1",
-    "href": "slides/math141_wk01fri.html#data-frames-1",
-    "title": "Math 141",
-    "section": "Data Frames",
-    "text": "Data Frames\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\nColumns = Variables\nVariables: Describe characteristics of the observations\n\nQuantitative: Numerical in nature\nCategorical: Values are categories\nIdentification: Uniquely identify each case"
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#types-of-variables",
-    "href": "slides/math141_wk01fri.html#types-of-variables",
-    "title": "Math 141",
-    "section": "Types of variables",
-    "text": "Types of variables\n\n\n\nIdentification: Uniquely identify each case\n\n\n\nQuantitative: Numerical in nature\n\nThose that can take a range of values are called  (e.g., age, income)\nThose that only take particular (often whole number) values are called discrete (e.g., result of a dice roll)\nNot every variable involving numbers is quantitative!\n\n\n\n\nCategorical: Values are categories\n\nUsually take values (e.g., Race/Ethnicity or Gender)\nBut can take numeric values! (e.g., zip code)\nThe values that a categorical variable can take are called its levels\nOrdinal categorical variables can be ordered (e.g., level of education, variables collected with a Likert scale)\nCategorical variables that cannot be ordered are called nominal (e.g., Race/Ethnicity)"
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#why-construct-a-graph",
-    "href": "slides/math141_wk01fri.html#why-construct-a-graph",
-    "title": "Math 141",
-    "section": "Why construct a graph?",
-    "text": "Why construct a graph?\n\n\nTo explore the data.\n\n\nTo summarize the data.\n\n\nTo showcase trends and make comparisons.\n\n\nTo tell a compelling story."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#challenger",
-    "href": "slides/math141_wk01fri.html#challenger",
-    "title": "Math 141",
-    "section": "Challenger",
-    "text": "Challenger\n\nOn January 27th, 1986, engineers from Morton Thiokol recommended NASA delay launch of space shuttle Challenger due to cold weather.\n\nBelieved cold weather impacted the o-rings that held the rockets together.\nUsed 13 charts in their argument.\n\nAfter a two hour conference call, the engineer’s recommendation was overruled due to lack of persuasive evidence and the launch proceeded.\nThe Challenger exploded 73 seconds into launch."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#challenger-1",
-    "href": "slides/math141_wk01fri.html#challenger-1",
-    "title": "Math 141",
-    "section": "Challenger",
-    "text": "Challenger\nHere’s one of those charts."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#challenger-2",
-    "href": "slides/math141_wk01fri.html#challenger-2",
-    "title": "Math 141",
-    "section": "Challenger",
-    "text": "Challenger\nHere’s another one of those charts."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#challenger-3",
-    "href": "slides/math141_wk01fri.html#challenger-3",
-    "title": "Math 141",
-    "section": "Challenger",
-    "text": "Challenger\nHere’s a graphic created in R from Edward Tufte’s data."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#challenger-4",
-    "href": "slides/math141_wk01fri.html#challenger-4",
-    "title": "Math 141",
-    "section": "Challenger",
-    "text": "Challenger\nThis adaptation is a recreation of Edward Tufte’s graphic.\n\n\n\n\n\n\n\n\n\n\n\nFor more information on this example and other examples, check out Tufte’s book."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#now-lets-learn-the-grammar-of-graphics.",
-    "href": "slides/math141_wk01fri.html#now-lets-learn-the-grammar-of-graphics.",
-    "title": "Math 141",
-    "section": "Now let’s learn the Grammar of Graphics.",
-    "text": "Now let’s learn the Grammar of Graphics.\n\nWe will use this grammar to:\n\n\nDecompose and understand existing graphs.\n\n\nCreate our own graphs with the R package ggplot2."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#grammar-of-graphics",
-    "href": "slides/math141_wk01fri.html#grammar-of-graphics",
-    "title": "Math 141",
-    "section": "Grammar of Graphics",
-    "text": "Grammar of Graphics\n\ndata: Data frame that contains the raw data\n\nVariables used in the graph\n\ngeom: Geometric shape that the data are mapped to.\n\nEX: Point, line, bar, text, …\n\naesthetic: Visual properties of the geom\n\nEX: X (horizontal) position, y (vertical) position, color, fill, shape\n\nscale: Controls how data are mapped to the visual values of the aesthetic.\n\nEX: particular colors, log scale\n\nguide: Legend/key to help user convert visual display back to the data\n\n\nFor right now, we won’t focus on the names of particular types of graphs (e.g., scatterplot) but on the elements of graphs."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#many-ways-to-visually-tell-a-story",
-    "href": "slides/math141_wk01fri.html#many-ways-to-visually-tell-a-story",
-    "title": "Math 141",
-    "section": "Many Ways To Visually Tell A Story",
-    "text": "Many Ways To Visually Tell A Story\nWashington Post’s Approach:\n\n\n\n\n\nPeriscopic’s Approach"
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#bad-graphics",
-    "href": "slides/math141_wk01fri.html#bad-graphics",
-    "title": "Math 141",
-    "section": "Bad Graphics",
-    "text": "Bad Graphics\nBecause of all the design choices, it is much easier to make a bad graph than a good graph."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#misleading-graphics",
-    "href": "slides/math141_wk01fri.html#misleading-graphics",
-    "title": "Math 141",
-    "section": "Misleading Graphics",
-    "text": "Misleading Graphics\nBe careful that your design choices don’t cause your viewer to draw incorrect conclusions about the data:\n\n\n\n\n\n\nJust letting the software make all the design choices can still lead to misleading graphs (recall the Georgia COVID graph)."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#summary-thoughts-on-graphical-considerations",
-    "href": "slides/math141_wk01fri.html#summary-thoughts-on-graphical-considerations",
-    "title": "Math 141",
-    "section": "Summary Thoughts on Graphical Considerations",
-    "text": "Summary Thoughts on Graphical Considerations\n\nGood graphics are one’s where the findings and insights are obvious to the viewer.\n\nAdd information and key context.\n\nFacilitate the comparisons that correspond to the research question.\n\nRecall the three Georgia COVID counts graphs from Day 1!\n\nData visualizations are not neutral.\nIt is easier to see the differences and similarities between different types of graphics if we learn the grammar of graphics.\nPracticing decomposing graphics should make it easier for us to compose our own graphics."
-  },
-  {
-    "objectID": "slides/math141_wk01fri.html#next-time",
-    "href": "slides/math141_wk01fri.html#next-time",
-    "title": "Math 141",
-    "section": "Next time",
-    "text": "Next time\n\n\nWe’ll learn the ggplot2 so that we use the grammar of graphics to create our own plots!"
-  },
-  {
     "objectID": "slides/math141_wk01wed.html#goals-for-today",
     "href": "slides/math141_wk01wed.html#goals-for-today",
     "title": "Math 141",
@@ -1540,6 +490,1329 @@
     "text": "Next time\nProblem 1 of Lab 1: Create your own Dear Data postcard!\n\n\n\n\n\n\n\n\n\nStep 1: Collect data on some aspect of your life.\nStep 2: Find a story in your data and determine your postcard recipient.\nStep 3: Figure out how you want to visualize the story.\nStep 4+: Visualize your data on a blank postcard.\n\n\n\nBring a laptop to lab tomorrow!"
   },
   {
+    "objectID": "slides/math141_wk01fri.html#goals-for-today",
+    "href": "slides/math141_wk01fri.html#goals-for-today",
+    "title": "Math 141",
+    "section": "Goals for Today",
+    "text": "Goals for Today\n\n\nReview data frames.\nMotivate data visualizations.\nDevelop language to talk about the components of a graphic.\nPractice deconstructing graphics.\nDiscuss good graphical practices."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#reminders",
+    "href": "slides/math141_wk01fri.html#reminders",
+    "title": "Math 141",
+    "section": "Reminders",
+    "text": "Reminders\n\nDAR accommodations.\nSlack for communication.\n\ngeneral-qa and coding-qa channels\n\nCourse assistant (CA) office hours are now posted\n\nCA Office hours start next week\nCoverage every week day!\n\nOther resources\n\nIndividual tutoring"
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#math-141-office-hours-schedule",
+    "href": "slides/math141_wk01fri.html#math-141-office-hours-schedule",
+    "title": "Math 141",
+    "section": "Math 141 Office Hours Schedule",
+    "text": "Math 141 Office Hours Schedule"
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#data-frames",
+    "href": "slides/math141_wk01fri.html#data-frames",
+    "title": "Math 141",
+    "section": "Data Frames",
+    "text": "Data Frames\nData in spreadsheet-like format where:\n\nRows = Observations/cases\nColumns = Variables\n\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\n\nData from GPT Detectors Are Biased Against Non-Native English Writers. Weixin Liang, Mert Yuksekgonul, Yining Mao, Eric Wu, James Zou. CellPress Patterns and available in the R package detectors."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#data-frames-1",
+    "href": "slides/math141_wk01fri.html#data-frames-1",
+    "title": "Math 141",
+    "section": "Data Frames",
+    "text": "Data Frames\n\n\n\n\n\n\nID\nkind\n.pred_AI\n.pred_class\ndetector\nnative\nname\nmodel\n\n\n\n\n1\nHuman\n0.9999942\nAI\nSapling\nNo\nReal TOEFL\nHuman\n\n\n2\nHuman\n0.8281448\nAI\nCrossplag\nNo\nReal TOEFL\nHuman\n\n\n3\nHuman\n0.0002137\nHuman\nCrossplag\nYes\nReal College Essays\nHuman\n\n\n4\nAI\n0.0000000\nHuman\nZeroGPT\nNA\nFake CS224N - GPT3\nGPT3\n\n\n5\nAI\n0.0017841\nHuman\nOriginalityAI\nNA\nFake CS224N - GPT3, PE\nGPT4\n\n\n6\nHuman\n0.0001783\nHuman\nHFOpenAI\nYes\nReal CS224N\nHuman\n\n\n\n\n\n\n\n\nColumns = Variables\nVariables: Describe characteristics of the observations\n\nQuantitative: Numerical in nature\nCategorical: Values are categories\nIdentification: Uniquely identify each case"
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#types-of-variables",
+    "href": "slides/math141_wk01fri.html#types-of-variables",
+    "title": "Math 141",
+    "section": "Types of variables",
+    "text": "Types of variables\n\n\n\nIdentification: Uniquely identify each case\n\n\n\nQuantitative: Numerical in nature\n\nThose that can take a range of values are called  (e.g., age, income)\nThose that only take particular (often whole number) values are called discrete (e.g., result of a dice roll)\nNot every variable involving numbers is quantitative!\n\n\n\n\nCategorical: Values are categories\n\nUsually take values (e.g., Race/Ethnicity or Gender)\nBut can take numeric values! (e.g., zip code)\nThe values that a categorical variable can take are called its levels\nOrdinal categorical variables can be ordered (e.g., level of education, variables collected with a Likert scale)\nCategorical variables that cannot be ordered are called nominal (e.g., Race/Ethnicity)"
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#why-construct-a-graph",
+    "href": "slides/math141_wk01fri.html#why-construct-a-graph",
+    "title": "Math 141",
+    "section": "Why construct a graph?",
+    "text": "Why construct a graph?\n\n\nTo explore the data.\n\n\nTo summarize the data.\n\n\nTo showcase trends and make comparisons.\n\n\nTo tell a compelling story."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#challenger",
+    "href": "slides/math141_wk01fri.html#challenger",
+    "title": "Math 141",
+    "section": "Challenger",
+    "text": "Challenger\n\nOn January 27th, 1986, engineers from Morton Thiokol recommended NASA delay launch of space shuttle Challenger due to cold weather.\n\nBelieved cold weather impacted the o-rings that held the rockets together.\nUsed 13 charts in their argument.\n\nAfter a two hour conference call, the engineer’s recommendation was overruled due to lack of persuasive evidence and the launch proceeded.\nThe Challenger exploded 73 seconds into launch."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#challenger-1",
+    "href": "slides/math141_wk01fri.html#challenger-1",
+    "title": "Math 141",
+    "section": "Challenger",
+    "text": "Challenger\nHere’s one of those charts."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#challenger-2",
+    "href": "slides/math141_wk01fri.html#challenger-2",
+    "title": "Math 141",
+    "section": "Challenger",
+    "text": "Challenger\nHere’s another one of those charts."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#challenger-3",
+    "href": "slides/math141_wk01fri.html#challenger-3",
+    "title": "Math 141",
+    "section": "Challenger",
+    "text": "Challenger\nHere’s a graphic created in R from Edward Tufte’s data."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#challenger-4",
+    "href": "slides/math141_wk01fri.html#challenger-4",
+    "title": "Math 141",
+    "section": "Challenger",
+    "text": "Challenger\nThis adaptation is a recreation of Edward Tufte’s graphic.\n\n\n\n\n\n\n\n\n\n\n\nFor more information on this example and other examples, check out Tufte’s book."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#now-lets-learn-the-grammar-of-graphics.",
+    "href": "slides/math141_wk01fri.html#now-lets-learn-the-grammar-of-graphics.",
+    "title": "Math 141",
+    "section": "Now let’s learn the Grammar of Graphics.",
+    "text": "Now let’s learn the Grammar of Graphics.\n\nWe will use this grammar to:\n\n\nDecompose and understand existing graphs.\n\n\nCreate our own graphs with the R package ggplot2."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#grammar-of-graphics",
+    "href": "slides/math141_wk01fri.html#grammar-of-graphics",
+    "title": "Math 141",
+    "section": "Grammar of Graphics",
+    "text": "Grammar of Graphics\n\ndata: Data frame that contains the raw data\n\nVariables used in the graph\n\ngeom: Geometric shape that the data are mapped to.\n\nEX: Point, line, bar, text, …\n\naesthetic: Visual properties of the geom\n\nEX: X (horizontal) position, y (vertical) position, color, fill, shape\n\nscale: Controls how data are mapped to the visual values of the aesthetic.\n\nEX: particular colors, log scale\n\nguide: Legend/key to help user convert visual display back to the data\n\n\nFor right now, we won’t focus on the names of particular types of graphs (e.g., scatterplot) but on the elements of graphs."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#many-ways-to-visually-tell-a-story",
+    "href": "slides/math141_wk01fri.html#many-ways-to-visually-tell-a-story",
+    "title": "Math 141",
+    "section": "Many Ways To Visually Tell A Story",
+    "text": "Many Ways To Visually Tell A Story\nWashington Post’s Approach:\n\n\n\n\n\nPeriscopic’s Approach"
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#bad-graphics",
+    "href": "slides/math141_wk01fri.html#bad-graphics",
+    "title": "Math 141",
+    "section": "Bad Graphics",
+    "text": "Bad Graphics\nBecause of all the design choices, it is much easier to make a bad graph than a good graph."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#misleading-graphics",
+    "href": "slides/math141_wk01fri.html#misleading-graphics",
+    "title": "Math 141",
+    "section": "Misleading Graphics",
+    "text": "Misleading Graphics\nBe careful that your design choices don’t cause your viewer to draw incorrect conclusions about the data:\n\n\n\n\n\n\nJust letting the software make all the design choices can still lead to misleading graphs (recall the Georgia COVID graph)."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#summary-thoughts-on-graphical-considerations",
+    "href": "slides/math141_wk01fri.html#summary-thoughts-on-graphical-considerations",
+    "title": "Math 141",
+    "section": "Summary Thoughts on Graphical Considerations",
+    "text": "Summary Thoughts on Graphical Considerations\n\nGood graphics are one’s where the findings and insights are obvious to the viewer.\n\nAdd information and key context.\n\nFacilitate the comparisons that correspond to the research question.\n\nRecall the three Georgia COVID counts graphs from Day 1!\n\nData visualizations are not neutral.\nIt is easier to see the differences and similarities between different types of graphics if we learn the grammar of graphics.\nPracticing decomposing graphics should make it easier for us to compose our own graphics."
+  },
+  {
+    "objectID": "slides/math141_wk01fri.html#next-time",
+    "href": "slides/math141_wk01fri.html#next-time",
+    "title": "Math 141",
+    "section": "Next time",
+    "text": "Next time\n\n\nWe’ll learn the ggplot2 so that we use the grammar of graphics to create our own plots!"
+  },
+  {
+    "objectID": "readings/readings_wk14mon.html",
+    "href": "readings/readings_wk14mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk14mon.html#reading",
+    "href": "readings/readings_wk14mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk14mon.html#homework-assignment",
+    "href": "readings/readings_wk14mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk13mon.html",
+    "href": "readings/readings_wk13mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk13mon.html#reading",
+    "href": "readings/readings_wk13mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk13mon.html#homework-assignment",
+    "href": "readings/readings_wk13mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk12wed.html",
+    "href": "readings/readings_wk12wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk12wed.html#reading",
+    "href": "readings/readings_wk12wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk12wed.html#homework-assignment",
+    "href": "readings/readings_wk12wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk12fri.html",
+    "href": "readings/readings_wk12fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk12fri.html#reading",
+    "href": "readings/readings_wk12fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk12fri.html#homework-assignment",
+    "href": "readings/readings_wk12fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk11mon.html",
+    "href": "readings/readings_wk11mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk11mon.html#reading",
+    "href": "readings/readings_wk11mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk11mon.html#homework-assignment",
+    "href": "readings/readings_wk11mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk10wed.html",
+    "href": "readings/readings_wk10wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk10wed.html#reading",
+    "href": "readings/readings_wk10wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk10wed.html#homework-assignment",
+    "href": "readings/readings_wk10wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk10fri.html",
+    "href": "readings/readings_wk10fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk10fri.html#reading",
+    "href": "readings/readings_wk10fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk10fri.html#homework-assignment",
+    "href": "readings/readings_wk10fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk09mon.html",
+    "href": "readings/readings_wk09mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk09mon.html#reading",
+    "href": "readings/readings_wk09mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk09mon.html#homework-assignment",
+    "href": "readings/readings_wk09mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk08wed.html",
+    "href": "readings/readings_wk08wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk08wed.html#reading",
+    "href": "readings/readings_wk08wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk08wed.html#homework-assignment",
+    "href": "readings/readings_wk08wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk08fri.html",
+    "href": "readings/readings_wk08fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk08fri.html#reading",
+    "href": "readings/readings_wk08fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk08fri.html#homework-assignment",
+    "href": "readings/readings_wk08fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk07mon.html",
+    "href": "readings/readings_wk07mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk07mon.html#reading",
+    "href": "readings/readings_wk07mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk07mon.html#homework-assignment",
+    "href": "readings/readings_wk07mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk06wed.html",
+    "href": "readings/readings_wk06wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk06wed.html#reading",
+    "href": "readings/readings_wk06wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk06wed.html#homework-assignment",
+    "href": "readings/readings_wk06wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk06fri.html",
+    "href": "readings/readings_wk06fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk06fri.html#reading",
+    "href": "readings/readings_wk06fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk06fri.html#homework-assignment",
+    "href": "readings/readings_wk06fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk05mon.html",
+    "href": "readings/readings_wk05mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk05mon.html#reading",
+    "href": "readings/readings_wk05mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk05mon.html#homework-assignment",
+    "href": "readings/readings_wk05mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk04wed.html",
+    "href": "readings/readings_wk04wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk04wed.html#reading",
+    "href": "readings/readings_wk04wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk04wed.html#homework-assignment",
+    "href": "readings/readings_wk04wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk04fri.html",
+    "href": "readings/readings_wk04fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk04fri.html#reading",
+    "href": "readings/readings_wk04fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk04fri.html#homework-assignment",
+    "href": "readings/readings_wk04fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk03mon.html",
+    "href": "readings/readings_wk03mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk03mon.html#reading",
+    "href": "readings/readings_wk03mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk03mon.html#homework-assignment",
+    "href": "readings/readings_wk03mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk02wed.html",
+    "href": "readings/readings_wk02wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.6, 2.8, 2.9\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC2.19, LC2.20, LC2.26, LC2.27, LC2.30, LC2.31, LC2.32, LC2.34, LC2.36"
+  },
+  {
+    "objectID": "readings/readings_wk02wed.html#reading",
+    "href": "readings/readings_wk02wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.6, 2.8, 2.9"
+  },
+  {
+    "objectID": "readings/readings_wk02wed.html#homework-assignment",
+    "href": "readings/readings_wk02wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC2.19, LC2.20, LC2.26, LC2.27, LC2.30, LC2.31, LC2.32, LC2.34, LC2.36"
+  },
+  {
+    "objectID": "readings/readings_wk02fri.html",
+    "href": "readings/readings_wk02fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk02fri.html#reading",
+    "href": "readings/readings_wk02fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk02fri.html#homework-assignment",
+    "href": "readings/readings_wk02fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk01thu.html",
+    "href": "readings/readings_wk01thu.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lab today, please read the following material:\n\nMD Chapter 1 (skip section 1.1.1)\n\n\n\n\nBefore coming to lab today, please complete the following tasks:\n\nIntroduce yourself on Slack in the #in-class channel."
+  },
+  {
+    "objectID": "readings/readings_wk01thu.html#reading",
+    "href": "readings/readings_wk01thu.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lab today, please read the following material:\n\nMD Chapter 1 (skip section 1.1.1)"
+  },
+  {
+    "objectID": "readings/readings_wk01thu.html#homework",
+    "href": "readings/readings_wk01thu.html#homework",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lab today, please complete the following tasks:\n\nIntroduce yourself on Slack in the #in-class channel."
+  },
+  {
+    "objectID": "office_hours.html",
+    "href": "office_hours.html",
+    "title": "Office Hours",
+    "section": "",
+    "text": "Please stop by to introduce yourself or ask some questions about the course!\nWe offer two types of office hours for Math 141:\n\nInstructor office hours (Grayson), which occur in Library 390.\nCourse Assistant office hours (Alayne, Nat, Remy), which occur in ETC 105B.\n\nInstructor office hours are a great place to ask questions about the content or course in general. They’re also a great place to get help on problems that you are stuck on.\nCourse Assistant office hours are a great place to work on your assignments with fellow students and seek the help of the course assistants whenever you get stuck.\nFurther, each Reed student is entitled to one hour of individual tutoring per course per week. You can sign up for individual tutoring in iris.\nBelow is the schedule of office hours for the week. We will update this calendar in case office hours need to change times or locations."
+  },
+  {
+    "objectID": "labs/lab_01_instructions.html",
+    "href": "labs/lab_01_instructions.html",
+    "title": "Instructions for Accessing Math 141 Labs",
+    "section": "",
+    "text": "R is a wonderful programming language that we will frequently use in our course to visualize and tidy data, create programs to assist computations, create data models, and perform statistical inference. It is free, open-source, and has a large community of users who care about statistics and data science.\nTo begin, note that there are 3 closely related computer processes that we will work with: R, RStudio, and Quarto. It’s worth taking a moment to distinguish between them.\n\nR is a programming language, which can be accessed by typing particular commands into the console or at the command prompt.\nRStudio is an integrated development environment (IDE), and provides a clean user interface for writing and executing R code. This is the main tool we will use to interact with the R language.\nQuarto is a file type we’ll use to write R code and text (similar to .docx, but for programming!). It can record R code, text, and graphical outputs. One of the easiest ways to share your results with others is to distribute your Quarto (or .qmd) file. It’s a “one-stop shop” of statistical work!\n\nRStudio comes in two varieties: RStudio Desktop and RStudio Server. The desktop version is a program you can install on your personal computer, and uses your computer’s resources to perform calculations. On the other hand, the server version can be accessed just using a web-browser, and will perform calculations on Reed’s server; there is no need to install any additional programs. For class purposes, we will use the RStudio Server."
+  },
+  {
+    "objectID": "labs/lab_01_instructions.html#introduction",
+    "href": "labs/lab_01_instructions.html#introduction",
+    "title": "Instructions for Accessing Math 141 Labs",
+    "section": "",
+    "text": "R is a wonderful programming language that we will frequently use in our course to visualize and tidy data, create programs to assist computations, create data models, and perform statistical inference. It is free, open-source, and has a large community of users who care about statistics and data science.\nTo begin, note that there are 3 closely related computer processes that we will work with: R, RStudio, and Quarto. It’s worth taking a moment to distinguish between them.\n\nR is a programming language, which can be accessed by typing particular commands into the console or at the command prompt.\nRStudio is an integrated development environment (IDE), and provides a clean user interface for writing and executing R code. This is the main tool we will use to interact with the R language.\nQuarto is a file type we’ll use to write R code and text (similar to .docx, but for programming!). It can record R code, text, and graphical outputs. One of the easiest ways to share your results with others is to distribute your Quarto (or .qmd) file. It’s a “one-stop shop” of statistical work!\n\nRStudio comes in two varieties: RStudio Desktop and RStudio Server. The desktop version is a program you can install on your personal computer, and uses your computer’s resources to perform calculations. On the other hand, the server version can be accessed just using a web-browser, and will perform calculations on Reed’s server; there is no need to install any additional programs. For class purposes, we will use the RStudio Server."
+  },
+  {
+    "objectID": "labs/lab_01_instructions.html#accessing-this-lab",
+    "href": "labs/lab_01_instructions.html#accessing-this-lab",
+    "title": "Instructions for Accessing Math 141 Labs",
+    "section": "Accessing this Lab",
+    "text": "Accessing this Lab\nIn order to access the lab each week, you’ll have to follow these steps. Here, we detail the process of logging in to the RStudio Server and “cloning” a GitHub repository to get the lab materials. “Cloning”, in this case, means making a copy of my a folder I’ve uploaded with all files and data needed so that you can complete the lab. Anyways, here are the steps:\n\nUse your web browser to navigate to the Reed RStudio server at https://rstudio.reed.edu.\nLog-in using your Reed username and password (the one you use for Moodle, Gmail, etc.).\nIn the Projects dropdown (typically upper right) of RStudio, click the “Project: (None)” button1. Then, click “New Project…”.\n\n\n\n\n\n\nThe project button\n\n\n\n\n\n\n\n\nSelecting “New Project…”\n\n\n\n\n\nA pop-up will appear to ask how you’d like to create the project. You’ll need to click “Version Control” and the “Git” to access the lab materials. After you’ve clicked “Version Control” and “Git”, add the link to the lab materials in the “Repository URL” section:2\nhttps://github.com/Math-141/lab01.git\nFinally, give the Project Directory the name “lab01”\n\n\n\n\n\n\nSelecting Version Control from the pop-up\n\n\n\n\n\n\n\n\nHow things should look after you’ve added the link and project name\n\n\n\n\n\nPress “Create Project”. If all has gone well, you should see “lab01” in the top right corner of RStudio, and some new files for the lab in the bottom right corner of RStudio.\n\n\n\n\n\n\nThe Create Project button\n\n\n\n\n\n\n\n\nA successful cloning of the lab!\n\n\n\n\n\nOpen lab01_yourname.qmd. This is the Quarto document that you’ll complete the lab in. You can (and should) rename this file to include your actual name by checking the box next to the file, clicking “Rename”, and modifying the text to include your name, e.g. lab01_graysonwhite.qmd, rather than lab01_yourname.qmd.\n\nWe’ve also provided a gif of steps 3-6 to help minimize confusion in these steps:\n\n\n\nSteps 3-6, via gif"
+  },
+  {
+    "objectID": "labs/lab_01_instructions.html#footnotes",
+    "href": "labs/lab_01_instructions.html#footnotes",
+    "title": "Instructions for Accessing Math 141 Labs",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\nIf you’re already in a project, this button will show that projects name. This shouldn’t be the case for the first lab, but will likely be the case for the remaining labs.↩︎\nThis link will always be the same, but updated for the lab number, e.g. https://github.com/Math-141/lab02.git for lab 2, https://github.com/Math-141/lab10.git for lab 10, etc. You won’t be able to access these projects until the day that the lab is released, though.↩︎"
+  },
+  {
+    "objectID": "readings/readings_wk01fri.html",
+    "href": "readings/readings_wk01fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.1 - 2.3\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nMD Learning Checks: LC2.2, LC2.4, LC2.5, LC2.7, LC2.8"
+  },
+  {
+    "objectID": "readings/readings_wk01fri.html#reading",
+    "href": "readings/readings_wk01fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.1 - 2.3"
+  },
+  {
+    "objectID": "readings/readings_wk01fri.html#homework-assignment",
+    "href": "readings/readings_wk01fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nMD Learning Checks: LC2.2, LC2.4, LC2.5, LC2.7, LC2.8"
+  },
+  {
+    "objectID": "readings/readings_wk01wed.html",
+    "href": "readings/readings_wk01wed.html",
+    "title": "Math 141: Readings for September 3, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\nThe syllabus\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nNone today."
+  },
+  {
+    "objectID": "readings/readings_wk01wed.html#reading",
+    "href": "readings/readings_wk01wed.html#reading",
+    "title": "Math 141: Readings for September 3, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\nThe syllabus"
+  },
+  {
+    "objectID": "readings/readings_wk01wed.html#homework-assignment",
+    "href": "readings/readings_wk01wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 3, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nNone today."
+  },
+  {
+    "objectID": "readings/readings_wk02mon.html",
+    "href": "readings/readings_wk02mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.4, 2.5, 2.7\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC2.11, LC2.12, LC2.14, LC2.15, LC2.23, LC2.25"
+  },
+  {
+    "objectID": "readings/readings_wk02mon.html#reading",
+    "href": "readings/readings_wk02mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 2.4, 2.5, 2.7"
+  },
+  {
+    "objectID": "readings/readings_wk02mon.html#homework-assignment",
+    "href": "readings/readings_wk02mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC2.11, LC2.12, LC2.14, LC2.15, LC2.23, LC2.25"
+  },
+  {
+    "objectID": "readings/readings_wk03fri.html",
+    "href": "readings/readings_wk03fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk03fri.html#reading",
+    "href": "readings/readings_wk03fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk03fri.html#homework-assignment",
+    "href": "readings/readings_wk03fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk03wed.html",
+    "href": "readings/readings_wk03wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk03wed.html#reading",
+    "href": "readings/readings_wk03wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk03wed.html#homework-assignment",
+    "href": "readings/readings_wk03wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk04mon.html",
+    "href": "readings/readings_wk04mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk04mon.html#reading",
+    "href": "readings/readings_wk04mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk04mon.html#homework-assignment",
+    "href": "readings/readings_wk04mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk05fri.html",
+    "href": "readings/readings_wk05fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk05fri.html#reading",
+    "href": "readings/readings_wk05fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk05fri.html#homework-assignment",
+    "href": "readings/readings_wk05fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk05wed.html",
+    "href": "readings/readings_wk05wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk05wed.html#reading",
+    "href": "readings/readings_wk05wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk05wed.html#homework-assignment",
+    "href": "readings/readings_wk05wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk06mon.html",
+    "href": "readings/readings_wk06mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk06mon.html#reading",
+    "href": "readings/readings_wk06mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk06mon.html#homework-assignment",
+    "href": "readings/readings_wk06mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk07fri.html",
+    "href": "readings/readings_wk07fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk07fri.html#reading",
+    "href": "readings/readings_wk07fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk07fri.html#homework-assignment",
+    "href": "readings/readings_wk07fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk07wed.html",
+    "href": "readings/readings_wk07wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk07wed.html#reading",
+    "href": "readings/readings_wk07wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk07wed.html#homework-assignment",
+    "href": "readings/readings_wk07wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk08mon.html",
+    "href": "readings/readings_wk08mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk08mon.html#reading",
+    "href": "readings/readings_wk08mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk08mon.html#homework-assignment",
+    "href": "readings/readings_wk08mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk09fri.html",
+    "href": "readings/readings_wk09fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk09fri.html#reading",
+    "href": "readings/readings_wk09fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk09fri.html#homework-assignment",
+    "href": "readings/readings_wk09fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk09wed.html",
+    "href": "readings/readings_wk09wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk09wed.html#reading",
+    "href": "readings/readings_wk09wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk09wed.html#homework-assignment",
+    "href": "readings/readings_wk09wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk10mon.html",
+    "href": "readings/readings_wk10mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk10mon.html#reading",
+    "href": "readings/readings_wk10mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk10mon.html#homework-assignment",
+    "href": "readings/readings_wk10mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk11fri.html",
+    "href": "readings/readings_wk11fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk11fri.html#reading",
+    "href": "readings/readings_wk11fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk11fri.html#homework-assignment",
+    "href": "readings/readings_wk11fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk11wed.html",
+    "href": "readings/readings_wk11wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk11wed.html#reading",
+    "href": "readings/readings_wk11wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk11wed.html#homework-assignment",
+    "href": "readings/readings_wk11wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk12mon.html",
+    "href": "readings/readings_wk12mon.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk12mon.html#reading",
+    "href": "readings/readings_wk12mon.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk12mon.html#homework-assignment",
+    "href": "readings/readings_wk12mon.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk13fri.html",
+    "href": "readings/readings_wk13fri.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk13fri.html#reading",
+    "href": "readings/readings_wk13fri.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk13fri.html#homework-assignment",
+    "href": "readings/readings_wk13fri.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk13wed.html",
+    "href": "readings/readings_wk13wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk13wed.html#reading",
+    "href": "readings/readings_wk13wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk13wed.html#homework-assignment",
+    "href": "readings/readings_wk13wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk14wed.html",
+    "href": "readings/readings_wk14wed.html",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "readings/readings_wk14wed.html#reading",
+    "href": "readings/readings_wk14wed.html#reading",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "Before coming to lecture today, please read the following material:"
+  },
+  {
+    "objectID": "readings/readings_wk14wed.html#homework-assignment",
+    "href": "readings/readings_wk14wed.html#homework-assignment",
+    "title": "Math 141: Readings for September 4, 2025",
+    "section": "",
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+  },
+  {
+    "objectID": "slides/math141_wk01thu.html#hand-drawn-data-viz",
+    "href": "slides/math141_wk01thu.html#hand-drawn-data-viz",
+    "title": "Math 141",
+    "section": "Hand-Drawn Data Viz",
+    "text": "Hand-Drawn Data Viz\n\nOnce we have collected data, a common next step is to visualize it.\nTwo key aspects of data visualization:\n\nDetermining how you want to display the data.\nFiguring out how to tell the computer to do that mapping.\n\nHand-drawn data visualizations allow us to focus on the first part with full control over the creative process!"
+  },
+  {
+    "objectID": "slides/math141_wk01thu.html#hand-drawn-data-viz-examples",
+    "href": "slides/math141_wk01thu.html#hand-drawn-data-viz-examples",
+    "title": "Math 141",
+    "section": "Hand-Drawn Data Viz Examples",
+    "text": "Hand-Drawn Data Viz Examples\nDear Data\n\n“Each week, and for a year, we collected and measured a particular type of data about our lives, used this data to make a drawing on a postcard-sized sheet of paper, and then dropped the postcard in an English”postbox” (Stefanie) or an American “mailbox” (Giorgia)!“"
+  },
+  {
+    "objectID": "slides/math141_wk01thu.html#goal-over-the-next-few-days-collect-data-from-your-life-so-that-you-can-visualize-it-on-lab-1.",
+    "href": "slides/math141_wk01thu.html#goal-over-the-next-few-days-collect-data-from-your-life-so-that-you-can-visualize-it-on-lab-1.",
+    "title": "Math 141",
+    "section": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.",
+    "text": "Goal: Over the next few days, collect data from your life so that you can visualize it on Lab 1.\n\n\nRecommendations\n\n\nStore the data in your favorite spreadsheet program (Google Sheets, Numbers, Excel).\nDetermine what your cases/observations will be.\nCollect data on more variables than you will likely visualize. It is hard to know beforehand what the interesting relationships will be.\nCome to my office (Library 390) to borrow art supplies (colored pencils and felt-tip markers)!"
+  },
+  {
+    "objectID": "slides/math141_wk01thu.html#section",
+    "href": "slides/math141_wk01thu.html#section",
+    "title": "Math 141",
+    "section": "",
+    "text": "Demo of accessing the RStudio Server\nand intro to Quarto"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#announcements",
+    "href": "slides/math141_wk02fri.html#announcements",
+    "title": "Math 141",
+    "section": "Announcements",
+    "text": "Announcements\n\n\nThe teaching team would love to see you in Office hours!\n\nInstructor office hours: For individual or small group help on problems or concepts\nCourse assistant office hours: To work on assignments with your peers and get help from the course assistants when you are stuck\n\n\n\nGoals for Today\n\nConsider measures for summarizing quantitative data\n\nCenter\nSpread/variability\n\nConsider measures for summarizing categorical data"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#load-necessary-packages",
+    "href": "slides/math141_wk02fri.html#load-necessary-packages",
+    "title": "Math 141",
+    "section": "Load Necessary Packages",
+    "text": "Load Necessary Packages\n\n\n\n\n\ndplyr is part of the tidyverse collection of data science packages.\n\n# Load necessary packages\nlibrary(tidyverse)"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#import-the-data",
+    "href": "slides/math141_wk02fri.html#import-the-data",
+    "title": "Math 141",
+    "section": "Import the Data",
+    "text": "Import the Data\n\nbiketown &lt;- read_csv(\"data/biketown.csv\")\n\n# Inspect the data\nglimpse(biketown)\n\nRows: 9,999\nColumns: 19\n$ RouteID          &lt;dbl&gt; 4074085, 3719219, 3789757, 3576798, 3459987, 3947695,…\n$ PaymentPlan      &lt;chr&gt; \"Subscriber\", \"Casual\", \"Casual\", \"Subscriber\", \"Casu…\n$ StartHub         &lt;chr&gt; \"SE Elliott at Division\", \"SW Yamhill at Director Par…\n$ StartLatitude    &lt;dbl&gt; 45.50513, 45.51898, 45.52990, 45.52389, 45.53028, 45.…\n$ StartLongitude   &lt;dbl&gt; -122.6534, -122.6813, -122.6628, -122.6722, -122.6547…\n$ StartDate        &lt;chr&gt; \"8/17/2017\", \"7/22/2017\", \"7/27/2017\", \"7/12/2017\", \"…\n$ StartTime        &lt;time&gt; 10:44:00, 14:49:00, 14:13:00, 13:23:00, 19:30:00, 10…\n$ EndHub           &lt;chr&gt; \"Blues Fest - SW Waterfront at Clay - Disabled\", \"SW …\n$ EndLatitude      &lt;dbl&gt; 45.51287, 45.52142, 45.55902, 45.53409, 45.52990, 45.…\n$ EndLongitude     &lt;dbl&gt; -122.6749, -122.6726, -122.6355, -122.6949, -122.6628…\n$ EndDate          &lt;chr&gt; \"8/17/2017\", \"7/22/2017\", \"7/27/2017\", \"7/12/2017\", \"…\n$ EndTime          &lt;time&gt; 10:56:00, 15:00:00, 14:42:00, 13:38:00, 20:30:00, 10…\n$ TripType         &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ BikeID           &lt;dbl&gt; 6163, 6843, 6409, 7375, 6354, 6088, 6089, 5988, 6857,…\n$ BikeName         &lt;chr&gt; \"0488 BIKETOWN\", \"0759 BIKETOWN\", \"0614 BIKETOWN\", \"0…\n$ Distance_Miles   &lt;dbl&gt; 1.91, 0.72, 3.42, 1.81, 4.51, 5.54, 1.59, 1.03, 0.70,…\n$ Duration         &lt;dbl&gt; 11.500, 11.383, 28.317, 14.917, 60.517, 53.783, 23.86…\n$ RentalAccessPath &lt;chr&gt; \"keypad\", \"keypad\", \"keypad\", \"keypad\", \"keypad\", \"ke…\n$ MultipleRental   &lt;lgl&gt; FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE, FALSE…"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#summarizing-data",
+    "href": "slides/math141_wk02fri.html#summarizing-data",
+    "title": "Math 141",
+    "section": "Summarizing Data",
+    "text": "Summarizing Data\n\n\n\n\n\n\nRouteID\nPaymentPlan\nStartHub\nDistance_Miles\n\n\n\n\n3596434\nSubscriber\nNW 18th at Flanders\n0.59\n\n\n3607170\nSubscriber\nNW Raleigh at 21st\n0.71\n\n\n3631639\nCasual\nSW 2nd at Pine\n3.15\n\n\n3912181\nCasual\nSE Water at Taylor\n5.89\n\n\n4031739\nCasual\nSE Clay at Water\n1.34\n\n\n3859969\nCasual\nSW Naito at Morrison\n1.56\n\n\n4315016\nCasual\nNW Everett at 22nd\n3.50\n\n\n4252609\nCasual\nNW Flanders at 14th\n1.81\n\n\n3809564\nCasual\nNA\n2.74\n\n\n\n\n\n\n\n\n\nHard to do by eyeballing a spreadsheet with many rows!"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#summarizing-data-visually",
+    "href": "slides/math141_wk02fri.html#summarizing-data-visually",
+    "title": "Math 141",
+    "section": "Summarizing Data Visually",
+    "text": "Summarizing Data Visually\n\n\n\n\n\n\n\n\n\n\n\n\n\nFor a quantitative variable, want to answer:\n\nWhat is an average value?\nWhat is the trend/shape of the variable?\nHow much variation is there from case to case?\n\n\n\nNeed to learn key summary statistics: Numerical values computed based on the observed cases."
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-center",
+    "href": "slides/math141_wk02fri.html#measures-of-center",
+    "title": "Math 141",
+    "section": "Measures of Center",
+    "text": "Measures of Center\n\n\nMean: Average of all the observations\n\n\\(n\\) = Number of cases (sample size)\n\\(x_i\\) = value of the i-th observation\nDenote by \\(\\bar{x}\\)"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-center-1",
+    "href": "slides/math141_wk02fri.html#measures-of-center-1",
+    "title": "Math 141",
+    "section": "Measures of Center",
+    "text": "Measures of Center\n\n\nMean: Average of all the observations\n\n\\(n\\) = Number of cases (sample size)\n\\(x_i\\) = value of the i-th observation\nDenote by \\(\\bar{x}\\)\n\n\\[\n\\bar{x}  = \\frac{1}{n} \\sum_{i = 1}^n x_i\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-center-2",
+    "href": "slides/math141_wk02fri.html#measures-of-center-2",
+    "title": "Math 141",
+    "section": "Measures of Center",
+    "text": "Measures of Center\n\n\nMean: Average of all the observations\n\n\\(n\\) = Number of cases (sample size)\n\\(x_i\\) = value of the i-th observation\nDenote by \\(\\bar{x}\\)\n\n\\[\n\\bar{x}  = \\frac{1}{n} \\sum_{i = 1}^n x_i\n\\]\n\n# Test out on first 6 values\nhead(biketown$Distance_Miles)\n\n[1] 1.91 0.72 3.42 1.81 4.51 5.54\n\n\n\nCompute with a dplyr function:\n\nsummarize(biketown, mean_miles = mean(Distance_Miles))\n\n# A tibble: 1 × 1\n  mean_miles\n       &lt;dbl&gt;\n1       2.04"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-center-3",
+    "href": "slides/math141_wk02fri.html#measures-of-center-3",
+    "title": "Math 141",
+    "section": "Measures of Center",
+    "text": "Measures of Center\n\n\nMedian: Middle value\n\nHalf of the data falls below the median\nDenote by \\(m\\)\nIf \\(n\\) is even, then it is the average of the middle two values"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-center-4",
+    "href": "slides/math141_wk02fri.html#measures-of-center-4",
+    "title": "Math 141",
+    "section": "Measures of Center",
+    "text": "Measures of Center\n\n\nMedian: Middle value\n\nHalf of the data falls below the median\nDenote by \\(m\\)\nIf \\(n\\) is even, then it is the average of the middle two values\n\n\n# Test out on first 6 values\nhead(biketown$Distance_Miles)\n\n[1] 1.91 0.72 3.42 1.81 4.51 5.54\n\n\n\nCompute with a dplyr function:\n\nsummarize(biketown, median_miles = median(Distance_Miles))\n\n# A tibble: 1 × 1\n  median_miles\n         &lt;dbl&gt;\n1         1.48"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-center-5",
+    "href": "slides/math141_wk02fri.html#measures-of-center-5",
+    "title": "Math 141",
+    "section": "Measures of Center",
+    "text": "Measures of Center\n\n\nWhy is the mean larger than the median?\n\nsummarize(biketown, \n          mean_miles = mean(Distance_Miles),\n          median_miles = median(Distance_Miles))\n\n# A tibble: 1 × 2\n  mean_miles median_miles\n       &lt;dbl&gt;        &lt;dbl&gt;\n1       2.04         1.48"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#computing-measures-of-center-by-groups",
+    "href": "slides/math141_wk02fri.html#computing-measures-of-center-by-groups",
+    "title": "Math 141",
+    "section": "Computing Measures of Center by Groups",
+    "text": "Computing Measures of Center by Groups\nQuestion: Who travels further, on average? Casual biketown users or payment plan subscribers?"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#computing-measures-of-center-by-groups-1",
+    "href": "slides/math141_wk02fri.html#computing-measures-of-center-by-groups-1",
+    "title": "Math 141",
+    "section": "Computing Measures of Center by Groups",
+    "text": "Computing Measures of Center by Groups\nHandy dplyr function: group_by()\n\nbiketown_grouped &lt;- group_by(biketown, PaymentPlan)\nbiketown_grouped\n\n# A tibble: 9,999 × 19\n# Groups:   PaymentPlan [2]\n   RouteID PaymentPlan StartHub StartLatitude StartLongitude StartDate StartTime\n     &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;            &lt;dbl&gt;          &lt;dbl&gt; &lt;chr&gt;     &lt;time&gt;   \n 1 4074085 Subscriber  SE Elli…          45.5          -123. 8/17/2017 10:44    \n 2 3719219 Casual      SW Yamh…          45.5          -123. 7/22/2017 14:49    \n 3 3789757 Casual      NE Holl…          45.5          -123. 7/27/2017 14:13    \n 4 3576798 Subscriber  NW Couc…          45.5          -123. 7/12/2017 13:23    \n 5 3459987 Casual      NE 11th…          45.5          -123. 7/3/2017  19:30    \n 6 3947695 Casual      SW Mood…          45.5          -123. 8/8/2017  10:01    \n 7 3549550 Casual      NW 2nd …          45.5          -123. 7/10/2017 14:13    \n 8 4411957 Casual      NW Nait…          45.5          -123. 9/10/2017 07:41    \n 9 4098004 Casual      NW Nait…          45.5          -123. 8/18/2017 23:35    \n10 4096862 Subscriber  SW Mood…          45.5          -123. 8/18/2017 20:10    \n# ℹ 9,989 more rows\n# ℹ 12 more variables: EndHub &lt;chr&gt;, EndLatitude &lt;dbl&gt;, EndLongitude &lt;dbl&gt;,\n#   EndDate &lt;chr&gt;, EndTime &lt;time&gt;, TripType &lt;lgl&gt;, BikeID &lt;dbl&gt;,\n#   BikeName &lt;chr&gt;, Distance_Miles &lt;dbl&gt;, Duration &lt;dbl&gt;,\n#   RentalAccessPath &lt;chr&gt;, MultipleRental &lt;lgl&gt;"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#computing-measures-of-center-by-groups-2",
+    "href": "slides/math141_wk02fri.html#computing-measures-of-center-by-groups-2",
+    "title": "Math 141",
+    "section": "Computing Measures of Center by Groups",
+    "text": "Computing Measures of Center by Groups\n\n\nCompute summary statistics on the grouped data frame:\n\nbiketown_grouped &lt;- group_by(biketown, PaymentPlan)\nsummarize(biketown_grouped,\n          mean_miles = mean(Distance_Miles),\n          median_miles = median(Distance_Miles))\n\n# A tibble: 2 × 3\n  PaymentPlan mean_miles median_miles\n  &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt;\n1 Casual            2.56         2.03\n2 Subscriber        1.45         1.02"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#chaining-dplyr-operations",
+    "href": "slides/math141_wk02fri.html#chaining-dplyr-operations",
+    "title": "Math 141",
+    "section": "Chaining dplyr Operations",
+    "text": "Chaining dplyr Operations\n\n\nInstead of:\n\nbiketown_grouped &lt;- group_by(biketown, PaymentPlan)\nsummarize(biketown_grouped,\n          mean_miles = mean(Distance_Miles),\n          median_miles = median(Distance_Miles))\n\n# A tibble: 2 × 3\n  PaymentPlan mean_miles median_miles\n  &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt;\n1 Casual            2.56         2.03\n2 Subscriber        1.45         1.02\n\n\n\nUse the pipe:\n\nbiketown %&gt;%\n  group_by(PaymentPlan) %&gt;%\n  summarize(mean_miles = mean(Distance_Miles),\n          median_miles = median(Distance_Miles))\n\n# A tibble: 2 × 3\n  PaymentPlan mean_miles median_miles\n  &lt;chr&gt;            &lt;dbl&gt;        &lt;dbl&gt;\n1 Casual            2.56         2.03\n2 Subscriber        1.45         1.02\n\n\n\n\n\nWhy pipe?\n\n\n\n\nYou can also use |&gt;, which is newer and often referred to as the “base R pipe.”"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability",
+    "href": "slides/math141_wk02fri.html#measures-of-variability",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\nFind how much each observation deviates from the mean.\nCompute the average of the deviations."
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-1",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-1",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\n\nFind how much each observation deviates from the mean.\nCompute the average of the deviations.\n\n\\[\n\\frac{1}{n} \\sum_{i = 1}^n (x_i - \\bar{x})\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-2",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-2",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\n\nFind how much each observation deviates from the mean.\nCompute the average of the deviations.\n\n\\[\n\\frac{1}{n} \\sum_{i = 1}^n (x_i - \\bar{x})\n\\]\n\n\n# Test out on first 6 values\nhead(biketown$Distance_Miles)\n\n[1] 1.91 0.72 3.42 1.81 4.51 5.54\n\n\n\n\nProblem?"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-3",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-3",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\nHere is my NEW proposal:\n\nFind how much each observation deviates from the mean.\nCompute the average of the squared deviations."
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-4",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-4",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\nHere is my NEW proposal:\n\nFind how much each observation deviates from the mean.\nCompute the average of the squared deviations.\n\n\n\n# Test out on first 6 values\nhead(biketown$Distance_Miles)\n\n[1] 1.91 0.72 3.42 1.81 4.51 5.54"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-5",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-5",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\nHere is my ACTUAL formula:\n\nFind how much each observation deviates from the mean.\nCompute the (nearly) average of the squared deviations.\nCalled sample variance \\(s^2\\)."
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-6",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-6",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\nHere is my ACTUAL formula:\n\nFind how much each observation deviates from the mean.\nCompute the (nearly) average of the squared deviations.\nCalled sample variance \\(s^2\\).\n\n\\[\ns^2 = \\frac{1}{n - 1} \\sum_{i = 1}^n (x_i - \\bar{x})^2\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-7",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-7",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\nHere is my ACTUAL formula:\n\nFind how much each observation deviates from the mean.\nCompute the (nearly) average of the squared deviations.\nCalled sample variance \\(s^2\\).\n\n\\[\ns^2 = \\frac{1}{n - 1} \\sum_{i = 1}^n (x_i - \\bar{x})^2\n\\]\n\nCompute with a dplyr function:\n\nsummarize(biketown, var_miles = var(Distance_Miles))\n\n# A tibble: 1 × 1\n  var_miles\n      &lt;dbl&gt;\n1      3.81"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-8",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-8",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\n\nFind how much each observation deviates from the mean.\nCompute the (nearly) average of the squared deviations.\nCalled sample variance \\(s^2\\).\nThe square root of the sample variance is called the sample standard deviation \\(s\\)."
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-9",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-9",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\n\nFind how much each observation deviates from the mean.\nCompute the (nearly) average of the squared deviations.\nCalled sample variance \\(s^2\\).\nThe square root of the sample variance is called the sample standard deviation \\(s\\).\n\n\\[\ns = \\sqrt{\\frac{1}{n - 1} \\sum_{i = 1}^n (x_i - \\bar{x})^2}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-10",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-10",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\nWant a statistic that captures how much observations deviate from the mean\n\n\n\n\n\nFind how much each observation deviates from the mean.\nCompute the (nearly) average of the squared deviations.\nCalled sample variance \\(s^2\\).\nThe square root of the sample variance is called the sample standard deviation \\(s\\).\n\n\\[\ns = \\sqrt{\\frac{1}{n - 1} \\sum_{i = 1}^n (x_i - \\bar{x})^2}\n\\]\n\nCompute with a dplyr function:\n\nsummarize(biketown, var_miles = var(Distance_Miles),\n          sd_miles = sd(Distance_Miles))\n\n# A tibble: 1 × 2\n  var_miles sd_miles\n      &lt;dbl&gt;    &lt;dbl&gt;\n1      3.81     1.95"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-11",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-11",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\n\nIn addition to the sample standard deviation and the sample variance, there is the sample interquartile range (IQR):"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-12",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-12",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\n\nIn addition to the sample standard deviation and the sample variance, there is the sample interquartile range (IQR):\n\n\\[\n\\mbox{IQR} = \\mbox{Q}_3 - \\mbox{Q}_1\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#measures-of-variability-13",
+    "href": "slides/math141_wk02fri.html#measures-of-variability-13",
+    "title": "Math 141",
+    "section": "Measures of Variability",
+    "text": "Measures of Variability\n\n\n\nIn addition to the sample standard deviation and the sample variance, there is the sample interquartile range (IQR):\n\n\\[\n\\mbox{IQR} = \\mbox{Q}_3 - \\mbox{Q}_1\n\\]\n\nCompute with a dplyr function:\n\nsummarize(biketown, iqr_miles = IQR(Distance_Miles))\n\n# A tibble: 1 × 1\n  iqr_miles\n      &lt;dbl&gt;\n1      1.89"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#comparing-measures-of-variability",
+    "href": "slides/math141_wk02fri.html#comparing-measures-of-variability",
+    "title": "Math 141",
+    "section": "Comparing Measures of Variability",
+    "text": "Comparing Measures of Variability\n\nWhich is more robust to outliers, the IQR or \\(s\\)?\nWhich is more commonly used, the IQR or \\(s\\)?\n\n\nbiketown %&gt;%\n  group_by(PaymentPlan) %&gt;%\n  summarize(sd_miles = sd(Distance_Miles),\n            iqr_miles = IQR(Distance_Miles))\n\n# A tibble: 2 × 3\n  PaymentPlan sd_miles iqr_miles\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;\n1 Casual          2.15      2.25\n2 Subscriber      1.48      1.21"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#return-to-the-cambridge-dogs",
+    "href": "slides/math141_wk02fri.html#return-to-the-cambridge-dogs",
+    "title": "Math 141",
+    "section": "Return to the Cambridge Dogs",
+    "text": "Return to the Cambridge Dogs\nFocus on the dogs with the 5 most common names\n\ndogs &lt;- read_csv(\"https://data.cambridgema.gov/api/views/sckh-3xyx/rows.csv\")\n\n# Useful wrangling that we will come back to\ndogs_top5 &lt;- dogs %&gt;% \n  mutate(Breed = case_when(\n                       Dog_Breed == \"Mixed Breed\" ~ \"Mixed\",\n                       Dog_Breed != \"Mixed Breed\" ~ \"Single\")) %&gt;%\n  filter(Dog_Name %in% c(\"Luna\", \"Charlie\", \"Lucy\", \"Cooper\", \"Rosie\" ))\n\nhead(dogs_top5)\n\n# A tibble: 6 × 7\n  Dog_Name Dog_Breed            Location_masked Latitude_masked Longitude_masked\n  &lt;chr&gt;    &lt;chr&gt;                &lt;lgl&gt;                     &lt;dbl&gt;            &lt;dbl&gt;\n1 Lucy     Poodle               NA                         42.4            -71.1\n2 Luna     LABRADOODLE          NA                         42.4            -71.1\n3 Charlie  Border Terrier Mix   NA                         42.4            -71.1\n4 Cooper   German Shorthaired … NA                         42.4            -71.1\n5 Charlie  Golden Retriever     NA                         42.4            -71.1\n6 Luna     Mixed Breed          NA                         42.4            -71.1\n# ℹ 2 more variables: Neighborhood &lt;chr&gt;, Breed &lt;chr&gt;"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#frequency-table",
+    "href": "slides/math141_wk02fri.html#frequency-table",
+    "title": "Math 141",
+    "section": "Frequency Table",
+    "text": "Frequency Table\n\n\n\ncount(dogs_top5, Dog_Name)\n\n# A tibble: 5 × 2\n  Dog_Name     n\n  &lt;chr&gt;    &lt;int&gt;\n1 Charlie     14\n2 Cooper       8\n3 Lucy        11\n4 Luna        14\n5 Rosie       10\n\n\n\n\nggplot(data = dogs_top5, \n    mapping = aes(x = Dog_Name)) +\n  geom_bar()"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#frequency-table-1",
+    "href": "slides/math141_wk02fri.html#frequency-table-1",
+    "title": "Math 141",
+    "section": "Frequency Table",
+    "text": "Frequency Table\n\n\n\ncount(dogs_top5, Dog_Name)\n\n# A tibble: 5 × 2\n  Dog_Name     n\n  &lt;chr&gt;    &lt;int&gt;\n1 Charlie     14\n2 Cooper       8\n3 Lucy        11\n4 Luna        14\n5 Rosie       10\n\n\n\n\ncount(dogs_top5, Dog_Name, sort = TRUE)\n\n# A tibble: 5 × 2\n  Dog_Name     n\n  &lt;chr&gt;    &lt;int&gt;\n1 Charlie     14\n2 Luna        14\n3 Lucy        11\n4 Rosie       10\n5 Cooper       8"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#contingency-table",
+    "href": "slides/math141_wk02fri.html#contingency-table",
+    "title": "Math 141",
+    "section": "Contingency Table",
+    "text": "Contingency Table\n\n\n\ncount(dogs_top5, Dog_Name, Breed)\n\n# A tibble: 10 × 3\n   Dog_Name Breed      n\n   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;\n 1 Charlie  Mixed      4\n 2 Charlie  Single    10\n 3 Cooper   Mixed      1\n 4 Cooper   Single     7\n 5 Lucy     Mixed      2\n 6 Lucy     Single     9\n 7 Luna     Mixed      7\n 8 Luna     Single     7\n 9 Rosie    Mixed      1\n10 Rosie    Single     9\n\n\n\n\nggplot(data = dogs_top5, \n    mapping = aes(x = Dog_Name, fill = Breed)) +\n  geom_bar(position = \"dodge\")"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#conditional-proportions",
+    "href": "slides/math141_wk02fri.html#conditional-proportions",
+    "title": "Math 141",
+    "section": "Conditional Proportions",
+    "text": "Conditional Proportions\n\n\n\nBeyond raw counts, we often summarize categorical data with conditional proportions.\n\nEspecially when looking for relationships!\n\n\n\n\nggplot(data = dogs_top5, \n    mapping = aes(x = Dog_Name, fill = Breed)) +\n  geom_bar(position = \"fill\")"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#conditional-proportions-1",
+    "href": "slides/math141_wk02fri.html#conditional-proportions-1",
+    "title": "Math 141",
+    "section": "Conditional Proportions",
+    "text": "Conditional Proportions\n\n\n\ncount(dogs_top5, Dog_Name, Breed)\n\n# A tibble: 10 × 3\n   Dog_Name Breed      n\n   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;\n 1 Charlie  Mixed      4\n 2 Charlie  Single    10\n 3 Cooper   Mixed      1\n 4 Cooper   Single     7\n 5 Lucy     Mixed      2\n 6 Lucy     Single     9\n 7 Luna     Mixed      7\n 8 Luna     Single     7\n 9 Rosie    Mixed      1\n10 Rosie    Single     9\n\n\n\n\ncount(dogs_top5, Dog_Name, Breed) %&gt;%\n  group_by(Dog_Name) %&gt;%\n  mutate(prop = n/sum(n))\n\n# A tibble: 10 × 4\n# Groups:   Dog_Name [5]\n   Dog_Name Breed      n  prop\n   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;\n 1 Charlie  Mixed      4 0.286\n 2 Charlie  Single    10 0.714\n 3 Cooper   Mixed      1 0.125\n 4 Cooper   Single     7 0.875\n 5 Lucy     Mixed      2 0.182\n 6 Lucy     Single     9 0.818\n 7 Luna     Mixed      7 0.5  \n 8 Luna     Single     7 0.5  \n 9 Rosie    Mixed      1 0.1  \n10 Rosie    Single     9 0.9  \n\n\n\n\nThe dplyr function mutate() adds new column(s) to your data frame."
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#conditional-proportions-2",
+    "href": "slides/math141_wk02fri.html#conditional-proportions-2",
+    "title": "Math 141",
+    "section": "Conditional Proportions",
+    "text": "Conditional Proportions\n\n\n\ncount(dogs_top5, Dog_Name, Breed) %&gt;%\n  group_by(Dog_Name) %&gt;%\n  mutate(prop = n/sum(n))\n\n# A tibble: 10 × 4\n# Groups:   Dog_Name [5]\n   Dog_Name Breed      n  prop\n   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;\n 1 Charlie  Mixed      4 0.286\n 2 Charlie  Single    10 0.714\n 3 Cooper   Mixed      1 0.125\n 4 Cooper   Single     7 0.875\n 5 Lucy     Mixed      2 0.182\n 6 Lucy     Single     9 0.818\n 7 Luna     Mixed      7 0.5  \n 8 Luna     Single     7 0.5  \n 9 Rosie    Mixed      1 0.1  \n10 Rosie    Single     9 0.9  \n\n\n\n\ncount(dogs_top5, Dog_Name, Breed) %&gt;%\n  group_by(Breed) %&gt;%\n  mutate(prop = n/sum(n))\n\n# A tibble: 10 × 4\n# Groups:   Breed [2]\n   Dog_Name Breed      n   prop\n   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt;  &lt;dbl&gt;\n 1 Charlie  Mixed      4 0.267 \n 2 Charlie  Single    10 0.238 \n 3 Cooper   Mixed      1 0.0667\n 4 Cooper   Single     7 0.167 \n 5 Lucy     Mixed      2 0.133 \n 6 Lucy     Single     9 0.214 \n 7 Luna     Mixed      7 0.467 \n 8 Luna     Single     7 0.167 \n 9 Rosie    Mixed      1 0.0667\n10 Rosie    Single     9 0.214 \n\n\n\nHow does the interpretation change based on which variable you condition on?"
+  },
+  {
+    "objectID": "slides/math141_wk02fri.html#reminders",
+    "href": "slides/math141_wk02fri.html#reminders",
+    "title": "Math 141",
+    "section": "Reminders",
+    "text": "Reminders\n\nThe teaching team would love to see you in Office hours!\nNext time:\n\nWe’ll define data wrangling and\nLearn to use functions more in the dplyr package to summarize and wrangle data"
+  },
+  {
     "objectID": "slides/math141_wk02wed.html#goals-for-today",
     "href": "slides/math141_wk02wed.html#goals-for-today",
     "title": "Math 141",
@@ -1586,21 +1859,21 @@
     "href": "slides/math141_wk02wed.html#segmented-barplots",
     "title": "Math 141",
     "section": "Segmented Barplots",
-    "text": "Segmented Barplots\n\n\n# Create segmented barplot\nggplot(data = dogs_top5, \n       mapping = aes(x = fct_infreq(Dog_Name),\n                     fill = Breed)) +\n  geom_bar() +\n  theme(legend.pos = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nEach bar is divided into the frequencies of the fill variable.\nHard to make comparisons across categories."
+    "text": "Segmented Barplots\n\n\n# Create segmented barplot\nggplot(data = dogs_top5, \n       mapping = aes(x = fct_infreq(Dog_Name),\n                     fill = Breed)) +\n  geom_bar() +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nEach bar is divided into the frequencies of the fill variable.\nHard to make comparisons across categories."
   },
   {
     "objectID": "slides/math141_wk02wed.html#segmented-barplots-1",
     "href": "slides/math141_wk02wed.html#segmented-barplots-1",
     "title": "Math 141",
     "section": "Segmented Barplots",
-    "text": "Segmented Barplots\n\n\n# Create segmented barplot\nggplot(data = dogs_top5, \n       mapping = aes(x = fct_infreq(Dog_Name),\n                     fill = Breed)) +\n  geom_bar(position = \"dodge\") +\n  theme(legend.pos = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nCan add the position argument into the geom_bar()."
+    "text": "Segmented Barplots\n\n\n# Create segmented barplot\nggplot(data = dogs_top5, \n       mapping = aes(x = fct_infreq(Dog_Name),\n                     fill = Breed)) +\n  geom_bar(position = \"dodge\") +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nCan add the position argument into the geom_bar()."
   },
   {
     "objectID": "slides/math141_wk02wed.html#segmented-barplots-2",
     "href": "slides/math141_wk02wed.html#segmented-barplots-2",
     "title": "Math 141",
     "section": "Segmented Barplots",
-    "text": "Segmented Barplots\n\n\n# Create segmented barplot\nggplot(data = dogs_top5, \n       mapping = aes(fill = fct_infreq(Dog_Name),\n                     x = Breed)) +\n  geom_bar(position = \"fill\") +\n  theme(legend.pos = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nNow each bar is divided into proportions based on the fill variable."
+    "text": "Segmented Barplots\n\n\n# Create segmented barplot\nggplot(data = dogs_top5, \n       mapping = aes(fill = fct_infreq(Dog_Name),\n                     x = Breed)) +\n  geom_bar(position = \"fill\") +\n  theme(legend.position = \"bottom\")\n\n\n\n\n\n\n\n\n\n\nNow each bar is divided into proportions based on the fill variable."
   },
   {
     "objectID": "slides/math141_wk02wed.html#adding-more-variables",

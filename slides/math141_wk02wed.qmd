@@ -173,7 +173,7 @@ ggplot(data = dogs_top5,
        mapping = aes(x = fct_infreq(Dog_Name),
                      fill = Breed)) +
   geom_bar() +
-  theme(legend.pos = "bottom")
+  theme(legend.position = "bottom")
 ```
 
 -   Each bar is divided into the frequencies of the `fill` variable.
@@ -193,7 +193,7 @@ ggplot(data = dogs_top5,
        mapping = aes(x = fct_infreq(Dog_Name),
                      fill = Breed)) +
   geom_bar(position = "dodge") +
-  theme(legend.pos = "bottom")
+  theme(legend.position = "bottom")
 ```
 
 -   Can add the `position` argument into the `geom_bar()`.
@@ -211,7 +211,7 @@ ggplot(data = dogs_top5,
        mapping = aes(fill = fct_infreq(Dog_Name),
                      x = Breed)) +
   geom_bar(position = "fill") +
-  theme(legend.pos = "bottom")
+  theme(legend.position = "bottom")
 ```
 
 -   Now each bar is divided into **proportions** based on the `fill` variable.

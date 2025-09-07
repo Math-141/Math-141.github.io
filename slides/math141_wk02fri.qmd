@@ -1,0 +1,947 @@
+---
+pagetitle: "Summary Statistics"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Summary Statistics]{.custom-title}
+
+<br> <br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 2 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+
+## Announcements
+
+::: nonincremental
+-   The teaching team would love to see you in [Office hours](../office_hours.qmd)!
+    -   **Instructor office hours**: For individual or small group help on problems or concepts
+    -   **Course assistant office hours**: To work on assignments with your peers and get help from the course assistants when you are stuck
+:::
+
+### Goals for Today
+
+-   Consider measures for **summarizing** quantitative data
+    -   Center
+    -   Spread/variability
+-   Consider measures for **summarizing** categorical data
+
+
+------------------------------------------------------------------------
+
+## Load Necessary Packages
+
+![](img/dplyr.png){width="15%" fig-align="center"}
+
+`dplyr` is part of the `tidyverse` collection of data science packages.
+
+```{r}
+#| message: true
+#| warning: true
+# Load necessary packages
+library(tidyverse)
+```
+
+------------------------------------------------------------------------
+
+## Import the Data
+
+```{r}
+biketown <- read_csv("data/biketown.csv")
+
+# Inspect the data
+glimpse(biketown)
+```
+
+------------------------------------------------------------------------
+
+## Summarizing Data
+
+```{r, echo = FALSE}
+library(kableExtra)
+biketown[25:33,] %>%
+  select(RouteID, PaymentPlan, StartHub, Distance_Miles) %>%
+  knitr::kable() %>%
+  kable_styling(bootstrap_options = c("responsive", "bordered", "striped")) 
+```
+
+-   Hard to do by eyeballing a spreadsheet with many rows!
+
+------------------------------------------------------------------------
+
+## Summarizing Data Visually
+
+::::: columns
+::: {.column width="50%"}
+```{r, echo = FALSE}
+# Create histogram
+ggplot(data = biketown, mapping = aes(x = Distance_Miles)) + 
+  geom_histogram(fill = "slateblue4", color = "ghostwhite") +
+  facet_wrap(~PaymentPlan, ncol = 1)
+
+```
+:::
+
+::: {.column width="50%"}
+<br>
+
+For a quantitative variable, want to answer:
+
+-   What is an **average** value?
+
+-   What is the **trend/shape** of the variable?
+
+-   How much **variation** is there from case to case?
+:::
+:::::
+
+::: fragment
+Need to learn key **summary statistics**: Numerical values computed based on the observed cases.
+:::
+
+------------------------------------------------------------------------
+
+## Measures of Center
+
+::::: columns
+::: {.column width="50%"}
+**Mean**: Average of all the observations
+
+-   $n$ = Number of cases (sample size)
+-   $x_i$ = value of the i-th observation
+-   Denote by $\bar{x}$
+
+:::
+
+::: {.column width="50%" .nonincrmental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Center
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+**Mean**: Average of all the observations
+
+-   $n$ = Number of cases (sample size)
+-   $x_i$ = value of the i-th observation
+-   Denote by $\bar{x}$
+
+$$
+\bar{x}  = \frac{1}{n} \sum_{i = 1}^n x_i
+$$
+
+
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Center
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+**Mean**: Average of all the observations
+
+-   $n$ = Number of cases (sample size)
+-   $x_i$ = value of the i-th observation
+-   Denote by $\bar{x}$
+
+$$
+\bar{x}  = \frac{1}{n} \sum_{i = 1}^n x_i
+$$
+
+```{r}
+# Test out on first 6 values
+head(biketown$Distance_Miles)
+```
+:::
+
+::: {.column .fragment width="50%"}
+Compute with a `dplyr` function:
+
+```{r}
+summarize(biketown, mean_miles = mean(Distance_Miles))
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Center
+
+::::: columns
+::: {.column width="50%"}
+**Median**: Middle value
+
+-   Half of the data falls below the median
+-   Denote by $m$
+-   If $n$ is even, then it is the average of the middle two values
+
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Center
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+**Median**: Middle value
+
+-   Half of the data falls below the median
+-   Denote by $m$
+-   If $n$ is even, then it is the average of the middle two values
+
+```{r}
+# Test out on first 6 values
+head(biketown$Distance_Miles)
+```
+:::
+
+::: {.column .fragment width="50%"}
+Compute with a `dplyr` function:
+
+```{r}
+summarize(biketown, median_miles = median(Distance_Miles))
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Center
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+Why is the mean larger than the median?
+
+```{r}
+summarize(biketown, 
+          mean_miles = mean(Distance_Miles),
+          median_miles = median(Distance_Miles))
+```
+:::
+
+::: {.column .fragment width="50%"}
+```{r, echo = FALSE}
+# Create histogram
+ggplot(data = biketown, mapping = aes(x = Distance_Miles)) + 
+  geom_histogram(fill = "slateblue4", color = "ghostwhite") 
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Computing Measures of Center by Groups
+
+**Question**: Who travels further, on average? Casual biketown users or payment plan subscribers?
+
+```{r, echo = FALSE}
+#| fig-width: 10
+
+# Create histogram
+ggplot(data = biketown, mapping = aes(x = Distance_Miles)) + 
+  geom_histogram(fill = "slateblue4", color = "ghostwhite") +
+  facet_wrap(~PaymentPlan, ncol = 1)
+
+```
+
+------------------------------------------------------------------------
+
+## Computing Measures of Center by Groups
+
+Handy `dplyr` function: `group_by()`
+
+```{r}
+biketown_grouped <- group_by(biketown, PaymentPlan)
+biketown_grouped
+```
+
+------------------------------------------------------------------------
+
+## Computing Measures of Center by Groups
+
+::::: columns
+::: {.column width="50%"}
+Compute summary statistics on the grouped data frame:
+
+```{r}
+biketown_grouped <- group_by(biketown, PaymentPlan)
+summarize(biketown_grouped,
+          mean_miles = mean(Distance_Miles),
+          median_miles = median(Distance_Miles))
+```
+:::
+
+::: {.column width="50%"}
+```{r, echo = FALSE}
+# Create histogram
+ggplot(data = biketown, mapping = aes(x = Distance_Miles)) + 
+  geom_histogram(fill = "slateblue4", color = "ghostwhite") +
+  facet_wrap(~PaymentPlan, ncol = 1)
+```
+:::
+:::::
+
+# And now it is time to learn the pipe: `%>%`
+
+![](img/pipe.png){width="15%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Chaining `dplyr` Operations
+
+::::: columns
+::: {.column width="50%"}
+Instead of:
+
+```{r}
+biketown_grouped <- group_by(biketown, PaymentPlan)
+summarize(biketown_grouped,
+          mean_miles = mean(Distance_Miles),
+          median_miles = median(Distance_Miles))
+```
+:::
+
+::: {.column .fragment width="50%"}
+Use the pipe:
+
+```{r}
+biketown %>%
+  group_by(PaymentPlan) %>%
+  summarize(mean_miles = mean(Distance_Miles),
+          median_miles = median(Distance_Miles))
+```
+:::
+:::::
+
+::: fragment
+-   Why pipe?
+:::
+
+::: fragment
+-   You can also use `|>`, which is newer and often referred to as the "base `R` pipe."
+:::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+::::: columns
+::: {.column width="50%"}
+-   Find how much each observation deviates from the mean.
+-   Compute the average of the deviations.
+
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+-   Find how much each observation deviates from the mean.
+-   Compute the average of the deviations.
+
+$$
+\frac{1}{n} \sum_{i = 1}^n (x_i - \bar{x})
+$$
+:::
+
+::: {.column width="50%"}
+
+:::
+:::::
+
+
+
+------------------------------------------------------------------------
+
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+-   Find how much each observation deviates from the mean.
+-   Compute the average of the deviations.
+
+$$
+\frac{1}{n} \sum_{i = 1}^n (x_i - \bar{x})
+$$
+:::
+
+::: {.column width="50%"}
+```{r}
+# Test out on first 6 values
+head(biketown$Distance_Miles)
+```
+:::
+:::::
+
+::: fragment
+**Problem?**
+:::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%"}
+Here is my **NEW** proposal:
+
+-   Find how much each observation deviates from the mean.
+-   Compute the average of the **squared** deviations.
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+Here is my **NEW** proposal:
+
+-   Find how much each observation deviates from the mean.
+-   Compute the average of the **squared** deviations.
+:::
+
+::: {.column width="50%"}
+```{r}
+# Test out on first 6 values
+head(biketown$Distance_Miles)
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%"}
+Here is my **ACTUAL** formula:
+
+-   Find how much each observation deviates from the mean.
+-   Compute the (nearly) average of the **squared** deviations.
+-   Called **sample variance** $s^2$.
+
+
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+Here is my **ACTUAL** formula:
+
+-   Find how much each observation deviates from the mean.
+-   Compute the (nearly) average of the **squared** deviations.
+-   Called **sample variance** $s^2$.
+
+$$
+s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2
+$$
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+Here is my **ACTUAL** formula:
+
+-   Find how much each observation deviates from the mean.
+-   Compute the (nearly) average of the **squared** deviations.
+-   Called **sample variance** $s^2$.
+
+$$
+s^2 = \frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2
+$$
+:::
+
+::: {.column width="50%"}
+Compute with a `dplyr` function:
+
+```{r}
+summarize(biketown, var_miles = var(Distance_Miles))
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%"}
+-   Find how much each observation deviates from the mean.
+-   Compute the (nearly) average of the **squared** deviations.
+-   Called **sample variance** $s^2$.
+-   The square root of the sample variance is called the **sample standard deviation** $s$.
+
+
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+-   Find how much each observation deviates from the mean.
+-   Compute the (nearly) average of the **squared** deviations.
+-   Called **sample variance** $s^2$.
+-   The square root of the sample variance is called the **sample standard deviation** $s$.
+
+$$
+s = \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2}
+$$
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::: {.nonincremental}
+
+-   Want a statistic that captures how much observations **deviate** from the mean
+
+:::
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+-   Find how much each observation deviates from the mean.
+-   Compute the (nearly) average of the **squared** deviations.
+-   Called **sample variance** $s^2$.
+-   The square root of the sample variance is called the **sample standard deviation** $s$.
+
+$$
+s = \sqrt{\frac{1}{n - 1} \sum_{i = 1}^n (x_i - \bar{x})^2}
+$$
+:::
+
+::: {.column width="50%"}
+Compute with a `dplyr` function:
+
+```{r}
+summarize(biketown, var_miles = var(Distance_Miles),
+          sd_miles = sd(Distance_Miles))
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::::: columns
+::: {.column width="50%"}
+-   In addition to the sample standard deviation and the sample variance, there is the sample **interquartile range** (IQR):
+
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+-   In addition to the sample standard deviation and the sample variance, there is the sample **interquartile range** (IQR):
+
+$$
+\mbox{IQR} = \mbox{Q}_3 - \mbox{Q}_1
+$$
+:::
+
+::: {.column width="50%" .nonincremental}
+
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Measures of Variability
+
+::::: columns
+::: {.column width="50%" .nonincremental}
+-   In addition to the sample standard deviation and the sample variance, there is the sample **interquartile range** (IQR):
+
+$$
+\mbox{IQR} = \mbox{Q}_3 - \mbox{Q}_1
+$$
+:::
+
+::: {.column width="50%" .nonincremental}
+Compute with a `dplyr` function:
+
+```{r}
+summarize(biketown, iqr_miles = IQR(Distance_Miles))
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Comparing Measures of Variability
+
+-   Which is more robust to outliers, the IQR or $s$?
+
+-   Which is more commonly used, the IQR or $s$?
+
+
+```{r}
+biketown %>%
+  group_by(PaymentPlan) %>%
+  summarize(sd_miles = sd(Distance_Miles),
+            iqr_miles = IQR(Distance_Miles))
+```
+
+
+
+# Summarizing Categorical Variables
+
+------------------------------------------------------------------------
+
+## Return to the Cambridge Dogs
+
+Focus on the dogs with the 5 most common names
+
+```{r}
+dogs <- read_csv("https://data.cambridgema.gov/api/views/sckh-3xyx/rows.csv")
+
+# Useful wrangling that we will come back to
+dogs_top5 <- dogs %>% 
+  mutate(Breed = case_when(
+                       Dog_Breed == "Mixed Breed" ~ "Mixed",
+                       Dog_Breed != "Mixed Breed" ~ "Single")) %>%
+  filter(Dog_Name %in% c("Luna", "Charlie", "Lucy", "Cooper", "Rosie" ))
+
+head(dogs_top5)
+```
+
+------------------------------------------------------------------------
+
+## Frequency Table
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+count(dogs_top5, Dog_Name)
+```
+:::
+
+::: {.column width="50%" .fragment}
+```{r}
+ggplot(data = dogs_top5, 
+    mapping = aes(x = Dog_Name)) +
+  geom_bar()
+
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Frequency Table
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+count(dogs_top5, Dog_Name)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+count(dogs_top5, Dog_Name, sort = TRUE)
+
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Another `ggplot2` `geom`: `geom_col()`
+
+If you have already aggregated the data, you will use `geom_col()` instead of `geom_bar()`.
+
+```{r}
+dog_counts <- count(dogs_top5, Dog_Name)
+dog_counts
+```
+
+```{r}
+#| output-location: column
+ggplot(data = dog_counts,
+       mapping = aes(x = Dog_Name,
+                     y = n)) +
+  geom_col()
+```
+
+------------------------------------------------------------------------
+
+### Another `ggplot2` `geom`: `geom_col()`
+
+And use `fct_reorder()` instead of `fct_infreq()` to reorder bars.
+
+```{r}
+dog_counts <- count(dogs_top5, Dog_Name)
+dog_counts
+```
+
+```{r}
+#| output-location: column
+ggplot(data = dog_counts,
+       mapping = aes(x = fct_reorder(Dog_Name, n),
+                     y = n)) +
+  geom_col()
+```
+
+------------------------------------------------------------------------
+
+## Contingency Table
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+count(dogs_top5, Dog_Name, Breed)
+```
+:::
+
+::: {.column width="50%" .fragment}
+```{r}
+ggplot(data = dogs_top5, 
+    mapping = aes(x = Dog_Name, fill = Breed)) +
+  geom_bar(position = "dodge")
+
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Conditional Proportions
+
+::::: columns
+::: {.column width="50%"}
+-   Beyond raw counts, we often summarize categorical data with **conditional** proportions.
+    -   Especially when looking for relationships!
+:::
+
+::: {.column width="50%"}
+```{r}
+ggplot(data = dogs_top5, 
+    mapping = aes(x = Dog_Name, fill = Breed)) +
+  geom_bar(position = "fill")
+
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Conditional Proportions
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+count(dogs_top5, Dog_Name, Breed)
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+count(dogs_top5, Dog_Name, Breed) %>%
+  group_by(Dog_Name) %>%
+  mutate(prop = n/sum(n))
+```
+:::
+:::::
+
+-   The dplyr function `mutate()` adds new column(s) to your data frame.
+
+------------------------------------------------------------------------
+
+## Conditional Proportions
+
+::::: columns
+::: {.column width="50%"}
+```{r}
+count(dogs_top5, Dog_Name, Breed) %>%
+  group_by(Dog_Name) %>%
+  mutate(prop = n/sum(n))
+```
+:::
+
+::: {.column width="50%"}
+```{r}
+count(dogs_top5, Dog_Name, Breed) %>%
+  group_by(Breed) %>%
+  mutate(prop = n/sum(n))
+```
+:::
+:::::
+
+How does the interpretation change based on which variable you condition on?
+
+------------------------------------------------------------------------
+
+## Reminders
+
+-   The teaching team would love to see you in [Office hours](../office_hours.qmd)!
+
+-   Next time: 
+    - We'll define **data wrangling** and
+    - Learn to use functions more in the `dplyr` package to summarize and wrangle data
