@@ -28,7 +28,7 @@ editor:
     - Office hours: Monday & Friday: 5pm - 6:30pm
 -   Alayne Zhang 
     - Lab section: 10:30am - 11:50am
-    - Office Hours: Tuesday & Thursday: 5pm - 6:30pm
+    - Office Hours: Tuesday & Thursday: 5:15pm - 6:45pm
 -   Nat Lincoln 
     - Lab section: 1:40pm - 3:00pm Lab
     - Office Hours: Wednesday: 5pm - 7pm, Monday: 6:30pm - 7:30pm
