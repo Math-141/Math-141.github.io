@@ -116,14 +116,14 @@
     "href": "slides/math141_wk02mon.html#ggplot2-example-code",
     "title": "Math 141",
     "section": "ggplot2 example code",
-    "text": "ggplot2 example code\nGuiding Principle: We will map variables from the data to the aesthetic attributes (e.g. location, size, shape, color) of geometric objects (e.g. points, lines, bars).\n\nggplot(data = ---, mapping = aes(---)) +\n  geom_---(---) \n\n\nThere are other layers, such as scales_---_---() and labs(), but we will wait on those."
+    "text": "ggplot2 example code\nGuiding Principle: We will map variables from the data to the aesthetic attributes (e.g. location, size, shape, color) of geometric objects (e.g. points, lines, bars).\n\nggplot(data = ---, mapping = aes(---)) +\n  geom_---(---) \n\n\nThere are other layers, such as scale_---_---() and labs(), but we will wait on those."
   },
   {
     "objectID": "slides/math141_wk02mon.html#histograms",
     "href": "slides/math141_wk02mon.html#histograms",
     "title": "Math 141",
     "section": "Histograms",
-    "text": "Histograms\n\n\n\nBinned counts of data.\nGreat for assessing shape."
+    "text": "Histograms\n\n\n\nBinned counts of data.\nGreat for assessing shape.\nQuestion: are histograms used for quantitative or categorical variables?\nAnswer: Quantitative."
   },
   {
     "objectID": "slides/math141_wk02mon.html#data-shapes",
@@ -165,14 +165,14 @@
     "href": "slides/math141_wk02mon.html#boxplots-2",
     "title": "Math 141",
     "section": "Boxplots",
-    "text": "Boxplots\n\n\nggplot(data = biketown, \n       mapping = aes(x = PaymentPlan, \n                     y = Distance_Miles)) +\n  geom_boxplot(fill = \"springgreen3\")"
+    "text": "Boxplots\n\n\nggplot(data = biketown, \n       mapping = aes(x = PaymentPlan, \n                     y = Distance_Miles)) +\n  geom_boxplot(fill = \"springgreen3\")\n\n\n\n\n\n\n\n\n\n\nIs this fill an aesthetic mapping?"
   },
   {
     "objectID": "slides/math141_wk02mon.html#boxplots-3",
     "href": "slides/math141_wk02mon.html#boxplots-3",
     "title": "Math 141",
     "section": "Boxplots",
-    "text": "Boxplots\n\n\nggplot(data = biketown, \n       mapping = aes(x = PaymentPlan, \n                     y = Distance_Miles,\n                     fill = PaymentPlan)) +\n  geom_boxplot()"
+    "text": "Boxplots\n\n\nggplot(data = biketown, \n       mapping = aes(x = PaymentPlan, \n                     y = Distance_Miles,\n                     fill = PaymentPlan)) +\n  geom_boxplot()\n\n\n\n\n\n\n\n\n\n\nIs this fill an aesthetic mapping?\nWhat variable is mapped to fill?"
   },
   {
     "objectID": "slides/math141_wk02mon.html#boxplots-4",
@@ -221,7 +221,7 @@
     "href": "slides/math141_wk02mon.html#inspect-the-data-3",
     "title": "Math 141",
     "section": "Inspect the data",
-    "text": "Inspect the data\n\nhead(near_Reed)\n\n# A tibble: 6 × 34\n  Longitude Latitude UserID Genus       Family   DBH Inventory_Date      Species\n      &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;  \n1     -123.     45.5 7670   Quercus     Fagac…   3.3 2018-07-26 00:00:00 QURU   \n2     -123.     45.5 7671   Pseudotsuga Pinac…  43.1 2018-07-26 00:00:00 PSME   \n3     -123.     45.5 7672   Pseudotsuga Pinac…  48.2 2018-07-26 00:00:00 PSME   \n4     -123.     45.5 7902   Quercus     Fagac…   2.4 2018-07-26 00:00:00 QURU   \n5     -123.     45.5 7903   Pseudotsuga Pinac…  11.7 2018-07-26 00:00:00 PSME   \n6     -123.     45.5 7905   Pseudotsuga Pinac…  33.5 2018-07-26 00:00:00 PSME   \n# ℹ 26 more variables: Common_Name &lt;chr&gt;, Condition &lt;chr&gt;, Tree_Height &lt;dbl&gt;,\n#   Crown_Width_NS &lt;dbl&gt;, Crown_Width_EW &lt;dbl&gt;, Crown_Base_Height &lt;dbl&gt;,\n#   Collected_By &lt;chr&gt;, Park &lt;chr&gt;, Scientific_Name &lt;chr&gt;,\n#   Functional_Type &lt;chr&gt;, Mature_Size &lt;fct&gt;, Native &lt;chr&gt;, Edible &lt;chr&gt;,\n#   Nuisance &lt;chr&gt;, Structural_Value &lt;dbl&gt;, Carbon_Storage_lb &lt;dbl&gt;,\n#   Carbon_Storage_value &lt;dbl&gt;, Carbon_Sequestration_lb &lt;dbl&gt;,\n#   Carbon_Sequestration_value &lt;dbl&gt;, Stormwater_ft &lt;dbl&gt;, …"
+    "text": "Inspect the data\n\nhead(near_Reed)\n\n# A tibble: 6 × 34\n  Longitude Latitude UserID Genus       Family   DBH Inventory_Date      Species\n      &lt;dbl&gt;    &lt;dbl&gt; &lt;chr&gt;  &lt;chr&gt;       &lt;chr&gt;  &lt;dbl&gt; &lt;dttm&gt;              &lt;chr&gt;  \n1     -123.     45.5 7670   Quercus     Fagac…   3.3 2018-07-26 00:00:00 QURU   \n2     -123.     45.5 7671   Pseudotsuga Pinac…  43.1 2018-07-26 00:00:00 PSME   \n3     -123.     45.5 7672   Pseudotsuga Pinac…  48.2 2018-07-26 00:00:00 PSME   \n4     -123.     45.5 7902   Quercus     Fagac…   2.4 2018-07-26 00:00:00 QURU   \n5     -123.     45.5 7903   Pseudotsuga Pinac…  11.7 2018-07-26 00:00:00 PSME   \n6     -123.     45.5 7905   Pseudotsuga Pinac…  33.5 2018-07-26 00:00:00 PSME   \n# ℹ 26 more variables: Common_Name &lt;chr&gt;, Condition &lt;chr&gt;, Tree_Height &lt;dbl&gt;,\n#   Crown_Width_NS &lt;dbl&gt;, Crown_Width_EW &lt;dbl&gt;, Crown_Base_Height &lt;dbl&gt;,\n#   Collected_By &lt;chr&gt;, Park &lt;chr&gt;, Scientific_Name &lt;chr&gt;,\n#   Functional_Type &lt;chr&gt;, Mature_Size &lt;fct&gt;, Native &lt;chr&gt;, Edible &lt;chr&gt;,\n#   Nuisance &lt;chr&gt;, Structural_Value &lt;dbl&gt;, Carbon_Storage_lb &lt;dbl&gt;,\n#   Carbon_Storage_value &lt;dbl&gt;, Carbon_Sequestration_lb &lt;dbl&gt;,\n#   Carbon_Sequestration_value &lt;dbl&gt;, Stormwater_ft &lt;dbl&gt;, …\n\n\nWhat does a row represent here?"
   },
   {
     "objectID": "slides/math141_wk02mon.html#scatterplots",
@@ -263,7 +263,7 @@
     "href": "slides/math141_wk02mon.html#linegraphs-vs-scatterplots",
     "title": "Math 141",
     "section": "Linegraphs vs scatterplots",
-    "text": "Linegraphs vs scatterplots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhich do you prefer?\nDoes it depend on context?\nWhich might be better if we put time on the x-axis"
+    "text": "Linegraphs vs scatterplots\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWhich do you prefer?\nDoes it depend on context?\nWhich might be better if we put time on the x-axis?"
   },
   {
     "objectID": "slides/math141_wk02mon.html#recap-ggplot2",
@@ -1979,5 +1979,12 @@
     "title": "Math 141",
     "section": "Use a Different Theme",
     "text": "Use a Different Theme\n\n\nggplot(data = near_Reed,\n       mapping = aes(x = DBH,\n                     y = Carbon_Storage_lb,\n                     color = Genus)) +\n  geom_line(size = 2) +\n  scale_color_manual(values = c(\"violetred2\",\n                                \"steelblue4\",\n                                \"forestgreen\",\n                                \"goldenrod\",\n                                \"maroon\")) +\n  theme_bw() +\n  theme(legend.position = \"bottom\")"
+  },
+  {
+    "objectID": "slides/math141_wk02mon.html#next-time",
+    "href": "slides/math141_wk02mon.html#next-time",
+    "title": "Math 141",
+    "section": "Next time:",
+    "text": "Next time:\n\n\nMore ggplot2!"
   }
 ]

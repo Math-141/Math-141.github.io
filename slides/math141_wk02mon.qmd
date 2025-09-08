@@ -160,7 +160,7 @@ ggplot(data = ---, mapping = aes(---)) +
   geom_---(---) 
 ```
 
--   There are other layers, such as `scales_---_---()` and `labs()`, but we will wait on those.
+-   There are other layers, such as `scale_---_---()` and `labs()`, but we will wait on those.
 
 ------------------------------------------------------------------------
 
@@ -171,6 +171,10 @@ ggplot(data = ---, mapping = aes(---)) +
 -   Binned counts of data.
 
 -   Great for assessing shape.
+
+- **Question**: are histograms used for *quantitative* or *categorical* variables?
+
+- **Answer**: *Quantitative*. 
 :::
 
 ::: {.column width="66%"}
@@ -188,6 +192,7 @@ ggplot(data = biketown, mapping = aes(x = Distance_Miles)) +
 ## Data Shapes
 
 ```{r, echo=FALSE, fig.width = 12, fig.asp = .4}
+set.seed(1)
 dat <- data_frame(x1 = rf(200,12,8), x2 = rnorm(200), x3 = (-1)*rf(200, 12, 8)+20)
 p1 <- ggplot(dat, aes(x = x1)) +
   geom_histogram(bins = 20) +
@@ -286,6 +291,8 @@ ggplot(data = biketown,
   geom_boxplot(fill = "springgreen3")
 ```
 
+-   Is this `fill` an `aes`thetic mapping? 
+
 ------------------------------------------------------------------------
 
 ## Boxplots
@@ -299,6 +306,10 @@ ggplot(data = biketown,
                      fill = PaymentPlan)) +
   geom_boxplot()
 ```
+
+-   Is this `fill` an `aes`thetic mapping? 
+
+-   What variable is mapped to `fill`? 
 
 ------------------------------------------------------------------------
 
@@ -396,6 +407,8 @@ glimpse(near_Reed)
 ```{r}
 head(near_Reed)
 ```
+
+What does a row represent here? 
 
 
 
@@ -512,7 +525,7 @@ ggplot(data = near_Reed,
 
 - Which do you prefer?
 - Does it depend on context?
-- Which might be better if we put **time** on the x-axis
+- Which might be better if we put **time** on the x-axis?
 
 
 ## Recap: `ggplot2`
@@ -524,5 +537,12 @@ ggplot(data = ---, mapping = aes(---)) +
 ```
 
 
+## Next time: 
+
+::: {.nonincremental}
+
+-   More `ggplot2`!
+
+:::
 
 
