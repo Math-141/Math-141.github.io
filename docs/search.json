@@ -273,6 +273,13 @@
     "text": "Recap: ggplot2\n\nlibrary(tidyverse)\nggplot(data = ---, mapping = aes(---)) +\n  geom_---(---)"
   },
   {
+    "objectID": "slides/math141_wk02mon.html#next-time",
+    "href": "slides/math141_wk02mon.html#next-time",
+    "title": "Math 141",
+    "section": "Next time:",
+    "text": "Next time:\n\n\nMore ggplot2!"
+  },
+  {
     "objectID": "slides/math141_wk01wed.html#goals-for-today",
     "href": "slides/math141_wk01wed.html#goals-for-today",
     "title": "Math 141",
@@ -1979,12 +1986,5 @@
     "title": "Math 141",
     "section": "Use a Different Theme",
     "text": "Use a Different Theme\n\n\nggplot(data = near_Reed,\n       mapping = aes(x = DBH,\n                     y = Carbon_Storage_lb,\n                     color = Genus)) +\n  geom_line(size = 2) +\n  scale_color_manual(values = c(\"violetred2\",\n                                \"steelblue4\",\n                                \"forestgreen\",\n                                \"goldenrod\",\n                                \"maroon\")) +\n  theme_bw() +\n  theme(legend.position = \"bottom\")"
-  },
-  {
-    "objectID": "slides/math141_wk02mon.html#next-time",
-    "href": "slides/math141_wk02mon.html#next-time",
-    "title": "Math 141",
-    "section": "Next time:",
-    "text": "Next time:\n\n\nMore ggplot2!"
   }
 ]
