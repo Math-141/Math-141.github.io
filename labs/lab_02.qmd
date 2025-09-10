@@ -1,0 +1,11 @@
+---
+title: "Math 141: Lab 2"
+format: html
+editor: source
+toc: false
+---
+
+
+## Lab 2
+
+We'll work on `ggplot2` in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11. 

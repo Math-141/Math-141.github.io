@@ -433,19 +433,40 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <ul>
 <li class="fragment">Already saw how to add a third variable to a scatterplot via <code>color</code>.
 <ul>
-<li class="fragment">Can also change size or type.</li>
+<li class="fragment">Can also change <code>size</code> or the point’s <code>shape</code>.</li>
 </ul></li>
+</ul>
+</section>
+<section id="where-do-the-dogs-live" class="slide level2">
+<h2>Where do the dogs live?</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
+<span id="cb10-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
+<span id="cb10-3"><a></a>                     <span class="at">y =</span> Latitude_masked)) <span class="sc">+</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+<ul>
+<li class="fragment">How can we represent name?</li>
 </ul>
 </section>
 <section id="facet" class="slide level2">
 <h2>Facet</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
-<span id="cb10-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
-<span id="cb10-3"><a></a>                     <span class="at">y =</span> Latitude_masked)) <span class="sc">+</span></span>
-<span id="cb10-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb10-5"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
+<span id="cb11-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
+<span id="cb11-3"><a></a>                     <span class="at">y =</span> Latitude_masked)) <span class="sc">+</span></span>
+<span id="cb11-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -460,16 +481,16 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Facet</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
-<span id="cb11-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
-<span id="cb11-3"><a></a>                     <span class="at">y =</span> Latitude_masked)) <span class="sc">+</span></span>
-<span id="cb11-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)  <span class="sc">+</span></span>
-<span id="cb11-5"><a></a>  <span class="fu">facet_grid</span>(Breed<span class="sc">~</span>Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
+<span id="cb12-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
+<span id="cb12-3"><a></a>                     <span class="at">y =</span> Latitude_masked)) <span class="sc">+</span></span>
+<span id="cb12-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)  <span class="sc">+</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">facet_grid</span>(Breed<span class="sc">~</span>Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -479,12 +500,12 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Consider Doing Both!</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
-<span id="cb12-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
-<span id="cb12-3"><a></a>                     <span class="at">y =</span> Latitude_masked,</span>
-<span id="cb12-4"><a></a>                     <span class="at">color =</span> Breed)) <span class="sc">+</span></span>
-<span id="cb12-5"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb12-6"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Dog_Name, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
+<span id="cb13-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
+<span id="cb13-3"><a></a>                     <span class="at">y =</span> Latitude_masked,</span>
+<span id="cb13-4"><a></a>                     <span class="at">color =</span> Breed)) <span class="sc">+</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>Dog_Name, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -499,17 +520,17 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Adding Some Context</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> near_Reed,</span>
-<span id="cb13-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> DBH,</span>
-<span id="cb13-3"><a></a>                     <span class="at">y =</span> Carbon_Storage_lb,</span>
-<span id="cb13-4"><a></a>                     <span class="at">color =</span> Genus)) <span class="sc">+</span></span>
-<span id="cb13-5"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
-<span id="cb13-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> </span>
-<span id="cb13-7"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Diameter at Breast Height"</span>,</span>
-<span id="cb13-8"><a></a>       <span class="at">y =</span> <span class="st">"Carbon Storage (lbs)"</span>,</span>
-<span id="cb13-9"><a></a>       <span class="at">color =</span> <span class="st">"What Species?"</span>,</span>
-<span id="cb13-10"><a></a>       <span class="at">caption =</span> <span class="st">"Data Collected as part of the Urban Forestry Tree Inventory Project"</span>,</span>
-<span id="cb13-11"><a></a>       <span class="at">title =</span> <span class="st">"Tree Species Relationships Near Reed College"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> near_Reed,</span>
+<span id="cb14-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> DBH,</span>
+<span id="cb14-3"><a></a>                     <span class="at">y =</span> Carbon_Storage_lb,</span>
+<span id="cb14-4"><a></a>                     <span class="at">color =</span> Genus)) <span class="sc">+</span></span>
+<span id="cb14-5"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb14-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span> </span>
+<span id="cb14-7"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Diameter at Breast Height"</span>,</span>
+<span id="cb14-8"><a></a>       <span class="at">y =</span> <span class="st">"Carbon Storage (lbs)"</span>,</span>
+<span id="cb14-9"><a></a>       <span class="at">color =</span> <span class="st">"What Species?"</span>,</span>
+<span id="cb14-10"><a></a>       <span class="at">caption =</span> <span class="st">"Data Collected as part of the Urban Forestry Tree Inventory Project"</span>,</span>
+<span id="cb14-11"><a></a>       <span class="at">title =</span> <span class="st">"Tree Species Relationships Near Reed College"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -538,15 +559,15 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Fussing with Labels: Rotate</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
-<span id="cb14-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
-<span id="cb14-3"><a></a>                     <span class="at">y =</span> Latitude_masked)) <span class="sc">+</span></span>
-<span id="cb14-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)  <span class="sc">+</span></span>
-<span id="cb14-5"><a></a>  <span class="fu">facet_grid</span>(Breed<span class="sc">~</span>Dog_Name) <span class="sc">+</span> </span>
-<span id="cb14-6"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span></span>
-<span id="cb14-7"><a></a>          <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,</span>
-<span id="cb14-8"><a></a>                       <span class="at">vjust =</span> <span class="dv">1</span>,</span>
-<span id="cb14-9"><a></a>                       <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> dogs_top5,</span>
+<span id="cb15-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> Longitude_masked,</span>
+<span id="cb15-3"><a></a>                     <span class="at">y =</span> Latitude_masked)) <span class="sc">+</span></span>
+<span id="cb15-4"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)  <span class="sc">+</span></span>
+<span id="cb15-5"><a></a>  <span class="fu">facet_grid</span>(Breed<span class="sc">~</span>Dog_Name) <span class="sc">+</span> </span>
+<span id="cb15-6"><a></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span></span>
+<span id="cb15-7"><a></a>          <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>,</span>
+<span id="cb15-8"><a></a>                       <span class="at">vjust =</span> <span class="dv">1</span>,</span>
+<span id="cb15-9"><a></a>                       <span class="at">hjust =</span> <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -561,19 +582,19 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Zooming In</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>biketown <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/biketown.csv"</span>)</span>
-<span id="cb15-2"><a></a></span>
-<span id="cb15-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> biketown, </span>
-<span id="cb15-4"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> PaymentPlan, </span>
-<span id="cb15-5"><a></a>                     <span class="at">y =</span> Distance_Miles,</span>
-<span id="cb15-6"><a></a>                     <span class="at">fill =</span> PaymentPlan)) <span class="sc">+</span></span>
-<span id="cb15-7"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb15-8"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>biketown <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/biketown.csv"</span>)</span>
+<span id="cb16-2"><a></a></span>
+<span id="cb16-3"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> biketown, </span>
+<span id="cb16-4"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> PaymentPlan, </span>
+<span id="cb16-5"><a></a>                     <span class="at">y =</span> Distance_Miles,</span>
+<span id="cb16-6"><a></a>                     <span class="at">fill =</span> PaymentPlan)) <span class="sc">+</span></span>
+<span id="cb16-7"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb16-8"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -583,13 +604,13 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Zooming In</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> biketown, </span>
-<span id="cb16-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> PaymentPlan, </span>
-<span id="cb16-3"><a></a>                     <span class="at">y =</span> Distance_Miles,</span>
-<span id="cb16-4"><a></a>                     <span class="at">fill =</span> PaymentPlan)) <span class="sc">+</span></span>
-<span id="cb16-5"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb16-6"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb16-7"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> biketown, </span>
+<span id="cb17-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> PaymentPlan, </span>
+<span id="cb17-3"><a></a>                     <span class="at">y =</span> Distance_Miles,</span>
+<span id="cb17-4"><a></a>                     <span class="at">fill =</span> PaymentPlan)) <span class="sc">+</span></span>
+<span id="cb17-5"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb17-6"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb17-7"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -604,37 +625,16 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Multiple <code>geom</code>s</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> biketown, </span>
-<span id="cb17-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> PaymentPlan, </span>
-<span id="cb17-3"><a></a>                     <span class="at">y =</span> Distance_Miles,</span>
-<span id="cb17-4"><a></a>                     <span class="at">fill =</span> PaymentPlan)) <span class="sc">+</span></span>
-<span id="cb17-5"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb17-6"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb17-7"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">+</span></span>
-<span id="cb17-8"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>,</span>
-<span id="cb17-9"><a></a>              <span class="at">height =</span> <span class="dv">0</span>, </span>
-<span id="cb17-10"><a></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div><div class="column">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div></div>
-</section>
-<section id="multiple-geoms-1" class="slide level2">
-<h2>Multiple <code>geom</code>s</h2>
-<div class="cell columns column-output-location" data-layout-align="center">
-<div class="column">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> near_Reed,</span>
-<span id="cb18-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> DBH,</span>
-<span id="cb18-3"><a></a>                     <span class="at">y =</span> Carbon_Storage_lb,</span>
-<span id="cb18-4"><a></a>                     <span class="at">color =</span> Genus)) <span class="sc">+</span></span>
-<span id="cb18-5"><a></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
-<span id="cb18-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
-<span id="cb18-7"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> biketown, </span>
+<span id="cb18-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> PaymentPlan, </span>
+<span id="cb18-3"><a></a>                     <span class="at">y =</span> Distance_Miles,</span>
+<span id="cb18-4"><a></a>                     <span class="at">fill =</span> PaymentPlan)) <span class="sc">+</span></span>
+<span id="cb18-5"><a></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a></a>  <span class="fu">guides</span>(<span class="at">fill =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb18-7"><a></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">10</span>)) <span class="sc">+</span></span>
+<span id="cb18-8"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>,</span>
+<span id="cb18-9"><a></a>              <span class="at">height =</span> <span class="dv">0</span>, </span>
+<span id="cb18-10"><a></a>              <span class="at">alpha =</span> <span class="fl">0.2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -645,10 +645,31 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 </div>
 </div></div>
 </section>
+<section id="multiple-geoms-1" class="slide level2">
+<h2>Multiple <code>geom</code>s</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> near_Reed,</span>
+<span id="cb19-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> DBH,</span>
+<span id="cb19-3"><a></a>                     <span class="at">y =</span> Carbon_Storage_lb,</span>
+<span id="cb19-4"><a></a>                     <span class="at">color =</span> Genus)) <span class="sc">+</span></span>
+<span id="cb19-5"><a></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb19-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
 <section id="change-the-color" class="slide level2">
 <h2>Change the Color</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">colors</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a><span class="fu">colors</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  [1] "white"                "aliceblue"            "antiquewhite"        
   [4] "antiquewhite1"        "antiquewhite2"        "antiquewhite3"       
@@ -876,22 +897,22 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Change the Color</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> near_Reed,</span>
-<span id="cb21-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> DBH,</span>
-<span id="cb21-3"><a></a>                     <span class="at">y =</span> Carbon_Storage_lb,</span>
-<span id="cb21-4"><a></a>                     <span class="at">color =</span> Genus)) <span class="sc">+</span></span>
-<span id="cb21-5"><a></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb21-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
-<span id="cb21-7"><a></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"violetred2"</span>,</span>
-<span id="cb21-8"><a></a>                                <span class="st">"steelblue4"</span>,</span>
-<span id="cb21-9"><a></a>                                <span class="st">"forestgreen"</span>,</span>
-<span id="cb21-10"><a></a>                                <span class="st">"goldenrod"</span>,</span>
-<span id="cb21-11"><a></a>                                <span class="st">"maroon"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> near_Reed,</span>
+<span id="cb22-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> DBH,</span>
+<span id="cb22-3"><a></a>                     <span class="at">y =</span> Carbon_Storage_lb,</span>
+<span id="cb22-4"><a></a>                     <span class="at">color =</span> Genus)) <span class="sc">+</span></span>
+<span id="cb22-5"><a></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb22-6"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb22-7"><a></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"violetred2"</span>,</span>
+<span id="cb22-8"><a></a>                                <span class="st">"steelblue4"</span>,</span>
+<span id="cb22-9"><a></a>                                <span class="st">"forestgreen"</span>,</span>
+<span id="cb22-10"><a></a>                                <span class="st">"goldenrod"</span>,</span>
+<span id="cb22-11"><a></a>                                <span class="st">"maroon"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -901,23 +922,23 @@ $ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood 
 <h2>Use a <a href="https://ggplot2.tidyverse.org/reference/ggtheme.html">Different Theme</a></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> near_Reed,</span>
-<span id="cb22-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> DBH,</span>
-<span id="cb22-3"><a></a>                     <span class="at">y =</span> Carbon_Storage_lb,</span>
-<span id="cb22-4"><a></a>                     <span class="at">color =</span> Genus)) <span class="sc">+</span></span>
-<span id="cb22-5"><a></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb22-6"><a></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"violetred2"</span>,</span>
-<span id="cb22-7"><a></a>                                <span class="st">"steelblue4"</span>,</span>
-<span id="cb22-8"><a></a>                                <span class="st">"forestgreen"</span>,</span>
-<span id="cb22-9"><a></a>                                <span class="st">"goldenrod"</span>,</span>
-<span id="cb22-10"><a></a>                                <span class="st">"maroon"</span>)) <span class="sc">+</span></span>
-<span id="cb22-11"><a></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb22-12"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> near_Reed,</span>
+<span id="cb23-2"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> DBH,</span>
+<span id="cb23-3"><a></a>                     <span class="at">y =</span> Carbon_Storage_lb,</span>
+<span id="cb23-4"><a></a>                     <span class="at">color =</span> Genus)) <span class="sc">+</span></span>
+<span id="cb23-5"><a></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb23-6"><a></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"violetred2"</span>,</span>
+<span id="cb23-7"><a></a>                                <span class="st">"steelblue4"</span>,</span>
+<span id="cb23-8"><a></a>                                <span class="st">"forestgreen"</span>,</span>
+<span id="cb23-9"><a></a>                                <span class="st">"goldenrod"</span>,</span>
+<span id="cb23-10"><a></a>                                <span class="st">"maroon"</span>)) <span class="sc">+</span></span>
+<span id="cb23-11"><a></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb23-12"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk02wed_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>

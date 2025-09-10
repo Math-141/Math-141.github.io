@@ -242,7 +242,21 @@ ggplot(data = near_Reed,
 ```
 
 -   Already saw how to add a third variable to a scatterplot via `color`.
-    -   Can also change size or type.
+    -   Can also change `size` or the point's `shape`.
+
+------------------------------------------------------------------------
+
+## Where do the dogs live?
+
+```{r}
+#| output-location: column
+ggplot(data = dogs_top5,
+       mapping = aes(x = Longitude_masked,
+                     y = Latitude_masked)) +
+  geom_point(size = 2)
+```
+
+- How can we represent name?
 
 ------------------------------------------------------------------------
 
@@ -364,7 +378,7 @@ ggplot(data = biketown,
                      fill = PaymentPlan)) +
   geom_boxplot() +
   guides(fill = "none") +
-  coord_cartesian(ylim = c(0, 10))
+  coord_cartesian(ylim = c(0, 5))
 ```
 
 ------------------------------------------------------------------------
