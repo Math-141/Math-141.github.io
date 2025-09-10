@@ -286,7 +286,7 @@ ggplot(data = dogs_top5,
   facet_grid(Breed~Dog_Name)
 ```
 
--   What's anouther way we could represent breed?
+-   What's another way we could represent breed?
 
 ------------------------------------------------------------------------
 

@@ -158,7 +158,7 @@
     "href": "slides/math141_wk02wed.html#facet-1",
     "title": "Math 141",
     "section": "Facet",
-    "text": "Facet\n\n\nggplot(data = dogs_top5,\n       mapping = aes(x = Longitude_masked,\n                     y = Latitude_masked)) +\n  geom_point(size = 2)  +\n  facet_grid(Breed~Dog_Name)\n\n\n\n\n\n\n\n\n\n\nWhat’s anouther way we could represent breed?"
+    "text": "Facet\n\n\nggplot(data = dogs_top5,\n       mapping = aes(x = Longitude_masked,\n                     y = Latitude_masked)) +\n  geom_point(size = 2)  +\n  facet_grid(Breed~Dog_Name)\n\n\n\n\n\n\n\n\n\n\nWhat’s another way we could represent breed?"
   },
   {
     "objectID": "slides/math141_wk02wed.html#consider-doing-both",
