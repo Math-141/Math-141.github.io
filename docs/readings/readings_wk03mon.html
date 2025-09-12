@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2025-09-04">
+<meta name="dcterms.date" content="2025-09-15">
 
 <title>readings_wk03mon – Math 141</title>
 <style>
@@ -121,7 +121,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#math-141-readings-for" id="toc-math-141-readings-for" class="nav-link active" data-scroll-target="#math-141-readings-for">Math 141: Readings for September 4, 2025</a>
+  <li><a href="#math-141-readings-for" id="toc-math-141-readings-for" class="nav-link active" data-scroll-target="#math-141-readings-for">Math 141: Readings for September 15, 2025</a>
   <ul class="collapse">
   <li><a href="#reading" id="toc-reading" class="nav-link" data-scroll-target="#reading">Reading</a></li>
   <li><a href="#homework-assignment" id="toc-homework-assignment" class="nav-link" data-scroll-target="#homework-assignment">Homework Assignment</a></li>
@@ -144,7 +144,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">September 4, 2025</p>
+      <p class="date">September 15, 2025</p>
     </div>
   </div>
   
@@ -157,20 +157,27 @@ ul.task-list li input[type="checkbox"] {
 
 
 <section id="math-141-readings-for" class="level1">
-<h1>Math 141: Readings for September 4, 2025</h1>
+<h1>Math 141: Readings for September 15, 2025</h1>
 <section id="reading" class="level2">
 <h2 class="anchored" data-anchor-id="reading">Reading</h2>
 <p>Before coming to lecture today, please read the following material:</p>
 <ul>
-<li></li>
+<li>MD Chapter 3 (Skip section 3.7)</li>
 </ul>
 </section>
 <section id="homework-assignment" class="level2">
 <h2 class="anchored" data-anchor-id="homework-assignment">Homework Assignment</h2>
 <p>After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:</p>
 <ul>
-<li></li>
+<li><p>LC 3.1, LC 3.2, LC 3.4, LC 3.5, LC 3.9</p></li>
+<li><p>In your own words, explain what each of the <code>dplyr</code> verbs we read about in chapter 3 does. No need for more than a sentence or two for each verb. Also, provide an example of using that verb. I’ve provided a response for one of the verbs as an example:</p></li>
 </ul>
+<blockquote class="blockquote">
+<div class="line-block"><code>relocate()</code>: The relocate verb moves columns around in your dataframe. You can choose which columns to move, and where to move them.</div>
+<p><strong>Example</strong>: You might have a dataframe called cars, with columns “weight” and “mpg”, but you want to put the “mpg” column on the left side of the “weight” column. To do this, you could run the following code:</p>
+</blockquote>
+<pre><code>cars %&gt;%
+  relocate(weight, mpg)</code></pre>
 
 
 </section>

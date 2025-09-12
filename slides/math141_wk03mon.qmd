@@ -52,7 +52,9 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
-## Agenda
+## Goals For Today
+
+-   Learn to wrangle data with `dplyr`!
 
 ------------------------------------------------------------------------
 
@@ -94,6 +96,13 @@ dogs_top5 <- dogs %>%
 
 ```
 
+## Data for today
+
+```{r}
+glimpse(dogs)
+glimpse(dogs_top5)
+```
+
 
 ------------------------------------------------------------------------
 
@@ -117,7 +126,7 @@ To **drop** missing values. (Need to be careful here!)
 :::
 
 ::: {.column .fragment width="50%"}
-→ On our P-Set 2, we are seeing that `ggplot2` will often drop observations before creating a graph.
+→ On our Lab 2, we are seeing that `ggplot2` will often drop observations before creating a graph.
 :::
 :::::
 
@@ -127,7 +136,7 @@ To **filter** to a particular subset of the data.
 :::
 
 ::: {.column .fragment width="50%"}
-→ To subset the bike counts data to 2 days in July of 2019.
+→ To subset the `pdxTrees` data to just a few species types.
 :::
 :::::
 
@@ -163,17 +172,7 @@ To fix how `R` **stores** a variable.
 :::
 
 ::: {.column .fragment width="50%"}
-→ For the bike data, I converted `Day` from a character variable/vector to a date variable/vector.
-:::
-:::::
-
-::::: columns
-::: {.column .fragment width="50%"}
-→ To **join** data frames when information about your cases is stored in multiple places!
-:::
-
-::: {.column .fragment width="50%"}
-Will see examples of this next class!
+→ Converting quantitative variables to/from categorical variables
 :::
 :::::
 
@@ -210,10 +209,12 @@ count(dogs_top5, Dog_Name, Breed) %>%
 Modify existing variables
 
 ```{r}
-# class(july_2019$DateTime)
-# july_2019 <- july_2019 %>%
-#   mutate(DateTime = mdy_hms(DateTime))
-# class(july_2019$DateTime)
+head(dogs_top5$Dog_Name)
+
+dogs_top5 <- dogs_top5 %>%
+  mutate(Dog_Name = toupper(Dog_Name))
+
+head(dogs_top5$Dog_Name)
 ```
 :::
 :::::

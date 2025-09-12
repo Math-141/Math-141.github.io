@@ -1087,23 +1087,23 @@
   {
     "objectID": "readings/readings_wk03mon.html",
     "href": "readings/readings_wk03mon.html",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for September 15, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD Chapter 3 (Skip section 3.7)\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC 3.1, LC 3.2, LC 3.4, LC 3.5, LC 3.9\nIn your own words, explain what each of the dplyr verbs we read about in chapter 3 does. No need for more than a sentence or two for each verb. Also, provide an example of using that verb. I’ve provided a response for one of the verbs as an example:\n\n\nrelocate(): The relocate verb moves columns around in your dataframe. You can choose which columns to move, and where to move them.\nExample: You might have a dataframe called cars, with columns “weight” and “mpg”, but you want to put the “mpg” column on the left side of the “weight” column. To do this, you could run the following code:\n\ncars %&gt;%\n  relocate(weight, mpg)"
   },
   {
     "objectID": "readings/readings_wk03mon.html#reading",
     "href": "readings/readings_wk03mon.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for September 15, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD Chapter 3 (Skip section 3.7)"
   },
   {
     "objectID": "readings/readings_wk03mon.html#homework-assignment",
     "href": "readings/readings_wk03mon.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for September 15, 2025",
     "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC 3.1, LC 3.2, LC 3.4, LC 3.5, LC 3.9\nIn your own words, explain what each of the dplyr verbs we read about in chapter 3 does. No need for more than a sentence or two for each verb. Also, provide an example of using that verb. I’ve provided a response for one of the verbs as an example:\n\n\nrelocate(): The relocate verb moves columns around in your dataframe. You can choose which columns to move, and where to move them.\nExample: You might have a dataframe called cars, with columns “weight” and “mpg”, but you want to put the “mpg” column on the left side of the “weight” column. To do this, you could run the following code:\n\ncars %&gt;%\n  relocate(weight, mpg)"
   },
   {
     "objectID": "readings/readings_wk04fri.html",
@@ -2009,11 +2009,11 @@
     "text": "Next time:\n\n\nMore ggplot2!"
   },
   {
-    "objectID": "slides/math141_wk03mon.html#agenda",
-    "href": "slides/math141_wk03mon.html#agenda",
+    "objectID": "slides/math141_wk03mon.html#goals-for-today",
+    "href": "slides/math141_wk03mon.html#goals-for-today",
     "title": "Math 141",
-    "section": "Agenda",
-    "text": "Agenda"
+    "section": "Goals For Today",
+    "text": "Goals For Today\n\nLearn to wrangle data with dplyr!"
   },
   {
     "objectID": "slides/math141_wk03mon.html#load-necessary-packages",
@@ -2030,6 +2030,13 @@
     "text": "Data for today\n\ndogs &lt;- read_csv(\"https://data.cambridgema.gov/api/views/sckh-3xyx/rows.csv\")\n\n# Useful wrangling that we will come back to\ndogs_top5 &lt;- dogs %&gt;% \n  mutate(Breed = case_when(\n                       Dog_Breed == \"Mixed Breed\" ~ \"Mixed\",\n                       Dog_Breed != \"Mixed Breed\" ~ \"Single\")) %&gt;%\n  filter(Dog_Name %in% c(\"Luna\", \"Charlie\", \"Lucy\", \"Cooper\", \"Rosie\" ))"
   },
   {
+    "objectID": "slides/math141_wk03mon.html#data-for-today-1",
+    "href": "slides/math141_wk03mon.html#data-for-today-1",
+    "title": "Math 141",
+    "section": "Data for today",
+    "text": "Data for today\n\nglimpse(dogs)\n\nRows: 1,581\nColumns: 6\n$ Dog_Name         &lt;chr&gt; \"Thor\", \"Lucy\", \"Ruby\", \"Georgie\", \"Candy\", \"kylo-roo…\n$ Dog_Breed        &lt;chr&gt; \"Boxer\", \"Poodle\", \"Collie\", \"Lhasa Apso\", \"Beagle\", …\n$ Location_masked  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ Latitude_masked  &lt;dbl&gt; 42.3622, 42.3696, 42.3860, 42.3742, 42.3918, 42.3862,…\n$ Longitude_masked &lt;dbl&gt; -71.0846, -71.1109, -71.1237, -71.1418, -71.1290, -71…\n$ Neighborhood     &lt;chr&gt; \"East Cambridge\", \"Mid-Cambridge\", \"Neighborhood Nine…\n\nglimpse(dogs_top5)\n\nRows: 57\nColumns: 7\n$ Dog_Name         &lt;chr&gt; \"Lucy\", \"Luna\", \"Charlie\", \"Cooper\", \"Charlie\", \"Luna…\n$ Dog_Breed        &lt;chr&gt; \"Poodle\", \"LABRADOODLE\", \"Border Terrier Mix\", \"Germa…\n$ Location_masked  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…\n$ Latitude_masked  &lt;dbl&gt; 42.3696, 42.3860, 42.3596, 42.3573, 42.3895, 42.3913,…\n$ Longitude_masked &lt;dbl&gt; -71.1109, -71.1362, -71.1143, -71.1015, -71.1311, -71…\n$ Neighborhood     &lt;chr&gt; \"Mid-Cambridge\", \"Neighborhood Nine\", \"Cambridgeport\"…\n$ Breed            &lt;chr&gt; \"Single\", \"Single\", \"Single\", \"Single\", \"Single\", \"Mi…"
+  },
+  {
     "objectID": "slides/math141_wk03mon.html#dplyr-for-data-wrangling",
     "href": "slides/math141_wk03mon.html#dplyr-for-data-wrangling",
     "title": "Math 141",
@@ -2041,7 +2048,7 @@
     "href": "slides/math141_wk03mon.html#return-to-mutate",
     "title": "Math 141",
     "section": "Return to mutate()",
-    "text": "Return to mutate()\n\n\nAdd new variables\n\ncount(dogs_top5, Dog_Name, Breed) %&gt;%\n  group_by(Dog_Name) %&gt;%\n  mutate(prop = n/sum(n))\n\n# A tibble: 10 × 4\n# Groups:   Dog_Name [5]\n   Dog_Name Breed      n  prop\n   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;\n 1 Charlie  Mixed      4 0.286\n 2 Charlie  Single    10 0.714\n 3 Cooper   Mixed      1 0.125\n 4 Cooper   Single     7 0.875\n 5 Lucy     Mixed      2 0.182\n 6 Lucy     Single     9 0.818\n 7 Luna     Mixed      7 0.5  \n 8 Luna     Single     7 0.5  \n 9 Rosie    Mixed      1 0.1  \n10 Rosie    Single     9 0.9  \n\n\n\nModify existing variables\n\n# class(july_2019$DateTime)\n# july_2019 &lt;- july_2019 %&gt;%\n#   mutate(DateTime = mdy_hms(DateTime))\n# class(july_2019$DateTime)"
+    "text": "Return to mutate()\n\n\nAdd new variables\n\ncount(dogs_top5, Dog_Name, Breed) %&gt;%\n  group_by(Dog_Name) %&gt;%\n  mutate(prop = n/sum(n))\n\n# A tibble: 10 × 4\n# Groups:   Dog_Name [5]\n   Dog_Name Breed      n  prop\n   &lt;chr&gt;    &lt;chr&gt;  &lt;int&gt; &lt;dbl&gt;\n 1 Charlie  Mixed      4 0.286\n 2 Charlie  Single    10 0.714\n 3 Cooper   Mixed      1 0.125\n 4 Cooper   Single     7 0.875\n 5 Lucy     Mixed      2 0.182\n 6 Lucy     Single     9 0.818\n 7 Luna     Mixed      7 0.5  \n 8 Luna     Single     7 0.5  \n 9 Rosie    Mixed      1 0.1  \n10 Rosie    Single     9 0.9  \n\n\n\nModify existing variables\n\nhead(dogs_top5$Dog_Name)\n\n[1] \"Lucy\"    \"Luna\"    \"Charlie\" \"Cooper\"  \"Charlie\" \"Luna\"   \n\ndogs_top5 &lt;- dogs_top5 %&gt;%\n  mutate(Dog_Name = toupper(Dog_Name))\n\nhead(dogs_top5$Dog_Name)\n\n[1] \"LUCY\"    \"LUNA\"    \"CHARLIE\" \"COOPER\"  \"CHARLIE\" \"LUNA\""
   },
   {
     "objectID": "slides/math141_wk03mon.html#select-extract-variables",

@@ -207,8 +207,11 @@
 <p><span class="custom-subtitle">Math 141 <br> Week 2 | Fall 2025</span></p>
 </div></div>
 </section>
-<section id="agenda" class="slide level2">
-<h2>Agenda</h2>
+<section id="goals-for-today" class="slide level2">
+<h2>Goals For Today</h2>
+<ul>
+<li class="fragment">Learn to wrangle data with <code>dplyr</code>!</li>
+</ul>
 </section>
 <section id="load-necessary-packages" class="slide level2">
 <h2>Load Necessary Packages</h2>
@@ -244,6 +247,34 @@
 <span id="cb2-8"><a></a>  <span class="fu">filter</span>(Dog_Name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Luna"</span>, <span class="st">"Charlie"</span>, <span class="st">"Lucy"</span>, <span class="st">"Cooper"</span>, <span class="st">"Rosie"</span> ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
+<section id="data-for-today-1" class="slide level2">
+<h2>Data for today</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">glimpse</span>(dogs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 1,581
+Columns: 6
+$ Dog_Name         &lt;chr&gt; "Thor", "Lucy", "Ruby", "Georgie", "Candy", "kylo-roo…
+$ Dog_Breed        &lt;chr&gt; "Boxer", "Poodle", "Collie", "Lhasa Apso", "Beagle", …
+$ Location_masked  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ Latitude_masked  &lt;dbl&gt; 42.3622, 42.3696, 42.3860, 42.3742, 42.3918, 42.3862,…
+$ Longitude_masked &lt;dbl&gt; -71.0846, -71.1109, -71.1237, -71.1418, -71.1290, -71…
+$ Neighborhood     &lt;chr&gt; "East Cambridge", "Mid-Cambridge", "Neighborhood Nine…</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">glimpse</span>(dogs_top5)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 57
+Columns: 7
+$ Dog_Name         &lt;chr&gt; "Lucy", "Luna", "Charlie", "Cooper", "Charlie", "Luna…
+$ Dog_Breed        &lt;chr&gt; "Poodle", "LABRADOODLE", "Border Terrier Mix", "Germa…
+$ Location_masked  &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N…
+$ Latitude_masked  &lt;dbl&gt; 42.3696, 42.3860, 42.3596, 42.3573, 42.3895, 42.3913,…
+$ Longitude_masked &lt;dbl&gt; -71.1109, -71.1362, -71.1143, -71.1015, -71.1311, -71…
+$ Neighborhood     &lt;chr&gt; "Mid-Cambridge", "Neighborhood Nine", "Cambridgeport"…
+$ Breed            &lt;chr&gt; "Single", "Single", "Single", "Single", "Single", "Mi…</code></pre>
+</div>
+</div>
+</section>
 <section class="slide level2">
 
 <h3 id="data-wrangling-transformations-done-on-the-data">Data Wrangling: Transformations done on the data</h3>
@@ -258,13 +289,13 @@
 <div class="column fragment" style="width:50%;">
 <p>To <strong>drop</strong> missing values. (Need to be careful here!)</p>
 </div><div class="column fragment" style="width:50%;">
-<p>→ On our P-Set 2, we are seeing that <code>ggplot2</code> will often drop observations before creating a graph.</p>
+<p>→ On our Lab 2, we are seeing that <code>ggplot2</code> will often drop observations before creating a graph.</p>
 </div></div>
 <div class="columns">
 <div class="column fragment" style="width:50%;">
 <p>To <strong>filter</strong> to a particular subset of the data.</p>
 </div><div class="column fragment" style="width:50%;">
-<p>→ To subset the bike counts data to 2 days in July of 2019.</p>
+<p>→ To subset the <code>pdxTrees</code> data to just a few species types.</p>
 </div></div>
 <div class="columns">
 <div class="column fragment" style="width:50%;">
@@ -287,13 +318,7 @@
 <div class="column fragment" style="width:50%;">
 <p>To fix how <code>R</code> <strong>stores</strong> a variable.</p>
 </div><div class="column fragment" style="width:50%;">
-<p>→ For the bike data, I converted <code>Day</code> from a character variable/vector to a date variable/vector.</p>
-</div></div>
-<div class="columns">
-<div class="column fragment" style="width:50%;">
-<p>→ To <strong>join</strong> data frames when information about your cases is stored in multiple places!</p>
-</div><div class="column fragment" style="width:50%;">
-<p>Will see examples of this next class!</p>
+<p>→ Converting quantitative variables to/from categorical variables</p>
 </div></div>
 </section>
 <section id="dplyr-for-data-wrangling" class="slide level2">
@@ -322,9 +347,9 @@
 <div class="column" style="width:50%;">
 <p>Add new variables</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name, Breed) <span class="sc">%&gt;%</span></span>
-<span id="cb3-2"><a></a>  <span class="fu">group_by</span>(Dog_Name) <span class="sc">%&gt;%</span></span>
-<span id="cb3-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name, Breed) <span class="sc">%&gt;%</span></span>
+<span id="cb7-2"><a></a>  <span class="fu">group_by</span>(Dog_Name) <span class="sc">%&gt;%</span></span>
+<span id="cb7-3"><a></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> n<span class="sc">/</span><span class="fu">sum</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 10 × 4
 # Groups:   Dog_Name [5]
@@ -345,18 +370,25 @@
 </div><div class="column" style="width:50%;">
 <p>Modify existing variables</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="co"># class(july_2019$DateTime)</span></span>
-<span id="cb5-2"><a></a><span class="co"># july_2019 &lt;- july_2019 %&gt;%</span></span>
-<span id="cb5-3"><a></a><span class="co">#   mutate(DateTime = mdy_hms(DateTime))</span></span>
-<span id="cb5-4"><a></a><span class="co"># class(july_2019$DateTime)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">head</span>(dogs_top5<span class="sc">$</span>Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Lucy"    "Luna"    "Charlie" "Cooper"  "Charlie" "Luna"   </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>dogs_top5 <span class="ot">&lt;-</span> dogs_top5 <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">mutate</span>(<span class="at">Dog_Name =</span> <span class="fu">toupper</span>(Dog_Name))</span>
+<span id="cb11-3"><a></a></span>
+<span id="cb11-4"><a></a><span class="fu">head</span>(dogs_top5<span class="sc">$</span>Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "LUCY"    "LUNA"    "CHARLIE" "COOPER"  "CHARLIE" "LUNA"   </code></pre>
+</div>
 </div>
 </div></div>
 </section>
 <section id="select-extract-variables" class="slide level2">
 <h2><code>select()</code>: Extract variables</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a>dogs <span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a></a>  <span class="fu">select</span>(Dog_Name, Dog_Breed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>dogs <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a></a>  <span class="fu">select</span>(Dog_Name, Dog_Breed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,581 × 2
    Dog_Name Dog_Breed           
@@ -378,7 +410,7 @@
 <section id="motivation-for-filter" class="slide level2">
 <h2>Motivation for <code>filter()</code></h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">count</span>(dogs, Dog_Name, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">count</span>(dogs, Dog_Name, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1,125 × 2
    Dog_Name     n
@@ -400,10 +432,10 @@
 <section id="filter-extract-cases" class="slide level2">
 <h2><code>filter()</code>: Extract cases</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>dogs_top5 <span class="ot">&lt;-</span> dogs <span class="sc">%&gt;%</span> </span>
-<span id="cb10-2"><a></a>  <span class="fu">filter</span>(Dog_Name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Luna"</span>, <span class="st">"Charlie"</span>, <span class="st">"Lucy"</span>, <span class="st">"Cooper"</span>, <span class="st">"Rosie"</span> ))</span>
-<span id="cb10-3"><a></a></span>
-<span id="cb10-4"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>dogs_top5 <span class="ot">&lt;-</span> dogs <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">filter</span>(Dog_Name <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Luna"</span>, <span class="st">"Charlie"</span>, <span class="st">"Lucy"</span>, <span class="st">"Cooper"</span>, <span class="st">"Rosie"</span> ))</span>
+<span id="cb17-3"><a></a></span>
+<span id="cb17-4"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name, <span class="at">sort =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   Dog_Name     n
@@ -421,8 +453,8 @@
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name) <span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a></a>  <span class="fu">arrange</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name) <span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a></a>  <span class="fu">arrange</span>(n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   Dog_Name     n
@@ -433,8 +465,8 @@
 4 Charlie     14
 5 Luna        14</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name) <span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name) <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(n))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   Dog_Name     n
@@ -448,8 +480,8 @@
 </div>
 </div><div class="column fragment" style="width:50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name) <span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a></a>  <span class="fu">arrange</span>(Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name) <span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a></a>  <span class="fu">arrange</span>(Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 2
   Dog_Name     n
@@ -468,11 +500,11 @@
 <p><strong>BLS Mission</strong>: “Measures labor market activity, working conditions, price changes, and productivity in the U.S. economy to support public and private decision making.”</p>
 <p><strong>Data</strong>: Last quarter of the 2016 BLS Consumer Expenditure Survey.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb18-2"><a></a></span>
-<span id="cb18-3"><a></a>ce_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fmli.csv"</span>, </span>
-<span id="cb18-4"><a></a>                 <span class="at">na =</span> <span class="fu">c</span>(<span class="st">"NA"</span>, <span class="st">"."</span>))</span>
-<span id="cb18-5"><a></a><span class="fu">glimpse</span>(ce_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb25-2"><a></a></span>
+<span id="cb25-3"><a></a>ce_raw <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/fmli.csv"</span>, </span>
+<span id="cb25-4"><a></a>                 <span class="at">na =</span> <span class="fu">c</span>(<span class="st">"NA"</span>, <span class="st">"."</span>))</span>
+<span id="cb25-5"><a></a><span class="fu">glimpse</span>(ce_raw)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Rows: 6,301
 Columns: 51
@@ -536,10 +568,10 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <div class="column" style="width:&quot;50%;">
 <p>Want to better understand a family’s income and expenditures</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>ce <span class="ot">&lt;-</span> ce_raw <span class="sc">%&gt;%</span></span>
-<span id="cb20-2"><a></a>  <span class="fu">select</span>(NEWID, PRINEARN, FINCBTAX,</span>
-<span id="cb20-3"><a></a>         BLS_URBN, HIGH_EDU, TOTEXPCQ, IRAX)</span>
-<span id="cb20-4"><a></a><span class="fu">dim</span>(ce)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>ce <span class="ot">&lt;-</span> ce_raw <span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a></a>  <span class="fu">select</span>(NEWID, PRINEARN, FINCBTAX,</span>
+<span id="cb27-3"><a></a>         BLS_URBN, HIGH_EDU, TOTEXPCQ, IRAX)</span>
+<span id="cb27-4"><a></a><span class="fu">dim</span>(ce)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 6301    7</code></pre>
 </div>
@@ -566,9 +598,9 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <section id="wrangling-ce-data-1" class="slide level2">
 <h2>Wrangling CE Data</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a></a>  <span class="fu">mutate</span>(<span class="at">YEARLY_EXP =</span> TOTEXPCQ<span class="sc">*</span><span class="dv">4</span>)</span>
-<span id="cb22-3"><a></a>ce</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb29-2"><a></a>  <span class="fu">mutate</span>(<span class="at">YEARLY_EXP =</span> TOTEXPCQ<span class="sc">*</span><span class="dv">4</span>)</span>
+<span id="cb29-3"><a></a>ce</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,301 × 8
    NEWID    PRINEARN FINCBTAX BLS_URBN HIGH_EDU TOTEXPCQ    IRAX YEARLY_EXP
@@ -590,9 +622,9 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <section id="logical-operators" class="slide level2">
 <h2>Logical Operators</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>ce_sub <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a></a>  <span class="fu">filter</span>(YEARLY_EXP <span class="sc">&gt;</span> <span class="dv">0</span>, BLS_URBN <span class="sc">==</span> <span class="dv">1</span>, HIGH_EDU <span class="sc">!=</span> <span class="st">"00"</span>)</span>
-<span id="cb24-3"><a></a>ce_sub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a>ce_sub <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a></a>  <span class="fu">filter</span>(YEARLY_EXP <span class="sc">&gt;</span> <span class="dv">0</span>, BLS_URBN <span class="sc">==</span> <span class="dv">1</span>, HIGH_EDU <span class="sc">!=</span> <span class="st">"00"</span>)</span>
+<span id="cb31-3"><a></a>ce_sub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3,950 × 8
    NEWID    PRINEARN FINCBTAX BLS_URBN HIGH_EDU TOTEXPCQ   IRAX YEARLY_EXP
@@ -614,9 +646,9 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <section id="logical-operators-1" class="slide level2">
 <h2>Logical Operators</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>ce_sub <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a></a>  <span class="fu">filter</span>(YEARLY_EXP <span class="sc">&gt;</span> <span class="dv">0</span>, (BLS_URBN <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> HIGH_EDU <span class="sc">!=</span> <span class="st">"00"</span>))</span>
-<span id="cb26-3"><a></a>ce_sub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a>ce_sub <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a></a>  <span class="fu">filter</span>(YEARLY_EXP <span class="sc">&gt;</span> <span class="dv">0</span>, (BLS_URBN <span class="sc">==</span> <span class="dv">1</span> <span class="sc">|</span> HIGH_EDU <span class="sc">!=</span> <span class="st">"00"</span>))</span>
+<span id="cb33-3"><a></a>ce_sub</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 4,178 × 8
    NEWID    PRINEARN FINCBTAX BLS_URBN HIGH_EDU TOTEXPCQ   IRAX YEARLY_EXP
@@ -640,7 +672,7 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <div class="columns">
 <div class="column" style="width:&quot;50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="fu">count</span>(ce, BLS_URBN)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">count</span>(ce, BLS_URBN)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   BLS_URBN     n
@@ -651,12 +683,12 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 </div>
 </div><div class="column fragment" style="width:&quot;50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a></a>  <span class="fu">mutate</span>(<span class="at">BLS_URBN =</span> <span class="fu">case_when</span>(</span>
-<span id="cb30-3"><a></a>    BLS_URBN <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Urban"</span>,</span>
-<span id="cb30-4"><a></a>    BLS_URBN <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Rural"</span></span>
-<span id="cb30-5"><a></a>  ))</span>
-<span id="cb30-6"><a></a><span class="fu">count</span>(ce, BLS_URBN)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb37-2"><a></a>  <span class="fu">mutate</span>(<span class="at">BLS_URBN =</span> <span class="fu">case_when</span>(</span>
+<span id="cb37-3"><a></a>    BLS_URBN <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"Urban"</span>,</span>
+<span id="cb37-4"><a></a>    BLS_URBN <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"Rural"</span></span>
+<span id="cb37-5"><a></a>  ))</span>
+<span id="cb37-6"><a></a><span class="fu">count</span>(ce, BLS_URBN)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   BLS_URBN     n
@@ -672,7 +704,7 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <div class="columns">
 <div class="column" style="width:&quot;50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="fu">count</span>(ce, HIGH_EDU)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a><span class="fu">count</span>(ce, HIGH_EDU)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 2
   HIGH_EDU     n
@@ -686,9 +718,9 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 7 15        1528
 8 16        1070</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a></a>  <span class="fu">mutate</span>(<span class="at">HIGH_EDU =</span> <span class="fu">as.numeric</span>(HIGH_EDU))</span>
-<span id="cb34-3"><a></a><span class="fu">count</span>(ce, HIGH_EDU)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a></a>  <span class="fu">mutate</span>(<span class="at">HIGH_EDU =</span> <span class="fu">as.numeric</span>(HIGH_EDU))</span>
+<span id="cb41-3"><a></a><span class="fu">count</span>(ce, HIGH_EDU)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 2
   HIGH_EDU     n
@@ -705,14 +737,14 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 </div>
 </div><div class="column fragment" style="width:&quot;50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a></a>  <span class="fu">mutate</span>(<span class="at">HIGH_EDU2 =</span> <span class="fu">case_when</span>(</span>
-<span id="cb36-3"><a></a>    <span class="fu">is.na</span>(HIGH_EDU) <span class="sc">~</span> <span class="cn">NA</span>,</span>
-<span id="cb36-4"><a></a>    HIGH_EDU <span class="sc">&lt;=</span> <span class="dv">11</span> <span class="sc">~</span> <span class="st">"Less than high school degree"</span>,</span>
-<span id="cb36-5"><a></a>    <span class="fu">between</span>(HIGH_EDU, <span class="dv">12</span>, <span class="dv">13</span>) <span class="sc">~</span> <span class="st">"High school degree"</span>,</span>
-<span id="cb36-6"><a></a>    HIGH_EDU <span class="sc">&gt;=</span> <span class="dv">14</span> <span class="sc">~</span> <span class="st">"College degree"</span></span>
-<span id="cb36-7"><a></a>  ))</span>
-<span id="cb36-8"><a></a><span class="fu">count</span>(ce, HIGH_EDU2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb43-2"><a></a>  <span class="fu">mutate</span>(<span class="at">HIGH_EDU2 =</span> <span class="fu">case_when</span>(</span>
+<span id="cb43-3"><a></a>    <span class="fu">is.na</span>(HIGH_EDU) <span class="sc">~</span> <span class="cn">NA</span>,</span>
+<span id="cb43-4"><a></a>    HIGH_EDU <span class="sc">&lt;=</span> <span class="dv">11</span> <span class="sc">~</span> <span class="st">"Less than high school degree"</span>,</span>
+<span id="cb43-5"><a></a>    <span class="fu">between</span>(HIGH_EDU, <span class="dv">12</span>, <span class="dv">13</span>) <span class="sc">~</span> <span class="st">"High school degree"</span>,</span>
+<span id="cb43-6"><a></a>    HIGH_EDU <span class="sc">&gt;=</span> <span class="dv">14</span> <span class="sc">~</span> <span class="st">"College degree"</span></span>
+<span id="cb43-7"><a></a>  ))</span>
+<span id="cb43-8"><a></a><span class="fu">count</span>(ce, HIGH_EDU2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   HIGH_EDU2                        n
@@ -728,9 +760,9 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <h2>Variable Names</h2>
 <p>Sometimes datasets come with terrible variable names.</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a></a>  <span class="fu">rename</span>(<span class="at">INCOME =</span> FINCBTAX)</span>
-<span id="cb38-3"><a></a>ce</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a></a>ce <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb45-2"><a></a>  <span class="fu">rename</span>(<span class="at">INCOME =</span> FINCBTAX)</span>
+<span id="cb45-3"><a></a>ce</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6,301 × 9
    NEWID PRINEARN INCOME BLS_URBN HIGH_EDU TOTEXPCQ    IRAX YEARLY_EXP HIGH_EDU2
@@ -755,11 +787,11 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <div class="columns">
 <div class="column" style="width:&quot;50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>ce <span class="sc">%&gt;%</span></span>
-<span id="cb40-2"><a></a>  <span class="fu">group_by</span>(BLS_URBN) <span class="sc">%&gt;%</span></span>
-<span id="cb40-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME),</span>
-<span id="cb40-4"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX),</span>
-<span id="cb40-5"><a></a>            <span class="at">households =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a></a>ce <span class="sc">%&gt;%</span></span>
+<span id="cb47-2"><a></a>  <span class="fu">group_by</span>(BLS_URBN) <span class="sc">%&gt;%</span></span>
+<span id="cb47-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME),</span>
+<span id="cb47-4"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX),</span>
+<span id="cb47-5"><a></a>            <span class="at">households =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   BLS_URBN mean_INCOME mean_IRAX households
@@ -770,9 +802,9 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 </div>
 </div><div class="column fragment" style="width:&quot;50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a></a>ce_aggressive <span class="ot">&lt;-</span> ce_raw <span class="sc">%&gt;%</span></span>
-<span id="cb42-2"><a></a>  <span class="fu">na.omit</span>()</span>
-<span id="cb42-3"><a></a>ce_aggressive</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a></a>ce_aggressive <span class="ot">&lt;-</span> ce_raw <span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a></a>  <span class="fu">na.omit</span>()</span>
+<span id="cb49-3"><a></a>ce_aggressive</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 0 × 51
 # ℹ 51 variables: NEWID &lt;chr&gt;, PRINEARN &lt;chr&gt;, FINLWT21 &lt;dbl&gt;, FINCBTAX &lt;dbl&gt;,
@@ -791,14 +823,14 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <div class="columns">
 <div class="column" style="width:&quot;50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a></a>ce_moderate <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb44-2"><a></a>  <span class="fu">drop_na</span>(IRAX, INCOME, BLS_URBN) <span class="sc">%&gt;%</span></span>
-<span id="cb44-3"><a></a>  <span class="fu">group_by</span>(BLS_URBN) <span class="sc">%&gt;%</span>  </span>
-<span id="cb44-4"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME),</span>
-<span id="cb44-5"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX),</span>
-<span id="cb44-6"><a></a>            <span class="at">households =</span> <span class="fu">n</span>())</span>
-<span id="cb44-7"><a></a></span>
-<span id="cb44-8"><a></a>ce_moderate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a></a>ce_moderate <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb51-2"><a></a>  <span class="fu">drop_na</span>(IRAX, INCOME, BLS_URBN) <span class="sc">%&gt;%</span></span>
+<span id="cb51-3"><a></a>  <span class="fu">group_by</span>(BLS_URBN) <span class="sc">%&gt;%</span>  </span>
+<span id="cb51-4"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME),</span>
+<span id="cb51-5"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX),</span>
+<span id="cb51-6"><a></a>            <span class="at">households =</span> <span class="fu">n</span>())</span>
+<span id="cb51-7"><a></a></span>
+<span id="cb51-8"><a></a>ce_moderate</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   BLS_URBN mean_INCOME mean_IRAX households
@@ -809,13 +841,13 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 </div>
 </div><div class="column fragment" style="width:&quot;50%;">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a></a>ce_light <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
-<span id="cb46-2"><a></a>  <span class="fu">group_by</span>(BLS_URBN) <span class="sc">%&gt;%</span></span>
-<span id="cb46-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb46-4"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb46-5"><a></a>            <span class="at">households =</span> <span class="fu">n</span>())</span>
-<span id="cb46-6"><a></a></span>
-<span id="cb46-7"><a></a>ce_light</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a></a>ce_light <span class="ot">&lt;-</span> ce <span class="sc">%&gt;%</span></span>
+<span id="cb53-2"><a></a>  <span class="fu">group_by</span>(BLS_URBN) <span class="sc">%&gt;%</span></span>
+<span id="cb53-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb53-4"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb53-5"><a></a>            <span class="at">households =</span> <span class="fu">n</span>())</span>
+<span id="cb53-6"><a></a></span>
+<span id="cb53-7"><a></a>ce_light</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 4
   BLS_URBN mean_INCOME mean_IRAX households
@@ -829,12 +861,12 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <section id="multiple-groupings" class="slide level2">
 <h2>Multiple Groupings</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a></a>ce <span class="sc">%&gt;%</span></span>
-<span id="cb48-2"><a></a>  <span class="fu">group_by</span>(BLS_URBN, HIGH_EDU2) <span class="sc">%&gt;%</span></span>
-<span id="cb48-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb48-4"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb48-5"><a></a>            <span class="at">households =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb48-6"><a></a>  <span class="fu">arrange</span>(mean_IRAX)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a></a>ce <span class="sc">%&gt;%</span></span>
+<span id="cb55-2"><a></a>  <span class="fu">group_by</span>(BLS_URBN, HIGH_EDU2) <span class="sc">%&gt;%</span></span>
+<span id="cb55-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb55-4"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb55-5"><a></a>            <span class="at">households =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb55-6"><a></a>  <span class="fu">arrange</span>(mean_IRAX)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
 # Groups:   BLS_URBN [2]
@@ -853,21 +885,21 @@ $ INT_HOME &lt;lgl&gt; NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, NA, N
 <h2>Piping into <code>ggplot2</code></h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a></a>ce <span class="sc">%&gt;%</span></span>
-<span id="cb50-2"><a></a>  <span class="fu">group_by</span>(BLS_URBN, HIGH_EDU2) <span class="sc">%&gt;%</span></span>
-<span id="cb50-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb50-4"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
-<span id="cb50-5"><a></a>            <span class="at">households =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb50-6"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mean_INCOME,</span>
-<span id="cb50-7"><a></a>                       <span class="at">y =</span> mean_IRAX, </span>
-<span id="cb50-8"><a></a>                       <span class="at">shape =</span> BLS_URBN,</span>
-<span id="cb50-9"><a></a>                       <span class="at">color =</span> HIGH_EDU2)) <span class="sc">+</span></span>
-<span id="cb50-10"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a></a>ce <span class="sc">%&gt;%</span></span>
+<span id="cb57-2"><a></a>  <span class="fu">group_by</span>(BLS_URBN, HIGH_EDU2) <span class="sc">%&gt;%</span></span>
+<span id="cb57-3"><a></a>  <span class="fu">summarize</span>(<span class="at">mean_INCOME =</span> <span class="fu">mean</span>(INCOME, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb57-4"><a></a>            <span class="at">mean_IRAX =</span> <span class="fu">mean</span>(IRAX, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), </span>
+<span id="cb57-5"><a></a>            <span class="at">households =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
+<span id="cb57-6"><a></a>  <span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> mean_INCOME,</span>
+<span id="cb57-7"><a></a>                       <span class="at">y =</span> mean_IRAX, </span>
+<span id="cb57-8"><a></a>                       <span class="at">shape =</span> BLS_URBN,</span>
+<span id="cb57-9"><a></a>                       <span class="at">color =</span> HIGH_EDU2)) <span class="sc">+</span></span>
+<span id="cb57-10"><a></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk03mon_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk03mon_files/figure-revealjs/unnamed-chunk-27-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
