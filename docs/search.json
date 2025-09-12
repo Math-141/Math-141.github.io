@@ -1089,14 +1089,14 @@
     "href": "readings/readings_wk03mon.html",
     "title": "Math 141: Readings for September 15, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nMD Chapter 3 (Skip section 3.7)\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC 3.1, LC 3.2, LC 3.4, LC 3.5, LC 3.9\nIn your own words, explain what each of the dplyr verbs we read about in chapter 3 does. No need for more than a sentence or two for each verb. Also, provide an example of using that verb. I’ve provided a response for one of the verbs as an example:\n\n\nrelocate(): The relocate verb moves columns around in your dataframe. You can choose which columns to move, and where to move them.\nExample: You might have a dataframe called cars, with columns “weight” and “mpg”, but you want to put the “mpg” column on the left side of the “weight” column. To do this, you could run the following code:\n\ncars %&gt;%\n  relocate(weight, mpg)"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD Chapter 3 (Skip section 3.7). Some of these sections will be review from last time, but I recommend that you read them closely again.\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC 3.1, LC 3.2, LC 3.4, LC 3.5, LC 3.9\nIn your own words, explain what each of the dplyr verbs we read about in chapter 3 does. No need for more than a sentence or two for each verb. Also, provide an example of using that verb. I’ve provided a response for one of the verbs as an example:\n\n\nrelocate(): The relocate verb moves columns around in your dataframe. You can choose which columns to move, and where to move them.\nExample: You might have a dataframe called cars, with columns “weight” and “mpg”, but you want to put the “mpg” column on the left side of the “weight” column. To do this, you could run the following code:\n\ncars %&gt;%\n  relocate(weight, mpg)"
   },
   {
     "objectID": "readings/readings_wk03mon.html#reading",
     "href": "readings/readings_wk03mon.html#reading",
     "title": "Math 141: Readings for September 15, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nMD Chapter 3 (Skip section 3.7)"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD Chapter 3 (Skip section 3.7). Some of these sections will be review from last time, but I recommend that you read them closely again."
   },
   {
     "objectID": "readings/readings_wk03mon.html#homework-assignment",

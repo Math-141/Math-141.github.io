@@ -116,7 +116,7 @@ To **summarize** the data.
 :::
 
 ::: {.column .fragment width="50%"}
-→ To compute the mean and standard deviation of the bike counts.
+→ To compute the mean and standard deviation of miles ridden by bikeshare users.
 :::
 :::::
 

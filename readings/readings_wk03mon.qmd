@@ -9,7 +9,7 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   MD Chapter 3 (Skip section 3.7)
+-   MD Chapter 3 (Skip section 3.7). Some of these sections will be review from last time, but I recommend that you read them closely again. 
 
 ## Homework Assignment
 
