@@ -46,7 +46,7 @@ library(tidyverse)
 
 [Grayson White]{.custom-subtitle}
 
-[Math 141 <br> Week 2 \| Fall 2025]{.custom-subtitle}
+[Math 141 <br> Week 3 \| Fall 2025]{.custom-subtitle}
 :::
 :::::
 
@@ -195,7 +195,7 @@ To fix how `R` **stores** a variable.
 ## Return to `mutate()`
 
 ::::: columns
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
 Add new variables
 
 ```{r}
@@ -205,7 +205,7 @@ count(dogs_top5, Dog_Name, Breed) %>%
 ```
 :::
 
-::: {.column width="50%"}
+::: {.column width="50%" .fragment}
 Modify existing variables
 
 ```{r}

@@ -204,7 +204,7 @@
 <p><span class="custom-title">Data Wrangling with <code>dplyr</code></span></p>
 <p><br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
-<p><span class="custom-subtitle">Math 141 <br> Week 2 | Fall 2025</span></p>
+<p><span class="custom-subtitle">Math 141 <br> Week 3 | Fall 2025</span></p>
 </div></div>
 </section>
 <section id="goals-for-today" class="slide level2">
@@ -344,7 +344,7 @@ $ Breed            &lt;chr&gt; "Single", "Single", "Single", "Single", "Single",
 <section id="return-to-mutate" class="slide level2">
 <h2>Return to <code>mutate()</code></h2>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column fragment" style="width:50%;">
 <p>Add new variables</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">count</span>(dogs_top5, Dog_Name, Breed) <span class="sc">%&gt;%</span></span>
@@ -367,7 +367,7 @@ $ Breed            &lt;chr&gt; "Single", "Single", "Single", "Single", "Single",
 10 Rosie    Single     9 0.9  </code></pre>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
+</div><div class="column fragment" style="width:50%;">
 <p>Modify existing variables</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">head</span>(dogs_top5<span class="sc">$</span>Dog_Name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>Math 141 – Data Visualization</title>
+  <title>Math 141 – Data Collection</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -123,10 +123,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -140,615 +136,276 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Data Visualization</span></p>
-<p><br> <br> <br> <br></p>
+<p><span class="custom-title">Data Collection</span></p>
+<p><br> <br> <br> <br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
-<p><span class="custom-subtitle">Math 141 <br> Week 1 | Fall 2025</span></p>
+<p><span class="custom-subtitle">Math 141 <br> Week 3 | Fall 2025</span></p>
 </div></div>
-</section>
-<section class="slide level2">
-
-<div style="margin-top: 80px; font-size: 3em; color: #3F6574; text-align: center;">
-<p>Before we get started…</p>
-<p>if you are on the waitlist, please sign in to class here: <a href="https://tinyurl.com/math141-wait">tinyurl.com/math141-wait</a></p>
-</div>
 </section>
 <section id="goals-for-today" class="slide level2">
 <h2>Goals for Today</h2>
-<div>
 <ul>
-<li>Review data frames.</li>
-<li>Motivate data visualizations.</li>
-<li>Develop <strong>language</strong> to talk about the components of a graphic.</li>
-<li>Practice deconstructing graphics.</li>
-<li>Discuss good graphical practices.</li>
-</ul>
-</div>
-</section>
-<section id="reminders" class="slide level2">
-<h2>Reminders</h2>
-<ul>
-<li class="fragment">DAR accommodations.</li>
-<li class="fragment"><strong>Slack</strong> for communication.
-<ul>
-<li class="fragment"><code>general-qa</code> and <code>coding-qa</code> channels</li>
-</ul></li>
-<li class="fragment">Course assistant (CA) office hours are now posted
-<ul>
-<li class="fragment">CA Office hours start next week</li>
-<li class="fragment">Coverage every week day!</li>
-</ul></li>
-<li class="fragment">Other resources
-<ul>
-<li class="fragment">Individual tutoring</li>
-</ul></li>
+<li class="fragment">Finish up data collection ideas</li>
+<li class="fragment">Discuss drawing conclusions from our sample and types of studies</li>
 </ul>
 </section>
-<section id="math-141-office-hours-schedule" class="slide level2 center">
-<h2>Math 141 Office Hours Schedule</h2>
-<div class="columns">
-<div class="column" style="width:80%;">
-<p><img data-src="img/office_hours.png"></p>
-</div></div>
-</section>
-<section id="data-frames" class="slide level2">
-<h2>Data Frames</h2>
-<p>Data in <strong>spreadsheet</strong>-like format where:</p>
-<ul>
-<li class="fragment"><p>Rows = Observations/cases</p></li>
-<li class="fragment"><p>Columns = Variables</p></li>
-</ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-bordered table-striped caption-top" data-quarto-postprocess="true" style="font-size: 32px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">ID</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">kind</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">.pred_AI</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">.pred_class</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">detector</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">native</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">model</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.9999942</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: left;">Sapling</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Real TOEFL</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.8281448</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: left;">Crossplag</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Real TOEFL</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.0002137</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">Crossplag</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Real College Essays</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: right;">0.0000000</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">ZeroGPT</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">Fake CS224N - GPT3</td>
-<td style="text-align: left;">GPT3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: right;">0.0017841</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">OriginalityAI</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">Fake CS224N - GPT3, PE</td>
-<td style="text-align: left;">GPT4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.0001783</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">HFOpenAI</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Real CS224N</td>
-<td style="text-align: left;">Human</td>
-</tr>
-</tbody>
-</table>
-</div>
+<section>
+<section id="data-collection" class="title-slide slide level1 center">
+<h1>Data Collection</h1>
 
-
+</section>
+<section id="who-are-the-data-supposed-to-represent" class="slide level2">
+<h2>Who are the data supposed to represent?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/week4.005.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
+</figure>
 </div>
+</section>
+<section id="who-are-the-data-supposed-to-represent-1" class="slide level2">
+<h2>Who are the data supposed to represent?</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/week4.006.jpeg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
 </div>
+<p><strong>Key questions:</strong></p>
 <ul>
-<li class="fragment">Data from <strong>GPT Detectors Are Biased Against Non-Native English Writers.</strong> <em>Weixin Liang</em>, <em>Mert Yuksekgonul</em>, <em>Yining Mao</em>, <em>Eric Wu</em>, <em>James Zou.</em> <a href="https://doi.org/10.1016/j.patter.2023.100779">CellPress Patterns</a> and available in the <code>R</code> package <code>detectors</code>.</li>
+<li class="fragment">What evidence is there that the <strong>respondents</strong> are <strong>representative</strong> of the <strong>population</strong>?</li>
+<li class="fragment">Who is present? Who is absent?</li>
+<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
 </ul>
 </section>
-<section id="data-frames-1" class="slide level2">
-<h2>Data Frames</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-bordered table-striped caption-top" data-quarto-postprocess="true" style="font-size: 32px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">ID</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">kind</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">.pred_AI</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">.pred_class</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">detector</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">native</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">model</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.9999942</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: left;">Sapling</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Real TOEFL</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.8281448</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: left;">Crossplag</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Real TOEFL</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.0002137</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">Crossplag</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Real College Essays</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: right;">0.0000000</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">ZeroGPT</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">Fake CS224N - GPT3</td>
-<td style="text-align: left;">GPT3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: right;">0.0017841</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">OriginalityAI</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">Fake CS224N - GPT3, PE</td>
-<td style="text-align: left;">GPT4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.0001783</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">HFOpenAI</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Real CS224N</td>
-<td style="text-align: left;">Human</td>
-</tr>
-</tbody>
-</table>
+<section id="nonresponse-bias" class="slide level2">
+<h2>Nonresponse bias</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/sampling.003.jpeg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
 </div>
-
-
-</div>
-</div>
-<p>Columns = Variables</p>
-<p><strong>Variables</strong>: Describe characteristics of the observations</p>
-<ul>
-<li class="fragment"><p><strong>Quantitative</strong>: Numerical in nature</p></li>
-<li class="fragment"><p><strong>Categorical</strong>: Values are categories</p></li>
-<li class="fragment"><p><strong>Identification</strong>: Uniquely identify each case</p></li>
-</ul>
+<p><strong>Nonresponse bias</strong>: The respondents are <strong>systematically</strong> different from the non-respondents for the variables of interest.</p>
 </section>
-<section id="types-of-variables" class="slide level2">
-<h2>Types of variables</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment"><strong>Identification</strong>: Uniquely identify each case</li>
-</ul>
+<section class="slide level2">
+
+<h3 id="come-back-to-literary-digest-example">Come Back to Literary Digest Example</h3>
+<p>Of the 10 million people surveyed, more than 2.4 million responded with 57% indicating that they would vote for Republican Alf Landon in the upcoming presidential election instead of the current President Franklin Delano Roosevelt.</p>
 <p><br></p>
-<ul>
-<li class="fragment"><strong>Quantitative</strong>: Numerical in nature
-<ul>
-<li class="fragment">Those that can take a range of values are called <strong></strong> (e.g., age, income)</li>
-<li class="fragment">Those that only take particular (often whole number) values are called <strong>discrete</strong> (e.g., result of a dice roll)</li>
-<li class="fragment">Not every variable involving numbers is quantitative!</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li class="fragment"><strong>Categorical</strong>: Values are categories
-<ul>
-<li class="fragment">Usually take values (e.g., Race/Ethnicity or Gender)</li>
-<li class="fragment">But can take numeric values! (e.g., zip code)</li>
-<li class="fragment">The values that a categorical variable can take are called its <strong>levels</strong></li>
-<li class="fragment"><strong>Ordinal</strong> categorical variables can be ordered (e.g., level of education, variables collected with a Likert scale)</li>
-<li class="fragment">Categorical variables that cannot be ordered are called <strong>nominal</strong> (e.g., Race/Ethnicity)</li>
-</ul></li>
-</ul>
-</div></div>
+<p><strong>Non-response bias</strong>?</p>
 </section>
-<section id="why-construct-a-graph" class="slide level2 center">
-<h2>Why construct a graph?</h2>
-<p><br></p>
-<div class="fragment fade-up midi">
-<p>To <strong>explore</strong> the data.</p>
-</div>
-<div class="fragment fade-up midi">
-<p>To <strong>summarize</strong> the data.</p>
-</div>
-<div class="fragment fade-up midi">
-<p>To showcase <strong>trends</strong> and make <strong>comparisons</strong>.</p>
-</div>
-<div class="fragment fade-up midi">
-<p>To tell a compelling <strong>story</strong>.</p>
-</div>
-</section>
-<section id="challenger" class="slide level2">
-<h2>Challenger</h2>
-<ul>
-<li class="fragment"><p>On January 27th, 1986, engineers from Morton Thiokol recommended NASA delay launch of space shuttle <em>Challenger</em> due to cold weather.</p>
-<ul>
-<li class="fragment">Believed cold weather impacted the o-rings that held the rockets together.</li>
-<li class="fragment">Used 13 charts in their argument.</li>
-</ul></li>
-<li class="fragment"><p>After a two hour conference call, the engineer’s recommendation was overruled due to lack of persuasive evidence and the launch proceeded.</p></li>
-<li class="fragment"><p>The Challenger exploded 73 seconds into launch.</p></li>
-</ul>
-</section>
-<section id="challenger-1" class="slide level2">
-<h2>Challenger</h2>
-<p>Here’s one of those charts.</p>
+<section id="tackling-nonresponse-bias" class="slide level2">
+<h2>Tackling Nonresponse bias</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/table_o_rings.jpg" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+<p><img data-src="img/sampling.003.jpeg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
 </figure>
 </div>
+<ul>
+<li class="fragment"><p>Use <strong>multiple modes</strong> (mail, phone, in-person) and <strong>multiple attempts</strong> for reaching sampled cases.</p></li>
+<li class="fragment"><p>Explore key demographic variables to see how respondents and non-respondents vary.</p></li>
+<li class="fragment"><p>Take a survey stats course to learn how to create survey weights to adjust for potential nonresponse bias.</p></li>
+</ul>
 </section>
-<section id="challenger-2" class="slide level2">
-<h2>Challenger</h2>
-<p>Here’s another one of those charts.</p>
+<section id="is-bigger-always-better" class="slide level2">
+<h2>Is Bigger Always Better?</h2>
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/o_ring_rockets.jpg" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
+<p><img data-src="img/sampling.004.jpeg" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
 </figure>
 </div>
+<p>For our <strong>Literary Digest Example</strong>, Gallup predicted Roosevelt would win based on a survey of <strong>50,000</strong> people (instead of 2.4 million).</p>
 </section>
-<section id="challenger-3" class="slide level2">
-<h2>Challenger</h2>
-<p>Here’s a graphic created in <code>R</code> from <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>’s data.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="challenger-4" class="slide level2">
-<h2>Challenger</h2>
-<p>This adaptation is a recreation of Edward Tufte’s graphic.</p>
+<section class="slide level2">
 
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
+<h3 id="big-data-paradox">Big Data Paradox</h3>
+<div class="columns">
+<div class="column" style="width:20%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+<p><img data-src="img/meng.jpg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
-</div>
-</div>
-<aside><div>
-<p>For more information on this example and other examples, check out <a href="https://www.edwardtufte.com/tufte/books_visex">Tufte’s book</a>.</p>
-</div></aside></section>
-<section id="now-lets-learn-the-grammar-of-graphics." class="slide level2 center">
-<h2>Now let’s learn the <strong>Grammar of Graphics</strong>.</h2>
-<div class="fragment fade-up midi">
-<p>We will use this grammar to:</p>
-</div>
-<div class="fragment fade-up midi">
-<p>Decompose and understand existing graphs.</p>
-</div>
-<div class="fragment fade-up midi">
-<p>Create our own graphs with the <code>R</code> package <code>ggplot2</code>.</p>
-</div>
-</section>
-<section id="grammar-of-graphics" class="slide level2">
-<h2>Grammar of Graphics</h2>
+</div><div class="column" style="width:80%;">
+<blockquote>
+<p>“Without taking data quality into account, population inferences with Big Data are subject to a Big Data Paradox: the more the data, the surer we fool ourselves.” – Xiao-Li Meng</p>
+</blockquote>
+</div></div>
+<p><strong>Example:</strong></p>
 <ul>
-<li class="fragment"><strong>data</strong>: Data frame that contains the raw data
-<ul>
-<li class="fragment">Variables used in the graph</li>
-</ul></li>
-<li class="fragment"><strong>geom</strong>: Geometric <strong>shape</strong> that the data are mapped to.
-<ul>
-<li class="fragment">EX: Point, line, bar, text, …</li>
-</ul></li>
-<li class="fragment"><strong>aesthetic</strong>: Visual properties of the <strong>geom</strong>
-<ul>
-<li class="fragment">EX: X (horizontal) position, y (vertical) position, color, fill, shape</li>
-</ul></li>
-<li class="fragment"><strong>scale</strong>: Controls how data are mapped to the visual values of the aesthetic.
-<ul>
-<li class="fragment">EX: particular colors, log scale</li>
-</ul></li>
-<li class="fragment"><strong>guide</strong>: Legend/key to help user convert visual display back to the data</li>
+<li class="fragment"><p>During Spring of 2021, Delphi-Facebook estimated vaccine uptake at 70% and U.S. Census estimated it at 67%.</p></li>
+<li class="fragment"><p>The CDC reported it to be 53%.</p></li>
 </ul>
 <div class="fragment">
-<p>For right now, we won’t focus on the <strong>names</strong> of particular types of graphs (e.g., scatterplot) but on the <strong>elements</strong> of graphs.</p>
+<p>And, once we learn about <strong>quantifying uncertainty</strong>, we will see that large sample sizes produce very small measures of uncertainty.</p>
 </div>
 </section>
 <section class="slide level2">
 
+<h3 id="big-data-paradox-1">Big Data Paradox</h3>
 <div class="columns">
-<div class="column" style="width:30%;">
-<h3 id="example-1">Example 1</h3>
-<div>
-<ul>
-<li>What are the variables?</li>
-<li>What <strong>geom</strong> are the variables map to?</li>
-<li>What are the <strong>aesthetic</strong>s of the <strong>geom</strong>?</li>
-<li>How is each variable mapped to an <strong>aesthetic</strong>?</li>
-<li>What additional context is provided?</li>
-<li>What story is the graph telling?</li>
-</ul>
-</div>
-</div><div class="column" style="width:60%;">
+<div class="column" style="width:20%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/anne_hathaway.png" class="quarto-figure quarto-figure-center" style="width:85.0%" data-fig-dpi="200"></p>
+<p><img data-src="img/meng.jpg" class="quarto-figure quarto-figure-center"></p>
 </figure>
 </div>
+</div><div class="column" style="width:80%;">
+<blockquote>
+<p>“If you have the resources, invest in data quality far more than you invest in data quantity. Bad-quality data is essentially wiping out the power you think you have. That’s always been a problem, but it’s magnified now because we have big data.” – Xiao-Li Meng</p>
+</blockquote>
 </div></div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="countdown" id="timer_7515bdb8" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
 </section>
-<section class="slide level2">
-
-<div class="columns">
-<div class="column" style="width:30%;">
-<h3 id="example-2">Example 2</h3>
-<div>
+<section id="thoughts-on-sampling" class="slide level2">
+<h2>Thoughts on Sampling</h2>
 <ul>
-<li>What are the variables?</li>
-<li>What <strong>geom</strong> are the variables map to?</li>
-<li>What are the <strong>aesthetic</strong>s of the <strong>geom</strong>?</li>
-<li>How is each variable mapped to an <strong>aesthetic</strong>?</li>
-<li>What additional context is provided?</li>
-<li>What story is the graph telling?</li>
-</ul>
-</div>
-</div><div class="column center" style="width:70%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/harassment_graphic.png" class="quarto-figure quarto-figure-center" style="width:75.0%" data-fig-dpi="200"></p>
-</figure>
-</div>
-</div></div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="countdown" id="timer_99460510" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section>
-<section id="visualization-considerations" class="title-slide slide level1 center">
-<h1>Visualization Considerations</h1>
-
-</section>
-<section class="slide level2">
-
-<h3 id="what-additional-context-should-my-graphs-have">What additional context should my graphs have?</h3>
+<li class="fragment"><p><strong>Random</strong> sampling is important to ensure the sample is <strong>representative</strong> of the population.</p>
 <ul>
-<li class="fragment"><p>For context, at a minimum include</p>
-<ul>
-<li class="fragment">Axis labels (with units reported).</li>
-<li class="fragment">Legends.</li>
-<li class="fragment">Data source.</li>
+<li class="fragment">Word we will use: <strong>generalizability</strong></li>
 </ul></li>
-<li class="fragment"><p>Think about the <strong>stories/questions</strong> your visualization answers.</p></li>
-<li class="fragment"><p>Determine what <strong>context/background information</strong> your viewer needs.</p></li>
-<li class="fragment"><p>Visualizing data involves <strong>editorial choices</strong>.</p>
+<li class="fragment"><p>Representativeness isn’t about <strong>size</strong>.</p>
 <ul>
-<li class="fragment">What to highlight.</li>
-<li class="fragment">What comparisons to make easy to see.</li>
-<li class="fragment">What scales to use.</li>
+<li class="fragment">Small random samples will tend to be more representative than large non-random samples.</li>
 </ul></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h3 id="context-example">Context Example</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/moma_size.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="water-lilies">Water Lilies</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/lilies.jpg" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="what-visual-cues-are-easier-to-compare">What visual cues are easier to compare?</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/visual_cues.png" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="what-to-consider-with-color">What to consider with color?</h3>
-<p>Consider color blindness.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="color-palettes-sequential">Color Palettes – Sequential</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/dude.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-<div class="{aside}">
-<p>Maps, like the <a href="https://qz.com/316906/the-dude-map-how-american-men-refer-to-their-bros/">Dude map</a> are also a great way to provide context!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="color-palettes-diverging">Color Palettes – Diverging</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/nba_2015.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-<div class="{aside}">
-<p><a href="https://roadtolarissa.com/nba-minutes/">Adam Pearce’s 2015 NBA Games</a></p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="color-palettes-qualitative">Color Palettes – Qualitative</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/dogs.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-<div class="{aside}">
-<p><a href="https://www.informationisbeautiful.net/visualizations/best-in-show-whats-the-top-data-dog/">information is beautiful’s Best in Show</a></p>
-</div>
-</section>
-<section id="many-ways-to-visually-tell-a-story" class="slide level2">
-<h2>Many Ways To Visually Tell A Story</h2>
-<p>Washington Post’s Approach:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/wp_shooter.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-<p><a href="https://guns.periscopic.com/?year=2013">Periscopic’s Approach</a></p>
-</section>
-<section id="bad-graphics" class="slide level2">
-<h2>Bad Graphics</h2>
-<p>Because of all the design choices, it is much easier to make a bad graph than a good graph.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/pizza_pie.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</section>
-<section id="misleading-graphics" class="slide level2">
-<h2>Misleading Graphics</h2>
-<p>Be careful that your design choices don’t cause your viewer to draw incorrect conclusions about the data:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/FLguns.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
+<li class="fragment"><p>However, I bet most samples you will encounter <strong>won’t</strong> have arisen from a random mechanism.</p></li>
+<li class="fragment"><p>How do we draw conclusions about the population from <strong>non-random samples</strong>?</p>
 <ul>
-<li class="fragment">Just letting the software make all the design choices can still lead to misleading graphs (recall the Georgia COVID graph).</li>
-</ul>
-</section>
-<section id="summary-thoughts-on-graphical-considerations" class="slide level2">
-<h2>Summary Thoughts on Graphical Considerations</h2>
-<ul>
-<li class="fragment"><p>Good graphics are one’s where the findings and insights are <strong>obvious</strong> to the viewer.</p>
-<ul>
-<li class="fragment">Add information and key <strong>context</strong>.</li>
+<li class="fragment">Determine if your sampled cases (and respondents) are systematically different from the non-sampled cases (and non-respondents) for the variables you care about.</li>
+<li class="fragment">Adjust your population of interest.</li>
 </ul></li>
-<li class="fragment"><p>Facilitate the <strong>comparisons</strong> that correspond to the research question.</p>
-<ul>
-<li class="fragment">Recall the three Georgia COVID counts graphs from Day 1!</li>
-</ul></li>
-<li class="fragment"><p>Data visualizations are <strong>not neutral</strong>.</p></li>
-<li class="fragment"><p>It is easier to see the differences and similarities between different types of graphics if we learn the <strong>grammar of graphics</strong>.</p></li>
-<li class="fragment"><p>Practicing <strong>decomposing</strong> graphics should make it easier for us to <strong>compose</strong> our own graphics.</p></li>
 </ul>
 </section></section>
-<section id="live-coding" class="title-slide slide level1 center">
-<h1>Live Coding</h1>
-<p>(Time permitting)</p>
-</section>
-
 <section>
-<section id="the-datalab-reed" class="title-slide slide level1 center">
-<h1>The DataLab @ Reed</h1>
+<section id="now-lets-shift-our-discussion-to-the-conclusions-we-can-draw-from-the-sample-we-have." class="title-slide slide level1 center">
+<h1>Now let’s shift our discussion to the conclusions we can draw from the sample we have.</h1>
 
 </section>
-<section id="next-time" class="slide level2">
-<h2>Next time</h2>
-<div>
-<ul>
-<li>We’ll learn the <code>ggplot2</code> so that we use the grammar of graphics to create our own plots!</li>
-</ul>
+<section class="slide level2">
+
+<h3 id="typical-analysis-goals">Typical Analysis Goals</h3>
+<p><strong>Descriptive</strong>: Want to estimate quantities related to the population.</p>
+<p>→ <em>How many trees are in Alaska?</em></p>
+<div class="fragment">
+<p><strong>Predictive</strong>: Want to predict the value of a variable.</p>
+<p>→ <em>Can I use remotely sensed data to predict forest types in Alaska?</em></p>
 </div>
+<div class="fragment">
+<p><strong>Causal</strong>: Want to determine if changes in a variable cause changes in another variable.</p>
+<p>→ <em>Are insects causing the increased mortality rates for pinyon-juniper woodlands?</em></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="typical-analysis-goals-1">Typical Analysis Goals</h3>
+<p>For these goals will differentiate between the roles of the variables:</p>
+<ul>
+<li class="fragment"><p><strong>Response variable</strong>: Variable I want to better understand</p></li>
+<li class="fragment"><p><strong>Explanatory/predictor variables</strong>: Variables I think might explain/predict the response variable</p></li>
+</ul>
+<div class="fragment">
+<p>→ <em>How many trees are in Alaska?</em></p>
+<p>→ <em>Can I use remotely sensed data to predict forest types in Alaska?</em></p>
+<p>→ <em>Are insects causing the increased mortality rates for pinyon-juniper woodlands?</em></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="key-mechanism-for-causal-goal">Key Mechanism for Causal Goal</h3>
+<p><strong>Random assignment</strong>: Cases are randomly assigned to categories of the <strong>explanatory variable</strong></p>
+<ul>
+<li class="fragment">If the data were collected using <strong>random assignment</strong>, then can determine if the explanatory variable <strong>causes</strong> changes in the response variable.</li>
+</ul>
+<div class="fragment">
+<p><strong>Example</strong>: <a href="https://www.nih.gov/news-events/nih-research-matters/experimental-coronavirus-vaccine-highly-effective">COVID Vaccine Trials</a></p>
+<p>To study the effectiveness of the Moderna vaccine (mRNA-1273), researchers carried out a study on over 30,000 adult volunteers with no known previous COVID-19 infection. Volunteers were randomly assigned to either receive two doses of the vaccine or two shots of saline. The incidence of symptomatic COVID-19 was 94% lower in those who received the vaccine than those who did not.</p>
+<p><strong>Question</strong>: Why does random assignment allow us to conclude that this vaccine was effective at preventing (early strains of) COVID-19?</p>
+</div>
+</section>
+<section id="careful-with-non-random-assignment-data" class="slide level2">
+<h2>Careful with Non-Random Assignment Data</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>We have data on the number of Methodist ministers in New England and the number of barrels of rum imported into Boston each year. The data range from 1860 to 1940.</p>
+<ul>
+<li class="fragment">Should we conclude that ministers drink a lot of rum? Or maybe that rum drinking encourages church attendance?</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk03fri_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<ul>
+<li class="fragment"><p><strong>Confounding variable</strong>: A third variable that is associated with both the explanatory variable and the response variable.</p></li>
+<li class="fragment"><p>Unclear if the explanatory variable or the confounder (or some other variable) is causing changes in the response.</p></li>
+</ul>
+</section>
+<section id="causal-inference" class="slide level2">
+<h2>Causal Inference</h2>
+<ul>
+<li class="fragment"><strong>Spurious relationship</strong>: Two variables are associated but not causally related
+<ul>
+<li class="fragment">In the age of big data, lots of good examples <a href="https://tylervigen.com/spurious-correlations">out there</a>.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p>→ <em>“Correlation does not imply causation.”</em></p>
+</div>
+<div class="fragment">
+<p>→ <em>“Correlation does not imply not causation.”</em></p>
+</div>
+<ul>
+<li class="fragment"><strong>Causal inference</strong>: Methods for finding causal relationships even when the data were collected without random assignment.
+<ul>
+<li class="fragment">We are lucky to have <strong>two</strong> causal inference experts in our department!</li>
+<li class="fragment"><strong>Lenny Wainstein</strong> and <strong>Megan Ayers</strong> (joining this spring) do research on causal inference.</li>
+</ul></li>
+</ul>
+</section></section>
+<section>
+<section id="types-of-studies" class="title-slide slide level1 center">
+<h1>Types of Studies</h1>
+
+</section>
+<section id="observational-studies" class="slide level2">
+<h2>Observational Studies</h2>
+<ul>
+<li class="fragment"><p>A study in which the researchers don’t actively control the value of any variable, but simply observe the values as they naturally exist.</p></li>
+<li class="fragment"><p><strong>Example</strong>: Hand washing study</p>
+<ul>
+<li class="fragment">To estimate what percent of people in the US wash their hands after using a public restroom, researchers pretended to comb their hair while observing 6000 people in public restrooms throughout the United States. They found that 85% of the people who were observed washed their hands after going to the bathroom.</li>
+</ul></li>
+</ul>
+</section>
+<section id="randomized-experiment" class="slide level2">
+<h2>(Randomized) Experiment</h2>
+<ul>
+<li class="fragment"><p>A study in which the researcher actively controls one or more of the explanatory variables through random assignment.</p></li>
+<li class="fragment"><p><strong>Example</strong>: COVID Trial</p></li>
+<li class="fragment"><p>Common features:</p>
+<ul>
+<li class="fragment"><strong>Control</strong> group that gets no treatment or a standard treatment</li>
+<li class="fragment"><strong>Placebo</strong>: A fake treatment to control for the <strong>placebo effect</strong> where if people believe they are receiving a treatment, they may experience the desired effect regardless of whether the treatment is any good.</li>
+<li class="fragment"><strong>Blinding</strong>: When the subjects and/or researchers don’t know the explanatory group assignments.</li>
+</ul></li>
+</ul>
+</section>
+<section id="thoughts-on-data-collection-goals" class="slide level2">
+<h2>Thoughts on Data Collection Goals</h2>
+<ul>
+<li class="fragment"><p>Random assignment allows you to explore <strong>causal</strong> relationships between your explanatory variables and the predictor variables because the randomization makes the explanatory groups roughly similar.</p></li>
+<li class="fragment"><p>How do we draw causal conclusions from studies without random assignment?</p>
+<ul>
+<li class="fragment">With extreme care! Try to <strong>control</strong> for all possible confounding variables.</li>
+<li class="fragment">Discuss the associations/correlations you found. Use domain knowledge to address potentially causal links.</li>
+<li class="fragment">Take more stats to learn more about causal inference.</li>
+</ul></li>
+<li class="fragment"><p>But also consider the goals of your analysis. Often the research question isn’t causal.</p></li>
+<li class="fragment"><p><strong>Bottom Line:</strong> We often have to use imperfect data to make decisions.</p></li>
+</ul>
 
 
 </section></section>

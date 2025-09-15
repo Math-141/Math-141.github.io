@@ -97,7 +97,7 @@ scheduled-docs:
           docs:
             - type: Lab
               href: labs/lab_03.qmd
-        - topic: "Data Collection"
+        - topic: "More Data Collection"
           display-date: Friday, Sep 19
           date: 9/19/25
           docs:
