@@ -1,0 +1,11 @@
+---
+title: "Math 141: Lab 3"
+format: html
+editor: source
+toc: false
+---
+
+
+## Lab 3
+
+We'll work on `dplyr`, data wrangling, summary statistics, and more plotting in this lab. Make sure to take a look at the lab instructions from Week 1 to clone the repository for the lab. The lab will be available on Thursday, September 18. 

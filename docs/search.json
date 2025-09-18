@@ -1218,6 +1218,20 @@
     "text": "Please stop by to introduce yourself or ask some questions about the course!\nWe offer two types of office hours for Math 141:\n\nInstructor office hours (Grayson), which occur in Library 390.\nCourse Assistant office hours (Alayne, Nat, Remy), which occur in ETC 105B.\n\nInstructor office hours are a great place to ask questions about the content or course in general. They’re also a great place to get help on problems that you are stuck on.\nCourse Assistant office hours are a great place to work on your assignments with fellow students and seek the help of the course assistants whenever you get stuck.\nFurther, each Reed student is entitled to one hour of individual tutoring per course per week. You can sign up for individual tutoring in iris.\nBelow is the schedule of office hours for the week. We will update this calendar in case office hours need to change times or locations."
   },
   {
+    "objectID": "labs/lab_02.html",
+    "href": "labs/lab_02.html",
+    "title": "Math 141: Lab 2",
+    "section": "",
+    "text": "We’ll work on ggplot2 in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11."
+  },
+  {
+    "objectID": "labs/lab_02.html#lab-2",
+    "href": "labs/lab_02.html#lab-2",
+    "title": "Math 141: Lab 2",
+    "section": "",
+    "text": "We’ll work on ggplot2 in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11."
+  },
+  {
     "objectID": "labs/lab_01_instructions.html",
     "href": "labs/lab_01_instructions.html",
     "title": "Instructions for Accessing Math 141 Labs",
@@ -1246,18 +1260,18 @@
     "text": "Footnotes\n\n\nIf you’re already in a project, this button will show that projects name. This shouldn’t be the case for the first lab, but will likely be the case for the remaining labs.↩︎\nThis link will always be the same, but updated for the lab number, e.g. https://github.com/Math-141/lab02.git for lab 2, https://github.com/Math-141/lab10.git for lab 10, etc. You won’t be able to access these projects until the day that the lab is released, though.↩︎"
   },
   {
-    "objectID": "labs/lab_02.html",
-    "href": "labs/lab_02.html",
-    "title": "Math 141: Lab 2",
+    "objectID": "labs/lab_03.html",
+    "href": "labs/lab_03.html",
+    "title": "Math 141: Lab 3",
     "section": "",
-    "text": "We’ll work on ggplot2 in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11."
+    "text": "We’ll work on dplyr, data wrangling, summary statistics, and more plotting in this lab. Make sure to take a look at the lab instructions from Week 1 to clone the repository for the lab. The lab will be available on Thursday, September 18."
   },
   {
-    "objectID": "labs/lab_02.html#lab-2",
-    "href": "labs/lab_02.html#lab-2",
-    "title": "Math 141: Lab 2",
+    "objectID": "labs/lab_03.html#lab-3",
+    "href": "labs/lab_03.html#lab-3",
+    "title": "Math 141: Lab 3",
     "section": "",
-    "text": "We’ll work on ggplot2 in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11."
+    "text": "We’ll work on dplyr, data wrangling, summary statistics, and more plotting in this lab. Make sure to take a look at the lab instructions from Week 1 to clone the repository for the lab. The lab will be available on Thursday, September 18."
   },
   {
     "objectID": "readings/readings_wk01fri.html",
