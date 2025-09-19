@@ -105,7 +105,7 @@ Of the 10 million people surveyed, more than 2.4 million responded with 57% indi
 
 -   Explore key demographic variables to see how respondents and non-respondents vary.
 
--   Take a survey stats course to learn how to create survey weights to adjust for potential nonresponse bias.
+-   In survey statistics, we can create **survey weights** to adjust for potential nonresponse bias.
 
 ------------------------------------------------------------------------
 
@@ -314,7 +314,7 @@ ggplot(data = MinistersRum, mapping = aes(x = Ministers,
 
     -   With extreme care! Try to **control** for all possible confounding variables.
     -   Discuss the associations/correlations you found. Use domain knowledge to address potentially causal links.
-    -   Take more stats to learn more about causal inference.
+    -   Take *Math 394: Causal Inference* to learn more about causal inference.
 
 -   But also consider the goals of your analysis. Often the research question isn't causal.
 
