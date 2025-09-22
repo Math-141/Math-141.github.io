@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 9/24/25
 editor: source
 ---
 
@@ -9,10 +9,12 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   IMS (2nd edition) Section 7.1
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+The following Exercises from Section 7.5 of IMS (2nd edition)
+
+-   3, 5, 7

@@ -1,0 +1,544 @@
+---
+pagetitle: "SLR III"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+```
+
+::::: columns
+::: {.column .center width="50%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="50%"}
+
+<br>
+
+[SLR III: A Categorical Predictor]{.custom-title .smaller}
+
+<br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 4 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+
+### Goals for Today
+
+::::: columns
+::: column
+-   Recap: Simple linear regression model
+-   Broadening our idea of linear regression
+:::
+
+::: column
+-   Regression with a single, binary categorical explanatory variable
+-   Regression with a single categorical explanatory variable with more than 2 levels
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Simple Linear Regression
+
+Consider this model when:
+
+::: nonincremental
+-   Response variable $(y)$: quantitative
+
+-   Explanatory variable $(x)$: quantitative
+
+    -   Have only ONE explanatory variable.
+
+-   AND, $f()$ can be approximated by a line:
+:::
+
+$$ 
+\begin{align}
+y &= \beta_o + \beta_1 x + \epsilon
+\end{align}
+$$
+
+------------------------------------------------------------------------
+
+### Linear Regression
+
+Linear regression is a flexible class of models that allow for:
+
+-   Both quantitative and categorical **explanatory** variables.
+
+-   **Multiple** explanatory variables.
+
+-   **Curved** relationships between the response variable and the explanatory variable.
+
+-   BUT the **response variable is quantitative**.
+
+------------------------------------------------------------------------
+
+### What About A Categorical Explanatory Variable?
+
+-   Response variable $(y)$: quantitative
+
+-   Have 1 categorical explanatory variable $(x)$ with two categories.
+
+-   Model form:
+
+::: fragment
+$$ 
+\begin{align}
+y &= \beta_o + \beta_1 x + \epsilon
+\end{align}
+$$
+:::
+
+-   First, need to convert the categories of $x$ to numbers.
+
+------------------------------------------------------------------------
+
+### Example: Halloween Candy
+
+```{r}
+candy <- read_csv("https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv")
+glimpse(candy)
+```
+
+What might be a good categorical explanatory variable of `winpercent`?
+
+------------------------------------------------------------------------
+
+### Exploratory Data Analysis
+
+Before building the model, let's explore and visualize the data!
+
+-   What `dplyr` functions should I use to find the mean and sd of `winpercent` by the categories of `chocolate`?
+
+-   What graph should we use to visualize the `winpercent` scores by `chocolate`?
+
+------------------------------------------------------------------------
+
+### Exploratory Data Analysis
+
+```{r}
+# Summarize
+candy %>%
+  group_by(chocolate) %>%
+  summarize(count = n(),
+            mean_win = mean(winpercent), 
+            sd_win = sd(winpercent))
+```
+
+------------------------------------------------------------------------
+
+### Exploratory Data Analysis
+
+```{r}
+#| output-location: column
+
+ggplot(candy, aes(x = factor(chocolate), 
+                   y = winpercent, 
+                  fill = factor(chocolate))) +
+  geom_boxplot() +
+  stat_summary(fun = mean,
+               geom = "point",
+               color = "yellow",
+               size = 4) +
+  guides(fill = "none") +
+  scale_fill_manual(values =
+                      c("0" = "deeppink",
+                        "1" = "chocolate4")) +
+  scale_x_discrete(labels = c("No", "Yes"),
+                   name =
+          "Does the candy contain chocolate?")
+```
+
+------------------------------------------------------------------------
+
+### Exploratory Data Analysis
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "1-4"
+
+ggplot(candy, aes(x = factor(chocolate), 
+                   y = winpercent, 
+                  fill = factor(chocolate))) +
+  geom_boxplot() +
+  stat_summary(fun = mean,
+               geom = "point",
+               color = "yellow",
+               size = 4) +
+  guides(fill = "none") +
+  scale_fill_manual(values =
+                      c("0" = "deeppink",
+                        "1" = "chocolate4")) +
+  scale_x_discrete(labels = c("No", "Yes"),
+                   name =
+          "Does the candy contain chocolate?")
+```
+
+------------------------------------------------------------------------
+
+### Exploratory Data Analysis
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "5-8"
+
+ggplot(candy, aes(x = factor(chocolate), 
+                   y = winpercent, 
+                  fill = factor(chocolate))) +
+  geom_boxplot() +
+  stat_summary(fun = mean,
+               geom = "point",
+               color = "yellow",
+               size = 4) +
+  guides(fill = "none") +
+  scale_fill_manual(values =
+                      c("0" = "deeppink",
+                        "1" = "chocolate4")) +
+  scale_x_discrete(labels = c("No", "Yes"),
+                   name =
+          "Does the candy contain chocolate?")
+```
+
+------------------------------------------------------------------------
+
+### Exploratory Data Analysis
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "9"
+
+ggplot(candy, aes(x = factor(chocolate), 
+                   y = winpercent, 
+                  fill = factor(chocolate))) +
+  geom_boxplot() +
+  stat_summary(fun = mean,
+               geom = "point",
+               color = "yellow",
+               size = 4) +
+  guides(fill = "none") +
+  scale_fill_manual(values =
+                      c("0" = "deeppink",
+                        "1" = "chocolate4")) +
+  scale_x_discrete(labels = c("No", "Yes"),
+                   name =
+          "Does the candy contain chocolate?")
+```
+
+------------------------------------------------------------------------
+
+### Exploratory Data Analysis
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "10-12"
+
+ggplot(candy, aes(x = factor(chocolate), 
+                   y = winpercent, 
+                  fill = factor(chocolate))) +
+  geom_boxplot() +
+  stat_summary(fun = mean,
+               geom = "point",
+               color = "yellow",
+               size = 4) +
+  guides(fill = "none") +
+  scale_fill_manual(values =
+                      c("0" = "deeppink",
+                        "1" = "chocolate4")) +
+  scale_x_discrete(labels = c("No", "Yes"),
+                   name =
+          "Does the candy contain chocolate?")
+```
+
+------------------------------------------------------------------------
+
+### Exploratory Data Analysis
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "13-15"
+
+ggplot(candy, aes(x = factor(chocolate), 
+                   y = winpercent, 
+                  fill = factor(chocolate))) +
+  geom_boxplot() +
+  stat_summary(fun = mean,
+               geom = "point",
+               color = "yellow",
+               size = 4) +
+  guides(fill = "none") +
+  scale_fill_manual(values =
+                      c("0" = "deeppink",
+                        "1" = "chocolate4")) +
+  scale_x_discrete(labels = c("No", "Yes"),
+                   name =
+          "Does the candy contain chocolate?")
+```
+
+------------------------------------------------------------------------
+
+### Fit the Linear Regression Model
+
+Model Form:
+
+$$ 
+\begin{align}
+y &= \beta_o + \beta_1 x + \epsilon
+\end{align}
+$$
+
+When $x = 0$:
+
+<br>
+
+<br>
+
+When $x = 1$:
+
+::: {.fragment}
+
+```{r}
+mod <- lm(winpercent ~ chocolate, data = candy)
+library(moderndive)
+get_regression_table(mod)
+```
+
+:::
+
+------------------------------------------------------------------------
+
+### Notes
+
+-   When the explanatory variable is categorical, $\beta_o$ and $\beta_1$ no longer represent the intercept and slope.
+
+-   Now $\beta_o$ represents the (population) mean of the response variable when $x = 0$.
+
+-   And, $\beta_1$ represents the change in the (population) mean response going from $x = 0$ to $x = 1$.
+
+-   Can also do prediction:
+
+::: fragment
+```{r}
+new_candy <- data.frame(chocolate = c(0, 1))
+predict(mod, newdata = new_candy)
+```
+:::
+
+
+
+
+------------------------------------------------------------------------
+
+
+### Turns Out Reese's Miniatures Are Under-Priced...
+
+```{r echo = FALSE}
+#| fig-width: 11
+
+library(ggrepel)
+ggplot(data = candy, 
+       mapping = aes(x = pricepercent,
+                     y = winpercent)) +
+  geom_point(alpha = 0.6, size = 4, 
+             color = "chocolate4") +
+  geom_text_repel(aes(label = competitorname), size = 4,
+                  force = 2, show.legend  = FALSE,
+                  box.padding = 1)
+```
+
+------------------------------------------------------------------------
+
+
+## New example: Palmer Penguins
+
+```{r}
+library(palmerpenguins)
+```
+
+
+
+![](img/penguins.png){fig-align="center"}
+
+
+## Take a look at the data
+
+```{r}
+glimpse(penguins)
+```
+
+We'd like to predict a penguin's bill length based on their species.
+
+**Response variable**?
+
+**Explanatory variable**?
+
+## Exploratory data analysis
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+```{r}
+penguins %>%
+  group_by(species) %>%
+  summarize(
+    avg_bill_length = mean(bill_length_mm,
+                           na.rm = TRUE)
+    )
+```
+
+:::
+
+:::{.column width=50%}
+
+```{r}
+ggplot(penguins, 
+       aes(x = species,
+           y = bill_length_mm, 
+           fill = species)) +
+  geom_boxplot() +
+  scale_fill_manual(values = c("steelblue",
+                               "goldenrod", 
+                               "plum3")) +
+  guides(fill = "none") +
+  theme_bw()
+```
+
+
+:::
+
+::::
+
+:::{.fragment}
+How do we handle more than 2 groups???
+:::
+
+
+# Boardwork
+
+------------------------------------------------------------------------
+
+
+## Fit the model in R
+
+:::{.fragment}
+$$
+y = \beta_o + \beta_1 x_{species:Chinstrap} + \beta_2 x_{species:Gentoo} + \epsilon
+$$
+:::
+
+:::{.fragment}
+
+```{r}
+penguin_mod <- lm(bill_length_mm ~ species, penguins)
+get_regression_table(penguin_mod)
+```
+
+:::
+
+
+
+
+:::{.fragment}
+\begin{align*}
+\hat{y} &= \hat{\beta}_o + \hat{\beta}_1 \cdot x_{species:Chinstrap} + \hat{\beta}_2 \cdot x_{species:Gentoo} \\
+ &= 38.8 + 10.0 \cdot x_{species:Chinstrap} + 8.71 \cdot x_{species:Gentoo}
+\end{align*}
+:::
+
+
+:::{.fragment}
+Coefficient interpretation?
+:::
+
+
+------------------------------------------------------------------------
+
+
+## Remember to diagnose your models!
+
+:::{.fragment}
+
+```{r}
+library(gglm)
+ggplot(penguin_mod) +
+  stat_fitted_resid()
+```
+
+:::
+
+## Remember to diagnose your models!
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+```{r}
+ggplot(penguin_mod) +
+  stat_resid_hist()
+```
+
+:::
+
+::: {.column width=50%}
+
+```{r}
+ggplot(penguin_mod) +
+  stat_normal_qq()
+```
+
+:::
+
+::::
+
+
+------------------------------------------------------------------------
+
+
+### Multiple Linear Regression: A peak into next week
+
+Recall our penguin model
+
+$$
+y = \beta_o + \beta_1 x_{species:Chinstrap} + \beta_2 x_{species:Gentoo} + \epsilon
+$$
+
+:::{.fragment}
+Even though we are using one predictor (species), we now have $\beta_o,~ \beta_1,$ **and** $\beta_2$!
+:::
+
+-   We **recoded** the species predictor into two binary predictors. 
+-   We are actually doing **multiple** linear regression now, no longer **simple** linear regression (one predictor)
+-   **Next time**: We'll formalize and extend multiple linear regression

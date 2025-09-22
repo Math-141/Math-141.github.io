@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>Math 141 – Data Collection</title>
+  <title>Math 141 – SLR II: Regression Assumptions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -201,507 +201,575 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Data Collection</span></p>
-<p><br> <br> <br> <br> <br></p>
+<p><span class="custom-title">SLR II: Regression Assumptions</span></p>
+<p><br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
-<p><span class="custom-subtitle">Math 141 <br> Week 3 | Fall 2025</span></p>
+<p><span class="custom-subtitle">Math 141 <br> Week 4 | Fall 2025</span></p>
 </div></div>
 </section>
 <section id="goals-for-today" class="slide level2">
 <h2>Goals for Today</h2>
 <ul>
-<li class="fragment">Cover data collection/acquisition.</li>
+<li class="fragment">Recall simple linear regression</li>
+<li class="fragment">Do simple linear regression in R</li>
+<li class="fragment">Discuss model assumptions for linear regression</li>
+</ul>
+</section>
+<section id="form-of-the-model" class="slide level2">
+<h2>Form of the Model</h2>
+<p><br><br><br></p>
+<p><span class="math display">\[
+y = f(x) + \epsilon
+\]</span></p>
+<p><br><br><br></p>
+<p><strong>Goal:</strong></p>
+<ul>
+<li class="fragment"><p>Determine a reasonable form for <span class="math inline">\(f()\)</span>. (Ex: Line, curve, …)</p></li>
+<li class="fragment"><p>Estimate <span class="math inline">\(f()\)</span> with <span class="math inline">\(\hat{f}()\)</span> using the data.</p></li>
+<li class="fragment"><p>Generate predicted values: <span class="math inline">\(\hat y = \hat{f}(x)\)</span>.</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="when-to-get-coding-help">When to Get Coding Help</h3>
-<p>😢 <em>“I have no idea how to do this problem.”</em></p>
-<div class="fragment">
-<p>→ Ask someone to point you to an similar example from the lecture, handouts, and guides.</p>
-</div>
-<div class="fragment">
-<p>→ Talk it through with a course assistant, a fellow Math 141 student, or Grayson so together we can verbalize the process of going from Q to A.</p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p>😡 <em>“I am getting a weird error but really think my code is correct/on the right track/matches the examples from class.”</em></p>
-</div>
-<div class="fragment">
-<p>→ It is time for a second pair of eyes. Don’t stare at the error for over 10 minutes.</p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p>🤩 And lots of other times too! 😬</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="when-to-get-help">When to Get Help</h3>
-<p>Remember:</p>
-<div class="fragment">
-<p>→ Struggling is part of learning.</p>
-</div>
-<div class="fragment">
-<p>→ But let us help you ensure it is a <strong>productive</strong> struggle.</p>
-</div>
-<div class="fragment">
-<p>→ Struggling does NOT mean you are bad at stats, it actually means you are doing the work to <strong>learn</strong> the material!</p>
-</div>
-</section>
-<section id="now-for-data-collection" class="slide level2">
-<h2>Now for Data Collection</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/DAW.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="motivating-our-discussion-of-data-collection" class="slide level2">
-<h2>Motivating Our Discussion of Data Collection</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/twitter-study-design.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="who-are-the-data-supposed-to-represent" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.002.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Key questions:</strong></p>
+<h3 id="simple-linear-regression-model">Simple Linear Regression Model</h3>
+<p><span class="math display">\[
+y = \beta_o + \beta_1 x + \epsilon
+\]</span></p>
+<p>Consider this model when:</p>
 <ul>
-<li class="fragment">What evidence is there that the data are <strong>representative</strong>?</li>
-<li class="fragment">Who is present? Who is absent?</li>
-<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
-</ul>
-</section>
-<section id="who-are-the-data-supposed-to-represent-1" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.003.jpeg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
-</figure>
-</div>
-<p><strong>Census</strong>: We have data on the whole population!</p>
-</section>
-<section id="who-are-the-data-supposed-to-represent-2" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sampling.002.jpeg" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
-</figure>
-</div>
-</section>
-<section id="who-are-the-data-supposed-to-represent-3" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.005.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Key questions:</strong></p>
+<li class="fragment"><p>Response variable <span class="math inline">\((y)\)</span>: quantitative</p></li>
+<li class="fragment"><p>Explanatory variable <span class="math inline">\((x)\)</span>: quantitative</p>
 <ul>
-<li class="fragment">What evidence is there that the <strong>sample</strong> is <strong>representative</strong> of the <strong>population</strong>?</li>
-<li class="fragment">Who is present? Who is absent?</li>
-<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
-</ul>
-</section>
-<section id="sampling-bias" class="slide level2">
-<h2>Sampling Bias</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sampling.001.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Sampling bias</strong>: When the sampled units are <strong>systematically different</strong> from the non-sampled units on the variables of interest.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="sampling-bias-example">Sampling Bias Example</h3>
-<p>The <strong>Literary Digest</strong> was a political magazine that correctly predicted the presidential outcomes from 1916 to 1932. In 1936, they conducted the most extensive (to that date) public opinion poll. They mailed questionnaires to over 10 million people (about 1/3 of US households) whose names and addresses they obtained from telephone books and vehicle registration lists.</p>
-<p><strong>Population of Interest</strong>:</p>
-<p><br></p>
-<p><strong>Sample</strong>:</p>
-<p><br></p>
-<p><strong>Sampling bias</strong>:</p>
-</section>
-<section id="random-sampling" class="slide level2">
-<h2>Random Sampling</h2>
-<p>Use random sampling (a random mechanism for selecting cases from the population) to remove sampling bias.</p>
-<h4 id="types-of-random-sampling">Types of random sampling</h4>
-<div>
-<ul>
-<li><p>Simple random sampling</p></li>
-<li><p>Cluster sampling</p></li>
-<li><p>Stratified random sampling</p></li>
-<li><p>Systematic sampling</p></li>
-</ul>
-</div>
-<div class="fragment">
-<p>Why aren’t all samples generated using simple random sampling?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="us-forest-inventory-and-analysis-program">US Forest Inventory and Analysis Program</h3>
-<div class="columns">
-<div class="column" style="width:15%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/fs.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:85%;">
-<blockquote>
-<p>Mission: “Make and keep current a comprehensive inventory and analysis of the present and prospective conditions of and requirements for the renewable resources of the forest and rangelands of the US.”</p>
-</blockquote>
-</div></div>
-<div class="fragment">
-<p>Need a <strong>random sample</strong> of ground plots to say something about the state of our nation’s forests!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-simple-random-sampling">FIA: Simple Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Number each plot from 1 to 62,963,840.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to sample 10,494 plots.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">62963840</span>, <span class="at">size =</span> <span class="dv">10494</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 39213686 12879821 31548818 21726800 37250261 50572240</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Put each plot in a cluster.
-<ul>
-<li class="fragment">For our example: cluster = county.</li>
+<li class="fragment">Have only ONE explanatory variable.</li>
 </ul></li>
-<li class="fragment">Number each cluster.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to sample 2 clusters.</li>
-<li class="fragment">Sample <strong>all</strong> plots in those 2 clusters.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 14 12</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/legend.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling-1">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div>
-<ul>
-<li>Break the landscape up into equally sized plots (~1 acre).</li>
-<li>Put each plot in a cluster.
-<ul>
-<li>For our example: cluster = county.</li>
-</ul></li>
-<li>Number each cluster.</li>
-<li>Use a <strong>random</strong> mechanism to sample 2 clusters.</li>
-<li>Take a <strong>simple random sample</strong> within the sampled clusters.</li>
-</ul>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 21 24</code></pre>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:---</span>, <span class="at">size =</span> <span class="sc">---</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/legend.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p>Subsampling within each sampled cluster is much more common than subsampling the whole sampled cluster!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling-2">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/Forest-types-Map-combo.jpg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<ul>
-<li class="fragment"><p>Are our clusters based on counties <strong>homogeneous</strong>?</p></li>
-<li class="fragment"><p>Why is <strong>homogeneity</strong> important for cluster sampling?</p></li>
+<li class="fragment"><p>AND, <span class="math inline">\(f()\)</span> can be approximated by a line.</p></li>
+<li class="fragment"><p>Need to determine the best <strong>estimates</strong> of <span class="math inline">\(\beta_o\)</span> and <span class="math inline">\(\beta_1\)</span>.</p></li>
 </ul>
 </section>
 <section class="slide level2">
 
-<h3 id="fia-stratified-random-sampling">FIA: Stratified Random Sampling</h3>
+<h4 id="distinguishing-between-the-population-and-the-sample">Distinguishing between the <strong>population</strong> and the <strong>sample</strong></h4>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column">
+<p><span class="math display">\[
+y = \beta_o + \beta_1 x + \epsilon
+\]</span></p>
 <ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Put each plot in a stratum.
+<li class="fragment">Parameters:
 <ul>
-<li class="fragment">For our example: stratum = county.</li>
-</ul></li>
-<li class="fragment">Take a <strong>simple random sample</strong> within every stratum.
-<ul>
-<li class="fragment">Don’t have to be equally sized!</li>
+<li class="fragment">Based on the <strong>population</strong></li>
+<li class="fragment">Unknown then if don’t have data on the whole population</li>
+<li class="fragment">EX: <span class="math inline">\(\beta_o\)</span> and <span class="math inline">\(\beta_1\)</span></li>
 </ul></li>
 </ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Do this for each stratum</span></span>
-<span id="cb8-2"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:---</span>, <span class="at">size =</span> <span class="sc">---</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
+</div><div class="column">
+<p><span class="math display">\[
+\hat{y} = \hat{ \beta}_o + \hat{\beta}_1 x
+\]</span></p>
+<ul>
+<li class="fragment">Statistics:
+<ul>
+<li class="fragment">Based on the <strong>sample</strong> data</li>
+<li class="fragment">Known</li>
+<li class="fragment">Usually estimate a population parameter</li>
+<li class="fragment">EX: <span class="math inline">\(\hat{\beta}_o\)</span> and <span class="math inline">\(\hat{\beta}_1\)</span></li>
+</ul></li>
+</ul>
 </div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
 </section>
 <section class="slide level2">
 
-<h3 id="fia-systematic-random-sampling">FIA: Systematic Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>This is FIA’s <strong>actual</strong> sampling design (okay, slightly simplified).</p>
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Number each plot from 1 to 62,963,840.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to pick starting point. Then sample about once every 6000 acres.</li>
-</ul>
+<h3 id="our-modeling-goal">Our Modeling Goal</h3>
+<p>Recall our modeling goal: <strong>predict win percentage by using the price percentage variable</strong>.</p>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a>candy <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"https://raw.githubusercontent.com/fivethirtyeight/data/master/candy-power-ranking/candy-data.csv"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb1-2"><a></a>  <span class="fu">mutate</span>(<span class="at">pricepercent =</span> pricepercent<span class="sc">*</span><span class="dv">100</span>)</span>
+<span id="cb1-3"><a></a></span>
+<span id="cb1-4"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> candy, </span>
+<span id="cb1-5"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> pricepercent,</span>
+<span id="cb1-6"><a></a>                     <span class="at">y =</span> winpercent)) <span class="sc">+</span></span>
+<span id="cb1-7"><a></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.6</span>, <span class="at">size =</span> <span class="dv">4</span>, </span>
+<span id="cb1-8"><a></a>             <span class="at">color =</span> <span class="st">"chocolate4"</span>) <span class="sc">+</span></span>
+<span id="cb1-9"><a></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-10"><a></a>              <span class="at">color =</span> <span class="st">"deeppink2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="constructing-the-simple-linear-regression-model-in-r">Constructing the Simple Linear Regression Model in R</h3>
+<p>We can use the <code>lm()</code> function to construct the simple linear regression model in R.</p>
 <div class="fragment">
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">62963840</span>, <span class="at">size =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(winpercent <span class="sc">~</span> pricepercent, <span class="at">data =</span> candy)</span>
+<span id="cb2-2"><a></a></span>
+<span id="cb2-3"><a></a><span class="fu">library</span>(moderndive)</span>
+<span id="cb2-4"><a></a><span class="fu">get_regression_table</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 42469546</code></pre>
+<pre><code># A tibble: 2 × 7
+  term         estimate std_error statistic p_value lower_ci upper_ci
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 intercept      41.979     2.908    14.435   0       36.195   47.763
+2 pricepercent    0.178     0.053     3.352   0.001    0.072    0.283</code></pre>
 </div>
 </div>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
 <div class="fragment">
-<p>Why is this design <strong>better</strong> than simple random sampling?</p>
+<p>What is the fitted model form?</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[\begin{align*}
+  \hat{y} &amp;= \hat{\beta_o} + \hat{\beta_1} \times x_{pricepercent} \\
+   &amp;= 41.979 + 0.178 \times x_{pricepercent}
+\end{align*}\]</span></p>
+</div>
+<div class="fragment">
+<p>How do we interpret the coefficients?</p>
 </div>
 </section>
 <section class="slide level2">
 
-<h3 class="smaller" id="national-health-and-nutrition-examination-survey">National Health and Nutrition Examination Survey</h3>
-<div class="columns">
-<div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/nhanes_logo.jpg" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:80%;">
-<blockquote>
-<p>Mission: “Assess the health and nutritional status of adults and children in the United States.”</p>
-</blockquote>
-</div></div>
-<p>How are these data collected?</p>
-</section>
-<section class="slide level2">
-
-<h3 id="nhanes-sampling-design">NHANES Sampling Design</h3>
+<h3 id="coefficient-interpretation">Coefficient Interpretation</h3>
+<p><span class="math display">\[\begin{align*}
+  \hat{y} &amp;= \hat{\beta}_o + \hat{\beta}_1 \times x_{pricepercent} \\
+   &amp;= 41.979 + 0.178 \times x_{pricepercent}
+\end{align*}\]</span></p>
+<p>We need to be precise and careful when interpreting estimated coefficients!</p>
 <ul>
-<li class="fragment"><p><strong>Stage 1</strong>: US is stratified by geography and distribution of minority populations. Counties are randomly selected within each stratum.</p></li>
-<li class="fragment"><p><strong>Stage 2</strong>: From the sampled counties, city blocks are randomly selected. (City blocks are clusters.)</p></li>
-<li class="fragment"><p><strong>Stage 3</strong>: From sampled city blocks, households are randomly selected. (Households are clusters.)</p></li>
-<li class="fragment"><p><strong>Stage 4</strong>: From sampled households, people are randomly selected. For the sampled households, a mobile health vehicle goes to the house and medical professionals take the necessary measurements.</p></li>
+<li class="fragment"><p><strong>Intercept:</strong> We <u>expect/predict</u> <span class="math inline">\(y\)</span> to be <span class="math inline">\(\hat{\beta}_o\)</span> <u>on average</u> when <span class="math inline">\(x = 0\)</span>.</p></li>
+<li class="fragment"><p><strong>Slope:</strong> For a one-unit increase in <span class="math inline">\(x\)</span>, we <u>expect/predict</u> <span class="math inline">\(y\)</span> to change by <span class="math inline">\(\hat{\beta}_1\)</span> units <u>on average</u>.</p></li>
 </ul>
 <div class="fragment">
-<p><strong>Why don’t they use simple random sampling?</strong></p>
+<p><strong>These interpretations are non-specific to the context of our model, but when we are interpreting coefficients, we always need to interpret the coefficients in context</strong></p>
 </div>
 </section>
 <section class="slide level2">
 
-<h3 id="careful-using-non-simple-random-sample-data">Careful Using Non-Simple Random Sample Data</h3>
+<h3 id="coefficient-interpretation-in-context">Coefficient Interpretation: In Context</h3>
+<p><span class="math display">\[\begin{align*}
+  \hat{y} &amp;= \hat{\beta}_o + \hat{\beta}_1 \times x_{pricepercent} \\
+   &amp;= 41.979 + 0.178 \times x_{pricepercent}
+\end{align*}\]</span></p>
+<ul>
+<li class="fragment"><p><strong>Intercept:</strong> We <u>expect/predict</u> a candy’s win percentage to be 41.979 <u>on average</u> when their price percentage is 0.</p></li>
+<li class="fragment"><p><strong>Slope:</strong> For a one-unit increase in price percentage, we <u>expect/predict</u> the win percentage of a candy to change by 0.178 units <u>on average</u>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="prediction">Prediction</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>new_cases <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">pricepercent =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">85</span>, <span class="dv">150</span>))</span>
+<span id="cb4-2"><a></a><span class="fu">predict</span>(mod, <span class="at">newdata =</span> new_cases)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1        2        3 
+46.42443 57.09409 68.65289 </code></pre>
+</div>
+</div>
+<ul>
+<li class="fragment">We didn’t have any treats in our sample with a price percentage of 85%. Can we still make this prediction?
+<ul>
+<li class="fragment">Called <strong>interpolation</strong></li>
+</ul></li>
+</ul>
+<p><br></p>
+<ul>
+<li class="fragment">We didn’t have any treats in our sample with a price percentage of 150%. Can we still make this prediction?
+<ul>
+<li class="fragment">Called <strong>extrapolation</strong></li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="cautions">Cautions</h3>
 <div class="columns">
-<div class="column" style="width:50%;">
+<div class="column">
+<ul>
+<li class="fragment"><p>Careful to only predict values within the range of <span class="math inline">\(x\)</span> values in the sample.</p></li>
+<li class="fragment"><p>Make sure to investigate <strong>outliers</strong>: observations that fall far from the cloud of points.</p>
+<ul>
+<li class="fragment">High leverage points</li>
+</ul></li>
+</ul>
+</div><div class="column">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="a-closer-look-at-our-model">A closer look at our model</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">get_regression_table</span>(mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term         estimate std_error statistic p_value lower_ci upper_ci
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 intercept      41.979     2.908    14.435   0       36.195   47.763
+2 pricepercent    0.178     0.053     3.352   0.001    0.072    0.283</code></pre>
+</div>
+</div>
+<p><span class="math display">\[\begin{align*}
+  \hat{y} &amp;= \hat{\beta_o} + \hat{\beta_1} \times x_{pricepercent} \\
+   &amp;= 41.979 + 0.178 \times x_{pricepercent}
+\end{align*}\]</span></p>
+<div class="fragment">
+<p>What assumptions have we made?</p>
+</div>
+</section>
+<section id="linear-regression-assumptions" class="slide level2 smaller">
+<h2>Linear Regression Assumptions</h2>
+<p>We can <em>always</em> find the line of best fit to explore data, but…</p>
+<div class="fragment">
+<p><strong>To make accurate predictions or inferences, certain conditions should be met.</strong></p>
+</div>
+<div class="fragment">
+<p>To responsibly use linear regression tools for prediction or inference, we require:</p>
+</div>
+<div class="fragment">
+<ol type="1">
+<li><p><strong>Linearity:</strong> The relationship between explanatory and response variables must be approximately linear</p>
+<ul>
+<li>Check using scatterplot of data, or residual plot</li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li><p><strong>Independence:</strong> The observations should be independent of one another.</p>
+<ul>
+<li>Can check by considering data context, and</li>
+<li>by looking at residual scatterplots too</li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li><p><strong>Normality:</strong> The distribution of residuals should be <em>approximately</em> bell-shaped, unimodal, symmetric, and centered at 0 at every “slice” of the explanatory variable</p>
+<ul>
+<li>Simple check: look at histogram of residuals</li>
+<li>Better to use a “Q-Q plot”</li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li><p><strong>Equal Variability:</strong> Variance of residuals should be roughly constant across data set. Also called “homoscedasticity”. Models that violate this assumption are sometimes called “heteroscedastic”</p>
+<ul>
+<li>Check using residual plot.</li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section id="a-cute-way-to-remember-this-line" class="slide level2">
+<h2>A cute way to remember this: <strong>“LINE”</strong></h2>
+<ol type="1">
+<li class="fragment"><p><strong>L</strong>inearity</p></li>
+<li class="fragment"><p><strong>I</strong>ndependence</p></li>
+<li class="fragment"><p><strong>N</strong>ormality</p></li>
+<li class="fragment"><p><strong>E</strong>qual Variability</p></li>
+</ol>
+</section>
+<section id="assessing-conditions-diagnostics-plots" class="slide level2">
+<h2>Assessing conditions: diagnostics plots</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p>In order to assess if we’ve met the described conditions, we will utilize four common <strong>diagnostics plots</strong>:</p>
+<ul>
+<li class="fragment">Residual vs.&nbsp;fitted plot (i.e.&nbsp;‘residual plot’)
+<ul>
+<li class="fragment">for assessing linearity, independence, and equal variability</li>
+</ul></li>
+<li class="fragment">Normal Q-Q plot
+<ul>
+<li class="fragment">for assessing normality</li>
+</ul></li>
+<li class="fragment">Residual histogram
+<ul>
+<li class="fragment">for assessing normality</li>
+</ul></li>
+<li class="fragment">Residual vs.&nbsp;leverage plot
+<ul>
+<li class="fragment">for assessing the influence of outliers</li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:45%;">
+<div class="fragment">
+<p>In order to make these plots, we’ll use the <code>gglm</code> (grammer of graphics for linear model diagnostics) package.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://raw.githubusercontent.com/graysonwhite/gglm/master/figs/gglm.gif" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">library</span>(gglm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="recall-out-simple-linear-regression-model" class="slide level2">
+<h2>Recall out simple linear regression model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(winpercent <span class="sc">~</span> pricepercent, <span class="at">data =</span> candy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-9-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Let’s check if this meets the <strong>LINE</strong> assumptions</p>
+</div>
+</section>
+<section id="residual-vs.-fitted-plot" class="slide level2">
+<h2>Residual vs.&nbsp;fitted plot</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(mod) <span class="sc">+</span> </span>
+<span id="cb10-2"><a></a>  <span class="fu">stat_fitted_resid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Linearity: ✅</p></li>
+<li class="fragment"><p>Independence: ✅</p></li>
+<li class="fragment"><p>Equal Variability: ✅</p></li>
+</ul>
+</section>
+<section id="checking-normality-residual-histogram" class="slide level2">
+<h2>Checking normality: residual histogram</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(mod) <span class="sc">+</span> </span>
+<span id="cb11-2"><a></a>  <span class="fu">stat_resid_hist</span>(<span class="at">bins =</span> <span class="dv">15</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Normality: 🤔
+<ul>
+<li class="fragment">Looks pretty good!</li>
+<li class="fragment">We’ll look at a Q-Q plot to further assess!</li>
+</ul></li>
+</ul>
+</section>
+<section id="checking-normality-q-q-plot" class="slide level2">
+<h2>Checking normality: Q-Q plot</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(mod) <span class="sc">+</span> </span>
+<span id="cb12-2"><a></a>  <span class="fu">stat_normal_qq</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Normality: ✅</li>
+</ul>
+</section>
+<section id="checking-outliers-residuals-vs.-leverage-plot" class="slide level2">
+<h2>Checking outliers: Residuals vs.&nbsp;leverage plot</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">ggplot</span>(mod) <span class="sc">+</span> </span>
+<span id="cb13-2"><a></a>  <span class="fu">stat_resid_leverage</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">Looks pretty good! 🤩</li>
+</ul>
 </section>
 <section>
-<section id="detour-data-ethics" class="title-slide slide level1 center">
-<h1>Detour: Data Ethics</h1>
+<section id="now-lets-look-at-some-models-that-violate-these-assumptions" class="title-slide slide level1 center">
+<h1>Now let’s look at some models that violate these assumptions…</h1>
 
 </section>
-<section class="slide level2">
-
-<h3 id="data-ethics">Data Ethics</h3>
-<blockquote>
-<p>“Good statistical practice is fundamentally based on transparent assumptions, reproducible results, and valid interpretations.” – Committee on Professional Ethics of the American Statistical Association (ASA)</p>
-</blockquote>
-<p>The ASA has created <a href="https://www.amstat.org/ASA/Your-Career/Ethical-Guidelines-for-Statistical-Practice.aspx">“Ethical Guidelines for Statistical Practice”</a></p>
-<div class="fragment">
-<p>→ These guidelines are for EVERYONE doing statistical work.</p>
+<section id="new-model" class="slide level2">
+<h2>New model</h2>
+<p>Predicting miles per gallon from engine displacement</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb14-2"><a></a><span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y =</span> mpg)) <span class="sc">+</span> </span>
+<span id="cb14-3"><a></a>  <span class="fu">geom_point</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
 </div>
-<div class="fragment">
-<p>→ There are ethical decisions at all steps of the Data Analysis Process.</p>
 </div>
-<div class="fragment">
-<p>→ We will periodically refer to specific guidelines throughout this class.</p>
-</div>
-<div class="fragment">
-<blockquote>
-<p>“Above all, professionalism in statistical practice presumes the goal of advancing knowledge while avoiding harm; using statistics in pursuit of unethical ends is inherently unethical.”</p>
-</blockquote>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>mpg_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> mpg <span class="sc">~</span> disp, <span class="at">data =</span> mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="responsibilities-to-research-subjects" class="slide level2">
-<h2>Responsibilities to Research Subjects</h2>
-<blockquote>
-<p>“The ethical statistician protects and respects the rights and interests of human and animal subjects at all stages of their involvement in a project. This includes respondents to the census or to surveys, those whose data are contained in administrative records, and subjects of physically or psychologically invasive research.”</p>
-</blockquote>
+<section id="diagnostics-residual-vs.-fitted-plot" class="slide level2">
+<h2>Diagnostics: residual vs.&nbsp;fitted plot</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="fu">ggplot</span>(mpg_mod) <span class="sc">+</span> </span>
+<span id="cb16-2"><a></a>  <span class="fu">stat_fitted_resid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment"><p>Linearity: ❌</p></li>
+<li class="fragment"><p>Independence: ❌</p></li>
+<li class="fragment"><p>Equal Variability: ❓</p></li>
+</ul>
 </section>
-<section class="slide level2">
-
-<h3 id="responsibilities-to-research-subjects-1">Responsibilities to Research Subjects</h3>
-<p>Why do you think the <code>Age</code> variable maxes out at 80?</p>
+<section id="checking-normality" class="slide level2">
+<h2>Checking normality</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(mpg_mod) <span class="sc">+</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">stat_resid_hist</span>(<span class="at">bins =</span> <span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(mpg_mod) <span class="sc">+</span> </span>
+<span id="cb18-2"><a></a>  <span class="fu">stat_normal_qq</span>(<span class="at">alpha =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+<ul>
+<li class="fragment">Normality: Not horrible, but surely could be better!</li>
+</ul>
+</section>
+<section id="another-example-high-leverage-points" class="slide level2">
+<h2>Another example: high leverage points</h2>
+<p>Remember the example from last time:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="fragment">
-<blockquote>
-<p>“Protects the privacy and confidentiality of research subjects and data concerning them, whether obtained from the subjects directly, other persons, or existing records.”</p>
-</blockquote>
+<p>What do diagnostics look like when we fit the teal model?</p>
 </div>
 </section>
-<section id="next-time" class="slide level2">
-<h2>Next time:</h2>
+<section id="diagnosing-the-model" class="slide level2">
+<h2>Diagnosing the model</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>teal_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, dat)</span>
+<span id="cb19-2"><a></a><span class="fu">ggplot</span>(teal_mod) <span class="sc">+</span> </span>
+<span id="cb19-3"><a></a>  <span class="fu">stat_fitted_resid</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 <ul>
-<li class="fragment">More sampling</li>
-<li class="fragment">Sampling bias</li>
+<li class="fragment">In this case, can already see the outlier in the residual vs fitted plot.</li>
 </ul>
+</section>
+<section id="residual-vs.-leverage" class="slide level2">
+<h2>Residual vs.&nbsp;leverage</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>teal_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, dat)</span>
+<span id="cb20-2"><a></a><span class="fu">ggplot</span>(teal_mod) <span class="sc">+</span> </span>
+<span id="cb20-3"><a></a>  <span class="fu">stat_resid_leverage</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="what-to-do-with-high-leverage-points" class="slide level2">
+<h2>What to do with high leverage points?</h2>
+<ul>
+<li class="fragment">Depends on <strong>context</strong></li>
+<li class="fragment">It may be reasonable to remove them and refit the model</li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>dat_no_outlier <span class="ot">&lt;-</span> dat <span class="sc">%&gt;%</span></span>
+<span id="cb21-2"><a></a>  <span class="fu">filter</span>(x <span class="sc">&lt;</span> <span class="dv">15</span>)</span>
+<span id="cb21-3"><a></a></span>
+<span id="cb21-4"><a></a>pink_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, dat_no_outlier)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="a-shortcut-for-diagnosing-gglmgglm" class="slide level2">
+<h2>A shortcut for diagnosing: <code>gglm::gglm()</code></h2>
+<p>You can see many of the diagnostic plots at once with the <code>gglm()</code> function from the <code>gglm</code> package.</p>
+<p>Let’s use that function to diagnose the pink model</p>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="fu">gglm</span>(pink_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk04wed_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 
 
 </section></section>

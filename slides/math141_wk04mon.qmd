@@ -33,14 +33,14 @@ library(tidyverse)
 ```
 
 ::::: columns
-::: {.column .center width="60%"}
+::: {.column .center width="50%"}
 ![](img/DAW.jpeg){width="90%"}
 :::
 
-::: {.column .center width="40%"}
+::: {.column .center width="50%"}
 <br>
 
-[Statistical Modeling]{.custom-title}
+[Simple Linear Regression I]{.custom-title}
 
 <br> <br> <br> <br> <br> 
 
@@ -55,6 +55,7 @@ library(tidyverse)
 ## Goals for Today
 
 -   Discuss the ideas of statistical modeling
+-   Learn two new summary statistics
 -   Introduce simple linear regression
 
 ## Typical Analysis Goals
@@ -78,7 +79,7 @@ library(tidyverse)
 <br><br>
 
 ::: fragment
-We will focus mainly on **descriptive/causal modeling** in this course. If you want to learn more about **predictive modeling**, take Math 243: Statistical Learning.
+We will focus mainly on **descriptive modeling** in this course. If you want to learn more about **predictive modeling**, take Math 243: Statistical Learning, and if you want to learn more about **causality**, take Math 394: Causal Inference.
 :::
 
 ------------------------------------------------------------------------
@@ -121,7 +122,7 @@ Consider this model when:
 
 > "The social contract of Halloween is simple: Provide adequate treats to costumed masses, or be prepared for late-night tricks from those dissatisfied with your offer. To help you avoid that type of vengeance, and to help you make good decisions at the supermarket this weekend, we wanted to figure out what Halloween candy people most prefer. So we devised an experiment: Pit dozens of fun-sized candy varietals against one another, and let the wisdom of the crowd decide which one was best." -- Walt Hickey
 
-> "While we don't know who exactly voted, we do know this: 8,371 different IP addresses voted on about 269,000 randomly generated matchups.2 So, not a scientific survey or anything, but a good sample of what candy people like."
+> "While we don't know who exactly voted, we do know this: 8,371 different IP addresses voted on about 269,000 randomly generated matchups. So, not a scientific survey or anything, but a good sample of what candy people like."
 
 ------------------------------------------------------------------------
 
@@ -194,8 +195,6 @@ ggplot(data = candy,
 ------------------------------------------------------------------------
 
 ```{r}
-#| fig-width: 7
-#| fig-height: 3.5
 #| echo: false
 
 set.seed(4119)
@@ -222,6 +221,10 @@ plot_grid(p1, p2, p3, p4, ncol=2, labels = c("A", "B", "C", "D"))
 
 ## (Sample) Correlation Coefficient
 
+::::{.columns}
+
+:::{.column width=45%}
+
 -   Measures the **strength** and **direction** of **linear** relationship between two quantitative variables
 
 -   Symbol: $r$
@@ -239,11 +242,60 @@ candy %>%
 ```
 :::
 
+
+:::
+
+:::{.column width=10%}
+
+:::
+
+:::{.column width=45%}
+
+:::{.fragment}
+
+$r$ is calculated using the sample means ($\bar{x}$, $\bar{y}$) and standard deviations ($s_x$, $s_y$) of the variables $x$ and $y$:
+
+:::
+
+:::{.fragment}
+  
+$$r = \frac{1}{s_x s_y} \cdot \frac{1}{n-1} \sum_{i =1}^n (x_i - \bar{x} )  (y_i - \bar{y} ) $$
+:::
+
+:::
+
+::::
+
+------------------------------------------------------------------------
+
+
+## Sidenote: (Sample) Covariance
+
+**Sample Correlation Coefficient**: 
+$$
+r = \frac{1}{s_x s_y} \cdot \frac{1}{n-1} \sum_{i =1}^n (x_i - \bar{x} )  (y_i - \bar{y} ) 
+$$
+
+:::{.fragment}
+
+**Sample Covariance**:
+
+$$
+cov(x, y) = r \times s_x s_y = \frac{1}{n-1} \sum_{i =1}^n (x_i - \bar{x} )  (y_i - \bar{y} ) 
+$$
+:::
+
+:::{.fragment}
+
+The sample correlation coefficient is a **standardized sample covariance**, which is what causes it to only take values from -1 to 1. The sample covariance can take any real value. 
+
+:::
+
 ------------------------------------------------------------------------
 
 :::::: columns
 ::: {.column .center}
-```{r, echo = FALSE, fig.height=5, fig.width=7.5, fig.align='center'}
+```{r, echo = FALSE, fig.align='center'}
 
 plot_grid(p1, p2, p3, p4, ncol=2, labels = c("A", "B", "C", "D"))
 
@@ -293,8 +345,6 @@ dat2 %>%
 #### Always graph the data when exploring relationships!
 
 ```{r}
-#| fig-width: 7
-#| fig-height: 3.5
 #| echo: false
 ggplot(data = dat2, mapping = aes(x = x, y = y)) +
   geom_point() +
@@ -492,61 +542,10 @@ But what are the **exact** values of $\hat{\beta}_o$ and $\hat{\beta}_1$?
 
 ------------------------------------------------------------------------
 
-### Constructing the Simple Linear Regression Model in R
 
-```{r}
-mod <- lm(winpercent ~ pricepercent, data = candy)
+## Next time: more simple linear regression
 
-library(moderndive)
-get_regression_table(mod)
-```
+-   We'll use `R` to compute the least squares line and **exact** values of $\hat{\beta}_o$ and $\hat{\beta}_1$. 
+-   We'll introduce the formal assumptions we must make when doing linear regression, and diagnostic plots to check these assumptions. 
 
--   Interpretation of the coefficients?
 
-------------------------------------------------------------------------
-
-### Prediction
-
-```{r}
-new_cases <- data.frame(pricepercent = c(25, 85, 150))
-predict(mod, newdata = new_cases)
-```
-
--   We didn't have any treats in our sample with a price percentage of 85%. Can we still make this prediction?
-    -   Called **interpolation**
-
-<br>
-
--   We didn't have any treats in our sample with a price percentage of 150%. Can we still make this prediction?
-    -   Called **extrapolation**
-
-------------------------------------------------------------------------
-
-### Cautions
-
-::::: columns
-::: column
--   Careful to only predict values within the range of $x$ values in the sample.
-
--   Make sure to investigate **outliers**: observations that fall far from the cloud of points.
-:::
-
-::: column
-```{r, echo = FALSE}
-set.seed(13681)
-x <- c(runif(50, 0, 10))
-y1 <- c(3 + 1*x + rnorm(50, 0))
-dat1 <- data_frame(x = c(x, 20), y = c(y1, 20))
-x2 <- c(x, 20)
-y2 <- c(y1, 5)
-dat <- data_frame(x = x2, y = y2) 
-p1 <- ggplot(dat, aes(x, y)) + geom_point() + 
-  stat_smooth(method = "lm", se = FALSE, color = "turquoise4", linewidth = 2) +
-  stat_smooth(method = "lm", se = FALSE, data = dat[-51,], color = "deeppink3", linewidth = 2)
-p2 <- ggplot(dat1, aes(x, y)) + geom_point() + 
-  stat_smooth(method = "lm", se = FALSE, color = "turquoise4", linewidth = 2) +
-  stat_smooth(method = "lm", se = FALSE, data = dat[-51,], color = "deeppink3", linewidth = 2)
-plot_grid(p1, p2, ncol = 2)
-```
-:::
-:::::
