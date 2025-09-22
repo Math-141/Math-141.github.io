@@ -52,11 +52,17 @@ library(tidyverse)
 
 ------------------------------------------------------------------------
 
-## Goals for Today
+### Announcements
+
+-   Lab this week will meet in the **thesis tower**
+
+### Goals for Today
 
 -   Discuss the ideas of statistical modeling
 -   Learn two new summary statistics
 -   Introduce simple linear regression
+
+------------------------------------------------------------------------
 
 ## Typical Analysis Goals
 
