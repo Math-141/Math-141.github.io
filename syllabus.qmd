@@ -18,7 +18,7 @@ editor:
 
 -   Email: [gwhite@reed.edu](mailto:gwhite@reed.edu)
 -   Office: Library 390
--   Office hours: Monday 2:30pm-4:00pm, Wednesday 1:00pm-2:30pm, or by appointment. 
+-   Office hours: Monday 2:00pm-3:30pm, Wednesday 3:30pm-5:00pm, or by appointment. 
     - If the available times do not work for you, I am more than happy to schedule a meeting by appointment. Please [email me](mailto:gwhite@reed.edu) or send me a Slack message to set up a time to meet. 
 
 **Course Assistants**: We have three course assistants for Math 141 this semester. A course assistant will be present at each lab section. Further, each course assistant will hold office hours during the week. *All course assistant office hours will be held in **ETC 105B***. Feel free to go to any course assistant's office hours, even if they are not the course assistant for your lab section. The course assistants are:
