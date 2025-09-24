@@ -63,13 +63,6 @@
     "text": "Footnotes\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0.↩︎"
   },
   {
-    "objectID": "slides/math141_wk04wed.html#goals-for-today",
-    "href": "slides/math141_wk04wed.html#goals-for-today",
-    "title": "Math 141",
-    "section": "Goals for Today",
-    "text": "Goals for Today\n\nRecall simple linear regression\nDo simple linear regression in R\nDiscuss model assumptions for linear regression"
-  },
-  {
     "objectID": "slides/math141_wk04wed.html#form-of-the-model",
     "href": "slides/math141_wk04wed.html#form-of-the-model",
     "title": "Math 141",
@@ -95,7 +88,7 @@
     "href": "slides/math141_wk04wed.html#assessing-conditions-diagnostics-plots",
     "title": "Math 141",
     "section": "Assessing conditions: diagnostics plots",
-    "text": "Assessing conditions: diagnostics plots\n\n\nIn order to assess if we’ve met the described conditions, we will utilize four common diagnostics plots:\n\nResidual vs. fitted plot (i.e. ‘residual plot’)\n\nfor assessing linearity, independence, and equal variability\n\nNormal Q-Q plot\n\nfor assessing normality\n\nResidual histogram\n\nfor assessing normality\n\nResidual vs. leverage plot\n\nfor assessing the influence of outliers\n\n\n\n\n\n\nIn order to make these plots, we’ll use the gglm (grammer of graphics for linear model diagnostics) package.\n\n\n\n\n\n\nlibrary(gglm)"
+    "text": "Assessing conditions: diagnostics plots\n\n\nIn order to assess if we’ve met the described conditions, we will utilize four common diagnostics plots:\n\nResidual vs. fitted plot (i.e. ‘residual plot’)\n\nfor assessing linearity, independence, and equal variability\n\nNormal Q-Q plot\n\nfor assessing normality\n\nResidual histogram\n\nfor assessing normality\n\nResidual vs. leverage plot\n\nfor assessing the influence of outliers\n\n\n\n\n\n\nIn order to make these plots, we’ll use the gglm (grammer of graphics for linear model diagnostics) package.\n\n\n\n\n\n\n# Run the below code (without the '#') once\n# install.packages(\"gglm\") \n# Then load with:\nlibrary(gglm)"
   },
   {
     "objectID": "slides/math141_wk04wed.html#recall-out-simple-linear-regression-model",
@@ -137,7 +130,14 @@
     "href": "slides/math141_wk04wed.html#new-model",
     "title": "Math 141",
     "section": "New model",
-    "text": "New model\nPredicting miles per gallon from engine displacement\n\ndata(mtcars)\nggplot(mtcars, aes(x = disp, y = mpg)) + \n  geom_point()\n\n\n\n\n\n\n\nmpg_mod &lt;- lm(formula = mpg ~ disp, data = mtcars)"
+    "text": "New model\nPredicting miles per gallon from engine displacement\n\ndata(mtcars)\nggplot(mtcars, aes(x = disp, y = mpg)) + \n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE)"
+  },
+  {
+    "objectID": "slides/math141_wk04wed.html#new-model-1",
+    "href": "slides/math141_wk04wed.html#new-model-1",
+    "title": "Math 141",
+    "section": "New model",
+    "text": "New model\n\nmpg_mod &lt;- lm(formula = mpg ~ disp, data = mtcars)\n\nget_regression_points(mpg_mod)\n\n# A tibble: 32 × 5\n      ID   mpg  disp mpg_hat residual\n   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;\n 1     1  21    160     23.0   -2.00 \n 2     2  21    160     23.0   -2.00 \n 3     3  22.8  108     25.1   -2.35 \n 4     4  21.4  258     19.0    2.43 \n 5     5  18.7  360     14.8    3.94 \n 6     6  18.1  225     20.3   -2.23 \n 7     7  14.3  360     14.8   -0.462\n 8     8  24.4  147.    23.6    0.846\n 9     9  22.8  141.    23.8   -0.997\n10    10  19.2  168.    22.7   -3.49 \n# ℹ 22 more rows"
   },
   {
     "objectID": "slides/math141_wk04wed.html#diagnostics-residual-vs.-fitted-plot",

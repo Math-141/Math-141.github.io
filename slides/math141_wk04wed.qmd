@@ -53,7 +53,19 @@ library(cowplot)
 
 ------------------------------------------------------------------------
 
-## Goals for Today
+### Announcements
+
+-   Lab tomorrow meets in the **thesis tower**. 
+
+::: {.fragment .nonincremental}
+
+-   Fill out the [Week 4 Survey](https://forms.gle/NBsSe2A7n4zyCvVE9)
+
+![](img/adobe-express-qr-code.png){width=20%}
+
+:::
+
+### Goals for Today
 
 -   Recall simple linear regression
 -   Do simple linear regression in R
@@ -150,6 +162,76 @@ ggplot(data = candy,
               color = "deeppink2")
 ```
 
+------------------------------------------------------------------------
+
+### Method of Least Squares
+
+:::::: columns
+:::: column
+-   Want residuals to be small.
+
+-   Minimize a function of the residuals.
+
+-   Minimize:
+
+::: fragment
+$$
+\sum_{i = 1}^n e^2_i
+$$
+:::
+::::
+
+::: column
+```{r, echo=FALSE, eval = TRUE}
+ggplot(data = candy, 
+       mapping = aes(x = pricepercent,
+                     y = winpercent)) +
+  geom_point(alpha = 0.6, size = 4, 
+             color = "chocolate4") +
+  stat_smooth(method = "lm", se = FALSE,
+              color = "deeppink2") +
+  annotate("segment", x = candy$pricepercent, 
+           xend = candy$pricepercent, 
+           y = candy$winpercent, yend = 42 + .178*candy$pricepercent, 
+           color = "darkblue", arrow = arrow(length = unit(0.03, "npc"))) + 
+  geom_point()
+  
+```
+:::
+::::::
+
+------------------------------------------------------------------------
+
+### Method of Least Squares
+
+After minimizing the sum of squared residuals, you get the following equations:
+
+Get the following equations:
+
+$$ 
+\begin{align}
+\hat{\beta}_1 &= \frac{ \sum_{i = 1}^n (x_i - \bar{x}) (y_i - \bar{y})}{ \sum_{i = 1}^n (x_i - \bar{x})^2} \\
+\hat{\beta}_o &= \bar{y} - \hat{\beta}_1 \bar{x}
+\end{align}
+$$ where
+
+$$
+\begin{align}
+\bar{y} = \frac{1}{n} \sum_{i = 1}^n y_i \quad \mbox{and} \quad \bar{x} = \frac{1}{n} \sum_{i = 1}^n x_i
+\end{align}
+$$
+
+------------------------------------------------------------------------
+
+### Method of Least Squares
+
+Then we can estimate the whole function with:
+
+$$
+\hat{y} = \hat{\beta}_o + \hat{\beta}_1 x
+$$
+
+Called the **least squares line** or the **line of best fit**.
 
 ------------------------------------------------------------------------
 
@@ -373,6 +455,9 @@ In order to make these plots, we'll use the `gglm` (grammer of graphics for line
 
 
 ```{r}
+# Run the below code (without the '#') once
+# install.packages("gglm") 
+# Then load with:
 library(gglm)
 ```
 
@@ -458,10 +543,18 @@ Predicting miles per gallon from engine displacement
 ```{r}
 data(mtcars)
 ggplot(mtcars, aes(x = disp, y = mpg)) + 
-  geom_point()
-
-mpg_mod <- lm(formula = mpg ~ disp, data = mtcars)
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE)
 ```
+
+## New model
+
+```{r}
+mpg_mod <- lm(formula = mpg ~ disp, data = mtcars)
+
+get_regression_points(mpg_mod)
+```
+
 
 ## Diagnostics: residual vs. fitted plot
 
