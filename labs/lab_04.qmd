@@ -1,0 +1,15 @@
+---
+title: "Math 141: Lab 4"
+format: html
+editor: source
+toc: false
+---
+
+
+## Lab 4
+
+For the first question of this lab, we met in the thesis tower and collected data. 
+
+For the remaining questions on the lab, please clone the following repository and finish the remaining lab questions. There is no need to fill out answers for Question 1 if you gave me your hard copy in lab. 
+
+    **https://github.com/Math-141/lab04.git**
