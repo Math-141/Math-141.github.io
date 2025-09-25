@@ -12,4 +12,4 @@ For the first question of this lab, we met in the thesis tower and collected dat
 
 For the remaining questions on the lab, please clone the following repository and finish the remaining lab questions. There is no need to fill out answers for Question 1 if you gave me your hard copy in lab. 
 
-    **https://github.com/Math-141/lab04.git**
+**https://github.com/Math-141/lab04.git**
