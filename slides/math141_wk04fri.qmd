@@ -1,5 +1,5 @@
 ---
-pagetitle: "SLR III"
+pagetitle: "Regression III"
 editor: source
 format: 
   revealjs:
@@ -41,7 +41,7 @@ library(tidyverse)
 
 <br>
 
-[SLR III: A Categorical Predictor]{.custom-title .smaller}
+[Regression III: Categorical Predictors]{.custom-title .smaller}
 
 <br> <br>
 
@@ -52,6 +52,12 @@ library(tidyverse)
 :::::
 
 ------------------------------------------------------------------------
+
+
+### Reminders
+
+-   Please fill out the Week 4 feedback survey (link in Slack)
+-   Lab 4 has other components besides the data collection we did in lab yesterday. Make sure to do the other questions and turn in by next Thurs!
 
 
 ### Goals for Today
@@ -540,5 +546,5 @@ Even though we are using one predictor (species), we now have $\beta_o,~ \beta_1
 :::
 
 -   We **recoded** the species predictor into two binary predictors. 
--   We are actually doing **multiple** linear regression now, no longer **simple** linear regression (one predictor)
+-   We are actually doing **multiple** linear regression now
 -   **Next time**: We'll formalize and extend multiple linear regression
