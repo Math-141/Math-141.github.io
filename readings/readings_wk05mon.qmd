@@ -15,4 +15,4 @@ Before coming to lecture today, please read the following material:
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   LC5.19, LC6.1, LC6.2, LC6.3, LC6.4, LC6.6s
+-   LC5.19, LC6.1, LC6.2, LC6.3, LC6.4, LC6.6
