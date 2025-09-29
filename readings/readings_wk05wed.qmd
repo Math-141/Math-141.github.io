@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 10/1/25
 editor: source
 ---
 
@@ -9,10 +9,16 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   [*Are Top 6 Posters Worth It? A Statistical Analysis*](https://www.reedquest.org/articles/2025/9/25/9cr7xbj4298j4mk6owzgkg4axk5tvb) from the front page of *The Quest* this week.
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+Write a short (maximum 1-page) reflection on the assigned reading. In your reflection, make sure to address the following questions:
+
+-   What do you think of the sampling design that the author used? How might you improve the sampling design?
+-   Is this an observational study or experiment?
+-   What causal conclusions does the author make (or want you to make) from their analysis? 
+-   Are those causal conclusions valid? 
+    -   If not, describe how one could design an experiment where these causal conclusions could be made. 

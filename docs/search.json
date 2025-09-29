@@ -63,6 +63,55 @@
     "text": "Footnotes\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0.↩︎"
   },
   {
+    "objectID": "slides/math141_wk05mon.html#announcements",
+    "href": "slides/math141_wk05mon.html#announcements",
+    "title": "Math 141",
+    "section": "Announcements",
+    "text": "Announcements\n\nDiscuss Week 4 Feedback!\n\nGoals for Today\n\nHandling categorical, explanatory variables and quantitative variables at the same time.\nEqual slopes model\nDifferent slopes model"
+  },
+  {
+    "objectID": "slides/math141_wk05mon.html#example",
+    "href": "slides/math141_wk05mon.html#example",
+    "title": "Math 141",
+    "section": "Example",
+    "text": "Example\n\n\nMeadowfoam is a plant that grows in the Pacific Northwest and is harvested for its seed oil. In a randomized experiment, researchers at Oregon State University looked at how two light-related factors influenced the number of flowers per meadowfoam plant, the primary measure of productivity for this plant. The two light measures were light intensity (in mmol/ \\(m^2\\) /sec) and the timing of onset of the light (early or late in terms of photo periodic floral induction).\n\n\n\n\n\n\n\n\nResponse variable?\n\n\nExplanatory variables?\n\n\nModel Form?"
+  },
+  {
+    "objectID": "slides/math141_wk05mon.html#returning-to-our-mlr-model",
+    "href": "slides/math141_wk05mon.html#returning-to-our-mlr-model",
+    "title": "Math 141",
+    "section": "Returning to our MLR model",
+    "text": "Returning to our MLR model\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +\n  geom_point(size = 2) + \n  geom_parallel_slopes(se = FALSE) + \n  scale_color_manual(values = c(\"steelblue\",\n                               \"goldenrod\", \n                               \"plum3\")) +\n  theme_bw() \n\n\n\n\n\n\n\n\n\nAre equal slopes a reasonable assumption here?"
+  },
+  {
+    "objectID": "slides/math141_wk05mon.html#different-slopes-model",
+    "href": "slides/math141_wk05mon.html#different-slopes-model",
+    "title": "Math 141",
+    "section": "Different Slopes Model",
+    "text": "Different Slopes Model\n\n\nggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +\n  geom_point(size = 2) + \n  geom_smooth(method = \"lm\", se = FALSE) + \n  scale_color_manual(values = c(\"steelblue\",\n                               \"goldenrod\", \n                               \"plum3\")) +\n  theme_bw() \n\n\n\n\n\n\n\n\n\n\nEqual slopes models force the relationship between quantitative predictors and the response variable to be the same for each group in the model.\nIn contrast, different slopes models allow for different relationships between quantitative predictors and the response variable for each group in the model.\nHow can we allow our model to have different slopes?"
+  },
+  {
+    "objectID": "slides/math141_wk05mon.html#contrasting-model-forms",
+    "href": "slides/math141_wk05mon.html#contrasting-model-forms",
+    "title": "Math 141",
+    "section": "Contrasting model forms",
+    "text": "Contrasting model forms\nRecall the equal slopes model:\n\\[\ny = \\beta_o + \\beta_1 \\cdot x_{\\textrm{Bill Depth}} + \\beta_2 \\cdot  x_{\\textrm{Species:Chinstrap}} + \\beta_3 \\cdot x_{\\textrm{Species:Gentoo}} + \\epsilon\n\\]\n\n\nHow can we allow the slopes to vary?\n\n\n\\[\ny = \\beta_o + \\beta_1 \\cdot x_{\\textrm{Bill Depth}} + \\beta_2 \\cdot  x_{\\textrm{Species:Chinstrap}} + \\beta_3 \\cdot x_{\\textrm{Species:Gentoo}} + \\\\\n\\beta_4 \\cdot x_{\\textrm{Bill Depth}} \\cdot x_{\\textrm{Species:Chinstrap}} + \\beta_5 \\cdot x_{\\textrm{Bill Depth}} \\cdot x_{\\textrm{Species:Gentoo}} + \\epsilon\n\\]\n\n\nCoefficient interpretation?"
+  },
+  {
+    "objectID": "slides/math141_wk05mon.html#different-slopes-model-in-r",
+    "href": "slides/math141_wk05mon.html#different-slopes-model-in-r",
+    "title": "Math 141",
+    "section": "Different Slopes Model in R",
+    "text": "Different Slopes Model in R\n\nsame_slope &lt;- lm(bill_length_mm ~ bill_depth_mm + species, penguins)\n\ndiff_slope &lt;- lm(bill_length_mm ~ bill_depth_mm * species, penguins)\n\n\n\nget_regression_table(same_slope)\n\n# A tibble: 4 × 7\n  term               estimate std_error statistic p_value lower_ci upper_ci\n  &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 intercept             13.2      2.25       5.88       0     8.80    17.6 \n2 bill_depth_mm          1.39     0.122     11.4        0     1.15     1.63\n3 species: Chinstrap     9.94     0.368     27.0        0     9.22    10.7 \n4 species: Gentoo       13.4      0.512     26.2        0    12.4     14.4 \n\n\n\n\n\n\nget_regression_table(diff_slope)\n\n# A tibble: 6 × 7\n  term                    estimate std_error statistic p_value lower_ci upper_ci\n  &lt;chr&gt;                      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 intercept                 23.1       3.02       7.65   0       17.1      29.0 \n2 bill_depth_mm              0.857     0.164      5.22   0        0.534     1.18\n3 species: Chinstrap        -9.64      5.72      -1.69   0.093  -20.9       1.60\n4 species: Gentoo           -5.84      4.54      -1.29   0.199  -14.8       3.08\n5 bill_depth_mm:speciesC…    1.06      0.31       3.44   0.001    0.455     1.68\n6 bill_depth_mm:speciesG…    1.16      0.279      4.17   0        0.615     1.71"
+  },
+  {
+    "objectID": "slides/math141_wk05mon.html#next-time",
+    "href": "slides/math141_wk05mon.html#next-time",
+    "title": "Math 141",
+    "section": "Next time",
+    "text": "Next time\n\nLinear regression with multiple quantitative variables\nLinear regression with curved relationships\nDiscuss an article from The Quest"
+  },
+  {
     "objectID": "slides/math141_wk04wed.html#form-of-the-model",
     "href": "slides/math141_wk04wed.html#form-of-the-model",
     "title": "Math 141",
@@ -137,7 +186,7 @@
     "href": "slides/math141_wk04wed.html#new-model-1",
     "title": "Math 141",
     "section": "New model",
-    "text": "New model\n\nmpg_mod &lt;- lm(formula = mpg ~ disp, data = mtcars)\n\nget_regression_points(mpg_mod)\n\n# A tibble: 32 × 5\n      ID   mpg  disp mpg_hat residual\n   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;\n 1     1  21    160     23.0   -2.00 \n 2     2  21    160     23.0   -2.00 \n 3     3  22.8  108     25.1   -2.35 \n 4     4  21.4  258     19.0    2.43 \n 5     5  18.7  360     14.8    3.94 \n 6     6  18.1  225     20.3   -2.23 \n 7     7  14.3  360     14.8   -0.462\n 8     8  24.4  147.    23.6    0.846\n 9     9  22.8  141.    23.8   -0.997\n10    10  19.2  168.    22.7   -3.49 \n# ℹ 22 more rows"
+    "text": "New model\n\nmpg_mod &lt;- lm(formula = mpg ~ disp, data = mtcars)\n\nget_regression_table(mpg_mod)\n\n# A tibble: 2 × 7\n  term      estimate std_error statistic p_value lower_ci upper_ci\n  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 intercept   29.6       1.23      24.1        0   27.1     32.1  \n2 disp        -0.041     0.005     -8.75       0   -0.051   -0.032"
   },
   {
     "objectID": "slides/math141_wk04wed.html#diagnostics-residual-vs.-fitted-plot",
@@ -1136,44 +1185,44 @@
   {
     "objectID": "readings/readings_wk05wed.html",
     "href": "readings/readings_wk05wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 1, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "Before coming to lecture today, please read the following material:\n\nAre Top 6 Posters Worth It? A Statistical Analysis from the front page of The Quest this week.\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\nWrite a short (maximum 1-page) reflection on the assigned reading. In your reflection, make sure to address the following questions:\n\nWhat do you think of the sampling design that the author used? How might you improve the sampling design?\nIs this an observational study or experiment?\nWhat causal conclusions does the author make (or want you to make) from their analysis?\nAre those causal conclusions valid?\n\nIf not, describe how one could design an experiment where these causal conclusions could be made."
   },
   {
     "objectID": "readings/readings_wk05wed.html#reading",
     "href": "readings/readings_wk05wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 1, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
+    "text": "Before coming to lecture today, please read the following material:\n\nAre Top 6 Posters Worth It? A Statistical Analysis from the front page of The Quest this week."
   },
   {
     "objectID": "readings/readings_wk05wed.html#homework-assignment",
     "href": "readings/readings_wk05wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 1, 2025",
     "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\nWrite a short (maximum 1-page) reflection on the assigned reading. In your reflection, make sure to address the following questions:\n\nWhat do you think of the sampling design that the author used? How might you improve the sampling design?\nIs this an observational study or experiment?\nWhat causal conclusions does the author make (or want you to make) from their analysis?\nAre those causal conclusions valid?\n\nIf not, describe how one could design an experiment where these causal conclusions could be made."
   },
   {
     "objectID": "readings/readings_wk05fri.html",
     "href": "readings/readings_wk05fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 3, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD Section 6.2\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC 6.9, LC 6.10, LC 6.11, LC 6.12"
   },
   {
     "objectID": "readings/readings_wk05fri.html#reading",
     "href": "readings/readings_wk05fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 3, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD Section 6.2"
   },
   {
     "objectID": "readings/readings_wk05fri.html#homework-assignment",
     "href": "readings/readings_wk05fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 3, 2025",
     "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nLC 6.9, LC 6.10, LC 6.11, LC 6.12"
   },
   {
     "objectID": "readings/readings_wk04mon.html",
@@ -2569,59 +2618,59 @@
     "text": "Next time: more simple linear regression\n\nWe’ll use R to compute the least squares line and exact values of \\(\\hat{\\beta}_o\\) and \\(\\hat{\\beta}_1\\).\nWe’ll introduce the formal assumptions we must make when doing linear regression, and diagnostic plots to check these assumptions."
   },
   {
-    "objectID": "slides/math141_wk05mon.html#announcements",
-    "href": "slides/math141_wk05mon.html#announcements",
+    "objectID": "slides/math141_wk05fri.html#model-building-guidance-1",
+    "href": "slides/math141_wk05fri.html#model-building-guidance-1",
     "title": "Math 141",
-    "section": "Announcements",
-    "text": "Announcements\n\nDiscuss next week’s exam!\n\nGoals for Today\n\n\n\nHandling categorical, explanatory variables with more than 2 categories\n\n\n\nRegression with polynomial explanatory variables"
+    "section": "Model Building Guidance",
+    "text": "Model Building Guidance\nShouldn’t we always include the interaction term?\n\n\nGuiding Principle: Occam’s Razor for Modeling\n\n“All other things being equal, simpler models are to be preferred over complex ones.” – ModernDive\n\nGuiding Principle: Consider your modeling goals.\n\n\nThe equal slopes model allows us to control for the intensity of the light and then see the impact of being in the early or late timing groups on the number of flowers.\n\n\n\n\n\n\n\n\n\n\n\n\n\nLater in the course will learn statistical procedures for determining whether or not a particular term should be included in the model."
   },
   {
-    "objectID": "slides/math141_wk05mon.html#but-first-trend-stretches",
-    "href": "slides/math141_wk05mon.html#but-first-trend-stretches",
+    "objectID": "slides/math141_wk05wed.html#goals-for-today",
+    "href": "slides/math141_wk05wed.html#goals-for-today",
     "title": "Math 141",
-    "section": "But First: TREND STRETCHES!",
-    "text": "But First: TREND STRETCHES!"
+    "section": "Goals for Today",
+    "text": "Goals for Today\n\nGroup discussion: statistics in the wild\nRegression with multiple quantitative variables\nRegression with polynomial explanatory variables\nRegression activity"
   },
   {
-    "objectID": "slides/math141_wk05mon.html#example",
-    "href": "slides/math141_wk05mon.html#example",
+    "objectID": "slides/math141_wk05wed.html#visualizing-the-best-fit-plane",
+    "href": "slides/math141_wk05wed.html#visualizing-the-best-fit-plane",
     "title": "Math 141",
-    "section": "Example",
-    "text": "Example\nMeadowfoam is a plant that grows in the Pacific Northwest and is harvested for its seed oil. In a randomized experiment, researchers at Oregon State University looked at how two light-related factors influenced the number of flowers per meadowfoam plant, the primary measure of productivity for this plant. The two light measures were light intensity (in mmol/ \\(m^2\\) /sec) and the timing of onset of the light (early or late in terms of photo periodic floral induction).\n\nResponse variable:\n\nExplanatory variables:\n\nModel Form:"
+    "section": "Visualizing the best fit plane",
+    "text": "Visualizing the best fit plane\n\noptions(rgl.useNULL = TRUE)\noptions(rgl.printRglwidget = TRUE)\nlibrary(rgl)\nplot3d(x = penguins$bill_depth_mm, y = penguins$body_mass_g, \n       z = penguins$bill_length_mm, type = \"s\", col = \"goldenrod\", size = 1)\nplanes3d(a = coef(mod)[2], b = coef(mod)[3], c=-1, d = coef(mod)[1], alpha = .5)"
   },
   {
-    "objectID": "slides/math141_wk05mon.html#next-time",
-    "href": "slides/math141_wk05mon.html#next-time",
+    "objectID": "slides/math141_wk05wed.html#least-squares-and-prediction",
+    "href": "slides/math141_wk05wed.html#least-squares-and-prediction",
     "title": "Math 141",
-    "section": "Next time",
-    "text": "Next time\n\nMore regression!\n\nLinear Regression\nModel Form:\n\\[\n\\begin{align}\ny &= \\beta_o + \\beta_1 x_1 + \\beta_2 x_2 + \\cdots + \\beta_p x_p + \\epsilon\n\\end{align}\n\\]\nLinear regression is a flexible class of models that allow for:\n\n\nBoth quantitative and categorical explanatory variables.\nMultiple explanatory variables.\nCurved relationships between the response variable and the explanatory variable.\nBUT the response variable is quantitative."
+    "section": "Least Squares and Prediction",
+    "text": "Least Squares and Prediction\n\nStill minimizing the sum of squared residuals (from the plane)\nStill predict like usual\n\n\n\npred_dat &lt;- data.frame(bill_depth_mm = c(16, 18),\n                       body_mass_g = c(4000, 5000))\npredict(mod, pred_dat)\n\n       1        2 \n42.87888 47.44527"
   },
   {
-    "objectID": "slides/math141_wk05mon.html#practice",
-    "href": "slides/math141_wk05mon.html#practice",
+    "objectID": "slides/math141_wk05wed.html#our-current-model",
+    "href": "slides/math141_wk05wed.html#our-current-model",
     "title": "Math 141",
-    "section": "Practice",
-    "text": "Practice\nDetermine and interpret the slope for a Chinstrap penguin using Model 1.\n \nDetermine and interpret the slope for a Adelie penguin using Model 1.\n \nIn Model 1, interpret \\(\\hat{\\beta}_2\\).\n \nDetermine and interpret the slope for a Chinstrap penguin using Model 2.\n \nDetermine and interpret the slope for a Adelie penguin using Model 2."
+    "section": "Our current model",
+    "text": "Our current model\n\n\nggplot(data = movies2,\n       mapping = aes(x = AudienceScore,\n                     y = RottenTomatoes,\n                     color = Genre)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE)"
   },
   {
-    "objectID": "slides/math141_wk05mon.html#adding-a-curve-to-your-scatterplot",
-    "href": "slides/math141_wk05mon.html#adding-a-curve-to-your-scatterplot",
+    "objectID": "slides/math141_wk05wed.html#adding-a-curve-to-your-scatterplot",
+    "href": "slides/math141_wk05wed.html#adding-a-curve-to-your-scatterplot",
     "title": "Math 141",
     "section": "Adding a Curve to your Scatterplot",
-    "text": "Adding a Curve to your Scatterplot\n\n\nggplot(data = movies2,\n       mapping = aes(x = AudienceScore,\n                     y = RottenTomatoes,\n                     color = Genre)) +\n  geom_point() +\n  stat_smooth(method = lm, se = FALSE, \n        formula = y ~ poly(x, degree = 2))"
+    "text": "Adding a Curve to your Scatterplot\n\n\nggplot(data = movies2,\n       mapping = aes(x = AudienceScore,\n                     y = RottenTomatoes,\n                     color = Genre)) +\n  geom_point() +\n  geom_smooth(method = \"lm\", se = FALSE, \n              formula = y ~ poly(x, degree = 2))"
   },
   {
-    "objectID": "slides/math141_wk05mon.html#fitting-the-new-model",
-    "href": "slides/math141_wk05mon.html#fitting-the-new-model",
+    "objectID": "slides/math141_wk05wed.html#fitting-the-new-model",
+    "href": "slides/math141_wk05wed.html#fitting-the-new-model",
     "title": "Math 141",
     "section": "Fitting the New Model",
-    "text": "Fitting the New Model\n\nmod2 &lt;- lm(RottenTomatoes ~ poly(AudienceScore, degree = 2, raw = TRUE)*Genre, \n           data = movies2)\nget_regression_table(mod2, print = TRUE) \n\n\n\n\n\n\n\n\n\n\n\n\n\nterm\nestimate\nstd_error\nstatistic\np_value\nlower_ci\nupper_ci\n\n\n\n\nintercept\n9.922\n14.851\n0.668\n0.505\n-19.301\n39.145\n\n\npoly(AudienceScore, degree = 2, raw = TRUE)1\n0.098\n0.515\n0.191\n0.849\n-0.916\n1.113\n\n\npoly(AudienceScore, degree = 2, raw = TRUE)2\n0.008\n0.004\n1.788\n0.075\n-0.001\n0.016\n\n\nGenre: Drama\n88.923\n24.538\n3.624\n0.000\n40.638\n137.208\n\n\nGenre: Horror\n-23.767\n31.054\n-0.765\n0.445\n-84.876\n37.342\n\n\npoly(AudienceScore, degree = 2, raw = TRUE)1:GenreDrama\n-2.608\n0.840\n-3.107\n0.002\n-4.260\n-0.956\n\n\npoly(AudienceScore, degree = 2, raw = TRUE)2:GenreDrama\n0.019\n0.007\n2.785\n0.006\n0.006\n0.032\n\n\npoly(AudienceScore, degree = 2, raw = TRUE)1:GenreHorror\n0.574\n1.223\n0.469\n0.639\n-1.833\n2.981\n\n\npoly(AudienceScore, degree = 2, raw = TRUE)2:GenreHorror\n-0.001\n0.012\n-0.061\n0.951\n-0.024\n0.022"
+    "text": "Fitting the New Model\n\nmod2 &lt;- lm(RottenTomatoes ~ poly(AudienceScore, degree = 2, raw = TRUE)*Genre, \n           data = movies2)\nget_regression_table(mod2) \n\n# A tibble: 9 × 7\n  term                    estimate std_error statistic p_value lower_ci upper_ci\n  &lt;chr&gt;                      &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 intercept                  9.92     14.9       0.668   0.505  -19.3     39.1  \n2 poly(AudienceScore, de…    0.098     0.515     0.191   0.849   -0.916    1.11 \n3 poly(AudienceScore, de…    0.008     0.004     1.79    0.075   -0.001    0.016\n4 Genre: Drama              88.9      24.5       3.62    0       40.6    137.   \n5 Genre: Horror            -23.8      31.1      -0.765   0.445  -84.9     37.3  \n6 poly(AudienceScore, de…   -2.61      0.84     -3.11    0.002   -4.26    -0.956\n7 poly(AudienceScore, de…    0.019     0.007     2.78    0.006    0.006    0.032\n8 poly(AudienceScore, de…    0.574     1.22      0.469   0.639   -1.83     2.98 \n9 poly(AudienceScore, de…   -0.001     0.012    -0.061   0.951   -0.024    0.022"
   },
   {
-    "objectID": "slides/math141_wk05mon.html#reminders",
-    "href": "slides/math141_wk05mon.html#reminders",
+    "objectID": "slides/math141_wk05wed.html#next-time",
+    "href": "slides/math141_wk05wed.html#next-time",
     "title": "Math 141",
-    "section": "Reminders:",
-    "text": "Reminders:"
+    "section": "Next time",
+    "text": "Next time\n\nModel guidelines\nGoodness-of-fit metrics"
   }
 ]

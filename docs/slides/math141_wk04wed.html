@@ -711,22 +711,13 @@ y = \beta_o + \beta_1 x + \epsilon
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>mpg_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(<span class="at">formula =</span> mpg <span class="sc">~</span> disp, <span class="at">data =</span> mtcars)</span>
 <span id="cb15-2"><a></a></span>
-<span id="cb15-3"><a></a><span class="fu">get_regression_points</span>(mpg_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-3"><a></a><span class="fu">get_regression_table</span>(mpg_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 32 × 5
-      ID   mpg  disp mpg_hat residual
-   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;
- 1     1  21    160     23.0   -2.00 
- 2     2  21    160     23.0   -2.00 
- 3     3  22.8  108     25.1   -2.35 
- 4     4  21.4  258     19.0    2.43 
- 5     5  18.7  360     14.8    3.94 
- 6     6  18.1  225     20.3   -2.23 
- 7     7  14.3  360     14.8   -0.462
- 8     8  24.4  147.    23.6    0.846
- 9     9  22.8  141.    23.8   -0.997
-10    10  19.2  168.    22.7   -3.49 
-# ℹ 22 more rows</code></pre>
+<pre><code># A tibble: 2 × 7
+  term      estimate std_error statistic p_value lower_ci upper_ci
+  &lt;chr&gt;        &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 intercept   29.6       1.23      24.1        0   27.1     32.1  
+2 disp        -0.041     0.005     -8.75       0   -0.051   -0.032</code></pre>
 </div>
 </div>
 </section>

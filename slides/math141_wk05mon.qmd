@@ -1,5 +1,5 @@
 ---
-pagetitle: "More Regression"
+pagetitle: "Multiple Linear Regression"
 editor: source
 format: 
   revealjs:
@@ -40,13 +40,13 @@ library(tidyverse)
 ::: {.column .center width="40%"}
 <br>
 
-[More Regression]{.custom-title}
+[Multiple Linear Regression]{.custom-title}
 
 <br> <br> 
 
 [Grayson White]{.custom-subtitle}
 
-[Math 141 <br> Week 4 \| Fall 2025]{.custom-subtitle}
+[Math 141 <br> Week 5 \| Fall 2025]{.custom-subtitle}
 :::
 :::::
 
@@ -54,19 +54,14 @@ library(tidyverse)
 
 ## Announcements
 
--   Discuss next week's exam!
+-   Discuss Week 4 Feedback!
 
 ### Goals for Today
 
-::::: columns
-::: column
--   Handling categorical, explanatory variables **with more than 2 categories**
-:::
+-   Handling categorical, explanatory variables and quantitative variables at the same time.
+-   Equal slopes model
+-   Different slopes model
 
-::: column
--   Regression with polynomial explanatory variables
-:::
-:::::
 
 ------------------------------------------------------------------------
 
@@ -93,50 +88,49 @@ How does extending to more predictors change our process?
 
 ### Multiple Linear Regression
 
--   We are going to see a few examples of multiple linear regression today and next lecture.
+-   We are going to see a few examples of multiple linear regression this week.
 
 -   We will need to return to modeling later in the course once we have learned about statistical inference (i.e., confidence intervals and p-values).
 
 ------------------------------------------------------------------------
 
-## But First: TREND STRETCHES!
-
-```{r, echo = FALSE, fig.height=3.5, fig.width=6.5, fig.align='center'}
-set.seed(4119)
-x <- runif(50, 0, 10)
-y1 <- 3 + 1*x + rnorm(50, 0 , 3)
-y2 <- runif(50, 0, 10)
-y3 <- 1 - .5*x + rnorm(50, 0, 1)
-y4 <- 3 + -40*x +  4*x^2 + rnorm(50, 0, 20)
-dat <- data_frame(x, y1, y2, y3, y4)  
-
-library(cowplot)
-# Create scatterplots and place in a grid
-p1 <- ggplot(dat, aes(x, y1)) + geom_point()
-p2 <- ggplot(dat, aes(x, y2)) + geom_point()
-p3 <- ggplot(dat, aes(x, y3)) + geom_point()
-p4 <- ggplot(dat, aes(x, y4)) + geom_point()
-plot_grid(p1, p2, p3, p4, ncol=2, labels = c("A", "B", "C", "D"))
-
-```
-
-------------------------------------------------------------------------
-
 ## Example
+
+:::: {.columns}
+
+::: {.column width=50%}
 
 Meadowfoam is a plant that grows in the Pacific Northwest and is harvested for its seed oil. In a randomized experiment, researchers at Oregon State University looked at how two light-related factors influenced the number of flowers per meadowfoam plant, the primary measure of productivity for this plant. The two light measures were light intensity (in mmol/ $m^2$ /sec) and the timing of onset of the light (early or late in terms of photo periodic floral induction).
 
-<br>
+:::
 
-**Response variable**:
+::: {.column width=50%}
 
-<br>
+![](img/meadowfoam.jpg){fig-align='center'}
 
-**Explanatory variables**:
+:::
 
-<br>
+::::
 
-**Model Form:**
+
+:::{.fragment}
+
+**Response variable?**
+
+:::
+
+:::{.fragment}
+
+
+**Explanatory variables?**
+
+:::
+
+:::{.fragment}
+
+**Model Form?**
+
+:::
 
 ------------------------------------------------------------------------
 
@@ -226,384 +220,291 @@ predict(modFlowers, newdata = flowersNew)
 
 ------------------------------------------------------------------------
 
-### New Example
-
-For this example, we will use data collected by the website pollster.com, which aggregated 102 presidential polls from August 29th, 2008 through the end of September. We want to determine the best model to explain the variable `Margin`, measured by the difference in preference between Barack Obama and John McCain. Our potential predictors are `Days` (the number of days after the Democratic Convention) and `Charlie` (indicator variable on whether poll was conducted before or after the first ABC interview of Sarah Palin with Charlie Gibson).
-
-::::: columns
-::: {.column width="70%"}
-```{r}
-library(Stat2Data)
-data("Pollster08")
-glimpse(Pollster08)
-```
-:::
-
-::: {.column width="30%"}
-**Response variable**:
-
-<br>
-
-**Explanatory variables**:
-:::
-:::::
-
-------------------------------------------------------------------------
-
-### Visualizing the Data
+### Returning to the Palmer Penguins
 
 ```{r}
-#| output-location: column
-
-ggplot(Pollster08,
-       aes(x = Days,
-           y = Margin, 
-           color = Charlie)) +
-  geom_point(size = 3)
+library(palmerpenguins)
 ```
-
-What is wrong with how one of the variables is mapped in the graph?
-
-------------------------------------------------------------------------
-
-### Visualizing the Data
-
-```{r}
-#| output-location: column
-
-ggplot(Pollster08,
-       aes(x = Days,
-           y = Margin, 
-           color = factor(Charlie))) +
-  geom_point(size = 3)
-```
-
-Is the assumption of **equal slopes** reasonable here?
-
-------------------------------------------------------------------------
-
-### Model Forms
-
-**Same** Slopes Model:
-
-<br> <br> <br>
-
-**Different** Slopes Model:
-
-::: nonincremental
--   Line for $x_2 = 1$:
-
-<br> <br> <br>
-
--   Line for $x_2 = 0$:
-:::
-
-------------------------------------------------------------------------
-
-### Fitting the Linear Regression Model
-
-```{r}
-modPoll <- lm(Margin ~ factor(Charlie)*Days, data = Pollster08)
-
-get_regression_table(modPoll)
-```
-
-::: nonincremental
--   Estimated regression line for $x_2 = 1$:
-
-<br> <br> <br>
-
--   Estimated regression line for $x_2 = 0$:
-:::
-
-------------------------------------------------------------------------
-
-### Adding the Regression Model to the Plot
-
-```{r polls3}
-#| output-location: column
-
-ggplot(Pollster08, 
-       aes(x = Days, 
-           y = Margin, 
-           color = factor(Charlie))) +
-  geom_point(size = 3) +
-  geom_smooth(method = lm, se = FALSE)
-```
-
-Is our modeling goal here **predictive** or **descriptive**?
-
-------------------------------------------------------------------------
-
-## Next time
-
--   More regression!
-
-### Linear Regression
-
-Model Form:
-
-$$ 
-\begin{align}
-y &= \beta_o + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p + \epsilon
-\end{align}
-$$
-
-Linear regression is a flexible class of models that allow for:
-
-::: nonincremental
--   Both quantitative and categorical **explanatory** variables.
-
--   **Multiple** explanatory variables.
-
--   **Curved** relationships between the response variable and the explanatory variable.
-
--   BUT the **response variable is quantitative**.
-:::
-
-------------------------------------------------------------------------
-
-### Example: Movies
-
-Let's model a movie's critic rating using the audience rating and the movie's genre.
-
-```{r}
-library(tidyverse)
-movies <- read_csv("https://www.lock5stat.com/datasets2e/HollywoodMovies.csv")
-
-# Restrict our attention to dramas, horrors, and actions
-movies2 <- movies %>%
-  filter(Genre %in% c("Drama", "Horror", "Action")) %>%
-  drop_na(Genre, AudienceScore, RottenTomatoes)
-glimpse(movies2)
-```
-
-**Response variable:**
-
-**Explanatory variables:**
-
-------------------------------------------------------------------------
-
-#### How should we encode a categorical variable with more than 2 categories?
-
-Let's start with what NOT to do.
-
-<br> <br>
-
-**Equal Slopes Model:**
-
-------------------------------------------------------------------------
-
-#### How should we encode a categorical variable with more than 2 categories?
-
-What we should do instead.
-
-<br> <br>
-
-**Equal Slopes Model:**
-
-------------------------------------------------------------------------
-
-#### How should we encode a categorical variable with more than 2 categories?
-
-<br> <br>
-
-**Different Slopes Model:**
-
-------------------------------------------------------------------------
-
-### Exploring the Data
-
-```{r}
-#| output-location: column
-
-ggplot(data = movies2,
-       mapping = aes(x = AudienceScore,
-                     y = RottenTomatoes,
-                     color = Genre)) +
-  geom_point() +
-  stat_smooth(method = lm, se = FALSE) +
-  geom_abline(slope = 1, intercept = 0) 
-```
-
-::: nonincremental
--   Trends?
-
--   Should we include interaction terms in the model?
-:::
-
-------------------------------------------------------------------------
-
-### Side-bar: Identify Outliers on a Graph
-
-```{r}
-outliers <- movies2 %>%
-  mutate(DiffScore = AudienceScore - RottenTomatoes) %>%
-  filter(DiffScore > 50 | DiffScore < -30) %>%
-  select(Movie, DiffScore, AudienceScore, RottenTomatoes, Genre)
-outliers
-```
-
-------------------------------------------------------------------------
-
-### Side-bar: Identify Outliers on a Graph
-
-```{r}
-#| output-location: column
-
-library(ggrepel)
-ggplot(data = movies2,
-       mapping = aes(x = AudienceScore,
-                     y = RottenTomatoes,
-                     color = Genre)) +
-  geom_point() +
-  stat_smooth(method = lm, se = FALSE) +
-  geom_abline(slope = 1, intercept = 0) +
-  geom_text_repel(data = outliers,
-                  mapping = aes(label =
-                                  Movie),
-                  force = 10,
-                  show.legend = FALSE,
-                  size = 6)
-```
-
-------------------------------------------------------------------------
-
-### Building the Model:
-
-Full model form:
-
-```{r}
-mod <- lm(RottenTomatoes ~ AudienceScore*Genre, data = movies2)
-
-library(moderndive)
-get_regression_table(mod) 
-```
-
-Estimated model for Dramas:
-
-------------------------------------------------------------------------
-
-### Let's Practice with the `palmerpenguins`!
 
 ![](img/penguins.png){fig-align="center"}
 
 ------------------------------------------------------------------------
 
-### Let's Practice with the `palmerpenguins`!
+### Last time:
 
-```{r}
-library(palmerpenguins)
-glimpse(penguins)
-```
+We predicted a penguin's bill length based on their species.
 
-------------------------------------------------------------------------
+::: {.fragment}
 
-### Let's Practice with the `palmerpenguins`!
 
 ```{r}
 #| output-location: column
 
-ggplot(data = penguins,
-       mapping = aes(x = flipper_length_mm,
-                     y = bill_length_mm,
-                     color = species)) +
-  geom_point(alpha = 0.7) +
-  stat_smooth(method = "lm", se = FALSE)
+ggplot(penguins, aes(x = species, y = bill_length_mm, fill = species)) +
+  geom_boxplot() + 
+  scale_fill_manual(values = c("steelblue",
+                               "goldenrod", 
+                               "plum3")) +
+  stat_summary(fun = mean, 
+               geom = "point", 
+               size = 3,
+               color = "deeppink") + 
+  guides(fill = "none") +
+  theme_bw()
 ```
+
+
+:::
+
+-   Pink dots represent the mean value in each group. 
+-   For the single categorical variable model, those pink dots are the predicted values for each group. 
 
 ------------------------------------------------------------------------
 
-```{r}
-mod1 <- lm(bill_length_mm ~ flipper_length_mm + species, data = penguins)
-get_regression_table(mod1)
-```
+### This time: 
 
-```{r}
-mod2 <- lm(bill_length_mm ~ flipper_length_mm * species, data = penguins)
-get_regression_table(mod2)
-```
+We'll incorporate bill depth for prediction!
 
-------------------------------------------------------------------------
+::: {.fragment}
 
-## Practice
-
-Determine and interpret the slope for a **Chinstrap** penguin using Model 1.
-
-<br> <br>
-
-Determine and interpret the slope for a **Adelie** penguin using Model 1.
-
-<br> <br>
-
-In Model 1, interpret $\hat{\beta}_2$.
-
-<br> <br>
-
-Determine and interpret the slope for a **Chinstrap** penguin using Model 2.
-
-<br> <br>
-
-Determine and interpret the slope for a **Adelie** penguin using Model 2.
-
-------------------------------------------------------------------------
-
-### Coming Back to Our Exploratory Data Analysis of Movies...
 
 ```{r}
 #| output-location: column
 
-library(ggrepel)
-ggplot(data = movies2,
-       mapping = aes(x = AudienceScore,
-                     y = RottenTomatoes,
-                     color = Genre)) +
-  geom_point()
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm)) +
+  geom_point(size = 2) + 
+  geom_smooth(method = "lm", se = FALSE, color = "red") + 
+  theme_bw()
 ```
 
-Evidence of **curvature**?
+
+:::
+
+-   A moderate negative relationship between bill length and bill depth! 
+-   Does this make sense?
 
 ------------------------------------------------------------------------
 
-## Adding a Curve to your Scatterplot
+![](img/culmen_depth.png){fig-align='center'}
+
+
+------------------------------------------------------------------------
+
+### What if we include both explanatory variables? 
+
+::: {.fragment}
+
 
 ```{r}
 #| output-location: column
-ggplot(data = movies2,
-       mapping = aes(x = AudienceScore,
-                     y = RottenTomatoes,
-                     color = Genre)) +
-  geom_point() +
-  stat_smooth(method = lm, se = FALSE, 
-        formula = y ~ poly(x, degree = 2))
+
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
+  geom_point(size = 2) + 
+  geom_smooth(inherit.aes = FALSE, 
+              mapping = aes(x = bill_depth_mm,
+                            y = bill_length_mm),
+              method = "lm",
+              se = FALSE,
+              color = "red") + 
+  geom_parallel_slopes(se = FALSE) + 
+  scale_color_manual(values = c("steelblue",
+                               "goldenrod", 
+                               "plum3")) +
+  theme_bw() +
+  theme(legend.position = "bottom")
 ```
+
+:::
+
+-   **Negative** relationships between bill depth and bill length overall.
+-   **Positive** relationships between bill depth and bill length when accounting for species! 
+-   **What is going on here??**
+-   This is a case of **Simpson's Paradox**. 
 
 ------------------------------------------------------------------------
 
-## Fitting the New Model {.smaller}
+### Three candidate models
+
+:::: {.columns}
+
+::: {.column width=50%}
 
 ```{r}
-
-mod2 <- lm(RottenTomatoes ~ poly(AudienceScore, degree = 2, raw = TRUE)*Genre, 
-           data = movies2)
-get_regression_table(mod2, print = TRUE) 
+species_mod <- lm(bill_length_mm ~ species, penguins)
+get_regression_table(species_mod) %>%
+  select(term, estimate)
 ```
+
+<br>
+
+::: {.fragment}
+
+```{r}
+depth_mod <- lm(bill_length_mm ~ bill_depth_mm, penguins)
+get_regression_table(depth_mod) %>%
+  select(term, estimate)
+```
+
+:::
+
+:::
+
+::: {.column width=50%}
+
+<br>
+
+::: {.fragment}
+
+```{r}
+both_mod <- lm(bill_length_mm ~ bill_depth_mm + species, penguins)
+get_regression_table(both_mod) %>%
+  select(term, estimate)
+```
+
+:::
+
+:::
+
+::::
+
+-   **Coefficient interpretations**?
 
 ------------------------------------------------------------------------
 
-### Linear Regression & Curved Relationships
+### Interpreting the Multiple Regression Equation
 
-**Form of the Model:**
+```{r}
+get_regression_table(both_mod)
+```
+:::{.fragment}
 
-$$ 
-\begin{align}
-y &= \beta_o + \beta_1 x_1 + \beta_2 x_2 + \cdots + \beta_p x_p + \epsilon
-\end{align}
+$$
+\hat{y}= 13.2 + 1.39 \cdot x_{\textrm{Bill Depth}} + 9.94 \cdot  x_{\textrm{Species:Chinstrap}} + 13.4 \cdot x_{\textrm{Species:Gentoo}}
 $$
 
-But why is it called **linear** regression if the model also handles for curved relationship??
+:::
+
+-   **Slope Coefficient on Quantitative Variable:** The *expected/predicted* change in response variable, *on average*, per unit increase in the explanatory variable, *holding all other variables constant*.
+    -   Example: We expect a 1.394mm increase in bill length for every 1mm increase in bill depth, on average, after holding species constant.
+
 
 ------------------------------------------------------------------------
 
-## Reminders:
+### Interpreting the Multiple Regression Equation
+
+```{r}
+get_regression_table(both_mod)
+```
+
+
+$$
+\hat{y}= 13.2 + 1.39 \cdot x_{\textrm{Bill Depth}} + 9.94 \cdot  x_{\textrm{Species:Chinstrap}} + 13.4 \cdot x_{\textrm{Species:Gentoo}}
+$$
+
+
+    
+-   **Intercept Coefficient:** The *expected/predicted* value of the response, *on average*, when all explanatory variables are *set to 0*.
+    -   What does setting species to 0 mean in this context?
+
+
+------------------------------------------------------------------------
+
+## Returning to our MLR model
+
+
+```{r}
+#| output-location: column
+
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
+  geom_point(size = 2) + 
+  geom_parallel_slopes(se = FALSE) + 
+  scale_color_manual(values = c("steelblue",
+                               "goldenrod", 
+                               "plum3")) +
+  theme_bw() 
+```
+
+**Are equal slopes a reasonable assumption here?**
+
+## Different Slopes Model
+
+
+```{r}
+#| output-location: column
+
+ggplot(penguins, aes(x = bill_depth_mm, y = bill_length_mm, color = species)) +
+  geom_point(size = 2) + 
+  geom_smooth(method = "lm", se = FALSE) + 
+  scale_color_manual(values = c("steelblue",
+                               "goldenrod", 
+                               "plum3")) +
+  theme_bw() 
+```
+
+-   **Equal slopes** models force the relationship between quantitative predictors and the response variable to be the same for each group in the model.
+
+-   In contrast, **different slopes** models allow for **different relationships** between quantitative predictors and the response variable for each group in the model. 
+
+-   How can we allow our model to have different slopes? 
+
+## Contrasting model forms
+
+Recall the equal slopes model:
+
+$$
+y = \beta_o + \beta_1 \cdot x_{\textrm{Bill Depth}} + \beta_2 \cdot  x_{\textrm{Species:Chinstrap}} + \beta_3 \cdot x_{\textrm{Species:Gentoo}} + \epsilon
+$$
+
+<br>
+
+:::{.fragment}
+
+How can we allow the slopes to vary? 
+
+:::
+
+::: {.fragment}
+
+$$
+y = \beta_o + \beta_1 \cdot x_{\textrm{Bill Depth}} + \beta_2 \cdot  x_{\textrm{Species:Chinstrap}} + \beta_3 \cdot x_{\textrm{Species:Gentoo}} + \\
+\beta_4 \cdot x_{\textrm{Bill Depth}} \cdot x_{\textrm{Species:Chinstrap}} + \beta_5 \cdot x_{\textrm{Bill Depth}} \cdot x_{\textrm{Species:Gentoo}} + \epsilon 
+$$
+
+:::
+
+-   **Coefficient interpretation?**
+
+## Different Slopes Model in R
+
+```{r}
+same_slope <- lm(bill_length_mm ~ bill_depth_mm + species, penguins)
+
+diff_slope <- lm(bill_length_mm ~ bill_depth_mm * species, penguins)
+```
+
+:::{.fragment}
+
+```{r}
+get_regression_table(same_slope)
+```
+
+:::
+
+<br>
+
+:::{.fragment}
+
+```{r}
+get_regression_table(diff_slope)
+```
+
+:::
+
+
+## Next time
+
+-   Linear regression with multiple quantitative variables
+-   Linear regression with curved relationships
+-   Discuss an article from *The Quest* 
+
 

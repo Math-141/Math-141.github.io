@@ -552,7 +552,7 @@ ggplot(mtcars, aes(x = disp, y = mpg)) +
 ```{r}
 mpg_mod <- lm(formula = mpg ~ disp, data = mtcars)
 
-get_regression_points(mpg_mod)
+get_regression_table(mpg_mod)
 ```
 
 

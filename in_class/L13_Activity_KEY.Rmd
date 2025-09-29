@@ -1,0 +1,180 @@
+---
+title: 'Multiple Linear Regression: Home Sales in King County, WA'
+date: "Math 141"
+author: "KEY"
+output:
+  pdf_document: default
+  html_document:
+    df_print: paged
+---
+
+```{=html}
+<style type="text/css">
+  body{
+  font-size: 9pt;
+}
+</style>
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,warning = FALSE,message = FALSE,fig.align = 'center')
+library(tidyverse)
+library(moderndive)
+library(gridExtra)
+house <- read_csv("data/house.csv")
+house <- house %>% select(price,sqft_living,sqft_above,bedrooms)
+```
+
+\textbf{Learning Objective:} Practice the process of checking assumptions, assessing, and interpreting multiple linear regression model to answer a research question. \vspace{-1em}
+
+## Introduction
+
+Today we will analyze data on 1000 homes sold in King County, WA between May 2014 and May 2015. We would like to answer the following research question: \textbf{What's the relationship between a home's square footage and number of bedrooms on the home's sale price?}
+
+We'll consider \textbf{four variables}: Sale price (response); and square footage, above-ground square footage, and number of bedrooms (potential explanatory variables). Check out the exploratory plots below:
+
+```{r outwidth="100%",fig.asp=0.35}
+grid.arrange(
+  ggplot(house,aes(x=price))+geom_histogram(binwidth=25,color="white")+theme_bw(base_size=11)+
+    labs(x="Price (thousands of dollars)"),
+  ggplot(house,aes(x=bedrooms))+geom_histogram(binwidth=1,color="white")+theme_bw(base_size=11)+
+    labs(x="Number of Bedrooms")+scale_x_continuous(breaks=1:10),
+  ggplot(house,aes(x=sqft_living))+geom_histogram(binwidth=100,color="white")+theme_bw(base_size=11)+
+    labs(x="Total Square Footage"),
+  ggplot(house,aes(x=sqft_above))+geom_histogram(binwidth=100,color="white")+theme_bw(base_size=11)+
+    labs(x="Above-Ground Square Footage"),
+  nrow=2)
+```
+
+### Question 1: Exploration
+
+\begin{enumerate}
+\item[(a)] Describe the distribution of `price`. Consider shape (symmetric, left/right skewed), unimodality vs. multimodality, center, and spread.
+
+\textbf{Price has a right-skewed distribution, is unimodal, has an average around 300-400k, and has a range of approximately 200k to 1 million dollars.}
+
+\item[(b)] Hypothesize the (i) direction and (ii) strength of relationship between `price` and the number of `bedrooms`.
+
+\textbf{I hypothesize that `price` and `bedrooms` have a moderately strong, positive relationship, because as the number of bedrooms increases, I would expect that price would be very likely to increase as well}
+
+\end{enumerate}
+
+\newpage
+
+\textbf{Multicollinearity} refers to situations when explanatory variables are highly correlated with one another. Multicollinearity violates the independence assumption of MLR, and often results in coefficients that are distorted in erroneous ways! We want to avoid multicollinearity (*some* correlation is okay!)
+
+\vspace{-1em}
+
+### Question 2: Multicollinearity
+
+To check for multicollinearity, examine the following scatterplots displaying each pair of **explanatory** variables and then answer the following question.
+
+```{r outwidth="100%",fig.asp=0.3}
+grid.arrange(
+  ggplot(house,aes(x=sqft_living,y=sqft_above))+geom_point(alpha=0.3)+theme_bw(base_size=10)+
+    labs(x="Sq. Footage",y="Ab.-Ground Sq. Ft."),
+  ggplot(house,aes(x=sqft_living,y=bedrooms))+geom_point(alpha=0.3)+theme_bw(base_size=10)+
+    labs(x="Sq. Footage",y="Bedrooms"),
+   ggplot(house,aes(x=sqft_above,y=bedrooms))+geom_point(alpha=0.3)+theme_bw(base_size=10)+
+    labs(x="Ab.-Ground Sq. Ft.",y="Bedrooms"),
+  nrow=1)
+```
+
+\vspace{-1em}
+
+Which pair of explanatory variables suffers *most* from multicollinearity? Hypothesize an explanation \underline{in context} for the observed pattern.
+
+**Square footage and above-ground square footage are the most multicollinear. We notice that points on the diagonal in their pairwise scatterplot represent homes with no basement; these variables are identical for such homes. Points off the diagonal are homes with a basement. In short, these variables essentially represent the same thing, and thus, we should include at most one of them in our regression model.**
+
+\vspace{2em}
+
+## Model Estimation
+
+Based on our research question and exploration so far, we will regress Sale Price (`price`) against Square Footage (`sqft_living`) and Number of Bedrooms (`bedrooms`). Notice that one variable was excluded! A model summary is below: \vspace{-1em}
+
+```{r}
+mod <- lm(price ~ sqft_living + bedrooms, data=house)
+get_regression_table(mod)
+# get_regression_summaries(mod)
+```
+
+### Question 3: Regression Model
+
+\begin{enumerate}
+\item[(a)] Write down an equation, including coefficient values, for the estimated model:
+\vspace{1em}
+\large
+
+\hspace{1in} $\hat{\text{Price}} \ = 197 + 0.177\text{SquareFootage} - 21.6\text{Bedrooms}$
+
+\vspace{1em}
+
+\normalsize
+\item[(b)] Carefully interpret the \textbf{intercept} coefficient in our model. 
+
+\textbf{For a home with 0 bedrooms and 0 square footage, we predict a price of \$197k, on average.}
+
+\newpage
+
+\item[(c)] Carefully interpret the coefficient for \textbf{Bedrooms} in our model. Did this match your expectation?
+
+\textbf{For every 1-bedroom increase, we expect the price of a home to decrease by \$21.6k, on average, holding square footage constant.}
+
+\textbf{This did not match my expectations! I expected prices to generally increase as we have more bedrooms. We may think of this unintuitive result as being a result of some multicollinearity between our remaining explanatory variables.}
+
+\vspace{2em}
+
+\item[(d)] The \textbf{coefficient of determination} for our model is $R^2 = 0.314$. Interpret this value in a sentence.
+
+\textbf{31.4\% of the variation in home prices can be explained by the linear model with square footage and bedrooms.}
+
+\vspace{2em}
+\end{enumerate}
+
+## Question 4: Assumptions
+
+It is important to assess our assumptions for linear regression whenever conducting an analysis. When our assumptions are not met, we should feel more skeptical about our coefficient estimates and their interpretations (or ignore them entirely). Examine the following plots below:
+
+```{r out.width="100%"}
+library(patchwork)
+library(gglm)
+
+p1 <- ggplot(mod) + stat_fitted_resid()
+p2 <- ggplot(mod) + stat_normal_qq()
+p3 <- ggplot(mod) + stat_resid_hist()
+
+(p1 + p2) / (p3 + plot_spacer())
+```
+
+\begin{enumerate}
+\item[(a)] Which plot above can be used to assess \textbf{Linearity}? Do you believe the assumption is satisfied?
+
+\textbf{The plot on the right can be used to assess linearity. I believe the assumption is generally satisfied, because the points fall roughly equally above and below the line.}
+
+\vspace{2em}
+
+\item[(b)] We will consider the \textbf{Independence} assumption without a plot! Based on our data and chosen model, do you believe the assumption is satisfied?
+
+\textbf{I believe the assumption is roughly satisfied. I would assume that this random sample of 1000 homes in King County, WA are reasonably-separated geographically, and I don't think that there's any other evidence to suggest non-independence between these observations. Still, I have some concerns about multicollinearity which casts some doubt on independence.}
+
+\newpage
+
+\item[(c)] Which plot above can be used to assess \textbf{Normality of Residuals}? Do you believe the assumption is satisfied?
+
+\textbf{The plot on the left can be used to assess normality of residuals. I believe the assumption is dubious, specifically because the residual histogram appears to be somewhat bimodal.}
+
+\vspace{2em}
+
+\item[(d)] Which plot above can be used to assess \textbf{Equal Variance}? Do you believe the assumption is satisfied?
+
+\textbf{The plot on the right can be used to assess equal variance. I believe the assumption is arguably satisfied, although I have some concern about potential fanning (there appears to be less variability when predicted price is smaller) This could go either way.}
+
+\vspace{2em}
+
+\end{enumerate}
+
+### Question 5: Conclusions
+
+Based on our data exploration, model estimation, and assessment of assumptions, answer the research question. Be sure to state any doubts or concerns you have about the may have about our analysis.
+
+\textbf{We have learned that, in general, higher home prices are associated with more square footage and/or fewer bedrooms. However, I have some concerns about this model result, specifically due to potential independence/multicollinearity issues (yielding an unintuitive result about bedrooms) as well as concerns regarding normality of results and equal variance.}
