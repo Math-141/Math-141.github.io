@@ -55,6 +55,9 @@ library(tidyverse)
 ## Announcements
 
 -   Discuss Week 4 Feedback!
+-   Lab 2 grades coming soon (today)
+-   [Dog breeds](https://tinyurl.com/dog-breeds-reed)
+    - [https://tinyurl.com/dog-breeds-reed](https://tinyurl.com/dog-breeds-reed)
 
 ### Goals for Today
 
