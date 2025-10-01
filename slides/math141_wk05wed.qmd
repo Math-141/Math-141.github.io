@@ -361,7 +361,13 @@ $$
 But why is it called **linear** regression if the model also handles for curved relationship??
 
 
-------------------------------------------------------------------------
+# Activity
+
+```{r}
+#| echo: false
+countdown::countdown(20)
+```
+
 
 ## Next time
 
