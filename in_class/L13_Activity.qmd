@@ -1,10 +1,9 @@
 ---
 title: 'Multiple Linear Regression: Home Sales in King County, WA'
-date: "Math 141"
-output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+editor: source
+format:
+  pdf:
+    margin-top: 2em
 ---
 
 ```{=html}
@@ -50,12 +49,19 @@ grid.arrange(
 \begin{enumerate}
 \item[(a)] Describe the distribution of `price`. Consider shape (symmetric, left/right skewed), unimodality vs. multimodality, center, and spread.
 
-\vspace{6em}
+\vspace{3em}
+
+
 
 \item[(b)] Hypothesize the (i) direction and (ii) strength of relationship between `price` and the number of `bedrooms`.
+
+\vspace{3em}
+
+
+
 \end{enumerate}
 
-\newpage
+
 
 \textbf{Multicollinearity} refers to situations when explanatory variables are highly correlated with one another. Multicollinearity violates the independence assumption of MLR, and often results in coefficients that are distorted in erroneous ways! We want to avoid multicollinearity (*some* correlation is okay!)
 
@@ -80,7 +86,7 @@ grid.arrange(
 
 Which pair of explanatory variables suffers *most* from multicollinearity? Hypothesize an explanation \underline{in context} for the observed pattern.
 
-\vspace{5em}
+\vspace{6em}
 
 ## Model Estimation
 
@@ -89,33 +95,29 @@ Based on our research question and exploration so far, we will regress Sale Pric
 ```{r}
 mod <- lm(price ~ sqft_living + bedrooms, data=house)
 get_regression_table(mod)
-# get_regression_summaries(mod)
 ```
 
 ### Question 3: Regression Model
 
 \begin{enumerate}
 \item[(a)] Write down an equation, including coefficient values, for the estimated model:
-\vspace{1em}
-\large
 
-\hspace{1in} $\hat{\text{Price}} \ = $
+\vspace{5em}
 
-\vspace{1em}
-
-\normalsize
 \item[(b)] Carefully interpret the \textbf{intercept} coefficient in our model. 
 
-\newpage
+\vspace{5em}
+
 
 \item[(c)] Carefully interpret the coefficient for \textbf{Bedrooms} in our model. Did this match your expectation?
 
-\vspace{6em}
+\vspace{3em}
 
-\item[(d)] The \textbf{coefficient of determination} for our model is $R^2 = 0.314$. Interpret this value in a sentence.
 
-\vspace{6em}
+\vspace{3em}
+
 \end{enumerate}
+
 
 ## Question 4: Assumptions
 
@@ -132,26 +134,33 @@ p3 <- ggplot(mod) + stat_resid_hist()
 (p1 + p2) / (p3 + plot_spacer())
 ```
 
+\newpage
+
 \begin{enumerate}
 \item[(a)] Which plot above can be used to assess \textbf{Linearity}? Do you believe the assumption is satisfied?
 
-\vspace{7em}
+
+\vspace{4em}
 
 \item[(b)] We will consider the \textbf{Independence} assumption without a plot! Based on our data and chosen model, do you believe the assumption is satisfied?
 
-\vspace{5em}
-\newpage
+
+\vspace{4em}
+
 
 \item[(c)] Which plot above can be used to assess \textbf{Normality of Residuals}? Do you believe the assumption is satisfied?
 
-\vspace{5em}
+
+\vspace{4em}
 
 \item[(d)] Which plot above can be used to assess \textbf{Equal Variance}? Do you believe the assumption is satisfied?
 
-\vspace{5em}
+
+\vspace{4em}
 
 \end{enumerate}
 
 ### Question 5: Conclusions
 
 Based on our data exploration, model estimation, and assessment of assumptions, answer the research question. Be sure to state any doubts or concerns you have about the may have about our analysis.
+

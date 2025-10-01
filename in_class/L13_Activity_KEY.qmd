@@ -2,10 +2,9 @@
 title: 'Multiple Linear Regression: Home Sales in King County, WA'
 date: "Math 141"
 author: "KEY"
-output:
-  pdf_document: default
-  html_document:
-    df_print: paged
+editor: source
+format:
+  pdf: default
 ---
 
 ```{=html}
@@ -59,7 +58,7 @@ grid.arrange(
 
 \end{enumerate}
 
-\newpage
+
 
 \textbf{Multicollinearity} refers to situations when explanatory variables are highly correlated with one another. Multicollinearity violates the independence assumption of MLR, and often results in coefficients that are distorted in erroneous ways! We want to avoid multicollinearity (*some* correlation is okay!)
 
@@ -114,7 +113,6 @@ get_regression_table(mod)
 
 \textbf{For a home with 0 bedrooms and 0 square footage, we predict a price of \$197k, on average.}
 
-\newpage
 
 \item[(c)] Carefully interpret the coefficient for \textbf{Bedrooms} in our model. Did this match your expectation?
 
@@ -124,11 +122,6 @@ get_regression_table(mod)
 
 \vspace{2em}
 
-\item[(d)] The \textbf{coefficient of determination} for our model is $R^2 = 0.314$. Interpret this value in a sentence.
-
-\textbf{31.4\% of the variation in home prices can be explained by the linear model with square footage and bedrooms.}
-
-\vspace{2em}
 \end{enumerate}
 
 ## Question 4: Assumptions
@@ -149,7 +142,7 @@ p3 <- ggplot(mod) + stat_resid_hist()
 \begin{enumerate}
 \item[(a)] Which plot above can be used to assess \textbf{Linearity}? Do you believe the assumption is satisfied?
 
-\textbf{The plot on the right can be used to assess linearity. I believe the assumption is generally satisfied, because the points fall roughly equally above and below the line.}
+\textbf{The plot on the top left can be used to assess linearity. I believe the assumption is generally satisfied, because the points fall roughly equally above and below the line.}
 
 \vspace{2em}
 
@@ -157,17 +150,16 @@ p3 <- ggplot(mod) + stat_resid_hist()
 
 \textbf{I believe the assumption is roughly satisfied. I would assume that this random sample of 1000 homes in King County, WA are reasonably-separated geographically, and I don't think that there's any other evidence to suggest non-independence between these observations. Still, I have some concerns about multicollinearity which casts some doubt on independence.}
 
-\newpage
 
 \item[(c)] Which plot above can be used to assess \textbf{Normality of Residuals}? Do you believe the assumption is satisfied?
 
-\textbf{The plot on the left can be used to assess normality of residuals. I believe the assumption is dubious, specifically because the residual histogram appears to be somewhat bimodal.}
+\textbf{The plots on the top right and bottom left can be used to assess normality of residuals. I believe the assumption is questionable, specifically because the residual histogram appears to be somewhat bimodal and we have a bit of a heavy tail from the qq-plot.}
 
 \vspace{2em}
 
 \item[(d)] Which plot above can be used to assess \textbf{Equal Variance}? Do you believe the assumption is satisfied?
 
-\textbf{The plot on the right can be used to assess equal variance. I believe the assumption is arguably satisfied, although I have some concern about potential fanning (there appears to be less variability when predicted price is smaller) This could go either way.}
+\textbf{The plot on the top left can be used to assess equal variance. I believe the assumption is arguably satisfied, although I have some concern about potential fanning (there appears to be less variability when predicted price is smaller) This could go either way.}
 
 \vspace{2em}
 

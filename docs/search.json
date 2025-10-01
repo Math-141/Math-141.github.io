@@ -2672,5 +2672,33 @@
     "title": "Math 141",
     "section": "Next time",
     "text": "Next time\n\nModel guidelines\nGoodness-of-fit metrics"
+  },
+  {
+    "objectID": "in_class/L13_Activity_KEY.html",
+    "href": "in_class/L13_Activity_KEY.html",
+    "title": "Multiple Linear Regression: Home Sales in King County, WA",
+    "section": "",
+    "text": "Practice the process of checking assumptions, assessing, and interpreting multiple linear regression model to answer a research question."
+  },
+  {
+    "objectID": "in_class/L13_Activity_KEY.html#introduction",
+    "href": "in_class/L13_Activity_KEY.html#introduction",
+    "title": "Multiple Linear Regression: Home Sales in King County, WA",
+    "section": "Introduction",
+    "text": "Introduction\nToday we will analyze data on 1000 homes sold in King County, WA between May 2014 and May 2015. We would like to answer the following research question: \nWe’ll consider : Sale price (response); and square footage, above-ground square footage, and number of bedrooms (potential explanatory variables). Check out the exploratory plots below:\n\n\n\n\n\n\n\n\n\n\nQuestion 1: Exploration\n refers to situations when explanatory variables are highly correlated with one another. Multicollinearity violates the independence assumption of MLR, and often results in coefficients that are distorted in erroneous ways! We want to avoid multicollinearity (some correlation is okay!)\n\n\nQuestion 2: Multicollinearity\nTo check for multicollinearity, examine the following scatterplots displaying each pair of explanatory variables and then answer the following question.\n\n\n\n\n\n\n\n\n\nWhich pair of explanatory variables suffers most from multicollinearity? Hypothesize an explanation for the observed pattern.\nSquare footage and above-ground square footage are the most multicollinear. We notice that points on the diagonal in their pairwise scatterplot represent homes with no basement; these variables are identical for such homes. Points off the diagonal are homes with a basement. In short, these variables essentially represent the same thing, and thus, we should include at most one of them in our regression model."
+  },
+  {
+    "objectID": "in_class/L13_Activity_KEY.html#model-estimation",
+    "href": "in_class/L13_Activity_KEY.html#model-estimation",
+    "title": "Multiple Linear Regression: Home Sales in King County, WA",
+    "section": "Model Estimation",
+    "text": "Model Estimation\nBased on our research question and exploration so far, we will regress Sale Price (price) against Square Footage (sqft_living) and Number of Bedrooms (bedrooms). Notice that one variable was excluded! A model summary is below: \n\n\n# A tibble: 3 × 7\n  term        estimate std_error statistic p_value lower_ci upper_ci\n  &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;\n1 intercept    197.        19.4      10.1    0      159.     235.   \n2 sqft_living    0.177      0.01     18.4    0        0.158    0.196\n3 bedrooms     -21.6        7.27     -2.97   0.003  -35.9     -7.34 \n\n\n\nQuestion 3: Regression Model"
+  },
+  {
+    "objectID": "in_class/L13_Activity_KEY.html#question-4-assumptions",
+    "href": "in_class/L13_Activity_KEY.html#question-4-assumptions",
+    "title": "Multiple Linear Regression: Home Sales in King County, WA",
+    "section": "Question 4: Assumptions",
+    "text": "Question 4: Assumptions\nIt is important to assess our assumptions for linear regression whenever conducting an analysis. When our assumptions are not met, we should feel more skeptical about our coefficient estimates and their interpretations (or ignore them entirely). Examine the following plots below:\n\n\n\n\n\n\n\n\n\n\nQuestion 5: Conclusions\nBased on our data exploration, model estimation, and assessment of assumptions, answer the research question. Be sure to state any doubts or concerns you have about the may have about our analysis."
   }
 ]
