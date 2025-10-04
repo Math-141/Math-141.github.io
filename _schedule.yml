@@ -181,10 +181,10 @@ scheduled-docs:
           display-date: Monday, Oct 6
           date: 10/6/25
           docs:
-            - type: Reading + HW
+            - type: Reading
               href: readings/readings_wk06mon.qmd
-            - type: Slides
-              href: slides/math141_wk06mon.qmd
+            # - type: Slides
+            #   href: slides/math141_wk06mon.qmd
         - topic: "Probability"
           display-date: Wednesday, Oct 8
           date: 10/8/25
