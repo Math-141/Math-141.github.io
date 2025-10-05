@@ -1,0 +1,79 @@
+---
+title: "Probability Worksheet"
+date: "Math 141"
+output: pdf_document
+---
+
+```{=html}
+<style type="text/css">
+  body{
+  font-size: 9pt;
+}
+</style>
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,warning = FALSE,message = FALSE,fig.align = 'center')
+```
+
+## Activity 1: Coffee or Tea?
+
+A survey was given to 100 Math 141 students in 2017. Some results are summarized below:
+
+\begin{tabular}{c|cc|c}
+  & Coffee & Tea & total \\ \hline
+ First-year & 7 & 10 & 17 \\
+ Sophomore & 25 & 20 & 45 \\
+ Junior & 13 & 12 & 25 \\ 
+ Senior &8 &5 & 13 \\ \hline
+ total & 53 & 47 & 100
+\end{tabular}
+\begin{enumerate}
+\item What is the probability that a \underline{random student} prefers \textit{coffee}?
+\vspace{4 em}
+\item What is the probability that a \underline{random student} is a \text{sophomore}?
+\vspace{4 em}
+\item What is the probability that a \underline{random student} is a \textit{sophomore} and prefers \text{coffee}?
+\vspace{4 em}
+\item What is the probability that a \underline{random \textit{sophomore}} prefers \textit{coffee}?
+\vspace{4 em}
+\end{enumerate}
+
+\newpage
+
+## Activity 2: Testing for a Rare Disease
+
+Suppose that we have a rapid COVID-19 test that:
+
+\begin{itemize}
+\item Given a person \textbf{does not} have COVID, the test is (correctly) negative 99\% of the time.
+\item Given a person \textbf{does} have COVID, the test is (correctly) positive 80\% of the time.
+\item Additionally, the overall prevalence of COVID at the time of the test was 1\%. 
+\end{itemize}
+
+\textbf{Research Question:} Suppose a person takes this test and receives a positive diagnosis. \textbf{Given the positive diagnosis, what is the probability that the person actually has COVID?}
+
+\begin{enumerate}
+\item Write down the research question as a conditional probability.
+\vspace{4 em}
+\item Define events $A$ (and $A^c$) and $B$ (and $B^c$) in this setting.
+\vspace{4 em}
+\item Write out all the given info above in terms of probabilities and events $A$ and $B$.
+\vspace{8 em}
+\item Answer the research question, starting with Bayes' Rule. You'll also need the Law of Total Probability!
+\end{enumerate}
+
+\vspace{10em}
+
+## Bonus Question: Bayes' Rule
+
+\begin{enumerate}
+\item Consider Bayes' Rule. Under what circumstances will $P(A|B) = P(B|A)$?
+\vspace{2 em}
+\item Suppose $P(B|A) = 1$:
+\begin{enumerate}
+\item What does this suggest about $A$ and $B$? 
+\vspace{2 em}
+\item What is $P(A|B)$ in this case?
+\end{enumerate}
+\end{enumerate}

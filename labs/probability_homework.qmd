@@ -1,0 +1,55 @@
+---
+title: "Math 141: Probability Homework"
+subtitle: "Due Monday, October 13th"
+format: html
+editor: source
+toc: false
+---
+
+
+## Problem 1
+
+![](img/dog-pants.png)
+
+Students in a prior semester of Math 141 were asked two questions as part of a larger survey: "Are hot dogs sandwiches?" and "If dogs wore pants, would they wear them on their front legs, back legs, or on all four legs"? A summary of responses for 70 students is given below:
+
+|             | Hotdog is a sandwich | Hotdog is not a sandwich |
+|-------------|----------------------|---------------------------|
+| Front legs  |         1            |             1             |
+| Back legs   |        17            |            26             |
+| All 4 legs  |         9            |            16             |
+
+Suppose we randomly choose 1 student who completed this survey.
+
+a. Are the events "the student thinks a hotdog is not a sandwich" and "the student thinks dogs should wear pants on their back legs" mutually exclusive?
+
+b. What is the probability that the randomly chosen student thinks a hotdog is a sandwich?
+
+c. What is the probability that the randomly chosen student thinks a hotdog is a sandwich and thinks that dogs should wear pants on all 4 legs?
+
+d. What is the probability that the randomly chosen student thinks a hotdog is a sandwich given that the student thinks dogs should wear pants on all 4 legs?
+
+e. Is the event "the student thinks a hotdog is a sandwich" *independent* (in the statistical sense) of the event "the student thinks dogs should wear pants on their front legs"? Explain your reasoning.
+
+
+## Problem 2
+
+Suppose A and B are events with P(A) = 0.3 and P(B) = 0.7.
+
+a. Is it always possible to compute P(A and B), if you *only* know P(A) and P(B) and nothing else?
+
+b. Assuming that events A and B arise from independent random processes, find P(A and B) and P(A | B).
+  
+c. Suppose we are given that P(A and B) = 0.1. Are events A and B independent? Explain.
+
+d. If we are given that P(A and B) = 0.1 , what is P(A | B)?
+
+
+
+## Problem 3
+
+Lupus is a medical phenomenon where antibodies that are supposed to attack foreign cells to prevent infections instead see plasma proteins as foreign bodies, leading to a high risk of blood clotting. It is believed that 2% of the population suffer from this disease. The test is 98% accurate if a person actually has the disease. The test is 74% accurate if a person does not have the disease. There is a line from the Fox television show *House* that is often used after a patient tests positive for lupus: "It's never lupus." Do you think there is truth to this statement? Use appropriate probabilities to support your answer. (Hint: Bayes' Law will be helpful!)
+
+
+
+
