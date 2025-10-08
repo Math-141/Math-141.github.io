@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 10/8/25
+  draft-after: 10/9/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -199,8 +199,8 @@ scheduled-docs:
           display-date: Thursday, Oct 9
           date: 10/9/25
           docs:
-            - type: Lab
-              href: labs/lab_06.qmd
+            - type: Midterm Review
+              href: labs/midterm_review.qmd
         - topic: "Sampling distributions"
           display-date: Friday, Oct 10
           date: 10/10/25

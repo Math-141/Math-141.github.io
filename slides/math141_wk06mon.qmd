@@ -87,7 +87,7 @@ library(infer)
 -   **Two components**: a take-home written exam, and an in-person oral exam
 -   **Written component** 
     -   Released Monday, Oct 13 at noon. Due Wednesday, Oct 15 at 10am. 
-    -   You are allowed to use **course materials** during the exam. Including and limited to: content on the course website, your past labs and homeworks, in-class exercises and quizzes, any notes you've taken in class, and any notes you might have compiled based on the allowed course materials listed here.
+    -   You are allowed to use **course materials** during the exam. Including and limited to: content on the course website, course textbooks, your past labs and homeworks, in-class exercises and quizzes, any notes you've taken in class, and any notes you might have compiled based on the allowed course materials listed here.
     -   You have **2.5 hours** to complete the written component of the exam. You must use this time consecutively. 
     -   You may **not** collaborate or consult with others about the exam. You may not use generative AI or any resources outside of the ones listed above. 
     
