@@ -1,0 +1,353 @@
+---
+pagetitle: "Quantifying Uncertainty"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Quantifying Uncertainty]{.custom-title}
+
+<br> <br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 6 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Announcements
+
+-   Midterm exam released on Monday!
+    -   Take home available: Monday noon - Weds 10am
+    -   Oral exams: Thurs / Fri
+
+### Goals for Today
+
+::::: columns
+::: column
+-   Modeling & Ethics: Algorithmic bias
+-   Quantifying uncertainty
+:::
+
+::: column
+-   Sampling variability
+-   Sampling distributions
+:::
+:::::
+
+# Data Ethics: Algorithmic Bias
+
+[Return to the Americian Statistical Association's ["Ethical Guidelines for Statistical Practice"](https://www.amstat.org/ASA/Your-Career/Ethical-Guidelines-for-Statistical-Practice.aspx)]{.custom-subtitle}
+
+------------------------------------------------------------------------
+
+## Integrity of Data and Methods
+
+> "The ethical statistical practitioner seeks to understand and mitigate known or suspected limitations, defects, or biases in the data or methods and communicates potential impacts on the interpretation, conclusions, recommendations, decisions, or other results of statistical practices."
+
+> "For models and algorithms designed to inform or implement decisions repeatedly, develops and/or implements plans to validate assumptions and assess performance over time, as needed. Considers criteria and mitigation plans for model or algorithm failure and retirement."
+
+------------------------------------------------------------------------
+
+### Algorithmic Bias
+
+**Algorithmic bias**: when the model systematically creates unfair outcomes, such as privileging one group over another.
+
+**Example**: [The Coded Gaze](https://www.youtube.com/watch?v=162VzSzzoPs)
+
+```{r, echo = FALSE, out.width='35%', fig.cap = "Joy Buolamwini"}
+knitr::include_graphics("img/coded_gaze.png")
+```
+
+-   Facial recognition software struggles to see faces of color.
+
+-   Algorithms built on a non-diverse, biased dataset.
+
+------------------------------------------------------------------------
+
+### Algorithmic Bias
+
+**Algorithmic bias**: when the model systematically creates unfair outcomes, such as privileging one group over another.
+
+**Example**: [COMPAS model](https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing) used throughout the country to predict recidivism
+
+::: nonincremental
+-   Differences in predictions across race and gender
+:::
+
+```{r, echo = FALSE, out.width='45%', fig.cap = "ProPublica Analysis"}
+knitr::include_graphics("img/compas.png")
+```
+
+-   Cynthia Rudin and collaborators wrote [The Age of Secrecy and Unfairness in Recidivism Prediction](https://hdsr.mitpress.mit.edu/pub/7z10o269/release/7)
+    -   Argue for the need for transparency in models that make such important decisions.
+
+# Shift Gears: Statistical Inference
+
+------------------------------------------------------------------------
+
+### The `r emo::ji("heart")` of statistical inference is quantifying uncertainty
+
+```{r, echo = FALSE, out.width='70%'}
+knitr::include_graphics("img/week4.005.jpeg")
+```
+
+::: fragment
+```{r}
+library(tidyverse)
+ce <- read_csv("data/fmli.csv")
+summarize(ce, meanFINCBTAX = mean(FINCBTAX))
+```
+:::
+
+------------------------------------------------------------------------
+
+### The `r emo::ji("heart")` of statistical inference is quantifying uncertainty
+
+```{r}
+library(tidyverse)
+ce <- read_csv("data/fmli.csv")
+summarize(ce, meanFINCBTAX = mean(FINCBTAX))
+```
+
+Like with regression, need to distinguish between the **population** and the **sample**
+
+::::::: columns
+:::: column
+::: nonincremental
+-   **Parameters**:
+    -   Based on the **population**
+    -   Unknown then if don't have data on the whole population
+    -   EX: $\beta_o$ and $\beta_1$
+    -   EX: $\mu$ = population mean
+:::
+::::
+
+:::: column
+::: nonincremental
+-   **Statistics**:
+    -   Based on the **sample** data
+    -   Known
+    -   Usually estimate a population parameter
+    -   EX: $\hat{\beta}_o$ and $\hat{\beta}_1$
+    -   EX: $\bar{x}$ = sample mean
+:::
+::::
+:::::::
+
+------------------------------------------------------------------------
+
+### Quantifying Our Uncertainty
+
+`R` has been giving us uncertainty estimates:
+
+```{r}
+#| output-location: column
+library(pdxTrees)
+kenilworth <- get_pdxTrees_parks() %>%
+  filter(Park %in% c("Kenilworth Park")) %>% 
+  drop_na(Functional_Type, Native)
+
+ggplot(kenilworth, aes(x = Tree_Height,
+                       y = DBH, color = Native)) +
+  geom_point() +
+  stat_smooth(method = "lm", se = TRUE) +
+  scale_color_manual(values = c("plum3", "goldenrod")) + 
+  theme(legend.position = "bottom") 
+```
+
+------------------------------------------------------------------------
+
+### Quantifying Our Uncertainty
+
+`R` has been giving us uncertainty estimates:
+
+```{r}
+modTrees <- lm(Tree_Height ~ DBH*Native, data = kenilworth)
+library(moderndive)
+get_regression_table(modTrees)
+```
+
+------------------------------------------------------------------------
+
+### Quantifying Our Uncertainty
+
+Uncertainty estimates are constantly reported in [news and journal articles](https://www.pewresearch.org/fact-tank/2019/12/17/more-u-s-homeowners-say-they-are-considering-home-solar-panels/):
+
+::::: columns
+::: column
+```{r  out.width = "55%", echo=FALSE, fig.align='center'}
+include_graphics("img/solar_panels.png") 
+```
+:::
+
+::: column
+```{r  out.width = "85%", echo=FALSE, fig.align='center'}
+include_graphics("img/margin_of_error.png") 
+```
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Quantifying Our Uncertainty
+
+
+Uncertainty estimates are constantly reported in [news and journal articles](https://rss.onlinelibrary.wiley.com/doi/abs/10.1111/1740-9713.01501):
+
+
+```{r  out.width = "65%", echo=FALSE, fig.align='center'}
+include_graphics("img/ci_swimming.png") 
+```
+
+------------------------------------------------------------------------
+
+## Statistical Inference
+
+**Goal**: Draw conclusions about the population based on the sample.
+
+
+::: {.fragment .center}
+
+<br> 
+
+### Plato's allegory of the cave
+
+![](img/plato2.jpg)
+
+:::
+
+------------------------------------------------------------------------
+
+
+## Statistical Inference
+
+**Goal**: Draw conclusions about the population based on the sample.
+
+**Main Flavors**
+
+-   Estimating numerical quantities (parameters).
+
+-   Testing conjectures.
+
+
+------------------------------------------------------------------------
+
+### Estimation
+
+**Goal**: Estimate a (population) parameter.
+
+Best guess?
+
+-   The corresponding (sample) statistic
+
+::: fragment
+**Example**: Are GIFs just another way for people to share videos of their pets?
+
+<iframe src="https://giphy.com/embed/MCfhrrNN1goH6" width="280" height="240" frameBorder="0" class="giphy-embed" allowFullScreen>
+
+</iframe>
+
+<p><a href="https://giphy.com/gifs/easy-ear-MCfhrrNN1goH6">via GIPHY</a></p>
+
+Want to estimate the proportion of GIFs that feature animals.
+:::
+
+------------------------------------------------------------------------
+
+### Estimation
+
+**Key Question**: How accurate is the statistic as an estimate of the parameter?
+
+**Helpful Sub-Question**: If we take many samples, how much would the statistic vary from sample to sample?
+
+Need two new concepts:
+
+-   The **sampling variability** of a statistic
+
+-   The **sampling distribution** of a statistic
+
+# Let's learn about these ideas through an activity! Go to [tinyurl.com/math141-gifs](https://tinyurl.com/math141-gifs).
+
+------------------------------------------------------------------------
+
+## Sampling Distribution of a Statistic
+
+Steps to Construct an (Approximate) Sampling Distribution:
+
+1.  Decide on a sample size, $n$.
+
+2.  Randomly select a sample of size $n$ from the population.
+
+3.  Compute the sample statistic.
+
+4.  Put the sample back in.
+
+5.  Repeat Steps 2 - 4 many (1000+) times.
+
+------------------------------------------------------------------------
+
+## Sampling Distribution of a Statistic
+
+```{r  out.width = "55%", echo=FALSE, fig.align='center'}
+include_graphics("img/samp_dist.png") 
+```
+
+::::: columns
+::: column
+-   Center? Shape?
+
+-   Spread?
+
+    -   Standard error = standard deviation of the statistic
+:::
+
+::: column
+-   What happens to the center/spread/shape as we increase the sample size?
+
+-   What happens to the center/spread/shape if the true parameter changes?
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Next time
+
+-   Construct sampling distributions in `R`!
