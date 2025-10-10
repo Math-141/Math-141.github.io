@@ -304,7 +304,7 @@ Need two new concepts:
 
 -   The **sampling distribution** of a statistic
 
-# Let's learn about these ideas through an activity! Go to [tinyurl.com/math141-gifs](https://tinyurl.com/math141-gifs).
+# Let's learn about these ideas through an activity! Go to [tinyurl.com/math141-gif](https://tinyurl.com/math141-gif).
 
 ------------------------------------------------------------------------
 
