@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 10/10/25
+  draft-after: 10/13/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -219,8 +219,8 @@ scheduled-docs:
           docs:
             - type: Reading + HW
               href: readings/readings_wk07mon.qmd
-            - type: Slides
-              href: slides/math141_wk07mon.qmd
+            # - type: Slides
+            #   href: slides/math141_wk07mon.qmd
         - topic: "Confidence Intervals"
           display-date: Wednesday, Oct 15
           date: 10/15/25

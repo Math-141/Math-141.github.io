@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 10/13/25
 editor: source
 ---
 
@@ -9,10 +9,11 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   Review reading from last time: MD 7.1 and 7.2
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+-   Probability homework (assigned on Monday 10/6, due **today** 10/13)
+-   LC 7.1, LC 7.2, LC 7.3
