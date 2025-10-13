@@ -219,8 +219,8 @@ scheduled-docs:
           docs:
             - type: Reading + HW
               href: readings/readings_wk07mon.qmd
-            # - type: Slides
-            #   href: slides/math141_wk07mon.qmd
+            - type: Slides
+              href: slides/math141_wk07mon.qmd
         - topic: "Confidence Intervals"
           display-date: Wednesday, Oct 15
           date: 10/15/25
@@ -232,17 +232,17 @@ scheduled-docs:
         - topic: "No lab meeting: oral exams"
           display-date: Thursday, Oct 16
           date: 10/16/25
-          docs:
-            - type: Lab
-              href: labs/lab_07.qmd
+          # docs:
+          #   - type: Lab
+          #     href: labs/lab_07.qmd
         - topic: "No class: more oral exams"
           display-date: Friday, Oct 17
           date: 10/17/25
-          docs:
-            - type: Reading + HW
-              href: readings/readings_wk07fri.qmd
-            - type: Slides
-              href: slides/math141_wk07fri.qmd
+          # docs:
+          #   - type: Reading + HW
+          #     href: readings/readings_wk07fri.qmd
+          #   - type: Slides
+          #     href: slides/math141_wk07fri.qmd
       # resources:
       #   - 'Some text'
     - week: Fall Break

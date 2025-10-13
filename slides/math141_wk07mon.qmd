@@ -1,0 +1,755 @@
+---
+pagetitle: "Quantifying Uncertainty II"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+set.seed(5)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Quantifying Uncertainty II]{.custom-title}
+
+<br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 7 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Announcements
+
+::: {.fragment .nonincremental}
+
+-   Midterm exam available **today**!
+    -   Finish take-home by Weds 10am  (2.5hr exam)
+    -   Make sure you've signed up for an [oral exam time](https://tinyurl.com/math141-midterm)!
+
+-   Discussion of midterm logistics (cloning repo, Gradescope process, rendering, office hours)    
+    
+:::
+
+### Goals for Today
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+-   Continue our discussion of quantifying uncertainty
+    -   Key ideas: 
+        - sampling variability, sampling distributions, populations, samples, parameters, statistics. 
+        
+:::
+
+::: {.column width=50%}
+
+-   Construct sampling distributions in `R`
+
+:::
+
+::::
+        
+
+
+# Statistical Inference
+
+------------------------------------------------------------------------
+
+### The `r emo::ji("heart")` of statistical inference is quantifying uncertainty
+
+```{r, echo = FALSE, out.width='70%'}
+knitr::include_graphics("img/week4.005.jpeg")
+```
+
+::: fragment
+```{r}
+library(tidyverse)
+ce <- read_csv("data/fmli.csv")
+summarize(ce, meanFINCBTAX = mean(FINCBTAX))
+```
+:::
+
+------------------------------------------------------------------------
+
+### The `r emo::ji("heart")` of statistical inference is quantifying uncertainty
+
+```{r}
+library(tidyverse)
+ce <- read_csv("data/fmli.csv")
+summarize(ce, meanFINCBTAX = mean(FINCBTAX))
+```
+
+Like with regression, need to distinguish between the **population** and the **sample**
+
+::::::: columns
+:::: column
+::: nonincremental
+-   **Parameters**:
+    -   Based on the **population**
+    -   Unknown then if don't have data on the whole population
+    -   EX: $\beta_o$ and $\beta_1$
+    -   EX: $\mu$ = population mean
+:::
+::::
+
+:::: column
+::: nonincremental
+-   **Statistics**:
+    -   Based on the **sample** data
+    -   Known
+    -   Usually estimate a population parameter
+    -   EX: $\hat{\beta}_o$ and $\hat{\beta}_1$
+    -   EX: $\bar{x}$ = sample mean
+:::
+::::
+:::::::
+
+------------------------------------------------------------------------
+
+## Statistical Inference
+
+**Goal**: Draw conclusions about the population based on the sample.
+
+
+::: {.fragment .center}
+
+<br> 
+
+### Plato's allegory of the cave
+
+![](img/plato2.jpg)
+
+:::
+
+------------------------------------------------------------------------
+
+
+## Statistical Inference
+
+**Goal**: Draw conclusions about the population based on the sample.
+
+**Main Flavors**
+
+-   Estimating numerical quantities (parameters).
+
+-   Testing conjectures.
+
+
+------------------------------------------------------------------------
+
+### Estimation
+
+**Goal**: Estimate a (population) parameter.
+
+Best guess?
+
+-   The corresponding (sample) statistic
+
+::: fragment
+**Key Question**: How accurate is the statistic as an estimate of the parameter?
+
+**Helpful Sub-Question**: If we take many samples, how much would the statistic vary from sample to sample?
+
+Need two new concepts:
+
+-   The **sampling variability** of a statistic
+
+-   The **sampling distribution** of a statistic
+:::
+
+
+------------------------------------------------------------------------
+
+## Sampling Distribution of a Statistic
+
+Steps to Construct an (Approximate) Sampling Distribution:
+
+1.  Decide on a sample size, $n$.
+
+2.  Randomly select a sample of size $n$ from the population.
+
+3.  Compute the sample statistic.
+
+4.  Put the sample back in.
+
+5.  Repeat Steps 2 - 4 many (1000+) times.
+
+------------------------------------------------------------------------
+
+## Sampling Distribution of a Statistic
+
+```{r  out.width = "55%", echo=FALSE, fig.align='center'}
+include_graphics("img/samp_dist.png") 
+```
+
+::::: columns
+::: column
+-   Center? Shape?
+
+-   Spread?
+
+    -   Standard error = standard deviation of the statistic
+:::
+
+::: column
+-   What happens to the center/spread/shape as we increase the sample size?
+
+-   What happens to the center/spread/shape if the true parameter changes?
+:::
+:::::
+
+------------------------------------------------------------------------
+
+
+## Let's Construct Some Sampling Distributions using `R`!
+
+**Important Notes**
+
+-   To construct a **sampling distribution** for a statistic, we need access to the entire population so that we can take **repeated samples** from the population.
+
+    -   Population = Mt Tabor trees
+
+-   But if we have access to the entire population, then we **know** the value of the population parameter.
+
+    -   Can compute the exact proportion of maple trees in our population.
+
+-   The sampling distribution is needed in the exact scenario where we can't compute it: the scenario where we only have a **single sample**.
+
+-   We will learn how to **estimate** the sampling distribution soon.
+
+-   Today, we have the **entire population** and are constructing sampling distributions anyway to study their properties!
+
+------------------------------------------------------------------------
+
+## New `R` Package: `infer`
+
+::::: columns
+::: {.column width="20%"}
+![](img/infer_gnome.png){width="100%" fig-align="center"}
+:::
+
+::: column
+<br> <br> <br>
+
+```{r}
+library(infer)
+```
+:::
+:::::
+
+## New `R` Package: `infer`
+
+::::: columns
+::: {.column width="20%"}
+![](img/infer.png){width="100%" fig-align="center"}
+:::
+
+::: column
+<br> <br> <br>
+
+```{r}
+library(infer)
+```
+:::
+:::::
+
+-   Will use `infer` to conduct statistical inference.
+
+------------------------------------------------------------------------
+
+## Our Population Parameter
+
+Create data frame of Mt Tabor trees:
+
+```{r}
+library(tidyverse)
+library(pdxTrees)
+tabor <- get_pdxTrees_parks(park = "Mt Tabor Park")
+```
+
+Add variable of interest:
+
+```{r}
+tabor <- tabor %>%
+  mutate(tree_of_interest = case_when(
+    Genus == "Pseudotsuga" ~ "yes",
+    Genus != "Pseudotsuga" ~ "no"
+  ))
+count(tabor, tree_of_interest)
+```
+
+------------------------------------------------------------------------
+
+## Population Parameter
+
+```{r}
+#| output-location: column
+
+# Population distribution
+ggplot(data = tabor, 
+       mapping = aes(x = tree_of_interest)) +
+  geom_bar(aes(y = after_stat(prop), group = 1)) 
+
+# True population parameter
+tabor %>%
+  summarize(parameter = mean(tree_of_interest == "yes"))
+
+```
+
+------------------------------------------------------------------------
+
+### Random Samples
+
+Let's look at 4 random samples.
+
+```{r, fig.width = 8, fig.height = 4}
+#| output-location: column
+
+# Draw random samples
+samples <- tabor %>% 
+  rep_sample_n(size = 20, reps = 4)
+  
+# Graph the samples
+ggplot(data = samples, 
+       mapping = aes(x = tree_of_interest)) +
+  geom_bar(aes(y = after_stat(prop), group = 1)) +
+  facet_wrap(~replicate)
+```
+
+------------------------------------------------------------------------
+
+### Constructing the Sampling Distribution
+
+Now, let's take 1000 random samples.
+
+```{r}
+#| output-location: column
+# Construct the sampling distribution
+samp_dist <- tabor %>% 
+  rep_sample_n(size = 20, reps = 1000) %>%
+  group_by(replicate) %>%
+  summarize(
+    statistic = mean(tree_of_interest == "yes")
+    )
+
+# Graph the sampling distribution
+ggplot(data = samp_dist, 
+       mapping = aes(x = statistic)) +
+  geom_histogram(bins = 13)
+```
+
+:::::: columns
+::: {.column width="33%"}
+-   Shape?
+:::
+
+::: {.column width="33%"}
+-   Center?
+:::
+
+::: {.column width="33%"}
+-   Spread?
+:::
+::::::
+
+------------------------------------------------------------------------
+
+### Properties of the Sampling Distribution
+
+::::: columns
+::: column
+```{r}
+#| echo: false
+# Graph the sampling distribution
+ggplot(data = samp_dist, 
+       mapping = aes(x = statistic)) +
+  geom_histogram(bins = 13)
+```
+:::
+
+::: column
+```{r}
+summarize(samp_dist, estimate = mean(statistic))
+summarize(samp_dist, standard_error = sd(statistic))
+```
+:::
+:::::
+
+The standard deviation of a sample statistic is called the **standard error**.
+
+------------------------------------------------------------------------
+
+### Properties of the Sampling Distribution
+
+::::: columns
+::: column
+```{r}
+#| echo: false
+est <- summarize(samp_dist, estimate = mean(statistic)) %>% pull()
+se <- summarize(samp_dist, standard_error = sd(statistic)) %>% pull()
+# Graph the sampling distribution
+ggplot() +
+  geom_histogram(data = samp_dist,
+                 mapping = aes(x = statistic),
+                 bins = 13) +
+  geom_rect(
+    data = data.frame(est = est, se = se),
+    xmin = est - 1.96 * se,
+    xmax = est + 1.96 * se,
+    ymin = 0,
+    ymax = Inf,
+    fill = "springgreen",
+    alpha = 0.3
+  ) +
+  geom_segment(
+    data = data.frame(est = est, se = se),
+    x = est,
+    xend = est,
+    y = 0,
+    yend = Inf,
+    color = "red",
+    size = 2
+  ) +
+  scale_x_continuous(
+    breaks = c(est - 1.96 * se, est, est + 1.96 * se),
+    labels = c(
+      expression(p - 1.96 * se),
+      expression(p),
+      expression(p + 1.96 * se)
+    )
+  )
+```
+:::
+
+::: column
+```{r}
+summarize(samp_dist, estimate = mean(statistic))
+summarize(samp_dist, standard_error = sd(statistic))
+```
+:::
+:::::
+
+For approximately bell-shaped distributions, about 95\% of observations fall within 1.96 standard deviations of the population's mean $p$. 
+
+
+::: {.fragment}
+
+**Huge Implication:**
+
+:::
+
+  - The sampling distribution for the mean, $\hat p$ is approximately bell-shaped
+
+  - ... and is centered at the population mean, $p$.
+  
+  - So **95\% of all sample statistics, $\hat p$ fall within 2 standard errors of $p$!**
+  
+
+
+------------------------------------------------------------------------
+
+What happens to the sampling distribution if we change the sample size from 20 to 100?
+
+```{r}
+#| output-location: column
+# Construct the sampling distribution
+samp_dist_100 <- tabor %>% 
+  rep_sample_n(size = 100, reps = 1000) %>%
+  group_by(replicate) %>%
+  summarize(
+    statistic = mean(tree_of_interest == "yes")
+    )
+
+# Graph the sampling distribution
+ggplot(data = samp_dist_100, 
+       mapping = aes(x = statistic)) +
+  geom_histogram(bins = 13)
+
+summarize(samp_dist_100, mean(statistic), 
+          sd(statistic))
+```
+------------------------------------------------------------------------
+
+## Changing sample size
+
+```{r}
+#| echo: false
+library(patchwork)
+samp_dist <- samp_dist %>% mutate(n = "n = 20")
+samp_dist_100 <- samp_dist_100 %>% mutate(n = "n = 100")
+
+
+ggplot(data = bind_rows(samp_dist, samp_dist_100), 
+       mapping = aes(x = statistic)) +
+  geom_histogram(bins = 13) + 
+  facet_wrap(~n, ncol = 1)
+```
+
+
+-   As the size of our sample increases, the variability of the sampling distribution **decreases**. 
+
+-   This makes sense: more data --> more precise estimates
+
+
+------------------------------------------------------------------------
+
+## Changing sample size
+
+```{r}
+#| echo: false
+library(patchwork)
+samp_dist <- samp_dist %>% mutate(n = "n = 20")
+samp_dist_100 <- samp_dist_100 %>% mutate(n = "n = 100")
+
+stats <- bind_rows(samp_dist, samp_dist_100) %>%
+  group_by(n) %>%
+  summarize(est = mean(statistic), se = sd(statistic))
+
+ggplot() +
+  geom_histogram(data = bind_rows(samp_dist, samp_dist_100), 
+       mapping = aes(x = statistic), bins = 13) + 
+    geom_rect(
+    data = stats,
+    mapping = aes(xmin = est - 1.96 * se,
+    xmax = est + 1.96 * se,
+    ymin = 0,
+    ymax = Inf),
+    fill = "springgreen",
+    alpha = 0.3
+  ) +
+  geom_segment(
+    data = stats,
+    x = est,
+    xend = est,
+    y = 0,
+    yend = Inf,
+    color = "red",
+    size = 2
+  ) +
+    scale_x_continuous(
+    breaks = c(est - 1.96 * se, est, est + 1.96 * se),
+    labels = c(
+      expression(p - 1.96 * se),
+      expression(p),
+      expression(p + 1.96 * se)
+    )) +
+  facet_wrap(~n, ncol = 1) 
+```
+
+
+-   Both sampling distributions are still centered at $p$, but
+
+-   We can see that 95\% of samples lie within different ranges for different $n$
+
+-   As $n$ increases, sampling variability (i.e. the standard error of the sampling distribution) decreases
+
+
+------------------------------------------------------------------------
+
+What if we change the true parameter value?
+
+```{r}
+#| output-location: column
+# Construct the sampling distribution
+samp_dist <- tabor %>%
+  rep_sample_n(size = 20, reps = 1000) %>%
+  group_by(replicate) %>%
+  summarize(
+    statistic = mean(Functional_Type == "BD")
+    )
+
+# Graph the sampling distribution
+ggplot(data = samp_dist,
+       mapping = aes(x = statistic)) +
+    geom_histogram(bins = 13)
+
+summarize(samp_dist, mean(statistic, na.rm = TRUE),
+          sd(statistic, na.rm = TRUE))
+```
+
+------------------------------------------------------------------------
+
+
+## A Word of Warning: The Shape of the Sampling Distribution
+
+
+Sometimes, you need a large enough sample for your sampling distribution to look bell-shaped. 
+
+::: {.fragment}
+
+**Example**: forest biomass in Oregon
+
+```{r}
+#| echo: false
+library(saeczi)
+oregon_biomass <- saeczi::samp %>% rename(biomass = DRYBIO_AG_TPA_live_ADJ)
+```
+
+
+```{r}
+#| output-location: column
+#| message: false
+oregon_biomass %>%
+  ggplot(aes(x = biomass)) + 
+  geom_histogram(bins = 15)
+```
+
+:::
+
+------------------------------------------------------------------------
+
+
+## A Word of Warning: The Shape of the Sampling Distribution
+
+
+Sometimes, you need a large enough sample for your sampling distribution to look bell-shaped. 
+
+::: {.fragment}
+
+**Example**: forest biomass in Oregon
+
+```{r}
+#| output-location: column
+#| message: false
+
+oregon_5 <- oregon_biomass %>%
+  rep_sample_n(size = 5, reps = 1000)
+
+oregon_5 %>%
+  group_by(replicate) %>%
+  summarize(statistic = mean(biomass)) %>%
+  ggplot(aes(x = statistic)) +
+  geom_histogram(bins = 10) +
+  labs(title = "n = 5")
+```
+
+:::
+
+------------------------------------------------------------------------
+
+## A Word of Warning: The Shape of the Sampling Distribution
+
+
+Sometimes, you need a large enough sample for your sampling distribution to look bell-shaped. 
+
+
+
+**Example**: forest biomass in Oregon
+
+```{r}
+#| output-location: column
+#| message: false
+
+oregon_20 <- oregon_biomass %>%
+  rep_sample_n(size = 20, reps = 1000)
+
+oregon_20 %>%
+  group_by(replicate) %>%
+  summarize(statistic = mean(biomass)) %>%
+  ggplot(aes(x = statistic)) +
+  geom_histogram(bins = 10) + 
+  labs(title = "n = 20")
+```
+
+
+
+------------------------------------------------------------------------
+
+## A Word of Warning: The Shape of the Sampling Distribution
+
+
+Sometimes, you need a large enough sample for your sampling distribution to look bell-shaped. 
+
+
+**Example**: forest biomass in Oregon
+
+```{r}
+#| output-location: column
+#| message: false
+
+oregon_100 <- oregon_biomass %>%
+  rep_sample_n(size = 100, reps = 1000)
+
+oregon_100 %>%
+  group_by(replicate) %>%
+  summarize(statistic = mean(biomass)) %>%
+  ggplot(aes(x = statistic)) +
+  geom_histogram(bins = 10) + 
+  labs(title = "n = 100")
+```
+
+
+# On Lab 6:
+
+[Will investigate what happens when we change the parameter of interest to a mean or a correlation coefficient!]{.custom-subtitle}
+
+------------------------------------------------------------------------
+
+## Key Features of a Sampling Distribution
+
+What did we learn about sampling distributions?
+
+-   Centered around the true population parameter.
+
+-   As the sample size increases, the **standard error** (SE) of the statistic decreases.
+
+-   As the sample size increases, the shape of the sampling distribution becomes more bell-shaped and symmetric.
+
+::: {.fragment}
+
+### Question:
+
+[How do sampling distributions help us **quantify uncertainty**?]{.custom-subtitle}
+
+:::
+
+::: {.fragment}
+
+### Question:
+
+[If I am estimating a parameter in a real example, why won't I be able to construct the sampling distribution?]{.custom-subtitle}
+
+:::
+
+
+# Cliffhanger:
+
+[How can I quantify uncertainty in a sample statistic when I only have access to one sample??]{.custom-subtitle}
+
