@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 10/13/25
+  draft-after: 10/15/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -221,14 +221,14 @@ scheduled-docs:
               href: readings/readings_wk07mon.qmd
             - type: Slides
               href: slides/math141_wk07mon.qmd
-        - topic: "Confidence Intervals"
+        - topic: "Bootstrapping"
           display-date: Wednesday, Oct 15
           date: 10/15/25
           docs:
             - type: Reading + HW
               href: readings/readings_wk07wed.qmd
-            - type: Slides
-              href: slides/math141_wk07wed.qmd
+            # - type: Slides
+            #   href: slides/math141_wk07wed.qmd
         - topic: "No lab meeting: oral exams"
           display-date: Thursday, Oct 16
           date: 10/16/25
