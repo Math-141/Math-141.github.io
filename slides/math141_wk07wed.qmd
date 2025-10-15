@@ -235,6 +235,7 @@ We saw that **95\% of all samples fell within 1.96 standard errors** from the ce
 
 ```{r}
 #| output-location: column
+#| echo: false
 # Construct the sampling distribution
 est <- summarize(samp_dist, estimate = mean(statistic)) %>% pull()
 se <- summarize(samp_dist, standard_error = sd(statistic)) %>% pull()
@@ -535,7 +536,7 @@ ci <- bootstrap_dist %>%
 ci
 ```
 
-**Interpretation:** The point estimate is \$ `r round(x_bar$stat, digits = 2)`mm. I am 95% confidence that the average amount of money made by all Hollywood movies is between \$ `r ci$lower_ci`mm and \$ `r round(ci$upper_ci, digits = 1)`mm.
+**Interpretation:** The point estimate is `r round(x_bar$stat, digits = 2)`mm. I am 95% confidence that the average bill length of Adelie penguins is between `r round(ci$lower_ci, digits = 2)`mm and `r round(ci$upper_ci, digits = 2)`mm.
 
 ------------------------------------------------------------------------
 
@@ -617,7 +618,7 @@ ci_95 <- bootstrap_dist %>%
 ci_95
 ```
 
-**Interpretation**: The point estimate is \$ `r round(diff_x_bar$stat, digits = 1)`mm. I am 95% confidence that the difference in bill length between Adelie and Chinstrap penguins is, on average, between \$ `r round(ci_95$lower_ci, digits = 1)`mm and \$ `r round(ci_95$upper_ci, digits = 1)`mm.
+**Interpretation**: The point estimate is `r round(diff_x_bar$stat, digits = 2)`mm. I am 95% confidence that the difference in bill length between Adelie and Chinstrap penguins is, on average, between `r round(ci_95$lower_ci, digits = 2)`mm and `r round(ci_95$upper_ci, digits = 2)`mm.
 
 ------------------------------------------------------------------------
 

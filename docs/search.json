@@ -3203,7 +3203,7 @@
     "href": "slides/math141_wk07wed.html#confidence-intervals-1",
     "title": "Math 141",
     "section": "Confidence Intervals",
-    "text": "Confidence Intervals\nIt is time to move beyond just point estimates to interval estimates that quantify our uncertainty.\nWe saw that 95% of all samples fell within 1.96 standard errors from the center of the (approximate) sampling distribution.\n\n\n\n# Construct the sampling distribution\nest &lt;- summarize(samp_dist, estimate = mean(statistic)) %&gt;% pull()\nse &lt;- summarize(samp_dist, standard_error = sd(statistic)) %&gt;% pull()\n# Graph the sampling distribution\n# Not code you need or will use, just here for transparency. \nggplot() +\n  geom_histogram(data = samp_dist,\n                 mapping = aes(x = statistic),\n                 bins = 33) +\n  geom_rect(\n    data = data.frame(est = est, se = se),\n    xmin = est - 1.96 * se,\n    xmax = est + 1.96 * se,\n    ymin = 0,\n    ymax = Inf,\n    fill = \"springgreen\",\n    alpha = 0.3\n  ) +\n  geom_segment(\n    data = data.frame(est = est, se = se),\n    x = est,\n    xend = est,\n    y = 0,\n    yend = Inf,\n    color = \"red\",\n    size = 2\n  ) +\n  scale_x_continuous(\n    breaks = c(est - 1.96 * se, est, est + 1.96 * se),\n    labels = c(\n      expression(p - 1.96 * se),\n      expression(p),\n      expression(p + 1.96 * se)\n    )\n  )"
+    "text": "Confidence Intervals\nIt is time to move beyond just point estimates to interval estimates that quantify our uncertainty.\nWe saw that 95% of all samples fell within 1.96 standard errors from the center of the (approximate) sampling distribution."
   },
   {
     "objectID": "slides/math141_wk07wed.html#confidence-intervals-2",
@@ -3252,7 +3252,7 @@
     "href": "slides/math141_wk07wed.html#estimation-for-a-single-mean-se-method",
     "title": "Math 141",
     "section": "Estimation for a Single Mean – SE Method",
-    "text": "Estimation for a Single Mean – SE Method\n\n\n# Get confidence interval\nci &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"se\", level = 0.95,\n                          point_estimate = x_bar)\nci\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1     43.3     44.5\n\n\nInterpretation: The point estimate is $ 43.92mm. I am 95% confidence that the average amount of money made by all Hollywood movies is between $ 43.3256047mm and $ 44.5mm."
+    "text": "Estimation for a Single Mean – SE Method\n\n\n# Get confidence interval\nci &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"se\", level = 0.95,\n                          point_estimate = x_bar)\nci\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1     43.3     44.5\n\n\nInterpretation: The point estimate is 43.92mm. I am 95% confidence that the average bill length of Adelie penguins is between 43.33mm and 44.52mm."
   },
   {
     "objectID": "slides/math141_wk07wed.html#estimation-for-a-single-mean-2",
@@ -3287,7 +3287,7 @@
     "href": "slides/math141_wk07wed.html#estimation-for-difference-in-means-se-method",
     "title": "Math 141",
     "section": "Estimation for Difference in Means – SE Method",
-    "text": "Estimation for Difference in Means – SE Method\n\n\n# Get confidence interval \nci_95 &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"se\", level = 0.95,\n                          point_estimate = diff_x_bar) \nci_95\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    -10.9    -9.16\n\n\nInterpretation: The point estimate is $ -10mm. I am 95% confidence that the difference in bill length between Adelie and Chinstrap penguins is, on average, between $ -10.9mm and $ -9.2mm."
+    "text": "Estimation for Difference in Means – SE Method\n\n\n# Get confidence interval \nci_95 &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"se\", level = 0.95,\n                          point_estimate = diff_x_bar) \nci_95\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    -10.9    -9.16\n\n\nInterpretation: The point estimate is -10.04mm. I am 95% confidence that the difference in bill length between Adelie and Chinstrap penguins is, on average, between -10.92mm and -9.16mm."
   },
   {
     "objectID": "slides/math141_wk07wed.html#comparing-cis",
