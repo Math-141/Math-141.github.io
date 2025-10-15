@@ -479,7 +479,7 @@ For approximately bell-shaped distributions, about 95\% of observations fall wit
 
   - ... and is centered at the population mean, $p$.
   
-  - So **95\% of all sample statistics, $\hat p$ fall within 2 standard errors of $p$!**
+  - So **95\% of all sample statistics, $\hat p$ fall within 1.96 standard errors of $p$!**
   
 
 

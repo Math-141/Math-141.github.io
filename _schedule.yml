@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 10/15/25
+  draft-after: 10/26/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -221,28 +221,20 @@ scheduled-docs:
               href: readings/readings_wk07mon.qmd
             - type: Slides
               href: slides/math141_wk07mon.qmd
-        - topic: "Bootstrapping"
+        - topic: "The Bootstrap (and Introduction to Confidence Intervals)"
           display-date: Wednesday, Oct 15
           date: 10/15/25
           docs:
             - type: Reading + HW
               href: readings/readings_wk07wed.qmd
-            # - type: Slides
-            #   href: slides/math141_wk07wed.qmd
+            - type: Slides
+              href: slides/math141_wk07wed.qmd
         - topic: "No lab meeting: oral exams"
           display-date: Thursday, Oct 16
           date: 10/16/25
-          # docs:
-          #   - type: Lab
-          #     href: labs/lab_07.qmd
         - topic: "No class: more oral exams"
           display-date: Friday, Oct 17
           date: 10/17/25
-          # docs:
-          #   - type: Reading + HW
-          #     href: readings/readings_wk07fri.qmd
-          #   - type: Slides
-          #     href: slides/math141_wk07fri.qmd
       resources:
         - 'Clone the repo to answer midterm questions before starting the midterm in Gradescope: https://github.com/Math-141/midterm.git'
     - week: Fall Break
