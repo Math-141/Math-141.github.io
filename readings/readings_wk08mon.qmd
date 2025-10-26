@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 10/27/25
 editor: source
 ---
 
@@ -9,10 +9,12 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   Review the Week 7 readings (material from MD Ch 7 + 8)
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+-   In language understandable to someone who hasn't taken a statistic course, describe what a sampling distribution of a statistic is. Feel free to give an example to help aid your explanation. Also, explain why we care about the sampling distribution and why it is helpful to us. 
+
+-   In language understandable to someone who hasn't taken a statistic course, explain the process of bootstrapping and how we can use it to approximate the sampling distribution. Feel free to give an example to help aid your explanation. Also, explain why (in real scenarios) we need to use bootstraping in order to approximate the sampling distribution.
