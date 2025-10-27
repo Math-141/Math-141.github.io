@@ -249,9 +249,9 @@ scheduled-docs:
           docs:
             - type: Reading + HW
               href: readings/readings_wk08mon.qmd
-            # - type: Slides
-            #   href: slides/math141_wk08mon.qmd
-        - topic: "Estimation: Confidence Intervals"
+            - type: Slides
+              href: slides/math141_wk08mon.qmd
+        - topic: "Testing Hypotheses"
           display-date: Wednesday, Oct 29
           date: 10/29/25
           docs:
@@ -265,7 +265,7 @@ scheduled-docs:
           docs:
             - type: Lab
               href: labs/lab_08.qmd
-        - topic: "Estimation: Confidence Intervals"
+        - topic: "More Testing Hypotheses"
           display-date: Friday, Oct 31
           date: 10/31/25
           docs:

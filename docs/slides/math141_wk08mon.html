@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>Math 141 – Data Collection</title>
+  <title>Math 141 – Bootstraping and CIs in R</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -201,507 +201,505 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Data Collection</span></p>
+<p><span class="custom-title">Bootstraping and CIs in R</span></p>
 <p><br> <br> <br> <br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
-<p><span class="custom-subtitle">Math 141 <br> Week 3 | Fall 2025</span></p>
+<p><span class="custom-subtitle">Math 141 <br> Week 8 | Fall 2025</span></p>
 </div></div>
 </section>
-<section id="goals-for-today" class="slide level2">
-<h2>Goals for Today</h2>
+<section id="announcements" class="slide level2">
+<h2>Announcements</h2>
+<div class="fragment">
 <ul>
-<li class="fragment">Cover data collection/acquisition.</li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h3 id="when-to-get-coding-help">When to Get Coding Help</h3>
-<p>😢 <em>“I have no idea how to do this problem.”</em></p>
-<div class="fragment">
-<p>→ Ask someone to point you to an similar example from the lecture, handouts, and guides.</p>
-</div>
-<div class="fragment">
-<p>→ Talk it through with a course assistant, a fellow Math 141 student, or Grayson so together we can verbalize the process of going from Q to A.</p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p>😡 <em>“I am getting a weird error but really think my code is correct/on the right track/matches the examples from class.”</em></p>
-</div>
-<div class="fragment">
-<p>→ It is time for a second pair of eyes. Don’t stare at the error for over 10 minutes.</p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p>🤩 And lots of other times too! 😬</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="when-to-get-help">When to Get Help</h3>
-<p>Remember:</p>
-<div class="fragment">
-<p>→ Struggling is part of learning.</p>
-</div>
-<div class="fragment">
-<p>→ But let us help you ensure it is a <strong>productive</strong> struggle.</p>
-</div>
-<div class="fragment">
-<p>→ Struggling does NOT mean you are bad at stats, it actually means you are doing the work to <strong>learn</strong> the material!</p>
-</div>
-</section>
-<section id="now-for-data-collection" class="slide level2">
-<h2>Now for Data Collection</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/DAW.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="motivating-our-discussion-of-data-collection" class="slide level2">
-<h2>Motivating Our Discussion of Data Collection</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/twitter-study-design.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="who-are-the-data-supposed-to-represent" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.002.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Key questions:</strong></p>
-<ul>
-<li class="fragment">What evidence is there that the data are <strong>representative</strong>?</li>
-<li class="fragment">Who is present? Who is absent?</li>
-<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
-</ul>
-</section>
-<section id="who-are-the-data-supposed-to-represent-1" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.003.jpeg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
-</figure>
-</div>
-<p><strong>Census</strong>: We have data on the whole population!</p>
-</section>
-<section id="who-are-the-data-supposed-to-represent-2" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sampling.002.jpeg" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
-</figure>
-</div>
-</section>
-<section id="who-are-the-data-supposed-to-represent-3" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.005.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Key questions:</strong></p>
-<ul>
-<li class="fragment">What evidence is there that the <strong>sample</strong> is <strong>representative</strong> of the <strong>population</strong>?</li>
-<li class="fragment">Who is present? Who is absent?</li>
-<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
-</ul>
-</section>
-<section id="sampling-bias" class="slide level2">
-<h2>Sampling Bias</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sampling.001.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Sampling bias</strong>: When the sampled units are <strong>systematically different</strong> from the non-sampled units on the variables of interest.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="sampling-bias-example">Sampling Bias Example</h3>
-<p>The <strong>Literary Digest</strong> was a political magazine that correctly predicted the presidential outcomes from 1916 to 1932. In 1936, they conducted the most extensive (to that date) public opinion poll. They mailed questionnaires to over 10 million people (about 1/3 of US households) whose names and addresses they obtained from telephone books and vehicle registration lists.</p>
-<p><strong>Population of Interest</strong>:</p>
-<p><br></p>
-<p><strong>Sample</strong>:</p>
-<p><br></p>
-<p><strong>Sampling bias</strong>:</p>
-</section>
-<section id="random-sampling" class="slide level2">
-<h2>Random Sampling</h2>
-<p>Use random sampling (a random mechanism for selecting cases from the population) to remove sampling bias.</p>
-<h4 id="types-of-random-sampling">Types of random sampling</h4>
-<div>
-<ul>
-<li><p>Simple random sampling</p></li>
-<li><p>Cluster sampling</p></li>
-<li><p>Stratified random sampling</p></li>
-<li><p>Systematic sampling</p></li>
+<li><p>Midterm grades released will be released <strong>Tuesday</strong>.</p></li>
+<li><p>Some logistics on Wednesday: (Written) midterm corrections, final exam info</p></li>
 </ul>
 </div>
-<div class="fragment">
-<p>Why aren’t all samples generated using simple random sampling?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="us-forest-inventory-and-analysis-program">US Forest Inventory and Analysis Program</h3>
-<div class="columns">
-<div class="column" style="width:15%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/fs.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:85%;">
-<blockquote>
-<p>Mission: “Make and keep current a comprehensive inventory and analysis of the present and prospective conditions of and requirements for the renewable resources of the forest and rangelands of the US.”</p>
-</blockquote>
-</div></div>
-<div class="fragment">
-<p>Need a <strong>random sample</strong> of ground plots to say something about the state of our nation’s forests!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-simple-random-sampling">FIA: Simple Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
+<h3 id="goals-for-today">Goals for Today</h3>
 <ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Number each plot from 1 to 62,963,840.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to sample 10,494 plots.</li>
+<li class="fragment">Recall ideas about the sampling distribution and bootstrapping</li>
+<li class="fragment">Bootstrapping in <code>R</code></li>
+<li class="fragment">Learn more about <strong>confidence intervals</strong> and compute them in <code>R</code></li>
 </ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">62963840</span>, <span class="at">size =</span> <span class="dv">10494</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  4371876 30189990  5028510  1582613 33175752 38901225</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Put each plot in a cluster.
-<ul>
-<li class="fragment">For our example: cluster = county.</li>
-</ul></li>
-<li class="fragment">Number each cluster.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to sample 2 clusters.</li>
-<li class="fragment">Sample <strong>all</strong> plots in those 2 clusters.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 36 13</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/legend.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling-1">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div>
-<ul>
-<li>Break the landscape up into equally sized plots (~1 acre).</li>
-<li>Put each plot in a cluster.
-<ul>
-<li>For our example: cluster = county.</li>
-</ul></li>
-<li>Number each cluster.</li>
-<li>Use a <strong>random</strong> mechanism to sample 2 clusters.</li>
-<li>Take a <strong>simple random sample</strong> within the sampled clusters.</li>
-</ul>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1]  1 23</code></pre>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:---</span>, <span class="at">size =</span> <span class="sc">---</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/legend.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p>Subsampling within each sampled cluster is much more common than subsampling the whole sampled cluster!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling-2">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/Forest-types-Map-combo.jpg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<ul>
-<li class="fragment"><p>Are our clusters based on counties <strong>homogeneous</strong>?</p></li>
-<li class="fragment"><p>Why is <strong>homogeneity</strong> important for cluster sampling?</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-stratified-random-sampling">FIA: Stratified Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Put each plot in a stratum.
-<ul>
-<li class="fragment">For our example: stratum = county.</li>
-</ul></li>
-<li class="fragment">Take a <strong>simple random sample</strong> within every stratum.
-<ul>
-<li class="fragment">Don’t have to be equally sized!</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Do this for each stratum</span></span>
-<span id="cb8-2"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:---</span>, <span class="at">size =</span> <span class="sc">---</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-systematic-random-sampling">FIA: Systematic Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>This is FIA’s <strong>actual</strong> sampling design (okay, slightly simplified).</p>
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Number each plot from 1 to 62,963,840.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to pick starting point. Then sample about once every 6000 acres.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">62963840</span>, <span class="at">size =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 61014762</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Why is this design <strong>better</strong> than simple random sampling?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 class="smaller" id="national-health-and-nutrition-examination-survey">National Health and Nutrition Examination Survey</h3>
-<div class="columns">
-<div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/nhanes_logo.jpg" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:80%;">
-<blockquote>
-<p>Mission: “Assess the health and nutritional status of adults and children in the United States.”</p>
-</blockquote>
-</div></div>
-<p>How are these data collected?</p>
-</section>
-<section class="slide level2">
-
-<h3 id="nhanes-sampling-design">NHANES Sampling Design</h3>
-<ul>
-<li class="fragment"><p><strong>Stage 1</strong>: US is stratified by geography and distribution of minority populations. Counties are randomly selected within each stratum.</p></li>
-<li class="fragment"><p><strong>Stage 2</strong>: From the sampled counties, city blocks are randomly selected. (City blocks are clusters.)</p></li>
-<li class="fragment"><p><strong>Stage 3</strong>: From sampled city blocks, households are randomly selected. (Households are clusters.)</p></li>
-<li class="fragment"><p><strong>Stage 4</strong>: From sampled households, people are randomly selected. For the sampled households, a mobile health vehicle goes to the house and medical professionals take the necessary measurements.</p></li>
-</ul>
-<div class="fragment">
-<p><strong>Why don’t they use simple random sampling?</strong></p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="careful-using-non-simple-random-sample-data">Careful Using Non-Simple Random Sample Data</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
 </section>
 <section>
-<section id="detour-data-ethics" class="title-slide slide level1 center">
-<h1>Detour: Data Ethics</h1>
+<section id="review-discussion-sampling-distributions-and-bootstrapping" class="title-slide slide level1 center">
+<h1>Review Discussion: Sampling distributions and bootstrapping</h1>
 
+</section>
+<section id="confidence-intervals" class="slide level2">
+<h2>Confidence Intervals</h2>
+<p>Recall that a <strong>confidence interval</strong> is an interval of <strong>plausible</strong> values for a parameter.</p>
+<ul>
+<li class="fragment"><p><strong>Form</strong>: <span class="math inline">\(\mbox{statistic} \pm \mbox{Margin of Error}\)</span></p></li>
+<li class="fragment"><p><strong>Question</strong>: How do we find the Margin of Error (ME)?</p></li>
+<li class="fragment"><p><strong>Answer</strong>: If the sampling distribution of the statistic is approximately bell-shaped and symmetric, then a statistic will be within 1.96 SEs of the parameter for 95% of the samples.</p></li>
+<li class="fragment"><p><strong>Form</strong>: <span class="math inline">\(\mbox{statistic} \pm 1.96\times\mbox{SE}\)</span></p></li>
+<li class="fragment"><p>Called a 95% confidence interval (CI). (Will discuss the meaning of <strong>confidence</strong> soon)</p></li>
+</ul>
+</section>
+<section id="confidence-intervals-1" class="slide level2">
+<h2>Confidence Intervals</h2>
+<p><strong>95% CI Form</strong>:</p>
+<p><span class="math display">\[
+\mbox{statistic} \pm 1.96\times\mbox{SE}
+\]</span></p>
+<p>It is easy to compute a statistic for the form above (sample proportion, sample mean, …)</p>
+<div class="fragment">
+<p>But… <strong>What else do we need to construct the CI?</strong></p>
+</div>
+<ul>
+<li class="fragment"><p><strong>Problem</strong>: To compute the SE, we need many samples from the population. We have 1 sample.</p></li>
+<li class="fragment"><p><strong>Solution</strong>: Approximate the sampling distribution using <strong>ONLY OUR ONE SAMPLE!</strong></p></li>
+</ul>
 </section>
 <section class="slide level2">
 
-<h3 id="data-ethics">Data Ethics</h3>
-<blockquote>
-<p>“Good statistical practice is fundamentally based on transparent assumptions, reproducible results, and valid interpretations.” – Committee on Professional Ethics of the American Statistical Association (ASA)</p>
-</blockquote>
-<p>The ASA has created <a href="https://www.amstat.org/ASA/Your-Career/Ethical-Guidelines-for-Statistical-Practice.aspx">“Ethical Guidelines for Statistical Practice”</a></p>
-<div class="fragment">
-<p>→ These guidelines are for EVERYONE doing statistical work.</p>
-</div>
-<div class="fragment">
-<p>→ There are ethical decisions at all steps of the Data Analysis Process.</p>
-</div>
-<div class="fragment">
-<p>→ We will periodically refer to specific guidelines throughout this class.</p>
-</div>
-<div class="fragment">
-<blockquote>
-<p>“Above all, professionalism in statistical practice presumes the goal of advancing knowledge while avoiding harm; using statistics in pursuit of unethical ends is inherently unethical.”</p>
-</blockquote>
-</div>
-</section>
-<section id="responsibilities-to-research-subjects" class="slide level2">
-<h2>Responsibilities to Research Subjects</h2>
-<blockquote>
-<p>“The ethical statistician protects and respects the rights and interests of human and animal subjects at all stages of their involvement in a project. This includes respondents to the census or to surveys, those whose data are contained in administrative records, and subjects of physically or psychologically invasive research.”</p>
-</blockquote>
-</section>
-<section class="slide level2">
-
-<h3 id="responsibilities-to-research-subjects-1">Responsibilities to Research Subjects</h3>
-<p>Why do you think the <code>Age</code> variable maxes out at 80?</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="img/blundstone.jpg" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="bootstraping-algorithm">Bootstraping: Algorithm</h3>
+<p>How do we approximate the sampling distribution?</p>
+<div class="columns">
+<div class="column" style="width:&quot;50%;">
+<p><strong>Bootstrap Distribution of a Sample Statistic</strong>:</p>
+<ol type="1">
+<li class="fragment"><p>Take a sample of size <span class="math inline">\(n\)</span> <strong>with replacement</strong> from the sample. Called a bootstrap sample.</p></li>
+<li class="fragment"><p>Compute the statistic on the bootstrap sample.</p></li>
+<li class="fragment"><p>Repeat 1 and 2 many (1000+) times.</p></li>
+</ol>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="bootstrapped-confidence-intervals">Bootstrapped Confidence Intervals</h3>
+<h4 id="two-methods">Two Methods</h4>
+<p>Assuming random sample and roughly bell-shaped and symmetric bootstrap distribution for both methods.</p>
 <div class="fragment">
-<blockquote>
-<p>“Protects the privacy and confidentiality of research subjects and data concerning them, whether obtained from the subjects directly, other persons, or existing records.”</p>
-</blockquote>
+<p><strong>SE Method 95% CI</strong>:</p>
+<p><span class="math display">\[
+\mbox{statistic} \pm 1.96 \times\widehat{\mbox{SE}}
+\]</span></p>
+<p>We approximate <span class="math inline">\(\mbox{SE}\)</span> with <span class="math inline">\(\widehat{\mbox{SE}}\)</span> = the standard deviation of the bootstrapped statistics.</p>
+</div>
+<p><br></p>
+<div class="fragment">
+<p><strong>Percentile Method CI:</strong></p>
+<p>If I want a P% confidence interval, I find the bounds of the middle P% of the bootstrap distribution.</p>
 </div>
 </section>
-<section id="next-time" class="slide level2">
-<h2>Next time:</h2>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="how-can-we-construct-bootstrap-distributions-and-bootstrapped-cis-in-r" class="title-slide slide level1 center">
+<h1>How can we construct bootstrap distributions and bootstrapped CIs in R?</h1>
+
+</section>
+<section id="load-packages-and-data" class="slide level2">
+<h2>Load Packages and Data</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(infer)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(palmerpenguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Let’s return to the Palmer Penguins!</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="co"># Read in data</span></span>
+<span id="cb2-2"><a></a><span class="fu">head</span>(penguins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+  species island    bill_length_mm bill_depth_mm flipper_length_mm body_mass_g
+  &lt;fct&gt;   &lt;fct&gt;              &lt;dbl&gt;         &lt;dbl&gt;             &lt;int&gt;       &lt;int&gt;
+1 Adelie  Torgersen           39.1          18.7               181        3750
+2 Adelie  Torgersen           39.5          17.4               186        3800
+3 Adelie  Torgersen           40.3          18                 195        3250
+4 Adelie  Torgersen           NA            NA                  NA          NA
+5 Adelie  Torgersen           36.7          19.3               193        3450
+6 Adelie  Torgersen           39.3          20.6               190        3650
+# ℹ 2 more variables: sex &lt;fct&gt;, year &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="fragment">
+<p>We’ll see <strong>new functions</strong> to complete data analysis workflow steps with the <code>infer</code> package today.</p>
+</div>
+</section>
+<section id="estimation-for-a-single-mean" class="slide level2">
+<h2>Estimation for a Single Mean</h2>
+<p>What is the average bill length <span class="math inline">\((\mu)\)</span> of an Adelie penguin?</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Compute the summary statistic</span></span>
+<span id="cb4-2"><a></a>x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb4-6"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: bill_length_mm (numeric)
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1  43.9</code></pre>
+</div>
+</div>
 <ul>
-<li class="fragment">More sampling</li>
-<li class="fragment">Sampling bias</li>
+<li class="fragment">Why is our numerical quantity a mean and not a proportion or correlation here?</li>
 </ul>
+</section>
+<section id="estimation-for-a-single-mean-1" class="slide level2">
+<h2>Estimation for a Single Mean</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
+<span id="cb6-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb6-7"><a></a></span>
+<span id="cb6-8"><a></a><span class="co"># Look at bootstrap distribution</span></span>
+<span id="cb6-9"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist, </span>
+<span id="cb6-10"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb6-11"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="estimation-for-a-single-mean-se-method" class="slide level2">
+<h2>Estimation for a Single Mean – SE Method</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Get confidence interval</span></span>
+<span id="cb7-2"><a></a>ci <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb7-4"><a></a>                          <span class="at">point_estimate =</span> x_bar)</span>
+<span id="cb7-5"><a></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  lower_ci upper_ci
+     &lt;dbl&gt;    &lt;dbl&gt;
+1     43.3     44.5</code></pre>
+</div>
+</div></div>
+<p><strong>Interpretation:</strong> The point estimate is 43.92mm. I am 95% confidence that the average bill length of Adelie penguins is between 43.34mm and 44.5mm.</p>
+</section>
+<section id="estimation-for-a-single-mean-2" class="slide level2">
+<h2>Estimation for a Single Mean</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Visualize confidence interval</span></span>
+<span id="cb9-2"><a></a>bootstrap_dist <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="estimation-for-a-single-mean-percentile-method" class="slide level2">
+<h2>Estimation for a Single Mean – Percentile Method</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Get confidence interval </span></span>
+<span id="cb10-2"><a></a>ci_95 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"percentile"</span>,</span>
+<span id="cb10-4"><a></a>                          <span class="at">level =</span> <span class="fl">0.95</span>) </span>
+<span id="cb10-5"><a></a>ci_95</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  lower_ci upper_ci
+     &lt;dbl&gt;    &lt;dbl&gt;
+1     43.4     44.5</code></pre>
+</div>
+</div></div>
+</section>
+<section id="estimation-for-difference-in-means" class="slide level2">
+<h2>Estimation for Difference in Means</h2>
+<p>What is the difference in average bill length between Adelie penguins and Chinstrap penguins <span class="math inline">\((\mu_1 - \mu_2)\)</span>?</p>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Compute the summary statistic</span></span>
+<span id="cb12-2"><a></a>diff_x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">specify</span>(bill_length_mm <span class="sc">~</span> species) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>)</span>
+<span id="cb12-7"><a></a>diff_x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: bill_length_mm (numeric)
+Explanatory: species (factor)
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1 -10.0</code></pre>
+</div>
+</div></div>
+<ul>
+<li class="fragment">Why a difference in means?</li>
+</ul>
+</section>
+<section id="estimation-for-difference-in-means-1" class="slide level2">
+<h2>Estimation for Difference in Means</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
+<span id="cb14-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb14-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb14-4"><a></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb14-5"><a></a>  <span class="fu">specify</span>(bill_length_mm <span class="sc">~</span> species) <span class="sc">%&gt;%</span></span>
+<span id="cb14-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb14-7"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>,</span>
+<span id="cb14-8"><a></a>            <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>))</span>
+<span id="cb14-9"><a></a></span>
+<span id="cb14-10"><a></a><span class="co"># Look at bootstrap distribution</span></span>
+<span id="cb14-11"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist,</span>
+<span id="cb14-12"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb14-13"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="estimation-for-difference-in-means-se-method" class="slide level2">
+<h2>Estimation for Difference in Means – SE Method</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Get confidence interval </span></span>
+<span id="cb15-2"><a></a>ci_95 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb15-4"><a></a>                          <span class="at">point_estimate =</span> diff_x_bar) </span>
+<span id="cb15-5"><a></a>ci_95</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  lower_ci upper_ci
+     &lt;dbl&gt;    &lt;dbl&gt;
+1    -10.9    -9.15</code></pre>
+</div>
+</div></div>
+<p><strong>Interpretation</strong>: The point estimate is -10.04mm. I am 95% confidence that the difference in bill length between Adelie and Chinstrap penguins is, on average, between -10.93mm and -9.15mm.</p>
+</section>
+<section id="comparing-cis" class="slide level2">
+<h2>Comparing CIs</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>ci_99 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb17-2"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.99</span>,</span>
+<span id="cb17-3"><a></a>                          <span class="at">point_estimate =</span> diff_x_bar)</span>
+<span id="cb17-4"><a></a></span>
+<span id="cb17-5"><a></a>bootstrap_dist <span class="sc">%&gt;%</span></span>
+<span id="cb17-6"><a></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb17-7"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci_99,</span>
+<span id="cb17-8"><a></a>                            <span class="at">fill =</span> <span class="st">"gold1"</span>,</span>
+<span id="cb17-9"><a></a>                            <span class="at">color =</span> <span class="st">"gold3"</span>) <span class="sc">+</span></span>
+<span id="cb17-10"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci_95) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+<ul>
+<li class="fragment">Why construct a 95% CI versus a 99% CI?</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column" style="width:40%;">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/cis.png" class="quarto-figure quarto-figure-center" style="width:80.0%" data-fig-pos="h"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:60%;">
+<p><a href="http://www.rossmanchance.com/applets/2021/confsim/ConfSim.html">What do we mean by confidence?</a></p>
+<ul>
+<li class="fragment"><p>Confidence level = success rate of the method under <strong>repeated sampling</strong></p></li>
+<li class="fragment"><p>How do I know if my ONE CI successfully contains the true value of the parameter?</p></li>
+<li class="fragment"><p>As we increase the <strong>confidence level</strong>, what happens to the width of the interval?</p></li>
+<li class="fragment"><p>As we increase the <strong>sample size</strong>, what happens to the width of the interval?</p></li>
+<li class="fragment"><p>As we increase the <strong>number of bootstrap samples</strong> we take, what happens to the width of the interval?</p></li>
+</ul>
+</div></div>
+</section>
+<section id="interpreting-confidence-intervals" class="slide level2">
+<h2>Interpreting Confidence Intervals</h2>
+<p><strong>Example:</strong> Estimating average household income before taxes in the US</p>
+<div class="columns">
+<div class="column">
+<p>SE Method Formula:</p>
+<p><span class="math display">\[
+\mbox{statistic} \pm{\mbox{ME}}
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  statistic    ME  lower  upper
+      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
+1    62439. 1977. 60503. 64457.</code></pre>
+</div>
+</div>
+</div><div class="column">
+<p><em>“The margin of [sampling] error can be described as the ‘penalty’ in precision for not talking to everyone in a given population. It describes the range that an answer likely falls between if the survey had reached everyone in a population, instead of just a sample of that population.”</em> – Courtney Kennedy, Director of Survey Research at Pew Research Center</p>
+<p>CI = interval of <strong>plausible</strong> values for the <strong>parameter</strong></p>
+</div></div>
+<p><strong>Safe interpretation:</strong> I am P% confident that {insert what the parameter represents in context} is between {insert lower bound} and {insert upper bound}.</p>
+</section>
+<section id="caution-intervals-in-the-wild" class="slide level2">
+<h2>Caution: Intervals in the wild</h2>
+<p>Statement in <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1255808/">an article</a> for The BMJ (British Medical Journal):</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/bmj.png" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section></section>
+<section>
+<section id="confidence-interval-misunderstandings" class="title-slide slide level1 center">
+<h1>Confidence Interval Misunderstandings</h1>
+
+</section>
+<section id="misunderstanding-1" class="slide level2">
+<h2>Misunderstanding 1</h2>
+<p>Suppose we wish to estimate the number of hours a Reed student sleeps on a typical night. We obtain the following 95% confidence interval: <span class="math inline">\((7.86, 8.34)\)</span></p>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">A 95% confidence interval <strong>does not</strong> contain 95% of observations in the population.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="misunderstanding-1-1" class="slide level2">
+<h2>Misunderstanding 1</h2>
+<div>
+<p>Suppose we wish to estimate the number of hours a Reed student sleeps on a typical night. We obtain the following 95% confidence interval: <span class="math inline">\((7.86, 8.34)\)</span></p>
+<ol type="1">
+<li>A 95% confidence interval <strong>does not</strong> contain 95% of observations in the population.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Saying that 95% of all Reed students sleep between 7.86 and 8.34 hours should just feel wrong. That’s a pretty narrow interval!</p>
+</div>
+</section>
+<section id="misunderstanding-2" class="slide level2">
+<h2>Misunderstanding 2</h2>
+<ol start="2" type="1">
+<li class="fragment">A 95% confidence interval <strong>does not</strong> mean that 95% of all sample means fall within the given range.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="misunderstanding-2-1" class="slide level2">
+<h2>Misunderstanding 2</h2>
+<div>
+<ol start="2" type="1">
+<li>A 95% confidence interval <strong>does not</strong> mean that 95% of all sample means fall within the given range.</li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Q:</strong> Why do the sampling distribution and bootstrap distribution look different?</p>
+</div>
+</section>
+<section id="misunderstanding-3" class="slide level2">
+<h2>Misunderstanding 3</h2>
+<ol start="3" type="1">
+<li class="fragment">Given a 95% confidence interval, <strong>Do Not Say:</strong> “There is a 95% chance that the true parameter falls within my interval.”</li>
+</ol>
+<div class="fragment">
+<ul>
+<li class="fragment">Once we take a sample and calculate a confidence interval, there’s no more randomness!
+<ul>
+<li class="fragment">The interval either does or doesn’t contain the (unknown) parameter.</li>
+</ul></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">This may seem like arguing over semantics – but it’s an important distinction!</li>
+</ul>
+</div>
+<div class="fragment">
+<p>Instead, say either:</p>
+<div>
+<ul>
+<li class="fragment"><strong>“If we were to take many samples and calculate a confidence interval for each, 95% of them would contain the true parameter”</strong></li>
+<li class="fragment"><strong>“We are 95% confident that the true parameter is in our confidence interval”</strong></li>
+</ul>
+</div>
+</div>
 
 
 </section></section>

@@ -1,0 +1,588 @@
+---
+pagetitle: "Bootstraping and CIs in R"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+set.seed(5)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Bootstraping and CIs in R]{.custom-title}
+
+<br> <br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 8 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Announcements
+
+::: {.fragment .nonincremental}
+
+-   Midterm grades released will be released **Tuesday**.
+
+-   Some logistics on Wednesday: (Written) midterm corrections, final exam info
+    
+:::
+
+### Goals for Today
+
+-   Recall ideas about the sampling distribution and bootstrapping
+-   Bootstrapping in `R`
+-   Learn more about **confidence intervals** and compute them in `R`
+
+
+# Review Discussion: Sampling distributions and bootstrapping 
+
+## Confidence Intervals
+
+Recall that a **confidence interval** is an interval of **plausible** values for a parameter.
+
+-   **Form**: $\mbox{statistic} \pm \mbox{Margin of Error}$
+
+-   **Question**: How do we find the Margin of Error (ME)?
+
+-   **Answer**: If the sampling distribution of the statistic is approximately bell-shaped and symmetric, then a statistic will be within 1.96 SEs of the parameter for 95% of the samples.
+
+-   **Form**: $\mbox{statistic} \pm 1.96\times\mbox{SE}$
+
+-   Called a 95% confidence interval (CI). (Will discuss the meaning of **confidence** soon)
+
+------------------------------------------------------------------------
+
+## Confidence Intervals
+
+**95% CI Form**:
+
+$$
+\mbox{statistic} \pm 1.96\times\mbox{SE}
+$$
+
+It is easy to compute a statistic for the form above (sample proportion, sample mean, ...)
+
+::: {.fragment}
+
+But... **What else do we need to construct the CI?**
+
+:::
+
+-   **Problem**: To compute the SE, we need many samples from the population. We have 1 sample.
+
+-   **Solution**: Approximate the sampling distribution using **ONLY OUR ONE SAMPLE!**
+
+------------------------------------------------------------------------
+
+```{r  out.width = "55%", echo=FALSE, fig.align='center'}
+include_graphics("img/blundstone.jpg") 
+```
+
+------------------------------------------------------------------------
+
+
+### Bootstraping: Algorithm
+
+How do we approximate the sampling distribution?
+
+:::: columns
+::: {.column width="\"50%"}
+**Bootstrap Distribution of a Sample Statistic**:
+
+1.  Take a sample of size $n$ **with replacement** from the sample. Called a bootstrap sample.
+
+2.  Compute the statistic on the bootstrap sample.
+
+3.  Repeat 1 and 2 many (1000+) times.
+:::
+::::
+
+------------------------------------------------------------------------
+
+### Bootstrapped Confidence Intervals
+
+#### Two Methods
+
+Assuming random sample and roughly bell-shaped and symmetric bootstrap distribution for both methods.
+
+::: {.fragment}
+
+**SE Method 95% CI**:
+
+$$
+\mbox{statistic} \pm 1.96 \times\widehat{\mbox{SE}}
+$$
+
+We approximate $\mbox{SE}$ with $\widehat{\mbox{SE}}$ = the standard deviation of the bootstrapped statistics.
+
+:::
+
+<br>
+
+::: {.fragment}
+
+**Percentile Method CI:**
+
+If I want a P% confidence interval, I find the bounds of the middle P% of the bootstrap distribution.
+
+:::
+
+------------------------------------------------------------------------
+
+# How can we construct bootstrap distributions and bootstrapped CIs in R?
+
+## Load Packages and Data
+
+```{r}
+library(tidyverse)
+library(infer)
+library(palmerpenguins)
+```
+
+Let's return to the Palmer Penguins!
+
+```{r}
+# Read in data
+head(penguins)
+```
+
+::: {.fragment}
+
+We'll see **new functions** to complete data analysis workflow steps with the `infer` package today. 
+
+:::
+
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean
+
+What is the average bill length $(\mu)$ of an Adelie penguin?
+
+```{r}
+# Compute the summary statistic
+x_bar <- penguins %>%
+  drop_na(bill_length_mm) %>%
+  specify(response = bill_length_mm) %>%
+  calculate(stat = "mean")
+x_bar
+```
+
+-   Why is our numerical quantity a mean and not a proportion or correlation here?
+
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean
+
+```{r}
+#| output-location: column
+# Construct bootstrap distribution
+bootstrap_dist <- penguins %>%
+  drop_na(bill_length_mm) %>%
+  specify(response = bill_length_mm) %>%
+  generate(reps =  1000, type = "bootstrap") %>%
+  calculate(stat = "mean")
+
+# Look at bootstrap distribution
+ggplot(data = bootstrap_dist, 
+       mapping = aes(x = stat)) +
+  geom_histogram(color = "white")
+```
+
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean -- SE Method
+
+```{r}
+#| output-location: column
+
+# Get confidence interval
+ci <- bootstrap_dist %>% 
+  get_confidence_interval(type = "se", level = 0.95,
+                          point_estimate = x_bar)
+ci
+```
+
+**Interpretation:** The point estimate is `r round(x_bar$stat, digits = 2)`mm. I am 95% confidence that the average bill length of Adelie penguins is between `r round(ci$lower_ci, digits = 2)`mm and `r round(ci$upper_ci, digits = 2)`mm.
+
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean
+
+```{r}
+#| output-location: column
+# Visualize confidence interval
+bootstrap_dist %>%
+  visualize() +
+  shade_confidence_interval(endpoints = ci)
+```
+
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean -- Percentile Method
+
+```{r}
+#| output-location: column
+
+# Get confidence interval 
+ci_95 <- bootstrap_dist %>% 
+  get_confidence_interval(type = "percentile",
+                          level = 0.95) 
+ci_95
+```
+
+------------------------------------------------------------------------
+
+## Estimation for Difference in Means
+
+What is the difference in average bill length between Adelie penguins and Chinstrap penguins $(\mu_1 - \mu_2)$?
+
+```{r}
+#| output-location: column
+# Compute the summary statistic
+diff_x_bar <- penguins %>%
+  drop_na(bill_length_mm) %>%
+  filter(species %in% c("Adelie", "Chinstrap")) %>%
+  specify(bill_length_mm ~ species) %>%
+  calculate(stat = "diff in means")
+diff_x_bar
+```
+
+-   Why a difference in means?
+
+------------------------------------------------------------------------
+
+## Estimation for Difference in Means
+
+```{r}
+#| output-location: column
+
+# Construct bootstrap distribution
+bootstrap_dist <-penguins %>%
+  drop_na(bill_length_mm) %>%
+  filter(species %in% c("Adelie", "Chinstrap")) %>%
+  specify(bill_length_mm ~ species) %>%
+  generate(reps =  1000, type = "bootstrap") %>%
+  calculate(stat = "diff in means",
+            order = c("Adelie", "Chinstrap"))
+
+# Look at bootstrap distribution
+ggplot(data = bootstrap_dist,
+       mapping = aes(x = stat)) +
+  geom_histogram(color = "white")
+```
+
+------------------------------------------------------------------------
+
+## Estimation for Difference in Means -- SE Method
+
+```{r}
+#| output-location: column
+# Get confidence interval 
+ci_95 <- bootstrap_dist %>% 
+  get_confidence_interval(type = "se", level = 0.95,
+                          point_estimate = diff_x_bar) 
+ci_95
+```
+
+**Interpretation**: The point estimate is `r round(diff_x_bar$stat, digits = 2)`mm. I am 95% confidence that the difference in bill length between Adelie and Chinstrap penguins is, on average, between `r round(ci_95$lower_ci, digits = 2)`mm and `r round(ci_95$upper_ci, digits = 2)`mm.
+
+------------------------------------------------------------------------
+
+## Comparing CIs
+
+```{r}
+#| output-location: column
+
+
+ci_99 <- bootstrap_dist %>% 
+  get_confidence_interval(type = "se", level = 0.99,
+                          point_estimate = diff_x_bar)
+
+bootstrap_dist %>%
+  visualize() +
+  shade_confidence_interval(endpoints = ci_99,
+                            fill = "gold1",
+                            color = "gold3") +
+  shade_confidence_interval(endpoints = ci_95) 
+```
+
+-   Why construct a 95% CI versus a 99% CI?
+
+------------------------------------------------------------------------
+
+::::: columns
+::: {.column width="40%"}
+```{r,  out.width = "80%", echo=FALSE, fig.align='center', fig.cap = "", fig.pos="h"}
+library(knitr)
+include_graphics("img/cis.png") 
+```
+:::
+
+::: {.column width="60%"}
+[What do we mean by confidence?](http://www.rossmanchance.com/applets/2021/confsim/ConfSim.html)
+
+-   Confidence level = success rate of the method under **repeated sampling**
+
+-   How do I know if my ONE CI successfully contains the true value of the parameter?
+
+-   As we increase the **confidence level**, what happens to the width of the interval?
+
+-   As we increase the **sample size**, what happens to the width of the interval?
+
+-   As we increase the **number of bootstrap samples** we take, what happens to the width of the interval?
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Interpreting Confidence Intervals
+
+**Example:** Estimating average household income before taxes in the US
+
+::::: columns
+::: column
+SE Method Formula:
+
+$$
+\mbox{statistic} \pm{\mbox{ME}}
+$$
+
+```{r, echo=FALSE}
+library(tidyverse)
+library(infer)
+ce <- read_csv("data/fmli.csv")
+# summarize(ce, meanFINCBTAX = mean(FINCBTAX))
+bootstrap_dist <- ce %>%
+  specify(response = FINCBTAX) %>%
+  generate(reps =  1000, type = "bootstrap") %>%
+  calculate(stat = "mean")
+summarize(bootstrap_dist, statistic = mean(stat), ME = 2*sd(stat), lower = 62480 - ME, upper = 62480 + ME)
+```
+:::
+
+::: column
+*"The margin of \[sampling\] error can be described as the 'penalty' in precision for not talking to everyone in a given population. It describes the range that an answer likely falls between if the survey had reached everyone in a population, instead of just a sample of that population."* -- Courtney Kennedy, Director of Survey Research at Pew Research Center
+
+CI = interval of **plausible** values for the **parameter**
+:::
+:::::
+
+**Safe interpretation:** I am P% confident that {insert what the parameter represents in context} is between {insert lower bound} and {insert upper bound}.
+
+------------------------------------------------------------------------
+
+## Caution: Intervals in the wild
+
+Statement in [an article](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1255808/) for The BMJ (British Medical Journal):
+
+```{r, echo = FALSE, fig.align='center', out.width='90%'}
+knitr::include_graphics("img/bmj.png")
+```
+
+
+
+# Confidence Interval Misunderstandings
+
+
+## Misunderstanding 1
+
+Suppose we wish to estimate the number of hours a Reed student sleeps on a typical night. We obtain the following 95% confidence interval: $(7.86, 8.34)$
+
+::: {.fragment}
+1. A 95% confidence interval **does not** contain 95% of observations in the population.
+
+
+```{r}
+#| fig-height: 4
+#| echo: false
+library(gridExtra)
+set.seed(10)
+pop <- data.frame(x = 9 - rgamma(1000, 2, 2))
+
+my_boot <- pop %>% rep_sample_n(size = 30, reps = 1000) %>% 
+  group_by(replicate) %>% 
+  summarize(x_bar = mean(x) + .15)
+
+L <- quantile(my_boot$x_bar, .025)
+U <- quantile(my_boot$x_bar, .975)
+
+p1 <- pop %>% 
+  ggplot(aes(x = x)) +
+  geom_histogram(bins = 20, color = "white") +
+  scale_x_continuous(limits = c(5, 9)) +
+  labs(title = "Population Distribution")
+
+p2 <- my_boot %>% 
+  ggplot(aes(x = x_bar)) +
+  geom_histogram(bins = 50, color = "white", size = .2) +
+  scale_x_continuous(limits = c(5, 9)) +
+  labs(title = "Bootstrap Distribution")
+
+grid.arrange(p1, p2, ncol = 2)
+```
+
+:::
+
+------------------------------------------------------------------------
+
+## Misunderstanding 1
+
+::: {.nonincremental}
+
+Suppose we wish to estimate the number of hours a Reed student sleeps on a typical night. We obtain the following 95% confidence interval: $(7.86, 8.34)$
+
+1. A 95% confidence interval **does not** contain 95% of observations in the population.
+
+```{r}
+#| fig-height: 4
+#| echo: false
+library(gridExtra)
+p3 <- p1 +
+  geom_rect(data = data.frame(x = 8, y = 0), 
+            xmin = 7.9, xmax = 8.3, ymin = 0, ymax = Inf, 
+            fill = "springgreen", alpha = .3, inherit.aes = FALSE)
+
+p4 <- p2 +
+  geom_rect(data = data.frame(x = 8, y = 0), 
+            xmin = 7.9, xmax = 8.3, ymin = 0, ymax = Inf, 
+            fill = "springgreen", alpha = .3, inherit.aes = FALSE)
+
+grid.arrange(p3, p4, ncol = 2)
+```
+
+:::
+
+::: {.fragment}
+Saying that 95% of all Reed students sleep between 7.86 and 8.34 hours should just feel wrong. That's a pretty narrow interval!
+:::
+
+------------------------------------------------------------------------
+
+## Misunderstanding 2
+
+2. A 95% confidence interval **does not** mean that 95% of all sample means fall within the given range.
+
+```{r}
+#| fig-height: 4
+#| echo: false
+set.seed(10)
+my_sample <- pop %>% 
+  rep_sample_n(size = 30, reps = 1000) %>% 
+  group_by(replicate) %>% 
+  summarize(x_bar = mean(x))
+
+my_boot2 <- pop %>% 
+  rep_sample_n(size = 30, reps = 1000) %>% 
+  group_by(replicate) %>% 
+  summarize(x_bar = mean(x) - .4)
+
+m <- mean(my_boot2$x_bar)
+
+p5 <- my_sample %>% 
+  ggplot(aes(x = x_bar)) +
+  geom_histogram(bins = 25, color = "white") +
+  scale_x_continuous(limits = c(7, 8.5)) +
+  labs(title = "Sampling Distribution")
+
+p6 <- my_boot2 %>% 
+  ggplot(aes(x = x_bar)) +
+  geom_histogram(bins = 25, color = "white", size = .3) +
+  scale_x_continuous(limits = c(7, 8.5)) +
+  labs(title = "Bootstrap Distribution")
+
+grid.arrange(p5, p6, ncol = 2)
+```
+
+------------------------------------------------------------------------
+
+## Misunderstanding 2
+
+::: {.nonincremental}
+
+2. A 95% confidence interval **does not** mean that 95% of all sample means fall within the given range.
+
+```{r}
+#| fig-height: 4
+#| echo: false
+L <- quantile(my_boot2$x_bar, .025)[[1]]
+U <- quantile(my_boot2$x_bar, .975)[[1]]
+
+p7 <- p5 + 
+  geom_rect(data = data.frame(x = 8, y = 0), 
+            xmin = L, xmax = U, ymin = 0, ymax = Inf, 
+            fill = "springgreen", alpha = .3, inherit.aes = FALSE)
+
+p8 <- p6 + 
+  geom_rect(data = data.frame(x = 8, y = 0), 
+            xmin = L, xmax = U, ymin = 0, ymax = Inf, 
+            fill = "springgreen", alpha = .3, inherit.aes = FALSE)
+
+grid.arrange(p7, p8, ncol = 2)
+```
+
+:::
+
+::: {.fragment}
+**Q:** Why do the sampling distribution and bootstrap distribution look different?
+:::
+
+------------------------------------------------------------------------
+
+## Misunderstanding 3 
+
+3. Given a 95% confidence interval, **Do Not Say:** "There is a 95% chance that the true parameter falls within my interval."
+
+::: {.fragment}
+- Once we take a sample and calculate a confidence interval, there's no more randomness!
+  - The interval either does or doesn't contain the (unknown) parameter.
+:::
+
+::: {.fragment}
+- This may seem like arguing over semantics -- but it's an important distinction!
+:::
+
+::: {.fragment}
+Instead, say either:
+
+::: {.incremental}
+- **"If we were to take many samples and calculate a confidence interval for each, 95% of them would contain the true parameter"**
+- **"We are 95% confident that the true parameter is in our confidence interval"**
+:::
+:::
+
