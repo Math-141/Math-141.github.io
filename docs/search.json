@@ -95,49 +95,49 @@
     "href": "slides/math141_wk08mon.html#estimation-for-a-single-mean",
     "title": "Math 141",
     "section": "Estimation for a Single Mean",
-    "text": "Estimation for a Single Mean\nWhat is the average bill length \\((\\mu)\\) of an Adelie penguin?\n\n# Compute the summary statistic\nx_bar &lt;- penguins %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  calculate(stat = \"mean\")\nx_bar\n\nResponse: bill_length_mm (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  43.9"
+    "text": "Estimation for a Single Mean\nWhat is the average bill length \\((\\mu)\\) of an Adelie penguin?\n\n# Compute the summary statistic\nx_bar &lt;- penguins %&gt;%\n  filter(species == \"Adelie\") %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  calculate(stat = \"mean\")\nx_bar\n\nResponse: bill_length_mm (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  38.8"
   },
   {
     "objectID": "slides/math141_wk08mon.html#estimation-for-a-single-mean-1",
     "href": "slides/math141_wk08mon.html#estimation-for-a-single-mean-1",
     "title": "Math 141",
     "section": "Estimation for a Single Mean",
-    "text": "Estimation for a Single Mean\nWhat is the average bill length \\((\\mu)\\) of an Adelie penguin?\n\n# Compute the summary statistic\nx_bar &lt;- penguins %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  calculate(stat = \"mean\")\nx_bar\n\nResponse: bill_length_mm (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  43.9"
+    "text": "Estimation for a Single Mean\nWhat is the average bill length \\((\\mu)\\) of an Adelie penguin?\n\n# Compute the summary statistic\nx_bar &lt;- penguins %&gt;%\n  filter(species == \"Adelie\") %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  calculate(stat = \"mean\")\nx_bar\n\nResponse: bill_length_mm (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  38.8"
   },
   {
     "objectID": "slides/math141_wk08mon.html#estimation-for-a-single-mean-2",
     "href": "slides/math141_wk08mon.html#estimation-for-a-single-mean-2",
     "title": "Math 141",
     "section": "Estimation for a Single Mean",
-    "text": "Estimation for a Single Mean\nWhat is the average bill length \\((\\mu)\\) of an Adelie penguin?\n\n# Compute the summary statistic\nx_bar &lt;- penguins %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  calculate(stat = \"mean\")\nx_bar\n\nResponse: bill_length_mm (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  43.9"
+    "text": "Estimation for a Single Mean\nWhat is the average bill length \\((\\mu)\\) of an Adelie penguin?\n\n# Compute the summary statistic\nx_bar &lt;- penguins %&gt;%\n  filter(species == \"Adelie\") %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  calculate(stat = \"mean\")\nx_bar\n\nResponse: bill_length_mm (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  38.8"
   },
   {
     "objectID": "slides/math141_wk08mon.html#estimation-for-a-single-mean-3",
     "href": "slides/math141_wk08mon.html#estimation-for-a-single-mean-3",
     "title": "Math 141",
     "section": "Estimation for a Single Mean",
-    "text": "Estimation for a Single Mean\nWhat is the average bill length \\((\\mu)\\) of an Adelie penguin?\n\n# Compute the summary statistic\nx_bar &lt;- penguins %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  calculate(stat = \"mean\")\nx_bar\n\nResponse: bill_length_mm (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  43.9\n\n\n\n\nWhy is our numerical quantity a mean and not a proportion or correlation here?"
+    "text": "Estimation for a Single Mean\nWhat is the average bill length \\((\\mu)\\) of an Adelie penguin?\n\n# Compute the summary statistic\nx_bar &lt;- penguins %&gt;%\n  filter(species == \"Adelie\") %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  calculate(stat = \"mean\")\nx_bar\n\nResponse: bill_length_mm (numeric)\n# A tibble: 1 × 1\n   stat\n  &lt;dbl&gt;\n1  38.8\n\n\n\n\nWhy is our numerical quantity a mean and not a proportion or correlation here?"
   },
   {
     "objectID": "slides/math141_wk08mon.html#estimation-for-a-single-mean-4",
     "href": "slides/math141_wk08mon.html#estimation-for-a-single-mean-4",
     "title": "Math 141",
     "section": "Estimation for a Single Mean",
-    "text": "Estimation for a Single Mean\n\n\n# Construct bootstrap distribution\nbootstrap_dist &lt;- penguins %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  generate(reps =  1000, type = \"bootstrap\") %&gt;%\n  calculate(stat = \"mean\")\n\n# Look at bootstrap distribution\nggplot(data = bootstrap_dist, \n       mapping = aes(x = stat)) +\n  geom_histogram(color = \"white\")"
+    "text": "Estimation for a Single Mean\n\n\n# Construct bootstrap distribution\nbootstrap_dist &lt;- penguins %&gt;%\n  filter(species == \"Adelie\") %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  generate(reps =  1000, type = \"bootstrap\") %&gt;%\n  calculate(stat = \"mean\")\n\n# Look at bootstrap distribution\nggplot(data = bootstrap_dist, \n       mapping = aes(x = stat)) +\n  geom_histogram(color = \"white\")"
   },
   {
     "objectID": "slides/math141_wk08mon.html#estimation-for-a-single-mean-5",
     "href": "slides/math141_wk08mon.html#estimation-for-a-single-mean-5",
     "title": "Math 141",
     "section": "Estimation for a Single Mean",
-    "text": "Estimation for a Single Mean\n\n\n# Construct bootstrap distribution\nbootstrap_dist &lt;- penguins %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  generate(reps =  1000, type = \"bootstrap\") %&gt;%\n  calculate(stat = \"mean\")\n\n# Look at bootstrap distribution\nggplot(data = bootstrap_dist, \n       mapping = aes(x = stat)) +\n  geom_histogram(color = \"white\")"
+    "text": "Estimation for a Single Mean\n\n\n# Construct bootstrap distribution\nbootstrap_dist &lt;- penguins %&gt;%\n  filter(species == \"Adelie\") %&gt;%\n  drop_na(bill_length_mm) %&gt;%\n  specify(response = bill_length_mm) %&gt;%\n  generate(reps =  1000, type = \"bootstrap\") %&gt;%\n  calculate(stat = \"mean\")\n\n# Look at bootstrap distribution\nggplot(data = bootstrap_dist, \n       mapping = aes(x = stat)) +\n  geom_histogram(color = \"white\")"
   },
   {
     "objectID": "slides/math141_wk08mon.html#estimation-for-a-single-mean-se-method",
     "href": "slides/math141_wk08mon.html#estimation-for-a-single-mean-se-method",
     "title": "Math 141",
     "section": "Estimation for a Single Mean – SE Method",
-    "text": "Estimation for a Single Mean – SE Method\n\n\n# Get confidence interval\nci &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"se\", level = 0.95,\n                          point_estimate = x_bar)\nci\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1     43.4     44.5\n\n\nInterpretation: The point estimate is 43.92mm. I am 95% confident that the true average bill length of Adelie penguins is between 43.36mm and 44.48mm."
+    "text": "Estimation for a Single Mean – SE Method\n\n\n# Get confidence interval\nci &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"percentile\", level = 0.95,\n                          point_estimate = x_bar)\nci\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1     38.4     39.2\n\n\nInterpretation: The point estimate is 38.79mm. I am 95% confident that the true average bill length of Adelie penguins is between 38.35mm and 39.21mm."
   },
   {
     "objectID": "slides/math141_wk08mon.html#estimation-for-a-single-mean-6",
@@ -151,7 +151,7 @@
     "href": "slides/math141_wk08mon.html#estimation-for-a-single-mean-percentile-method",
     "title": "Math 141",
     "section": "Estimation for a Single Mean – Percentile Method",
-    "text": "Estimation for a Single Mean – Percentile Method\n\n\n# Get confidence interval \nci_95 &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"percentile\",\n                          level = 0.95) \nci_95\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1     43.4     44.5"
+    "text": "Estimation for a Single Mean – Percentile Method\n\n\n# Get confidence interval \nci_95 &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"percentile\",\n                          level = 0.95) \nci_95\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1     38.4     39.2"
   },
   {
     "objectID": "slides/math141_wk08mon.html#estimation-for-difference-in-means",
@@ -172,7 +172,7 @@
     "href": "slides/math141_wk08mon.html#estimation-for-difference-in-means-se-method",
     "title": "Math 141",
     "section": "Estimation for Difference in Means – SE Method",
-    "text": "Estimation for Difference in Means – SE Method\n\n\n# Get confidence interval \nci_95 &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"se\", level = 0.95,\n                          point_estimate = diff_x_bar) \nci_95\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    -10.9    -9.17\n\n\nInterpretation: The point estimate is -10.04mm. I am 95% confident that the true average difference in bill length between Adelie and Chinstrap penguins is between -10.91mm and -9.17mm."
+    "text": "Estimation for Difference in Means – SE Method\n\n\n# Get confidence interval \nci_95 &lt;- bootstrap_dist %&gt;% \n  get_confidence_interval(type = \"se\", level = 0.95,\n                          point_estimate = diff_x_bar) \nci_95\n\n\n# A tibble: 1 × 2\n  lower_ci upper_ci\n     &lt;dbl&gt;    &lt;dbl&gt;\n1    -10.9    -9.15\n\n\nInterpretation: The point estimate is -10.04mm. I am 95% confident that the true average difference in bill length between Adelie and Chinstrap penguins is between -10.93mm and -9.15mm."
   },
   {
     "objectID": "slides/math141_wk08mon.html#comparing-cis",
@@ -186,7 +186,7 @@
     "href": "slides/math141_wk08mon.html#interpreting-confidence-intervals",
     "title": "Math 141",
     "section": "Interpreting Confidence Intervals",
-    "text": "Interpreting Confidence Intervals\nExample: Estimating average household income before taxes in the US\n\n\nSE Method Formula:\n\\[\n\\mbox{statistic} \\pm{\\mbox{ME}}\n\\]\n\n\n# A tibble: 1 × 4\n  statistic    ME  lower  upper\n      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1    62409. 1930. 60550. 64410.\n\n\n\n“The margin of [sampling] error can be described as the ‘penalty’ in precision for not talking to everyone in a given population. It describes the range that an answer likely falls between if the survey had reached everyone in a population, instead of just a sample of that population.” – Courtney Kennedy, Director of Survey Research at Pew Research Center\nCI = interval of plausible values for the parameter\n\nSafe interpretation: I am P% confident that {insert what the parameter represents in context} is between {insert lower bound} and {insert upper bound}."
+    "text": "Interpreting Confidence Intervals\nExample: Estimating average household income before taxes in the US\n\n\nSE Method Formula:\n\\[\n\\mbox{statistic} \\pm{\\mbox{ME}}\n\\]\n\n\n# A tibble: 1 × 4\n  statistic    ME  lower  upper\n      &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;\n1    62409. 1959. 60521. 64439.\n\n\n\n“The margin of [sampling] error can be described as the ‘penalty’ in precision for not talking to everyone in a given population. It describes the range that an answer likely falls between if the survey had reached everyone in a population, instead of just a sample of that population.” – Courtney Kennedy, Director of Survey Research at Pew Research Center\nCI = interval of plausible values for the parameter\n\nSafe interpretation: I am P% confident that {insert what the parameter represents in context} is between {insert lower bound} and {insert upper bound}."
   },
   {
     "objectID": "slides/math141_wk08mon.html#caution-intervals-in-the-wild",

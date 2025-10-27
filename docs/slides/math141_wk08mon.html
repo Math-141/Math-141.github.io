@@ -336,16 +336,17 @@
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Compute the summary statistic</span></span>
 <span id="cb4-2"><a></a>x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb4-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb4-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb4-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb4-6"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb4-7"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Response: bill_length_mm (numeric)
 # A tibble: 1 × 1
    stat
   &lt;dbl&gt;
-1  43.9</code></pre>
+1  38.8</code></pre>
 </div>
 </div>
 </section>
@@ -353,18 +354,19 @@
 <h2>Estimation for a Single Mean</h2>
 <p>What is the average bill length <span class="math inline">\((\mu)\)</span> of an Adelie penguin?</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Compute the summary statistic</span></span>
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Compute the summary statistic</span></span>
 <span id="cb6-2"><a></a>x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb6-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb6-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb6-6"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-3"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb6-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb6-7"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Response: bill_length_mm (numeric)
 # A tibble: 1 × 1
    stat
   &lt;dbl&gt;
-1  43.9</code></pre>
+1  38.8</code></pre>
 </div>
 </div>
 </section>
@@ -372,18 +374,19 @@
 <h2>Estimation for a Single Mean</h2>
 <p>What is the average bill length <span class="math inline">\((\mu)\)</span> of an Adelie penguin?</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Compute the summary statistic</span></span>
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Compute the summary statistic</span></span>
 <span id="cb8-2"><a></a>x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb8-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb8-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb8-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb8-6"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-3"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb8-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb8-7"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Response: bill_length_mm (numeric)
 # A tibble: 1 × 1
    stat
   &lt;dbl&gt;
-1  43.9</code></pre>
+1  38.8</code></pre>
 </div>
 </div>
 </section>
@@ -393,16 +396,17 @@
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Compute the summary statistic</span></span>
 <span id="cb10-2"><a></a>x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb10-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb10-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb10-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb10-6"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-3"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb10-7"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Response: bill_length_mm (numeric)
 # A tibble: 1 × 1
    stat
   &lt;dbl&gt;
-1  43.9</code></pre>
+1  38.8</code></pre>
 </div>
 </div>
 <div>
@@ -417,15 +421,16 @@
 <div class="column">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
 <span id="cb12-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb12-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb12-7"><a></a></span>
-<span id="cb12-8"><a></a><span class="co"># Look at bootstrap distribution</span></span>
-<span id="cb12-9"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist, </span>
-<span id="cb12-10"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
-<span id="cb12-11"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-3"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-7"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb12-8"><a></a></span>
+<span id="cb12-9"><a></a><span class="co"># Look at bootstrap distribution</span></span>
+<span id="cb12-10"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist, </span>
+<span id="cb12-11"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb12-12"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -440,17 +445,18 @@
 <h2>Estimation for a Single Mean</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
 <span id="cb13-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb13-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb13-7"><a></a></span>
-<span id="cb13-8"><a></a><span class="co"># Look at bootstrap distribution</span></span>
-<span id="cb13-9"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist, </span>
-<span id="cb13-10"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
-<span id="cb13-11"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-3"><a></a>  <span class="fu">filter</span>(species <span class="sc">==</span> <span class="st">"Adelie"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-7"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb13-8"><a></a></span>
+<span id="cb13-9"><a></a><span class="co"># Look at bootstrap distribution</span></span>
+<span id="cb13-10"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist, </span>
+<span id="cb13-11"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb13-12"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -467,7 +473,7 @@
 <div class="column">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Get confidence interval</span></span>
 <span id="cb14-2"><a></a>ci <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
-<span id="cb14-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb14-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"percentile"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb14-4"><a></a>                          <span class="at">point_estimate =</span> x_bar)</span>
 <span id="cb14-5"><a></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
@@ -475,10 +481,10 @@
 <pre><code># A tibble: 1 × 2
   lower_ci upper_ci
      &lt;dbl&gt;    &lt;dbl&gt;
-1     43.4     44.5</code></pre>
+1     38.4     39.2</code></pre>
 </div>
 </div></div>
-<p><strong>Interpretation:</strong> The point estimate is 43.92mm. I am 95% confident that the true average bill length of Adelie penguins is between 43.36mm and 44.48mm.</p>
+<p><strong>Interpretation:</strong> The point estimate is 38.79mm. I am 95% confident that the true average bill length of Adelie penguins is between 38.35mm and 39.21mm.</p>
 </section>
 <section id="estimation-for-a-single-mean-6" class="slide level2">
 <h2>Estimation for a Single Mean</h2>
@@ -512,7 +518,7 @@
 <pre><code># A tibble: 1 × 2
   lower_ci upper_ci
      &lt;dbl&gt;    &lt;dbl&gt;
-1     43.4     44.5</code></pre>
+1     38.4     39.2</code></pre>
 </div>
 </div></div>
 </section>
@@ -584,10 +590,10 @@ Explanatory: species (factor)
 <pre><code># A tibble: 1 × 2
   lower_ci upper_ci
      &lt;dbl&gt;    &lt;dbl&gt;
-1    -10.9    -9.17</code></pre>
+1    -10.9    -9.15</code></pre>
 </div>
 </div></div>
-<p><strong>Interpretation</strong>: The point estimate is -10.04mm. I am 95% confident that the true average difference in bill length between Adelie and Chinstrap penguins is between -10.91mm and -9.17mm.</p>
+<p><strong>Interpretation</strong>: The point estimate is -10.04mm. I am 95% confident that the true average difference in bill length between Adelie and Chinstrap penguins is between -10.93mm and -9.15mm.</p>
 </section>
 <section id="comparing-cis" class="slide level2">
 <h2>Comparing CIs</h2>
@@ -654,7 +660,7 @@ Explanatory: species (factor)
 <pre><code># A tibble: 1 × 4
   statistic    ME  lower  upper
       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1    62409. 1930. 60550. 64410.</code></pre>
+1    62409. 1959. 60521. 64439.</code></pre>
 </div>
 </div>
 </div><div class="column">
