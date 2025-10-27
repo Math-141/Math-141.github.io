@@ -163,7 +163,6 @@ If I want a P% confidence interval, I find the bounds of the middle P% of the bo
 
 :::
 
-------------------------------------------------------------------------
 
 # How can we construct bootstrap distributions and bootstrapped CIs in R?
 
@@ -203,14 +202,96 @@ x_bar <- penguins %>%
 x_bar
 ```
 
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean
+
+What is the average bill length $(\mu)$ of an Adelie penguin?
+
+```{r}
+#| code-line-numbers: "4"
+# Compute the summary statistic
+x_bar <- penguins %>%
+  drop_na(bill_length_mm) %>%
+  specify(response = bill_length_mm) %>%
+  calculate(stat = "mean")
+x_bar
+```
+
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean
+
+What is the average bill length $(\mu)$ of an Adelie penguin?
+
+```{r}
+#| code-line-numbers: "5"
+# Compute the summary statistic
+x_bar <- penguins %>%
+  drop_na(bill_length_mm) %>%
+  specify(response = bill_length_mm) %>%
+  calculate(stat = "mean")
+x_bar
+```
+
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean
+
+What is the average bill length $(\mu)$ of an Adelie penguin?
+
+```{r}
+# Compute the summary statistic
+x_bar <- penguins %>%
+  drop_na(bill_length_mm) %>%
+  specify(response = bill_length_mm) %>%
+  calculate(stat = "mean")
+x_bar
+```
+
+::: {.nonincremental}
+
 -   Why is our numerical quantity a mean and not a proportion or correlation here?
+
+:::
 
 ------------------------------------------------------------------------
 
 ## Estimation for a Single Mean
 
 ```{r}
+#| echo: false
+set.seed(1)
+```
+
+
+```{r}
 #| output-location: column
+# Construct bootstrap distribution
+bootstrap_dist <- penguins %>%
+  drop_na(bill_length_mm) %>%
+  specify(response = bill_length_mm) %>%
+  generate(reps =  1000, type = "bootstrap") %>%
+  calculate(stat = "mean")
+
+# Look at bootstrap distribution
+ggplot(data = bootstrap_dist, 
+       mapping = aes(x = stat)) +
+  geom_histogram(color = "white")
+```
+
+------------------------------------------------------------------------
+
+## Estimation for a Single Mean
+
+```{r}
+#| echo: false
+set.seed(1)
+```
+
+```{r}
+#| output-location: column
+#| code-line-numbers: "5"
 # Construct bootstrap distribution
 bootstrap_dist <- penguins %>%
   drop_na(bill_length_mm) %>%
@@ -238,7 +319,7 @@ ci <- bootstrap_dist %>%
 ci
 ```
 
-**Interpretation:** The point estimate is `r round(x_bar$stat, digits = 2)`mm. I am 95% confidence that the average bill length of Adelie penguins is between `r round(ci$lower_ci, digits = 2)`mm and `r round(ci$upper_ci, digits = 2)`mm.
+**Interpretation:** The point estimate is `r round(x_bar$stat, digits = 2)`mm. I am 95% confident that the true average bill length of Adelie penguins is between `r round(ci$lower_ci, digits = 2)`mm and `r round(ci$upper_ci, digits = 2)`mm.
 
 ------------------------------------------------------------------------
 
@@ -279,7 +360,8 @@ diff_x_bar <- penguins %>%
   drop_na(bill_length_mm) %>%
   filter(species %in% c("Adelie", "Chinstrap")) %>%
   specify(bill_length_mm ~ species) %>%
-  calculate(stat = "diff in means")
+  calculate(stat = "diff in means",
+            order = c("Adelie", "Chinstrap"))
 diff_x_bar
 ```
 
@@ -320,7 +402,7 @@ ci_95 <- bootstrap_dist %>%
 ci_95
 ```
 
-**Interpretation**: The point estimate is `r round(diff_x_bar$stat, digits = 2)`mm. I am 95% confidence that the difference in bill length between Adelie and Chinstrap penguins is, on average, between `r round(ci_95$lower_ci, digits = 2)`mm and `r round(ci_95$upper_ci, digits = 2)`mm.
+**Interpretation**: The point estimate is `r round(diff_x_bar$stat, digits = 2)`mm. I am 95% confident that the true average difference in bill length between Adelie and Chinstrap penguins is between `r round(ci_95$lower_ci, digits = 2)`mm and `r round(ci_95$upper_ci, digits = 2)`mm.
 
 ------------------------------------------------------------------------
 

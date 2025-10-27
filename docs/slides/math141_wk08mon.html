@@ -296,9 +296,6 @@
 <p><strong>Percentile Method CI:</strong></p>
 <p>If I want a P% confidence interval, I find the bounds of the middle P% of the bootstrap distribution.</p>
 </div>
-</section>
-<section class="slide level2">
-
 </section></section>
 <section>
 <section id="how-can-we-construct-bootstrap-distributions-and-bootstrapped-cis-in-r" class="title-slide slide level1 center">
@@ -351,30 +348,114 @@
 1  43.9</code></pre>
 </div>
 </div>
-<ul>
-<li class="fragment">Why is our numerical quantity a mean and not a proportion or correlation here?</li>
-</ul>
 </section>
 <section id="estimation-for-a-single-mean-1" class="slide level2">
 <h2>Estimation for a Single Mean</h2>
-<div class="cell columns column-output-location" data-layout-align="center">
-<div class="column">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
-<span id="cb6-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<p>What is the average bill length <span class="math inline">\((\mu)\)</span> of an Adelie penguin?</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="co"># Compute the summary statistic</span></span>
+<span id="cb6-2"><a></a>x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
 <span id="cb6-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
 <span id="cb6-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb6-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb6-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
-<span id="cb6-7"><a></a></span>
-<span id="cb6-8"><a></a><span class="co"># Look at bootstrap distribution</span></span>
-<span id="cb6-9"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist, </span>
-<span id="cb6-10"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
-<span id="cb6-11"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb6-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb6-6"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: bill_length_mm (numeric)
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1  43.9</code></pre>
+</div>
+</div>
+</section>
+<section id="estimation-for-a-single-mean-2" class="slide level2">
+<h2>Estimation for a Single Mean</h2>
+<p>What is the average bill length <span class="math inline">\((\mu)\)</span> of an Adelie penguin?</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Compute the summary statistic</span></span>
+<span id="cb8-2"><a></a>x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb8-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb8-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb8-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb8-6"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: bill_length_mm (numeric)
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1  43.9</code></pre>
+</div>
+</div>
+</section>
+<section id="estimation-for-a-single-mean-3" class="slide level2">
+<h2>Estimation for a Single Mean</h2>
+<p>What is the average bill length <span class="math inline">\((\mu)\)</span> of an Adelie penguin?</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Compute the summary statistic</span></span>
+<span id="cb10-2"><a></a>x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb10-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb10-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb10-5"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb10-6"><a></a>x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Response: bill_length_mm (numeric)
+# A tibble: 1 × 1
+   stat
+  &lt;dbl&gt;
+1  43.9</code></pre>
+</div>
+</div>
+<div>
+<ul>
+<li>Why is our numerical quantity a mean and not a proportion or correlation here?</li>
+</ul>
+</div>
+</section>
+<section id="estimation-for-a-single-mean-4" class="slide level2">
+<h2>Estimation for a Single Mean</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
+<span id="cb12-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb12-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb12-7"><a></a></span>
+<span id="cb12-8"><a></a><span class="co"># Look at bootstrap distribution</span></span>
+<span id="cb12-9"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist, </span>
+<span id="cb12-10"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb12-11"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
+</section>
+<section id="estimation-for-a-single-mean-5" class="slide level2">
+<h2>Estimation for a Single Mean</h2>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb13" data-code-line-numbers="5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
+<span id="cb13-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb13-5"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"mean"</span>)</span>
+<span id="cb13-7"><a></a></span>
+<span id="cb13-8"><a></a><span class="co"># Look at bootstrap distribution</span></span>
+<span id="cb13-9"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist, </span>
+<span id="cb13-10"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb13-11"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -384,34 +465,34 @@
 <h2>Estimation for a Single Mean – SE Method</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="co"># Get confidence interval</span></span>
-<span id="cb7-2"><a></a>ci <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb7-4"><a></a>                          <span class="at">point_estimate =</span> x_bar)</span>
-<span id="cb7-5"><a></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Get confidence interval</span></span>
+<span id="cb14-2"><a></a>ci <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb14-4"><a></a>                          <span class="at">point_estimate =</span> x_bar)</span>
+<span id="cb14-5"><a></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   lower_ci upper_ci
      &lt;dbl&gt;    &lt;dbl&gt;
-1     43.3     44.5</code></pre>
+1     43.4     44.5</code></pre>
 </div>
 </div></div>
-<p><strong>Interpretation:</strong> The point estimate is 43.92mm. I am 95% confidence that the average bill length of Adelie penguins is between 43.34mm and 44.5mm.</p>
+<p><strong>Interpretation:</strong> The point estimate is 43.92mm. I am 95% confident that the true average bill length of Adelie penguins is between 43.36mm and 44.48mm.</p>
 </section>
-<section id="estimation-for-a-single-mean-2" class="slide level2">
+<section id="estimation-for-a-single-mean-6" class="slide level2">
 <h2>Estimation for a Single Mean</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="co"># Visualize confidence interval</span></span>
-<span id="cb9-2"><a></a>bootstrap_dist <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
-<span id="cb9-4"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a><span class="co"># Visualize confidence interval</span></span>
+<span id="cb16-2"><a></a>bootstrap_dist <span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb16-4"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -421,11 +502,11 @@
 <h2>Estimation for a Single Mean – Percentile Method</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="co"># Get confidence interval </span></span>
-<span id="cb10-2"><a></a>ci_95 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
-<span id="cb10-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"percentile"</span>,</span>
-<span id="cb10-4"><a></a>                          <span class="at">level =</span> <span class="fl">0.95</span>) </span>
-<span id="cb10-5"><a></a>ci_95</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="co"># Get confidence interval </span></span>
+<span id="cb17-2"><a></a>ci_95 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb17-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"percentile"</span>,</span>
+<span id="cb17-4"><a></a>                          <span class="at">level =</span> <span class="fl">0.95</span>) </span>
+<span id="cb17-5"><a></a>ci_95</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
@@ -440,13 +521,14 @@
 <p>What is the difference in average bill length between Adelie penguins and Chinstrap penguins <span class="math inline">\((\mu_1 - \mu_2)\)</span>?</p>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="co"># Compute the summary statistic</span></span>
-<span id="cb12-2"><a></a>diff_x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb12-4"><a></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb12-5"><a></a>  <span class="fu">specify</span>(bill_length_mm <span class="sc">~</span> species) <span class="sc">%&gt;%</span></span>
-<span id="cb12-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>)</span>
-<span id="cb12-7"><a></a>diff_x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a><span class="co"># Compute the summary statistic</span></span>
+<span id="cb19-2"><a></a>diff_x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb19-4"><a></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a></a>  <span class="fu">specify</span>(bill_length_mm <span class="sc">~</span> species) <span class="sc">%&gt;%</span></span>
+<span id="cb19-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>,</span>
+<span id="cb19-7"><a></a>            <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>))</span>
+<span id="cb19-8"><a></a>diff_x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code>Response: bill_length_mm (numeric)
@@ -465,24 +547,24 @@ Explanatory: species (factor)
 <h2>Estimation for Difference in Means</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
-<span id="cb14-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span>penguins <span class="sc">%&gt;%</span></span>
-<span id="cb14-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
-<span id="cb14-4"><a></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb14-5"><a></a>  <span class="fu">specify</span>(bill_length_mm <span class="sc">~</span> species) <span class="sc">%&gt;%</span></span>
-<span id="cb14-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb14-7"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>,</span>
-<span id="cb14-8"><a></a>            <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>))</span>
-<span id="cb14-9"><a></a></span>
-<span id="cb14-10"><a></a><span class="co"># Look at bootstrap distribution</span></span>
-<span id="cb14-11"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist,</span>
-<span id="cb14-12"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
-<span id="cb14-13"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="co"># Construct bootstrap distribution</span></span>
+<span id="cb21-2"><a></a>bootstrap_dist <span class="ot">&lt;-</span>penguins <span class="sc">%&gt;%</span></span>
+<span id="cb21-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
+<span id="cb21-4"><a></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a></a>  <span class="fu">specify</span>(bill_length_mm <span class="sc">~</span> species) <span class="sc">%&gt;%</span></span>
+<span id="cb21-6"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span>  <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"bootstrap"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb21-7"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>,</span>
+<span id="cb21-8"><a></a>            <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>))</span>
+<span id="cb21-9"><a></a></span>
+<span id="cb21-10"><a></a><span class="co"># Look at bootstrap distribution</span></span>
+<span id="cb21-11"><a></a><span class="fu">ggplot</span>(<span class="at">data =</span> bootstrap_dist,</span>
+<span id="cb21-12"><a></a>       <span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x =</span> stat)) <span class="sc">+</span></span>
+<span id="cb21-13"><a></a>  <span class="fu">geom_histogram</span>(<span class="at">color =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-11-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -492,40 +574,40 @@ Explanatory: species (factor)
 <h2>Estimation for Difference in Means – SE Method</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="co"># Get confidence interval </span></span>
-<span id="cb15-2"><a></a>ci_95 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
-<span id="cb15-4"><a></a>                          <span class="at">point_estimate =</span> diff_x_bar) </span>
-<span id="cb15-5"><a></a>ci_95</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a><span class="co"># Get confidence interval </span></span>
+<span id="cb22-2"><a></a>ci_95 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb22-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb22-4"><a></a>                          <span class="at">point_estimate =</span> diff_x_bar) </span>
+<span id="cb22-5"><a></a>ci_95</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 1 × 2
   lower_ci upper_ci
      &lt;dbl&gt;    &lt;dbl&gt;
-1    -10.9    -9.15</code></pre>
+1    -10.9    -9.17</code></pre>
 </div>
 </div></div>
-<p><strong>Interpretation</strong>: The point estimate is -10.04mm. I am 95% confidence that the difference in bill length between Adelie and Chinstrap penguins is, on average, between -10.93mm and -9.15mm.</p>
+<p><strong>Interpretation</strong>: The point estimate is -10.04mm. I am 95% confident that the true average difference in bill length between Adelie and Chinstrap penguins is between -10.91mm and -9.17mm.</p>
 </section>
 <section id="comparing-cis" class="slide level2">
 <h2>Comparing CIs</h2>
 <div class="cell columns column-output-location" data-layout-align="center">
 <div class="column">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a>ci_99 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
-<span id="cb17-2"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.99</span>,</span>
-<span id="cb17-3"><a></a>                          <span class="at">point_estimate =</span> diff_x_bar)</span>
-<span id="cb17-4"><a></a></span>
-<span id="cb17-5"><a></a>bootstrap_dist <span class="sc">%&gt;%</span></span>
-<span id="cb17-6"><a></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
-<span id="cb17-7"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci_99,</span>
-<span id="cb17-8"><a></a>                            <span class="at">fill =</span> <span class="st">"gold1"</span>,</span>
-<span id="cb17-9"><a></a>                            <span class="at">color =</span> <span class="st">"gold3"</span>) <span class="sc">+</span></span>
-<span id="cb17-10"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci_95) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a>ci_99 <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.99</span>,</span>
+<span id="cb24-3"><a></a>                          <span class="at">point_estimate =</span> diff_x_bar)</span>
+<span id="cb24-4"><a></a></span>
+<span id="cb24-5"><a></a>bootstrap_dist <span class="sc">%&gt;%</span></span>
+<span id="cb24-6"><a></a>  <span class="fu">visualize</span>() <span class="sc">+</span></span>
+<span id="cb24-7"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci_99,</span>
+<span id="cb24-8"><a></a>                            <span class="at">fill =</span> <span class="st">"gold1"</span>,</span>
+<span id="cb24-9"><a></a>                            <span class="at">color =</span> <span class="st">"gold3"</span>) <span class="sc">+</span></span>
+<span id="cb24-10"><a></a>  <span class="fu">shade_confidence_interval</span>(<span class="at">endpoints =</span> ci_95) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -572,7 +654,7 @@ Explanatory: species (factor)
 <pre><code># A tibble: 1 × 4
   statistic    ME  lower  upper
       &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;  &lt;dbl&gt;
-1    62439. 1977. 60503. 64457.</code></pre>
+1    62409. 1930. 60550. 64410.</code></pre>
 </div>
 </div>
 </div><div class="column">
@@ -610,7 +692,7 @@ Explanatory: species (factor)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -628,7 +710,7 @@ Explanatory: species (factor)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -647,7 +729,7 @@ Explanatory: species (factor)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-25-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
@@ -663,7 +745,7 @@ Explanatory: species (factor)
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk08mon_files/figure-revealjs/unnamed-chunk-26-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
