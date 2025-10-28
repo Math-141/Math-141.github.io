@@ -320,7 +320,7 @@ ggplot(data = bootstrap_dist,
 
 # Get confidence interval
 ci <- bootstrap_dist %>% 
-  get_confidence_interval(type = "percentile", level = 0.95,
+  get_confidence_interval(type = "se", level = 0.95,
                           point_estimate = x_bar)
 ci
 ```
@@ -365,7 +365,7 @@ What is the difference in average bill length between Adelie penguins and Chinst
 diff_x_bar <- penguins %>%
   drop_na(bill_length_mm) %>%
   filter(species %in% c("Adelie", "Chinstrap")) %>%
-  specify(bill_length_mm ~ species) %>%
+  specify(response = bill_length_mm, explanatory = species) %>%
   calculate(stat = "diff in means",
             order = c("Adelie", "Chinstrap"))
 diff_x_bar

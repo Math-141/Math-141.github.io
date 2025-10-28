@@ -473,7 +473,7 @@
 <div class="column">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a><span class="co"># Get confidence interval</span></span>
 <span id="cb14-2"><a></a>ci <span class="ot">&lt;-</span> bootstrap_dist <span class="sc">%&gt;%</span> </span>
-<span id="cb14-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"percentile"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
+<span id="cb14-3"><a></a>  <span class="fu">get_confidence_interval</span>(<span class="at">type =</span> <span class="st">"se"</span>, <span class="at">level =</span> <span class="fl">0.95</span>,</span>
 <span id="cb14-4"><a></a>                          <span class="at">point_estimate =</span> x_bar)</span>
 <span id="cb14-5"><a></a>ci</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column">
@@ -484,7 +484,7 @@
 1     38.4     39.2</code></pre>
 </div>
 </div></div>
-<p><strong>Interpretation:</strong> The point estimate is 38.79mm. I am 95% confident that the true average bill length of Adelie penguins is between 38.35mm and 39.21mm.</p>
+<p><strong>Interpretation:</strong> The point estimate is 38.79mm. I am 95% confident that the true average bill length of Adelie penguins is between 38.37mm and 39.21mm.</p>
 </section>
 <section id="estimation-for-a-single-mean-6" class="slide level2">
 <h2>Estimation for a Single Mean</h2>
@@ -531,7 +531,7 @@
 <span id="cb19-2"><a></a>diff_x_bar <span class="ot">&lt;-</span> penguins <span class="sc">%&gt;%</span></span>
 <span id="cb19-3"><a></a>  <span class="fu">drop_na</span>(bill_length_mm) <span class="sc">%&gt;%</span></span>
 <span id="cb19-4"><a></a>  <span class="fu">filter</span>(species <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb19-5"><a></a>  <span class="fu">specify</span>(bill_length_mm <span class="sc">~</span> species) <span class="sc">%&gt;%</span></span>
+<span id="cb19-5"><a></a>  <span class="fu">specify</span>(<span class="at">response =</span> bill_length_mm, <span class="at">explanatory =</span> species) <span class="sc">%&gt;%</span></span>
 <span id="cb19-6"><a></a>  <span class="fu">calculate</span>(<span class="at">stat =</span> <span class="st">"diff in means"</span>,</span>
 <span id="cb19-7"><a></a>            <span class="at">order =</span> <span class="fu">c</span>(<span class="st">"Adelie"</span>, <span class="st">"Chinstrap"</span>))</span>
 <span id="cb19-8"><a></a>diff_x_bar</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

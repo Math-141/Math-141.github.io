@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 10/29/25
 editor: source
 ---
 
@@ -9,10 +9,14 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   MD 8.3 - 8.5
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+We'd like to estimate the average height of Reedies. Pretend we've taken a random sample of 20 Reedies and measured their height. We get a point estimate of 66.5 inches, and, after bootstrapping, a 95% confidence interval of (63.0, 70.0).
+
+-   What is our parameter of interest? 
+-   If we were to create an 80% confidence interval would it be wider or narrower than the 95% confidence interval we reported? Explain your answer. 
+-   Interpret the 95% confidence interval in the context of the data. 
