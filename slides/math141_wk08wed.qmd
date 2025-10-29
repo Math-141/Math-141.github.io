@@ -54,21 +54,56 @@ set.seed(5)
 
 ------------------------------------------------------------------------
 
-## Announcements
+## Agenda (logistics)
 
 ::: {.fragment .nonincremental}
 
--   Midterm logistics:
-    - Review of score distribution
-    - Corrections to written exam
-
+-   Discuss midterm results
+-   Get some credit back for missed midterm questions
 -   Final exam info
     
 :::
 
-### Goals for Today
+### Agenda (content)
 
+
+::: {.fragment .nonincremental}
+
+-   Wrap up confidence interval lecture from Monday
 -   Start testing hypotheses!
+
+:::
+
+
+# Discussion of midterm results
+
+## Midterm make-up credit
+
+If you scored less than 80% on the midterm you have the opportunity to get some points back. Parameters:
+
+-   You can get up to 50% of your missed points back (up to an 80% total score on the midterm).
+    - **Example:** If you got a 70% on the midterm, you can get up to an 80% on the midterm, but if you got a 50% on the midterm you can get up to a 75% on the midterm. 
+-   For each question part you can get half the points you missed.
+    - **Example:** If you got a 3 / 5 on Question 2 part (a), an entirely correct solution submitted to me on the midterm makeups will score you a 4 / 5 on Question 2 part (a).
+-   All rules of the midterm still apply, but now: 
+    (1) you have no time pressure, and 
+    (2) you can come to my (Grayson's) office hours to discuss questions you are stuck on, but no other office hours or individual tutoring.
+-   Midterm corrects are due on Gradescope by Sunday 11/9 (11 days from now) at 8pm. 
+
+
+
+------------------------------------------------------------------------
+
+## Final exam info
+
+-   We'll be having our **written** final exam in person during the final exam time slot: 
+
+-   Wednesday, December 17th from 6pm - 9pm in Vollum Lecture Hall. 
+
+
+-   Oral exam details TBD. 
+
+
 
 ------------------------------------------------------------------------
 
@@ -120,7 +155,7 @@ Out of 329 trials, the "receivers" correctly identified the object 106 times.
 
 Let's consider the following questions:
 
-::: nonincremental
+
 a.  If ESP does not exist and the "receivers" are guessing, how often would we expect them to be correct?
 
 b.  For each sample (set of 329 trials), do we expect the proportion of correct guesses to be equal? Why or why not?
@@ -128,7 +163,7 @@ b.  For each sample (set of 329 trials), do we expect the proportion of correct 
 c.  Is it possible to randomly guess correctly 106 out of 329 times (i.e., 32% of the time)?
 
 d.  How unusual is it to guess correctly 106 out of 329 times if ESP doesn't exist?
-:::
+
 
 ::: fragment
 To help us answer d., we need a **sampling distribution** for the sample proportion where **we assume the "receivers" were purely guessing!**
@@ -380,7 +415,7 @@ ggplot(data = guessing_samp_dist, mapping = aes(x = prop)) +
 
 ::: column
 ```{r, echo = FALSE}
-p_hat <- 0.25
+p_hat <- 0.26
 # Graph the sampling distribution if guessing
 ggplot(data = guessing_samp_dist, mapping = aes(x = prop)) +
   geom_histogram(color = "white", bins = 13, fill = "#A70E16") +

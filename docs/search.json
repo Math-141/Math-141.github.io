@@ -3549,11 +3549,25 @@
     "text": "Hypothesis Testing Framework\n\nSet-up hypotheses:\n\nBe able to express in words and in terms of parameters.\n\nCollect data.\nAssume \\(H_o\\) is correct.\nCompute a p-value to quantify the likelihood of the sample results using a test statistic."
   },
   {
-    "objectID": "slides/math141_wk08wed.html#announcements",
-    "href": "slides/math141_wk08wed.html#announcements",
+    "objectID": "slides/math141_wk08wed.html#agenda-logistics",
+    "href": "slides/math141_wk08wed.html#agenda-logistics",
     "title": "Math 141",
-    "section": "Announcements",
-    "text": "Announcements\n\n\nMidterm logistics:\n\nReview of score distribution\nCorrections to written exam\n\nFinal exam info\n\n\nGoals for Today\n\nStart testing hypotheses!"
+    "section": "Agenda (logistics)",
+    "text": "Agenda (logistics)\n\n\nDiscuss midterm results\nGet some credit back for missed midterm questions\nFinal exam info\n\n\nAgenda (content)\n\n\nWrap up confidence interval lecture from Monday\nStart testing hypotheses!"
+  },
+  {
+    "objectID": "slides/math141_wk08wed.html#midterm-make-up-credit",
+    "href": "slides/math141_wk08wed.html#midterm-make-up-credit",
+    "title": "Math 141",
+    "section": "Midterm make-up credit",
+    "text": "Midterm make-up credit\nIf you scored less than 80% on the midterm you have the opportunity to get some points back. Parameters:\n\nYou can get up to 50% of your missed points back (up to an 80% total score on the midterm).\n\nExample: If you got a 70% on the midterm, you can get up to an 80% on the midterm, but if you got a 50% on the midterm you can get up to a 75% on the midterm.\n\nFor each question part you can get half the points you missed.\n\nExample: If you got a 3 / 5 on Question 2 part (a), an entirely correct solution submitted to me on the midterm makeups will score you a 4 / 5 on Question 2 part (a).\n\nAll rules of the midterm still apply, but now:\n\nyou have no time pressure, and\nyou can come to my (Grayson’s) office hours to discuss questions you are stuck on, but no other office hours or individual tutoring.\n\nMidterm corrects are due on Gradescope by Sunday 11/9 (11 days from now) at 8pm."
+  },
+  {
+    "objectID": "slides/math141_wk08wed.html#final-exam-info",
+    "href": "slides/math141_wk08wed.html#final-exam-info",
+    "title": "Math 141",
+    "section": "Final exam info",
+    "text": "Final exam info\n\nWe’ll be having our written final exam in person during the final exam time slot:\nWednesday, December 17th from 6pm - 9pm in Vollum Lecture Hall.\nOral exam details TBD."
   },
   {
     "objectID": "slides/math141_wk08wed.html#statistical-inference",
@@ -3574,7 +3588,7 @@
     "href": "slides/math141_wk08wed.html#esp-example",
     "title": "Math 141",
     "section": "ESP Example",
-    "text": "ESP Example\nLet’s consider the following questions:\n\n\nIf ESP does not exist and the “receivers” are guessing, how often would we expect them to be correct?\nFor each sample (set of 329 trials), do we expect the proportion of correct guesses to be equal? Why or why not?\nIs it possible to randomly guess correctly 106 out of 329 times (i.e., 32% of the time)?\nHow unusual is it to guess correctly 106 out of 329 times if ESP doesn’t exist?\n\n\n\nTo help us answer d., we need a sampling distribution for the sample proportion where we assume the “receivers” were purely guessing!"
+    "text": "ESP Example\nLet’s consider the following questions:\n\nIf ESP does not exist and the “receivers” are guessing, how often would we expect them to be correct?\nFor each sample (set of 329 trials), do we expect the proportion of correct guesses to be equal? Why or why not?\nIs it possible to randomly guess correctly 106 out of 329 times (i.e., 32% of the time)?\nHow unusual is it to guess correctly 106 out of 329 times if ESP doesn’t exist?\n\n\nTo help us answer d., we need a sampling distribution for the sample proportion where we assume the “receivers” were purely guessing!"
   },
   {
     "objectID": "slides/math141_wk08wed.html#sampling-distribution-of-a-statistic",
