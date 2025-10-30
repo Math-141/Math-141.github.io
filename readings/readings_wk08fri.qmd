@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 10/31/25
 editor: source
 ---
 
@@ -9,10 +9,11 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   MD 9 - 9.1 (**Stop** at *The theory-based approach* header), 
+-   MD 9.3
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+-   Think about a hypothesis test that you are interested in conducting. Fully describe the process you would embark on to perform this hypothesis test in language accessible to someone who hasn't taken a statistics course. Describe the data collection, the parameter of interest, the sample statistic, your null hypothesis, and the way you'll use these to draw conclusions from the data. Feel free to draw pictures as needed. 

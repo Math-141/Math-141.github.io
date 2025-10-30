@@ -1848,32 +1848,32 @@
     "text": "Please clone the following repository to access the midterm review questions\nhttps://github.com/Math-141/midterm-review.git"
   },
   {
-    "objectID": "labs/lab_04.html",
-    "href": "labs/lab_04.html",
-    "title": "Math 141: Lab 4",
+    "objectID": "labs/lab_05.html",
+    "href": "labs/lab_05.html",
+    "title": "Math 141: Lab 5",
     "section": "",
-    "text": "For the first question of this lab, we met in the thesis tower and collected data.\nFor the remaining questions on the lab, please clone the following repository and finish the remaining lab questions. There is no need to fill out answers for Question 1 if you gave me your hard copy in lab.\nhttps://github.com/Math-141/lab04.git"
+    "text": "Please clone the following repository to access the lab.\nhttps://github.com/Math-141/lab05.git"
   },
   {
-    "objectID": "labs/lab_04.html#lab-4",
-    "href": "labs/lab_04.html#lab-4",
-    "title": "Math 141: Lab 4",
+    "objectID": "labs/lab_05.html#lab-5",
+    "href": "labs/lab_05.html#lab-5",
+    "title": "Math 141: Lab 5",
     "section": "",
-    "text": "For the first question of this lab, we met in the thesis tower and collected data.\nFor the remaining questions on the lab, please clone the following repository and finish the remaining lab questions. There is no need to fill out answers for Question 1 if you gave me your hard copy in lab.\nhttps://github.com/Math-141/lab04.git"
+    "text": "Please clone the following repository to access the lab.\nhttps://github.com/Math-141/lab05.git"
   },
   {
-    "objectID": "labs/lab_02.html",
-    "href": "labs/lab_02.html",
-    "title": "Math 141: Lab 2",
+    "objectID": "labs/lab_03.html",
+    "href": "labs/lab_03.html",
+    "title": "Math 141: Lab 3",
     "section": "",
-    "text": "We’ll work on ggplot2 in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11."
+    "text": "We’ll work on dplyr, data wrangling, summary statistics, and more plotting in this lab. Make sure to take a look at the lab instructions from Week 1 to clone the repository for the lab. The lab will be available on Thursday, September 18."
   },
   {
-    "objectID": "labs/lab_02.html#lab-2",
-    "href": "labs/lab_02.html#lab-2",
-    "title": "Math 141: Lab 2",
+    "objectID": "labs/lab_03.html#lab-3",
+    "href": "labs/lab_03.html#lab-3",
+    "title": "Math 141: Lab 3",
     "section": "",
-    "text": "We’ll work on ggplot2 in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11."
+    "text": "We’ll work on dplyr, data wrangling, summary statistics, and more plotting in this lab. Make sure to take a look at the lab instructions from Week 1 to clone the repository for the lab. The lab will be available on Thursday, September 18."
   },
   {
     "objectID": "labs/lab_01_instructions.html",
@@ -1904,32 +1904,46 @@
     "text": "Footnotes\n\n\nIf you’re already in a project, this button will show that projects name. This shouldn’t be the case for the first lab, but will likely be the case for the remaining labs.↩︎\nThis link will always be the same, but updated for the lab number, e.g. https://github.com/Math-141/lab02.git for lab 2, https://github.com/Math-141/lab10.git for lab 10, etc. You won’t be able to access these projects until the day that the lab is released, though.↩︎"
   },
   {
-    "objectID": "labs/lab_03.html",
-    "href": "labs/lab_03.html",
-    "title": "Math 141: Lab 3",
+    "objectID": "labs/lab_02.html",
+    "href": "labs/lab_02.html",
+    "title": "Math 141: Lab 2",
     "section": "",
-    "text": "We’ll work on dplyr, data wrangling, summary statistics, and more plotting in this lab. Make sure to take a look at the lab instructions from Week 1 to clone the repository for the lab. The lab will be available on Thursday, September 18."
+    "text": "We’ll work on ggplot2 in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11."
   },
   {
-    "objectID": "labs/lab_03.html#lab-3",
-    "href": "labs/lab_03.html#lab-3",
-    "title": "Math 141: Lab 3",
+    "objectID": "labs/lab_02.html#lab-2",
+    "href": "labs/lab_02.html#lab-2",
+    "title": "Math 141: Lab 2",
     "section": "",
-    "text": "We’ll work on dplyr, data wrangling, summary statistics, and more plotting in this lab. Make sure to take a look at the lab instructions from Week 1 to clone the repository for the lab. The lab will be available on Thursday, September 18."
+    "text": "We’ll work on ggplot2 in this lab. Make sure to take a look at the lab instructions to clone the repository for the lab. The lab will be available on Thursday, September 11."
   },
   {
-    "objectID": "labs/lab_05.html",
-    "href": "labs/lab_05.html",
-    "title": "Math 141: Lab 5",
+    "objectID": "labs/lab_04.html",
+    "href": "labs/lab_04.html",
+    "title": "Math 141: Lab 4",
     "section": "",
-    "text": "Please clone the following repository to access the lab.\nhttps://github.com/Math-141/lab05.git"
+    "text": "For the first question of this lab, we met in the thesis tower and collected data.\nFor the remaining questions on the lab, please clone the following repository and finish the remaining lab questions. There is no need to fill out answers for Question 1 if you gave me your hard copy in lab.\nhttps://github.com/Math-141/lab04.git"
   },
   {
-    "objectID": "labs/lab_05.html#lab-5",
-    "href": "labs/lab_05.html#lab-5",
-    "title": "Math 141: Lab 5",
+    "objectID": "labs/lab_04.html#lab-4",
+    "href": "labs/lab_04.html#lab-4",
+    "title": "Math 141: Lab 4",
     "section": "",
-    "text": "Please clone the following repository to access the lab.\nhttps://github.com/Math-141/lab05.git"
+    "text": "For the first question of this lab, we met in the thesis tower and collected data.\nFor the remaining questions on the lab, please clone the following repository and finish the remaining lab questions. There is no need to fill out answers for Question 1 if you gave me your hard copy in lab.\nhttps://github.com/Math-141/lab04.git"
+  },
+  {
+    "objectID": "labs/lab_06.html",
+    "href": "labs/lab_06.html",
+    "title": "Math 141: Lab 6",
+    "section": "",
+    "text": "Please clone the following repository to access the lab.\nhttps://github.com/Math-141/lab06.git"
+  },
+  {
+    "objectID": "labs/lab_06.html#lab-5",
+    "href": "labs/lab_06.html#lab-5",
+    "title": "Math 141: Lab 6",
+    "section": "",
+    "text": "Please clone the following repository to access the lab.\nhttps://github.com/Math-141/lab06.git"
   },
   {
     "objectID": "labs/probability_homework.html",
@@ -2172,23 +2186,23 @@
   {
     "objectID": "readings/readings_wk08fri.html",
     "href": "readings/readings_wk08fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 31, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 9 - 9.1 (Stop at The theory-based approach header),\nMD 9.3\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nThink about a hypothesis test that you are interested in conducting. Fully describe the process you would embark on to perform this hypothesis test in language accessible to someone who hasn’t taken a statistics course. Describe the data collection, the parameter of interest, the sample statistic, your null hypothesis, and the way you’ll use these to draw conclusions from the data. Feel free to draw pictures as needed."
   },
   {
     "objectID": "readings/readings_wk08fri.html#reading",
     "href": "readings/readings_wk08fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 31, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 9 - 9.1 (Stop at The theory-based approach header),\nMD 9.3"
   },
   {
     "objectID": "readings/readings_wk08fri.html#homework-assignment",
     "href": "readings/readings_wk08fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for October 31, 2025",
     "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\n\nThink about a hypothesis test that you are interested in conducting. Fully describe the process you would embark on to perform this hypothesis test in language accessible to someone who hasn’t taken a statistics course. Describe the data collection, the parameter of interest, the sample statistic, your null hypothesis, and the way you’ll use these to draw conclusions from the data. Feel free to draw pictures as needed."
   },
   {
     "objectID": "readings/readings_wk08wed.html",
