@@ -1,0 +1,50 @@
+---
+title: "Lab warmup 10/30"
+author: "Name: __________________"
+editor: source
+format:
+  pdf:
+    margin-top: 2em
+---
+
+
+1. Briefly, describe a sampling distribution and a bootstrap distribution. How are they different? How are they similar? 
+
+\vspace{50mm}
+
+
+
+2. We've learned some functions from the `infer` package listed below. For each function, describe its use. Also, for the parameters with `name = _____` describe what these parameters do and some possible values for these parameters. 
+
+
+`rep_sample_n(.data, n = ______, reps = ______)`
+
+\vspace{45mm}
+
+
+`specify(x, response = ______, explanatory = ______, success = ______)`
+
+\newpage
+
+
+`generate(x, reps = ______, type = ______)`
+
+\vspace{45mm}
+
+
+`calculate(x, stat = ______, order = ______)`
+
+\vspace{45mm}
+
+
+`visualize(data, bins = ______)`
+
+\vspace{45mm}
+
+
+`get_confidence_interval(x, level = ______ type = ______, point_estimate = ______)`
+
+\vspace{45mm}
+
+
+`shade_confidence_interval(endpoints = ______)`
