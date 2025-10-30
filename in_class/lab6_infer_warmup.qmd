@@ -19,32 +19,69 @@ format:
 
 `rep_sample_n(.data, n = ______, reps = ______)`
 
-\vspace{45mm}
+-   rep_sample_n():
+\vspace{5mm}
+-   n:
+-   reps: 
+
+\vspace{10mm}
 
 
 `specify(x, response = ______, explanatory = ______, success = ______)`
+
+-   specify():
+\vspace{5mm}
+-   response:
+-   explanatory: 
+-   success: 
+
 
 \newpage
 
 
 `generate(x, reps = ______, type = ______)`
 
-\vspace{45mm}
+-   generate():
+\vspace{5mm}
+-   reps:
+-   type: 
+
+\vspace{10mm}
 
 
 `calculate(x, stat = ______, order = ______)`
 
-\vspace{45mm}
+-   calculate():
+\vspace{5mm}
+-   stat:
+-   order: 
+
+\vspace{10mm}
 
 
 `visualize(data, bins = ______)`
 
-\vspace{45mm}
+-   visualize():
+\vspace{5mm}
+-   bins:
+
+\vspace{10mm}
 
 
 `get_confidence_interval(x, level = ______ type = ______, point_estimate = ______)`
 
-\vspace{45mm}
+-   get_confidence_interval():
+\vspace{5mm}
+-   level:
+-   type: 
+-   point_estimate:
+
+\vspace{10mm}
 
 
 `shade_confidence_interval(endpoints = ______)`
+
+-   shade_confidence_interval():
+\vspace{5mm}
+-   endpoints:
+
