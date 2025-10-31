@@ -3490,7 +3490,7 @@
     "href": "slides/math141_wk08fri.html#announcements",
     "title": "Math 141",
     "section": "Announcements",
-    "text": "Announcements\n\n\n\nGoals for Today\n\n\n\nLearn the language of hypothesis testing (including p-values)\nPractice framing research questions in terms of hypotheses\n\n\n\nLearn how to generate null distributions\nUse infer to conduct hypothesis tests in R"
+    "text": "Announcements\n\n\nClarifying midterm makeup points.\n\n\nGoals for Today\n\n\n\nLearn the language of hypothesis testing (including p-values)\nPractice framing research questions in terms of hypotheses\n\n\n\nLearn how to generate null distributions\nUse infer to conduct hypothesis tests in R"
   },
   {
     "objectID": "slides/math141_wk08fri.html#generating-null-distributions",

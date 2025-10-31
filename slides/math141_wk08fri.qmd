@@ -58,6 +58,8 @@ set.seed(5)
 
 ::: {.fragment .nonincremental}
 
+-   Clarifying midterm makeup points. 
+
     
 :::
 
