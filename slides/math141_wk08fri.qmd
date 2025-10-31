@@ -135,11 +135,16 @@ Write out $H_o$ and $H_a$ in terms of population parameters.
 
 Make sure to first define the population parameter in the context of the problem.
 
+```{r}
+#| echo: false
+countdown::countdown(2)
+```
+
 ------------------------------------------------------------------------
 
 ### Example 2
 
-Can you tell if a mouse is in pain by looking at its facial expression? A recent study created a ''mouse grimace scale" and tested to see if there was a positive correlation between scores on that scale and the degree of pain (based on injections of a weak and mildly painful solution). The study's authors believe that if the scale applies to other mammals as well, it could help veterinarians test how well painkillers and other medications work in animals.
+Can you tell if a mouse is in pain by looking at its facial expression? A recent study created a "mouse grimace scale" and tested to see if there was a positive correlation between scores on that scale and the degree of pain (based on injections of a weak and mildly painful solution). The study's authors believe that if the scale applies to other mammals as well, it could help veterinarians test how well painkillers and other medications work in animals.
 
 Write out $H_o$ and $H_a$ in terms of conjectures.
 
@@ -150,6 +155,12 @@ Write out $H_o$ and $H_a$ in terms of conjectures.
 Write out $H_o$ and $H_a$ in terms of population parameters.
 
 Make sure to first define the population parameter in the context of the problem.
+
+```{r}
+#| echo: false
+countdown::countdown(2)
+```
+
 
 ------------------------------------------------------------------------
 
