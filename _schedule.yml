@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 10/31/25
+  draft-after: 11/3/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -277,14 +277,14 @@ scheduled-docs:
       #   - 'Some text'
     - week: 9
       days:
-        - topic: "TBA"
+        - topic: "Even More Hypothesis Testing"
           display-date: Monday, Nov 3
           date: 11/3/25
           docs:
             - type: Reading + HW
               href: readings/readings_wk09mon.qmd
-            - type: Slides
-              href: slides/math141_wk09mon.qmd
+            # - type: Slides
+            #   href: slides/math141_wk09mon.qmd
         - topic: "TBA"
           display-date: Wednesday, Nov 5
           date: 11/5/25

@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 11/3/25
 editor: source
 ---
 
@@ -9,10 +9,25 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   No new reading today. 
 
 ## Homework Assignment
 
-After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
+Supposed you'd like to know the average height of all Reedies ($\mu$). To help figure it out, you've collected a sample of 50 Reedies and measured their heights. You find that the sample mean $\overline{x} = 64$ inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).
 
--   
+```{r}
+#| echo: false
+#| message: false
+library(tidyverse)
+bs_stats <- data.frame(x=rnorm(10000,64,1.22))
+quantiles <- round(quantile(bs_stats$x,c(0.025,0.05,0.25,0.75,0.95,0.975)),3)
+ggplot(bs_stats,aes(x))+
+  geom_histogram(color="white",bins=25)+
+  #scale_x_continuous(limits=c(0,.4))+
+  theme_bw()+
+  labs(title="Bootstrap distribution based on sample of size n=50",
+       x="Bootstrap sample statistics")+
+  geom_vline(xintercept = quantiles,color="red",linetype=2)
+quantiles
+```
+Based on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data. 
