@@ -277,7 +277,7 @@ scheduled-docs:
       #   - 'Some text'
     - week: 9
       days:
-        - topic: "Even More Hypothesis Testing"
+        - topic: "Types of Errors (and more hypothesis testing)"
           display-date: Monday, Nov 3
           date: 11/3/25
           docs:
@@ -285,7 +285,7 @@ scheduled-docs:
               href: readings/readings_wk09mon.qmd
             # - type: Slides
             #   href: slides/math141_wk09mon.qmd
-        - topic: "TBA"
+        - topic: "Power"
           display-date: Wednesday, Nov 5
           date: 11/5/25
           docs:
@@ -299,7 +299,7 @@ scheduled-docs:
           docs:
             - type: Lab
               href: labs/lab_09.qmd
-        - topic: "TBA"
+        - topic: "p-value pitfalls"
           display-date: Friday, Nov 7
           date: 11/7/25
           docs:
@@ -311,7 +311,7 @@ scheduled-docs:
       #   - 'Some text'
     - week: 10
       days:
-        - topic: "TBA"
+        - topic: "Random Variables I"
           display-date: Monday, Nov 10
           date: 11/10/25
           docs:
@@ -319,7 +319,7 @@ scheduled-docs:
               href: readings/readings_wk10mon.qmd
             - type: Slides
               href: slides/math141_wk10mon.qmd
-        - topic: "TBA"
+        - topic: "Random Variables II"
           display-date: Wednesday, Nov 12
           date: 11/12/25
           docs:
@@ -327,13 +327,13 @@ scheduled-docs:
               href: readings/readings_wk10wed.qmd
             - type: Slides
               href: slides/math141_wk10wed.qmd
-        - topic: "Lab: Random variable and p-values"
+        - topic: "Lab: p-value pitfalls and random variables"
           display-date: Thursday, Nov 13
           date: 11/13/25
           docs:
             - type: Lab
               href: labs/lab_10.qmd
-        - topic: "TBA"
+        - topic: "Random Variables III"
           display-date: Friday, Nov 14
           date: 11/14/25
           docs:
@@ -345,7 +345,7 @@ scheduled-docs:
       #   - 'Some text'
     - week: 11
       days:
-        - topic: "TBA"
+        - topic: "Theoretical distribution-based inference"
           display-date: Monday, Nov 17
           date: 11/17/25
           docs:
@@ -353,7 +353,7 @@ scheduled-docs:
               href: readings/readings_wk11mon.qmd
             - type: Slides
               href: slides/math141_wk11mon.qmd
-        - topic: "TBA"
+        - topic: "Theoretical distribution-based inference"
           display-date: Wednesday, Nov 19
           date: 11/19/25
           docs:
@@ -361,13 +361,13 @@ scheduled-docs:
               href: readings/readings_wk11wed.qmd
             - type: Slides
               href: slides/math141_wk11wed.qmd
-        - topic: "Lab: Distribution-based inference"
+        - topic: "Lab: Theoretical distribution-based inference"
           display-date: Thursday, Nov 20
           date: 11/20/25
           docs:
             - type: Lab
               href: labs/lab_11.qmd
-        - topic: "TBA"
+        - topic: "Theoretical distribution-based inference"
           display-date: Friday, Nov 21
           date: 11/21/25
           docs:

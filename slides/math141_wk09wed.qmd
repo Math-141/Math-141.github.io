@@ -1,0 +1,503 @@
+---
+pagetitle: "Computing Power"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+library(infer)
+set.seed(5)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Computing Power]{.custom-title}
+
+<br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 9 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Goals for Today
+
+
+-   Review **decisions** in a hypothesis test
+    -   Types of errors
+-   Learn to compute the **power** of a hypothesis test
+
+---
+
+## Recall: Hypothesis Testing Framework
+
+-   Set-up hypotheses:
+
+    -   Be able to express in words and in terms of parameters.
+
+-   Collect data.
+
+-   Assume $H_o$ is correct.
+
+-   Compute a p-value to quantify the likelihood of the sample results using a test statistic.
+
+-   **Draw a conclusion about the alternative hypothesis.**
+
+------------------------------------------------------------------------
+
+### Recall: Types of errors
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+-   $\alpha$ = prob of Type I error **under repeated sampling** = prob reject $H_o$ when it is true
+
+:::
+
+::: {.column width=50%}
+
+-   $\beta$ = prob of Type II error **under repeated sampling** = prob fail to reject $H_o$ when $H_a$ is true.
+
+:::
+
+::::
+
+
+::: {.fragment}
+
+**Question**: How are $\alpha$ and $\beta$ related? What happens to $\beta$ if we decrease $\alpha$?
+
+:::
+
+------------------------------------------------------------------------
+
+### Hypothesis Testing: Decisions, Decisions
+
+**Question**: How do I select $\alpha$?
+
+-   Will depend on the convention in your field.
+
+-   Want a small $\alpha$ and a small $\beta$. But they are related.
+
+    -   **The smaller** $\alpha$ is the larger $\beta$ will be.
+
+-   Choose a lower $\alpha$ (e.g., 0.01, 0.001) when the Type I error is worse and a higher $\alpha$ (e.g., 0.1) when the Type II error is worse.
+
+-   Can't easily compute $\beta$. Why?
+
+-   One more important term:
+
+    -   **Power** = probability reject $H_o$ when the alternative is true.
+    
+------------------------------------------------------------------------
+
+### Example
+
+Suppose we have a baseball player who has been a 0.250 career hitter who suddenly improves to be a 0.333 hitter. He wants a raise but needs to convince his manager that he has genuinely improved. The manager offers to examine his performance in 20 at-bats.
+
+::: {.fragment}
+
+::: columns
+::: column
+Ho:
+:::
+
+::: column
+Ha:
+:::
+:::
+
+::: 
+
+::: {.fragment}
+
+
+::: columns
+::: column
+```{r, echo = FALSE, fig.asp = 0.65}
+dat <- data.frame(at_bats = c(rep("hit", 8), 
+                              rep("miss", 12)))
+
+
+library(infer)
+library(tidyverse)
+null <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.25) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop") %>%
+  mutate(dist = "Null")
+
+alt <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.333) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop") %>%
+  mutate(dist = "Alternative")
+
+both <- bind_rows(null, alt) %>%
+  mutate(dist = fct_relevel(dist, "Null"))
+
+both %>%
+  ggplot(mapping = aes(x = stat)) +
+  geom_histogram(bins = 40, color = "white") +
+  facet_wrap(~dist, ncol = 1) +
+  geom_vline(xintercept = 0.45, size = 2,
+             color = "turquoise4")
+
+power <- alt %>%
+  summarize(power = mean(stat > quantile(null$stat, 0.95))) %>%
+  pull()
+```
+:::
+
+::: column
+::: incremental
+-   When $\alpha$ is set to $0.05$, he needs to hit 9 or more to get a small enough p-value to reject $H_o$.
+
+-   When $\alpha$ is set to $0.05$, the power of this test is `r power`.
+
+-   Why is the power **so low**?
+
+-   What aspects of the test could the baseball player change to **increase the power** of the test?
+:::
+:::
+:::
+
+:::
+
+------------------------------------------------------------------------
+
+### Example
+
+Suppose we have a baseball player who has been a 0.250 career hitter who suddenly improves to be a 0.333 hitter. He wants a raise but needs to convince his manager that he has genuinely improved. The manager offers to examine his performance in ~~20~~ 100 at-bats.
+
+**What will happen to the power of the test if we increase the sample size?**
+
+::: columns
+::: column
+```{r, echo = FALSE, fig.asp = 0.65}
+dat <- data.frame(at_bats = c(rep("hit", 40), 
+                              rep("miss", 60)))
+
+
+
+library(infer)
+library(tidyverse)
+null <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.25) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop") %>%
+  mutate(dist = "Null")
+
+alt <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.333) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop") %>%
+  mutate(dist = "Alternative")
+
+both <- bind_rows(null, alt) %>%
+  mutate(dist = fct_relevel(dist, "Null"))
+
+#quantile(null$stat, 0.95)
+# mean(null$stat >= 0.33)
+
+both %>%
+  ggplot(mapping = aes(x = stat)) +
+  geom_histogram(bins = 40, color = "white") +
+  facet_wrap(~dist, ncol = 1) +
+  geom_vline(xintercept = quantile(null$stat, 0.95), size = 2,
+             color = "turquoise4")
+
+
+  
+
+power <- round(mean(alt$stat > quantile(null$stat, 0.95)), digits = 2)
+```
+:::
+
+::: column
+::: nonincremental
+-   Increasing the sample size increases the power.
+
+-   When $\alpha$ is set to $0.05$ and the sample size is now 100, the power of this test is `r power`.
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+### Example
+
+Suppose we have a baseball player who has been a 0.250 career hitter who suddenly improves to be a 0.333 hitter. He wants a raise but needs to convince his manager that he has genuinely improved. The manager offers to examine his performance in ~~20~~ 100 at-bats.
+
+**What will happen to the power of the test if we increase** $\alpha$ to 0.1?
+
+::: columns
+::: column
+```{r, echo = FALSE, fig.asp = 0.65}
+dat <- data.frame(at_bats = c(rep("hit", 40), 
+                              rep("miss", 60)))
+
+
+
+library(infer)
+library(tidyverse)
+null <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.25) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop") %>%
+  mutate(dist = "Null")
+
+alt <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.333) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop") %>%
+  mutate(dist = "Alternative")
+
+both <- bind_rows(null, alt) %>%
+  mutate(dist = fct_relevel(dist, "Null"))
+
+#quantile(null$stat, 0.9)
+# mean(null$stat >= 0.31)
+
+both %>%
+  ggplot(mapping = aes(x = stat)) +
+  geom_histogram(bins = 40, color = "white") +
+  facet_wrap(~dist, ncol = 1) +
+  geom_vline(xintercept = quantile(null$stat, 0.9), size = 2,
+             color = "turquoise4")
+
+
+  
+
+power <- round(mean(alt$stat > quantile(null$stat, 0.9)), digits = 2)
+```
+:::
+
+::: column
+::: nonincremental
+-   Increasing $\alpha$ increases the power.
+    -   Decreases $\beta$.
+-   When $\alpha$ is set to $0.1$ and the sample size is 100, the power of this test is `r power`.
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+### Example
+
+Suppose we have a baseball player who has been a 0.250 career hitter who suddenly improves to be a ~~0.333~~ 0.400 hitter. He wants a raise but needs to convince his manager that he has genuinely improved. The manager offers to examine his performance in ~~20~~ 100 at-bats.
+
+**What will happen to the power of the test if he is an even better player?**
+
+::: columns
+::: column
+```{r, echo = FALSE, fig.asp = 0.65}
+dat <- data.frame(at_bats = c(rep("hit", 40), 
+                              rep("miss", 60)))
+
+
+
+library(infer)
+library(tidyverse)
+null <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.25) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop") %>%
+  mutate(dist = "Null")
+
+alt <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.4) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop") %>%
+  mutate(dist = "Alternative")
+
+both <- bind_rows(null, alt) %>%
+  mutate(dist = fct_relevel(dist, "Null"))
+
+#quantile(null$stat, 0.9)
+# mean(null$stat >= 0.31)
+
+both %>%
+  ggplot(mapping = aes(x = stat)) +
+  geom_histogram(bins = 40, color = "white") +
+  facet_wrap(~dist, ncol = 1) +
+  geom_vline(xintercept = quantile(null$stat, 0.9), size = 2,
+             color = "turquoise4")
+
+
+  
+
+power <- round(mean(alt$stat > quantile(null$stat, 0.9)), digits = 2)
+```
+:::
+
+::: column
+::: nonincremental
+-   **Effect size**: Difference between true value of the parameter and null value.
+
+    -   Often standardized.
+
+-   Increasing the effect size increases the power.
+
+-   When $\alpha$ is set to $0.1$, the sample size is 100, and the true probability of hitting the ball is 0.4, the power of this test is `r power`.
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+### Computing Power
+
+::: nonincremental
+1.  Generate a null distribution:
+:::
+
+```{r}
+#| output-location: column
+
+# Create a dummy dataset with the correct sample size
+dat <- data.frame(at_bats = c(rep("hit", 80), 
+                              rep("miss", 20)))
+
+
+null <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.25) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop")
+
+ggplot(data = null, mapping = aes(x = stat)) +
+  geom_histogram(bins = 27, color = "white")
+
+```
+
+------------------------------------------------------------------------
+
+### Computing Power
+
+::: nonincremental
+2.  Determine the "critical value(s)" where $\alpha = 0.05$
+:::
+
+```{r}
+#| output-location: column
+quantile(null$stat, 0.95)
+
+
+ggplot(data = null, mapping = aes(x = stat)) +
+  geom_histogram(bins = 40, color = "white") +
+  geom_vline(xintercept = quantile(null$stat, 0.95),
+             size = 2,
+             color = "turquoise4")
+```
+
+------------------------------------------------------------------------
+
+### Computing Power
+
+::: nonincremental
+3.  Construct the alternative distribution.
+:::
+
+```{r}
+#| output-location: column
+alt <- dat %>%
+  specify(response = at_bats, success = "hit") %>%
+  hypothesize(null = "point", p = 0.333) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat = "prop")
+
+ggplot(data = alt, mapping = aes(x = stat)) +
+  geom_histogram(bins = 27, color = "white") +
+  geom_vline(xintercept = quantile(null$stat, 0.95),
+             size = 2,
+             color = "turquoise4")
+```
+
+------------------------------------------------------------------------
+
+### Computing Power
+
+::: nonincremental
+4.  Find the probability of the critical value or more extreme under the **alternative distribution**.
+:::
+
+```{r}
+alt %>%
+  summarize(power = mean(stat > quantile(null$stat, 0.95)))
+```
+
+------------------------------------------------------------------------
+
+## Thoughts on Power
+
+-   What aspects of the test did the player actually have control over?
+
+-   Why is it easier to set $\alpha$ than to set $\beta$ or power?
+
+-   Considering power before collecting data is very important!
+
+-   The danger of under-powered studies
+
+    -   EX: Turning right at a red light
+
+------------------------------------------------------------------------
+
+### Reporting Results in Journal Articles
+
+```{r, echo = FALSE, out.width= "60%"}
+knitr::include_graphics("img/bem_honorton_1994_results.png")
+```
+
+------------------------------------------------------------------------
+
+## Next time:
+
+::: nonincremental
+-   $p$-value pitfalls
+-   Introduce random variables! 
+:::

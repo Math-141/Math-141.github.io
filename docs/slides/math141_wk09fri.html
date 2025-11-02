@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>Math 141 – Data Visualization</title>
+  <title>Math 141 – P-value Pitfalls</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -123,10 +123,6 @@
       margin-right: 0; 
     }
   </style>
-  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
-  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
-  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -140,615 +136,382 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Data Visualization</span></p>
-<p><br> <br> <br> <br></p>
+<p><span class="custom-title">P-value Pitfalls</span></p>
+<p><br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
-<p><span class="custom-subtitle">Math 141 <br> Week 1 | Fall 2025</span></p>
+<p><span class="custom-subtitle">Math 141 <br> Week 9 | Fall 2025</span></p>
 </div></div>
 </section>
 <section class="slide level2">
 
-<div style="margin-top: 80px; font-size: 3em; color: #3F6574; text-align: center;">
-<p>Before we get started…</p>
-<p>if you are on the waitlist, please sign in to class here: <a href="https://tinyurl.com/math141-wait">tinyurl.com/math141-wait</a></p>
-</div>
-</section>
-<section id="goals-for-today" class="slide level2">
-<h2>Goals for Today</h2>
-<div>
-<ul>
-<li>Review data frames.</li>
-<li>Motivate data visualizations.</li>
-<li>Develop <strong>language</strong> to talk about the components of a graphic.</li>
-<li>Practice deconstructing graphics.</li>
-<li>Discuss good graphical practices.</li>
-</ul>
-</div>
-</section>
-<section id="reminders" class="slide level2">
-<h2>Reminders</h2>
-<ul>
-<li class="fragment">DAR accommodations.</li>
-<li class="fragment"><strong>Slack</strong> for communication.
-<ul>
-<li class="fragment"><code>general-qa</code> and <code>coding-qa</code> channels</li>
-</ul></li>
-<li class="fragment">Course assistant (CA) office hours are now posted
-<ul>
-<li class="fragment">CA Office hours start next week</li>
-<li class="fragment">Coverage every week day!</li>
-</ul></li>
-<li class="fragment">Other resources
-<ul>
-<li class="fragment">Individual tutoring</li>
-</ul></li>
-</ul>
-</section>
-<section id="math-141-office-hours-schedule" class="slide level2 center">
-<h2>Math 141 Office Hours Schedule</h2>
+<h3 id="goals-for-today">Goals for Today</h3>
 <div class="columns">
-<div class="column" style="width:80%;">
-<p><img data-src="img/office_hours.png"></p>
-</div></div>
-</section>
-<section id="data-frames" class="slide level2">
-<h2>Data Frames</h2>
-<p>Data in <strong>spreadsheet</strong>-like format where:</p>
+<div class="column">
 <ul>
-<li class="fragment"><p>Rows = Observations/cases</p></li>
-<li class="fragment"><p>Columns = Variables</p></li>
+<li class="fragment">Statistical inference zoom out</li>
 </ul>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-bordered table-striped caption-top" data-quarto-postprocess="true" style="font-size: 32px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">ID</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">kind</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">.pred_AI</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">.pred_class</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">detector</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">native</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">model</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.9999942</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: left;">Sapling</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Real TOEFL</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.8281448</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: left;">Crossplag</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Real TOEFL</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.0002137</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">Crossplag</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Real College Essays</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: right;">0.0000000</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">ZeroGPT</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">Fake CS224N - GPT3</td>
-<td style="text-align: left;">GPT3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: right;">0.0017841</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">OriginalityAI</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">Fake CS224N - GPT3, PE</td>
-<td style="text-align: left;">GPT4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.0001783</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">HFOpenAI</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Real CS224N</td>
-<td style="text-align: left;">Human</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-</div>
-</div>
+</div><div class="column">
 <ul>
-<li class="fragment">Data from <strong>GPT Detectors Are Biased Against Non-Native English Writers.</strong> <em>Weixin Liang</em>, <em>Mert Yuksekgonul</em>, <em>Yining Mao</em>, <em>Eric Wu</em>, <em>James Zou.</em> <a href="https://doi.org/10.1016/j.patter.2023.100779">CellPress Patterns</a> and available in the <code>R</code> package <code>detectors</code>.</li>
-</ul>
-</section>
-<section id="data-frames-1" class="slide level2">
-<h2>Data Frames</h2>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="table-responsive">
-<table class="table table-bordered table-striped caption-top" data-quarto-postprocess="true" style="font-size: 32px; margin-left: auto; margin-right: auto;">
-<thead>
-<tr class="header">
-<th style="text-align: right;" data-quarto-table-cell-role="th">ID</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">kind</th>
-<th style="text-align: right;" data-quarto-table-cell-role="th">.pred_AI</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">.pred_class</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">detector</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">native</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">name</th>
-<th style="text-align: left;" data-quarto-table-cell-role="th">model</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.9999942</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: left;">Sapling</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Real TOEFL</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.8281448</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: left;">Crossplag</td>
-<td style="text-align: left;">No</td>
-<td style="text-align: left;">Real TOEFL</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.0002137</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">Crossplag</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Real College Essays</td>
-<td style="text-align: left;">Human</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: right;">0.0000000</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">ZeroGPT</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">Fake CS224N - GPT3</td>
-<td style="text-align: left;">GPT3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: left;">AI</td>
-<td style="text-align: right;">0.0017841</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">OriginalityAI</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: left;">Fake CS224N - GPT3, PE</td>
-<td style="text-align: left;">GPT4</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: right;">0.0001783</td>
-<td style="text-align: left;">Human</td>
-<td style="text-align: left;">HFOpenAI</td>
-<td style="text-align: left;">Yes</td>
-<td style="text-align: left;">Real CS224N</td>
-<td style="text-align: left;">Human</td>
-</tr>
-</tbody>
-</table>
-</div>
-
-
-</div>
-</div>
-<p>Columns = Variables</p>
-<p><strong>Variables</strong>: Describe characteristics of the observations</p>
-<ul>
-<li class="fragment"><p><strong>Quantitative</strong>: Numerical in nature</p></li>
-<li class="fragment"><p><strong>Categorical</strong>: Values are categories</p></li>
-<li class="fragment"><p><strong>Identification</strong>: Uniquely identify each case</p></li>
-</ul>
-</section>
-<section id="types-of-variables" class="slide level2">
-<h2>Types of variables</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment"><strong>Identification</strong>: Uniquely identify each case</li>
-</ul>
-<p><br></p>
-<ul>
-<li class="fragment"><strong>Quantitative</strong>: Numerical in nature
-<ul>
-<li class="fragment">Those that can take a range of values are called <strong></strong> (e.g., age, income)</li>
-<li class="fragment">Those that only take particular (often whole number) values are called <strong>discrete</strong> (e.g., result of a dice roll)</li>
-<li class="fragment">Not every variable involving numbers is quantitative!</li>
-</ul></li>
-</ul>
-</div><div class="column" style="width:50%;">
-<ul>
-<li class="fragment"><strong>Categorical</strong>: Values are categories
-<ul>
-<li class="fragment">Usually take values (e.g., Race/Ethnicity or Gender)</li>
-<li class="fragment">But can take numeric values! (e.g., zip code)</li>
-<li class="fragment">The values that a categorical variable can take are called its <strong>levels</strong></li>
-<li class="fragment"><strong>Ordinal</strong> categorical variables can be ordered (e.g., level of education, variables collected with a Likert scale)</li>
-<li class="fragment">Categorical variables that cannot be ordered are called <strong>nominal</strong> (e.g., Race/Ethnicity)</li>
-</ul></li>
+<li class="fragment"><p>A hearty p-values discussion</p></li>
+<li class="fragment"><p>Key probability concepts</p></li>
 </ul>
 </div></div>
 </section>
-<section id="why-construct-a-graph" class="slide level2 center">
-<h2>Why construct a graph?</h2>
-<p><br></p>
-<div class="fragment fade-up midi">
-<p>To <strong>explore</strong> the data.</p>
-</div>
-<div class="fragment fade-up midi">
-<p>To <strong>summarize</strong> the data.</p>
-</div>
-<div class="fragment fade-up midi">
-<p>To showcase <strong>trends</strong> and make <strong>comparisons</strong>.</p>
-</div>
-<div class="fragment fade-up midi">
-<p>To tell a compelling <strong>story</strong>.</p>
-</div>
-</section>
-<section id="challenger" class="slide level2">
-<h2>Challenger</h2>
-<ul>
-<li class="fragment"><p>On January 27th, 1986, engineers from Morton Thiokol recommended NASA delay launch of space shuttle <em>Challenger</em> due to cold weather.</p>
-<ul>
-<li class="fragment">Believed cold weather impacted the o-rings that held the rockets together.</li>
-<li class="fragment">Used 13 charts in their argument.</li>
-</ul></li>
-<li class="fragment"><p>After a two hour conference call, the engineer’s recommendation was overruled due to lack of persuasive evidence and the launch proceeded.</p></li>
-<li class="fragment"><p>The Challenger exploded 73 seconds into launch.</p></li>
-</ul>
-</section>
-<section id="challenger-1" class="slide level2">
-<h2>Challenger</h2>
-<p>Here’s one of those charts.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/table_o_rings.jpg" class="quarto-figure quarto-figure-center" style="width:90.0%"></p>
-</figure>
-</div>
-</section>
-<section id="challenger-2" class="slide level2">
-<h2>Challenger</h2>
-<p>Here’s another one of those charts.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/o_ring_rockets.jpg" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
-</figure>
-</div>
-</section>
-<section id="challenger-3" class="slide level2">
-<h2>Challenger</h2>
-<p>Here’s a graphic created in <code>R</code> from <a href="https://en.wikipedia.org/wiki/Edward_Tufte">Edward Tufte</a>’s data.</p>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="challenger-4" class="slide level2">
-<h2>Challenger</h2>
-<p>This adaptation is a recreation of Edward Tufte’s graphic.</p>
+<section>
+<section id="which-flavor-of-statistician-are-you" class="title-slide slide level1 center">
+<h1>Which Flavor of Statistician Are You?</h1>
 
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-<aside><div>
-<p>For more information on this example and other examples, check out <a href="https://www.edwardtufte.com/tufte/books_visex">Tufte’s book</a>.</p>
-</div></aside></section>
-<section id="now-lets-learn-the-grammar-of-graphics." class="slide level2 center">
-<h2>Now let’s learn the <strong>Grammar of Graphics</strong>.</h2>
-<div class="fragment fade-up midi">
-<p>We will use this grammar to:</p>
-</div>
-<div class="fragment fade-up midi">
-<p>Decompose and understand existing graphs.</p>
-</div>
-<div class="fragment fade-up midi">
-<p>Create our own graphs with the <code>R</code> package <code>ggplot2</code>.</p>
-</div>
 </section>
-<section id="grammar-of-graphics" class="slide level2">
-<h2>Grammar of Graphics</h2>
+<section class="slide level2">
+
+<div class="columns">
+<div class="column">
+<p>Data Visualizer</p>
+<iframe src="https://giphy.com/embed/d31vTpVi1LAcDvdm" width="480" height="362" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>Data Wrangler</p>
+<iframe src="https://giphy.com/embed/DbaUtl1DcLyrdwhzGJ" width="480" height="362" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+</div><div class="column">
+<p>Model Builder</p>
+<p><br></p>
+<iframe src="https://giphy.com/embed/xZsLh7B3KMMyUptD9D" width="480" height="270" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+<p>Inferencer</p>
+<p><br></p>
+<iframe src="https://giphy.com/embed/NS7gPxeumewkWDOIxi" width="480" height="270" frameborder="0" class="giphy-embed" allowfullscreen="">
+</iframe>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="lets-talk-about-p-values">Let’s Talk About P-values</h3>
 <ul>
-<li class="fragment"><strong>data</strong>: Data frame that contains the raw data
-<ul>
-<li class="fragment">Variables used in the graph</li>
-</ul></li>
-<li class="fragment"><strong>geom</strong>: Geometric <strong>shape</strong> that the data are mapped to.
-<ul>
-<li class="fragment">EX: Point, line, bar, text, …</li>
-</ul></li>
-<li class="fragment"><strong>aesthetic</strong>: Visual properties of the <strong>geom</strong>
-<ul>
-<li class="fragment">EX: X (horizontal) position, y (vertical) position, color, fill, shape</li>
-</ul></li>
-<li class="fragment"><strong>scale</strong>: Controls how data are mapped to the visual values of the aesthetic.
-<ul>
-<li class="fragment">EX: particular colors, log scale</li>
-</ul></li>
-<li class="fragment"><strong>guide</strong>: Legend/key to help user convert visual display back to the data</li>
+<li class="fragment"><p>The original intention of the p-value was as an <strong>informal</strong> measure to judge whether or not a researcher should take a second look.</p></li>
+<li class="fragment"><p>But to create simple statistical manuals for practitioners, this informal measure quickly became a rule: <strong>“p-value &lt; 0.05” = “statistically significant”</strong>.</p></li>
 </ul>
 <div class="fragment">
-<p>For right now, we won’t focus on the <strong>names</strong> of particular types of graphs (e.g., scatterplot) but on the <strong>elements</strong> of graphs.</p>
+<p><strong>What were/are the consequences of the “p-value &lt; 0.05” = “statistically significant” rule?</strong></p>
 </div>
 </section>
 <section class="slide level2">
 
-<div class="columns">
-<div class="column" style="width:30%;">
-<h3 id="example-1">Example 1</h3>
+<h3 id="lets-talk-about-p-values-1">Let’s Talk About P-values</h3>
 <div>
 <ul>
-<li>What are the variables?</li>
-<li>What <strong>geom</strong> are the variables map to?</li>
-<li>What are the <strong>aesthetic</strong>s of the <strong>geom</strong>?</li>
-<li>How is each variable mapped to an <strong>aesthetic</strong>?</li>
-<li>What additional context is provided?</li>
-<li>What story is the graph telling?</li>
+<li><strong>A consequence</strong>: The p-value is often misinterpreted to be the probability the null hypothesis is true.
+<ul>
+<li>A p-value of 0.003 does not mean there’s a 0.3% chance that ESP doesn’t exist!</li>
+<li>By giving people a simple rule, they never learned what the p-value actually measures.</li>
+</ul></li>
 </ul>
-</div>
-</div><div class="column" style="width:60%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/anne_hathaway.png" class="quarto-figure quarto-figure-center" style="width:85.0%" data-fig-dpi="200"></p>
-</figure>
-</div>
-</div></div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="countdown" id="timer_4744e7ea" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
 </div>
 </section>
 <section class="slide level2">
 
+<h3 id="lets-talk-about-p-values-2">Let’s Talk About P-values</h3>
 <div class="columns">
-<div class="column" style="width:30%;">
-<h3 id="example-2">Example 2</h3>
+<div class="column">
 <div>
 <ul>
-<li>What are the variables?</li>
-<li>What <strong>geom</strong> are the variables map to?</li>
-<li>What are the <strong>aesthetic</strong>s of the <strong>geom</strong>?</li>
-<li>How is each variable mapped to an <strong>aesthetic</strong>?</li>
-<li>What additional context is provided?</li>
-<li>What story is the graph telling?</li>
+<li><strong>A consequence</strong>: Researchers often put too much weight on the p-value and not enough weight on their domain knowledge/the plausibility of their conjecture.
+<ul>
+<li>Sometimes we give more weight to things we don’t understand.</li>
+</ul></li>
+<li><a href="https://xkcd.com/1132/">xkcd comic</a></li>
 </ul>
 </div>
-</div><div class="column center" style="width:70%;">
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/harassment_graphic.png" class="quarto-figure quarto-figure-center" style="width:75.0%" data-fig-dpi="200"></p>
+<p><img data-src="img/frequentists_vs_bayesians_2x.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
 </figure>
+</div>
+</div>
 </div>
 </div></div>
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="countdown" id="timer_2dbfda6f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
-<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
-<code class="countdown-time"><span class="countdown-digits minutes">05</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
-</div>
-</div>
-</div>
-</section>
-<section>
-<section id="visualization-considerations" class="title-slide slide level1 center">
-<h1>Visualization Considerations</h1>
-
 </section>
 <section class="slide level2">
 
-<h3 id="what-additional-context-should-my-graphs-have">What additional context should my graphs have?</h3>
+<h3 id="lets-talk-about-p-values-3">Let’s Talk About P-values</h3>
+<div class="columns">
+<div class="column">
+<div>
 <ul>
-<li class="fragment"><p>For context, at a minimum include</p>
-<ul>
-<li class="fragment">Axis labels (with units reported).</li>
-<li class="fragment">Legends.</li>
-<li class="fragment">Data source.</li>
-</ul></li>
-<li class="fragment"><p>Think about the <strong>stories/questions</strong> your visualization answers.</p></li>
-<li class="fragment"><p>Determine what <strong>context/background information</strong> your viewer needs.</p></li>
-<li class="fragment"><p>Visualizing data involves <strong>editorial choices</strong>.</p>
-<ul>
-<li class="fragment">What to highlight.</li>
-<li class="fragment">What comparisons to make easy to see.</li>
-<li class="fragment">What scales to use.</li>
-</ul></li>
+<li><p><strong>A consequence</strong>: <a href="https://projects.fivethirtyeight.com/p-hacking/">P-hacking</a>: Cherry-picking promising findings that are beyond this arbitrary threshold.</p></li>
+<li><p><a href="https://www.explainxkcd.com/wiki/index.php/882:_Significant">xkcd comic</a></p></li>
 </ul>
-</section>
-<section class="slide level2">
-
-<h3 id="context-example">Context Example</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/moma_size.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
 </div>
-</section>
-<section class="slide level2">
-
-<h3 id="water-lilies">Water Lilies</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/lilies.jpg" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="what-visual-cues-are-easier-to-compare">What visual cues are easier to compare?</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/visual_cues.png" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="what-to-consider-with-color">What to consider with color?</h3>
-<p>Consider color blindness.</p>
+</div><div class="column">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk01fri_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="img/significant.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
 </figure>
 </div>
 </div>
 </div>
+</div></div>
 </section>
 <section class="slide level2">
 
-<h3 id="color-palettes-sequential">Color Palettes – Sequential</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/dude.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-<div class="{aside}">
-<p>Maps, like the <a href="https://qz.com/316906/the-dude-map-how-american-men-refer-to-their-bros/">Dude map</a> are also a great way to provide context!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="color-palettes-diverging">Color Palettes – Diverging</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/nba_2015.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-<div class="{aside}">
-<p><a href="https://roadtolarissa.com/nba-minutes/">Adam Pearce’s 2015 NBA Games</a></p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="color-palettes-qualitative">Color Palettes – Qualitative</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/dogs.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-<div class="{aside}">
-<p><a href="https://www.informationisbeautiful.net/visualizations/best-in-show-whats-the-top-data-dog/">information is beautiful’s Best in Show</a></p>
-</div>
-</section>
-<section id="many-ways-to-visually-tell-a-story" class="slide level2">
-<h2>Many Ways To Visually Tell A Story</h2>
-<p>Washington Post’s Approach:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/wp_shooter.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-<p><a href="https://guns.periscopic.com/?year=2013">Periscopic’s Approach</a></p>
-</section>
-<section id="bad-graphics" class="slide level2">
-<h2>Bad Graphics</h2>
-<p>Because of all the design choices, it is much easier to make a bad graph than a good graph.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/pizza_pie.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
-</div>
-</section>
-<section id="misleading-graphics" class="slide level2">
-<h2>Misleading Graphics</h2>
-<p>Be careful that your design choices don’t cause your viewer to draw incorrect conclusions about the data:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/FLguns.jpg" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
-</figure>
+<h3 id="lets-talk-about-p-values-4">Let’s Talk About P-values</h3>
+<ul>
+<li class="fragment"><strong>A consequence</strong>: People conflate <em>statistical significance</em> with <em>practical significance</em>.</li>
+</ul>
+<div class="fragment">
+<p><strong>Example</strong>: A recent <em>Nature</em> study of 19,000+ people found that those who meet their spouses online…</p>
 </div>
 <ul>
-<li class="fragment">Just letting the software make all the design choices can still lead to misleading graphs (recall the Georgia COVID graph).</li>
+<li class="fragment"><p>Are less likely to divorce (p-value &lt; 0.002)</p></li>
+<li class="fragment"><p>Are more likely to have high marital satisfaction (p-value &lt; 0.001)</p></li>
+<li class="fragment"><p>BUT the estimated <strong>effect sizes</strong> were tiny.</p>
+<ul>
+<li class="fragment">Divorce rate of 5.96% for those who met online versus 7.67% for those who met in-person.</li>
+<li class="fragment">On a 7 point scale, happiness value of 5.64 for those who met online versus 5.48 for those who met in-person.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<p><strong>Question</strong>: Do these results provide compelling evidence that one should change their dating behavior?</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="lets-talk-about-p-values-5">Let’s Talk About P-values</h3>
+<div>
+<ul>
+<li><p><strong>A consequence</strong>: People conflate <em>statistical significance</em> with <em>practical significance</em>.</p></li>
+<li><p>We won’t use the <strong>“statistically significant”</strong> language in Math 141. Instead say <strong>“statistically discernible.”</strong></p></li>
+</ul>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="lets-talk-about-p-values-6">Let’s Talk About P-values</h3>
+<p>The American Statistical Association created a set of principles to address misconceptions and misuse of p-values:</p>
+<div>
+<ol type="1">
+<li class="fragment"><p>P-values can indicate how incompatible the data are with a specified statistical model.</p></li>
+<li class="fragment"><p>P-values do not measure the probability that the studied hypothesis is true, or the probability that the data were produced by random chance alone.</p></li>
+<li class="fragment"><p>Scientific conclusions and business or policy decisions should not be based only on whether or not a p-value passes a specific threshold (i.e.&nbsp;0.05).</p></li>
+<li class="fragment"><p>Proper inference requires full reporting and transparency.</p></li>
+<li class="fragment"><p>A p-value, or statistical significance, does not measure the size of an effect or the importance of a result.</p></li>
+<li class="fragment"><p>By itself, a p-value does not provide a good measure of evidence regarding a model or hypothesis.</p></li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="lets-talk-about-p-values-7">Let’s Talk About P-values</h3>
+<ul>
+<li class="fragment"><p>Despite its issues, p-values are still quite popular and can still be a useful tool <strong>when used properly</strong>.</p></li>
+<li class="fragment"><p>In 2014, George Cobb a professor from Mount Holyoke College poised the following questions (and answers):</p></li>
+</ul>
+<div class="fragment">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/Cobb.png" class="quarto-figure quarto-figure-center" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">I want us to stop this cycle.</li>
 </ul>
 </section>
-<section id="summary-thoughts-on-graphical-considerations" class="slide level2">
-<h2>Summary Thoughts on Graphical Considerations</h2>
+<section class="slide level2">
+
+<h3 id="math-141-p-values">Math 141 &amp; P-Values</h3>
 <ul>
-<li class="fragment"><p>Good graphics are one’s where the findings and insights are <strong>obvious</strong> to the viewer.</p>
+<li class="fragment"><p>Understanding p-values and being able to <strong>interpret a p-value in context</strong> is a learning objective of Math 141.</p>
 <ul>
-<li class="fragment">Add information and key <strong>context</strong>.</li>
+<li class="fragment">Ex: If ESP doesn’t exist, the probability of guessing correctly on at least 106 out of 329 trials is 0.003.</li>
 </ul></li>
-<li class="fragment"><p>Facilitate the <strong>comparisons</strong> that correspond to the research question.</p>
+<li class="fragment"><p>Understanding that a small p-value means we have evidence for <span class="math inline">\(H_a\)</span> is important.</p>
 <ul>
-<li class="fragment">Recall the three Georgia COVID counts graphs from Day 1!</li>
+<li class="fragment">Ex: Because the p-value is small, we have evidence for ESP.</li>
 </ul></li>
-<li class="fragment"><p>Data visualizations are <strong>not neutral</strong>.</p></li>
-<li class="fragment"><p>It is easier to see the differences and similarities between different types of graphics if we learn the <strong>grammar of graphics</strong>.</p></li>
-<li class="fragment"><p>Practicing <strong>decomposing</strong> graphics should make it easier for us to <strong>compose</strong> our own graphics.</p></li>
+<li class="fragment"><p>Understanding that a small p-value alone does not imply practical significance.</p>
+<ul>
+<li class="fragment">Create a confidence interval to measure the effect size!</li>
+</ul></li>
+<li class="fragment"><p>Understanding that what you mean by <strong>small</strong> should depend on your field and whether a Type I Error or Type II Error is worse for <strong>your particular research question</strong>.</p></li>
+<li class="fragment"><p>Your ability to tell if a # is less than 0.05 is not a learning objective for Math 141.</p></li>
 </ul>
+</section>
+<section class="slide level2">
+
+<h3 id="reporting-results-in-journal-articles">Reporting Results in Journal Articles</h3>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/bem_honorton_1994_results.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="statistical-inference-zoom-out-estimation">Statistical Inference Zoom Out – Estimation</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ci_diagram_sim.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+<div class="fragment">
+<p><strong>Question</strong>: How did folks do inference before computers?</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="statistical-inference-zoom-out-testing">Statistical Inference Zoom Out – Testing</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/hyp_testing_diagram_sim.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<div class="fragment">
+<p><strong>Question</strong>: How did folks do inference before computers?</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="statistical-inference-zoom-out-estimation-1">Statistical Inference Zoom Out – Estimation</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/ci_diagram.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+<p><strong>Question</strong>: How did folks do inference before computers?</p>
+</section>
+<section class="slide level2">
+
+<h3 id="statistical-inference-zoom-out-testing-1">Statistical Inference Zoom Out – Testing</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="img/hyp_testing_diagram.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<p><strong>Question</strong>: How did folks do inference before computers?</p>
 </section></section>
-<section id="live-coding" class="title-slide slide level1 center">
-<h1>Live Coding</h1>
-<p>(Time permitting)</p>
-</section>
-
 <section>
-<section id="the-datalab-reed" class="title-slide slide level1 center">
-<h1>The DataLab @ Reed</h1>
+<section id="this-means-we-need-to-learn-about-probability-models" class="title-slide slide level1 center">
+<h1>This means we need to learn about probability models!</h1>
 
 </section>
-<section id="next-time" class="slide level2">
-<h2>Next time</h2>
+<section class="slide level2">
+
+<h3 id="probability-models">Probability Models</h3>
+<blockquote>
+<p><em>“All models are wrong but some are useful.”</em> – George Box</p>
+</blockquote>
+<div class="columns">
+<div class="column">
+<p><strong>Question</strong>: How can we use theoretical probability models to approximate our (sampling) distributions?</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk09fri_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="fragment">
+<p>Before we can answer that question and apply the models, we need to learn about the theoretical probability models themselves.</p>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="random-variables">Random Variables</h3>
+<p><strong>Random variable</strong> (RV) is a random process that <strong>takes on numerical values</strong>.</p>
+<ul>
+<li class="fragment">Discrete RV: Takes on discrete values (countable number of possible values)
+<ul>
+<li class="fragment">EX: X = 1 if you are a morning person, 0 if not</li>
+</ul></li>
+<li class="fragment">Continuous RV: Can take on any value in a interval
+<ul>
+<li class="fragment">EX: X = Amount of sugar in one cone of oatly soft-serve in the d-hall</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="behavior-of-random-variables">Behavior of Random Variables</h3>
+<ul>
+<li class="fragment"><p>Random variables have <strong>probability functions</strong> that tell us the likelihood of specific values.</p></li>
+<li class="fragment"><p>For discrete RV, probability function is:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+p(x) = P(X = x)
+\]</span></p>
+<p>where <span class="math inline">\(\sum p(x) = 1\)</span>.</p>
+</div>
+<ul>
+<li class="fragment">Example: X = 1 if you are a morning person, 0 if not</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="random-variables-1">Random Variables</h3>
+<p>For a discrete random variable, care about its:</p>
+<ul>
+<li class="fragment"><p>Distribution: <span class="math inline">\(p(x) = P(X = x)\)</span></p></li>
+<li class="fragment"><p>Center – Mean:</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\mu = \sum x p(x)
+\]</span></p>
+</div>
+<ul>
+<li class="fragment">Spread – Variance &amp; Standard Deviation:</li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\sigma^2 = \sum (x - \mu)^2 p(x)
+\]</span></p>
+<p><span class="math display">\[
+\sigma = \sqrt{ \sum (x - \mu)^2 p(x)}
+\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="another-example">Another Example:</h3>
+<p>Suppose 4 students have still not received their graded Math 141 midterm (yes, let’s pretend we actually had a hand-written midterm) and that I hand back the exams randomly to each student. Let X = the number of students who get their correct exam.</p>
+<div class="fragment">
+<p><strong>Questions:</strong></p>
 <div>
 <ul>
-<li>We’ll learn the <code>ggplot2</code> so that we use the grammar of graphics to create our own plots!</li>
+<li><p>Let’s say the student’s names are A(licia), B(ob), C(olin), and D(onna) and they are sitting in a row ABCD. One possible outcome is ABDC (1st exam goes to A, 2nd to B, 3rd to D, 4th to C). In that case, what does X equal?</p></li>
+<li><p>List out all possible outcomes. And for each outcome, determine what X equals.</p></li>
+<li><p>Why is P(X = 3) = 0?</p></li>
+<li><p>Write out the probability distribution for X.</p></li>
+<li><p>Determine the mean value of X.</p></li>
+<li><p>Determine the standard deviation of X.</p></li>
+<li><p>What is the probability that at least one student gets their correct exam?</p></li>
 </ul>
 </div>
+</div>
+</section>
+<section id="next-week" class="slide level2">
+<h2>Next Week:</h2>
+<ul>
+<li class="fragment">Deep dive into random variables.</li>
+</ul>
 
 
 </section></section>

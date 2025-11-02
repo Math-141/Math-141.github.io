@@ -1,0 +1,351 @@
+---
+pagetitle: "More Hypothesis Testing"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+library(infer)
+set.seed(5)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[More Hypothesis Testing]{.custom-title}
+
+<br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 9 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Goals for Today
+
+::: columns
+::: column
+-   Practice framing research questions in terms of hypotheses
+-   Work through more Hypothesis testing examples
+
+:::
+
+::: column
+-   **Decisions** in a hypothesis test
+    -   Types of errors
+-   The **power** of a hypothesis test
+:::
+:::
+
+---
+
+### Hypothesis Testing Framework
+
+Have two competing hypothesis:
+
+-   Null Hypothesis $(H_o)$: Dull hypothesis, status quo, random chance, no effect...
+
+-   Alternative Hypothesis $(H_a)$: (Usually) contains the researchers' conjecture.
+
+::: fragment
+Must first take those hypotheses and translate them into statements about the **population parameters** so that we can test them with sample data.
+
+Example:
+:::
+
+::: columns
+::: column
+::: fragment
+$H_o$: ESP doesn't exist.
+
+$H_a$: ESP does exist.
+
+Then translate into a statistical problem!
+:::
+:::
+
+::: column
+::: fragment
+$p$ =
+
+$H_o$:
+
+$H_a$:
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+### New Example: Swimming with Dolphins
+
+In 2005, the researchers Antonioli and Reveley posed the question "Does swimming with the dolphins help depression?" To investigate, they recruited 30 US subjects diagnosed with mild to moderate depression. Participants were randomly assigned to either the treatment group or the control group. Those in the treatment group went swimming with dolphins, while those in the control group went swimming without dolphins. After two weeks, each subject was categorized as "showed substantial improvement" or "did not show substantial improvement".
+
+```{r, message=FALSE,echo = FALSE}
+dolphins <- read.csv("data/Dolphins.txt", sep="")
+```
+
+::: {.fragment}
+
+Here's a contingency table of `improve` and `group`.
+
+::: columns
+::: column
+```{r}
+dolphins %>%
+  count(group, improve)
+```
+:::
+
+::: column
+$H_o$:
+
+$H_a$:
+:::
+:::
+
+:::
+
+::: {.fragment}
+
+How might we generate the null distribution for this scenario?
+
+::: 
+
+------------------------------------------------------------------------
+
+### Dolphin Example
+
+$H_o$:
+
+$H_a$:
+
+How might we generate the null distribution for this scenario?
+
+Snapshot of the data:
+
+```{r, echo = FALSE}
+set.seed(44)
+dolphins %>%
+  sample_n(8)
+```
+
+Once you have your simulated null statistic, add it to the class dotplot.
+
+# Will finish the dolphin example on the next lab. Let's return to the Palmer Penguins.
+
+![](img/penguins.png){fig-align="center"}
+
+------------------------------------------------------------------------
+
+## Penguins Example
+
+Let's return to the `penguins` data and ask if flipper length varies, on average, by the sex of the penguin.
+
+**Research Question**: Does flipper length differ by sex?
+
+**Response Variable**:
+
+<br>
+
+**Explanatory Variable**:
+
+<br>
+
+**Statistical Hypotheses**:
+
+------------------------------------------------------------------------
+
+## Exploratory Data Analysis
+
+```{r}
+#| output-location: column
+
+library(palmerpenguins)
+
+penguins %>%
+  drop_na(sex) %>%
+ggplot(mapping = aes(x = sex,
+                     y = flipper_length_mm)) +
+  geom_boxplot()
+
+
+```
+
+------------------------------------------------------------------------
+
+## Two-Sided Hypothesis Test
+
+```{r}
+#| output-location: column
+
+
+# Compute observed test statistic
+test_stat <- penguins %>%
+  drop_na(sex) %>%
+  specify(flipper_length_mm ~ sex) %>%
+  calculate(stat ="diff in means",
+            order = c("female", "male"))
+test_stat
+```
+
+```{r}
+# Generate null distribution 
+null_dist <- penguins %>%
+  drop_na(sex) %>%
+  specify(flipper_length_mm ~ sex) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat ="diff in means",
+            order = c("female", "male"))
+```
+
+------------------------------------------------------------------------
+
+## Two-Sided Hypothesis Test
+
+```{r}
+#| output-location: column
+
+# Graph null distribution with test statistic
+visualize(null_dist) +
+  geom_vline(xintercept = test_stat$stat,
+             color = "deeppink", size = 2) +
+  geom_vline(xintercept = abs(test_stat$stat),
+             color = "deeppink", size = 2)
+```
+
+------------------------------------------------------------------------
+
+## Two-Sided Hypothesis Test
+
+```{r}
+#| output-location: column
+
+# Compute p-value
+p_value <- null_dist %>%
+  get_p_value(obs_stat = test_stat,
+              direction = "two_sided")
+p_value
+```
+
+**Interpretation of** $p$-value: If the mean flipper length does not differ by sex in the population, the probability of observing a difference in the sample means of at least `r round(abs(test_stat$stat),2)` mm (in magnitude) is equal to `r p_value`.
+
+**Conclusion**: These data represent evidence that flipper length does vary by sex.
+
+------------------------------------------------------------------------
+
+## Hypothesis Testing Framework
+
+-   Set-up hypotheses:
+
+    -   Be able to express in words and in terms of parameters.
+
+-   Collect data.
+
+-   Assume $H_o$ is correct.
+
+-   Compute a p-value to quantify the likelihood of the sample results using a test statistic.
+
+-   **Draw a conclusion about the alternative hypothesis.**
+
+
+# Now: A closer look at the conclusions of a hypothesis test
+
+----------------------------
+
+### Hypothesis Testing: Decisions, Decisions
+
+Once you get to the end of a hypothesis test you make one of two decisions:
+
+-   P-value is small.
+    -   I have evidence for $H_a$. Reject $H_o$.
+-   P-value is not small.
+    -   I don't have evidence for $H_a$. Fail to reject $H_o$.
+
+::: fragment
+Sometimes we make the correct decision. Sometimes we make a mistake.
+:::
+
+------------------------------------------------------------------------
+
+### Hypothesis Testing: Decisions, Decisions
+
+Let's create a table of potential outcomes.
+
+<br> <br><br><br><br><br><br><br><br> <br> <br>
+
+$\alpha$ = prob of Type I error **under repeated sampling** = prob reject $H_o$ when it is true
+
+$\beta$ = prob of Type II error **under repeated sampling** = prob fail to reject $H_o$ when $H_a$ is true.
+
+------------------------------------------------------------------------
+
+### Hypothesis Testing: Decisions, Decisions
+
+Typically set $\alpha$ level beforehand.
+
+Use $\alpha$ to determine "small" for a p-value.
+
+::: nonincremental
+-   P-value ~~is~~ ~~small~~ $< \alpha$.
+    -   I have evidence for $H_a$. Reject $H_o$.
+-   P-value ~~is~~ ~~not~~ ~~small~~ $\geq \alpha$.
+    -   I don't have evidence for $H_a$. Fail to reject $H_o$.
+:::
+
+------------------------------------------------------------------------
+
+### Hypothesis Testing: Decisions, Decisions
+
+**Question**: How do I select $\alpha$?
+
+-   Will depend on the convention in your field.
+
+-   Want a small $\alpha$ and a small $\beta$. But they are related.
+
+    -   **The smaller** $\alpha$ is the larger $\beta$ will be.
+
+-   Choose a lower $\alpha$ (e.g., 0.01, 0.001) when the Type I error is worse and a higher $\alpha$ (e.g., 0.1) when the Type II error is worse.
+
+-   Can't easily compute $\beta$. Why?
+
+-   One more important term:
+
+    -   **Power** = probability reject $H_o$ when the alternative is true.
+    
+# Cliffhanger: How can we compute the power of our test?
+
