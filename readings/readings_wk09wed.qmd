@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 11/5/25
 editor: source
 ---
 
@@ -9,10 +9,12 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   MD 9.4, 9.5
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+-   Write out the infer package workflow. Make sure to include each function, what it does, and the arguments of the function. Connect these verbs to the idea that "there is only one test"
+
+-   LC 9.3, LC 9.4
