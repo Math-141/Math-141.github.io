@@ -298,7 +298,7 @@ scheduled-docs:
           date: 11/6/25
           docs:
             - type: Lab
-              href: labs/lab_09.qmd
+              href: labs/lab_07.qmd
         - topic: "p-value pitfalls"
           display-date: Friday, Nov 7
           date: 11/7/25
@@ -332,7 +332,7 @@ scheduled-docs:
           date: 11/13/25
           docs:
             - type: Lab
-              href: labs/lab_10.qmd
+              href: labs/lab_08.qmd
         - topic: "Random Variables III"
           display-date: Friday, Nov 14
           date: 11/14/25
@@ -366,7 +366,7 @@ scheduled-docs:
           date: 11/20/25
           docs:
             - type: Lab
-              href: labs/lab_11.qmd
+              href: labs/lab_09.qmd
         - topic: "Theoretical distribution-based inference"
           display-date: Friday, Nov 21
           date: 11/21/25
@@ -420,7 +420,7 @@ scheduled-docs:
           date: 12/4/25
           docs:
             - type: Lab
-              href: labs/lab_12.qmd
+              href: labs/lab_10.qmd
         - topic: "TBA"
           display-date: Friday, Dec 5
           date: 12/5/25
@@ -446,7 +446,7 @@ scheduled-docs:
           date: 12/9/25
           docs:
             - type: Lab
-              href: labs/lab_13.qmd
+              href: labs/final_review.qmd
         - topic: "Last Day of Class"
           display-date: Wednesday, Dec 10
           date: 12/10/25
