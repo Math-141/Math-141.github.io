@@ -1,13 +1,13 @@
 ---
-title: "Math 141: Lab 6"
+title: "Math 141: Lab 7"
 format: html
 editor: source
 toc: false
 ---
 
 
-## Lab 6
+## Lab 7
 
 Please clone the following repository to access the lab. 
 
-**https://github.com/Math-141/lab06.git**
+**https://github.com/Math-141/lab07.git**
