@@ -1,0 +1,95 @@
+---
+title: "Lab warmup 11/6"
+author: "Name: __________________"
+editor: source
+format:
+  pdf:
+    margin-top: 2em
+---
+
+
+1. The "core" functions from the `infer` package for doing statistical inference are listed below. For each function, describe its use. Also, for the parameters with `name = _____` describe what these parameters do and **all** possible values for these parameters. Note, that I don't include every parameter for these functions in this exercise, but I did include most of the ones that we will use. 
+
+
+`specify(x, response = ______, explanatory = ______, success = ______)`
+
+-   specify():
+\vspace{5mm}
+-   response:
+-   explanatory: 
+-   success: 
+
+
+\vspace{10mm}
+
+
+`hypothesize(x, null = ______, type = ______, p = ______, mu = ______, med = ______)`
+
+-   hypothesize():
+\vspace{5mm}
+-   null:
+-   type: 
+-   p: 
+-   mu: 
+-   med: 
+
+
+\vspace{10mm}
+
+
+`generate(x, reps = ______, type = ______)`
+
+-   generate():
+\vspace{5mm}
+-   reps:
+-   type: 
+
+\newpage
+
+
+`calculate(x, stat = ______, order = ______)`
+
+-   calculate():
+\vspace{5mm}
+-   stat:
+-   order: 
+
+\vspace{10mm}
+
+
+2. What does each of possible values for the `type` argument in `generate()` do? For each possible value, give an example of when you would use it. 
+
+
+\vspace{65mm}
+
+
+
+3. The `get_p_value()` function from `infer` helps us get p-values. What does the `direction` argument in that function do? What are the three possible values for `direction`. Please draw a diagram of each of the three options for `direction` (hint: start by drawing a null distribution).
+
+
+
+<!-- `visualize(data, bins = ______)` -->
+
+<!-- -   visualize(): -->
+<!-- \vspace{5mm} -->
+<!-- -   bins: -->
+
+<!-- \vspace{10mm} -->
+
+<!-- `get_confidence_interval(x, level = ______ type = ______, point_estimate = ______)` -->
+
+<!-- -   get_confidence_interval(): -->
+<!-- \vspace{5mm} -->
+<!-- -   level: -->
+<!-- -   type:  -->
+<!-- -   point_estimate: -->
+
+<!-- \vspace{10mm} -->
+
+
+<!-- `shade_confidence_interval(endpoints = ______)` -->
+
+<!-- -   shade_confidence_interval(): -->
+<!-- \vspace{5mm} -->
+<!-- -   endpoints: -->
+

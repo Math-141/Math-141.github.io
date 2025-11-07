@@ -68,6 +68,13 @@ set.seed(5)
 :::
 :::
 
+
+# Inference: The big picture
+
+# Inference on one mean 
+(and connection to confidence intervals)
+
+
 # Which Flavor of Statistician Are You?
 
 ------------------------------------------------------------------------
@@ -343,7 +350,7 @@ Before we can answer that question and apply the models, we need to learn about 
 -   Discrete RV: Takes on discrete values (countable number of possible values)
     -   EX: X = 1 if you are a morning person, 0 if not
 -   Continuous RV: Can take on any value in a interval
-    -   EX: X = Amount of sugar in one cone of oatly soft-serve in the d-hall
+    -   EX: X = Amount of caffeine in your morning cup of coffee from The Paradox
 
 ------------------------------------------------------------------------
 
