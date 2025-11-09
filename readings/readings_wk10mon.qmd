@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 11/10/25
 editor: source
 ---
 
@@ -9,10 +9,51 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   no reading for today
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+Consider the live coding example we did in class on Friday (I've included a version of this code below). Explain what each line of code is doing. Also, make the connection between the confidence interval and hypothesis test. What would be true (i.e. different than the one presented here) about the 95% confidence interval if the hypothesis test at the $\alpha = 0.05$ level lead us to fail to reject the null hypothesis? 
+
+```{r}
+library(tidyverse)
+library(infer)
+set.seed(1)
+somerville <- read_csv("somerville_clean.csv") %>%
+  slice_sample(n = 100) %>%
+  mutate(happy = happy - 7)
+
+
+null <- somerville %>%
+  specify(response = happy) %>%
+  hypothesise(null = "point", mu = 0) %>%
+  generate(reps = 100000, type = "bootstrap") %>%
+  calculate(stat = "mean")
+
+visualize(null, bins = 40)
+
+test_stat <- somerville %>%
+  specify(response = happy) %>%
+  calculate(stat = "mean")
+test_stat
+
+visualize(null, bins = 40) +
+  shade_p_value(obs_stat = test_stat$stat, direction = "two sided")
+
+null %>%
+  get_p_value(obs_stat = test_stat$stat, direction = "two sided")
+
+
+boot <- somerville %>%
+  specify(response = happy) %>%
+  generate(reps = 100000, type = "bootstrap") %>%
+  calculate(stat = "mean")
+
+visualize(boot, bins = 40)
+
+boot %>%
+  get_confidence_interval(level = 0.95, type = "percentile")
+```
+

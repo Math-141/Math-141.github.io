@@ -1,0 +1,45 @@
+---
+title: "Live coding: inference on one mean"
+---
+
+
+```{r}
+library(tidyverse)
+library(infer)
+set.seed(1)
+somerville <- read_csv("../../lab02/data/somerville_clean.csv") %>% slice_sample(n = 100) %>%
+mutate(happy = happy - 7)
+
+
+
+null <- somerville %>%
+  specify(response = happy) %>%
+  hypothesise(null = "point", mu = 0) %>%
+  generate(reps = 100000, type = "bootstrap") %>%
+  calculate(stat = "mean")
+
+visualize(null, bins = 40)
+
+test_stat <- somerville %>%
+  specify(response = happy) %>%
+  calculate(stat = "mean")
+test_stat
+
+visualize(null, bins = 40) +
+  shade_p_value(obs_stat = test_stat$stat, direction = "two sided")
+
+null %>%
+  get_p_value(obs_stat = test_stat$stat, direction = "two sided")
+
+
+boot <- somerville %>%
+  specify(response = happy) %>%
+  generate(reps = 100000, type = "bootstrap") %>%
+  calculate(stat = "mean")
+
+visualize(boot, bins = 40)
+
+boot %>%
+  get_confidence_interval(level = 0.95, type = "percentile")
+```
+
