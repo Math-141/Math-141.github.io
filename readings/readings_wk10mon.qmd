@@ -18,6 +18,8 @@ After you've completed the reading, but before coming to class, please complete 
 Consider the live coding example we did in class on Friday (I've included a version of this code below). Explain what each line of code is doing. Also, make the connection between the confidence interval and hypothesis test. What would be true (i.e. different than the one presented here) about the 95% confidence interval if the hypothesis test at the $\alpha = 0.05$ level lead us to fail to reject the null hypothesis? 
 
 ```{r}
+#| warning: false
+#| message: false
 library(tidyverse)
 library(infer)
 set.seed(1)
