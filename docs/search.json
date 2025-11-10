@@ -63,6 +63,167 @@
     "text": "Footnotes\n\n\nThis Code of Conduct is adapted from the Contributor Covenant, version 2.0.↩︎"
   },
   {
+    "objectID": "slides/math141_wk10mon.html#goals-for-today",
+    "href": "slides/math141_wk10mon.html#goals-for-today",
+    "title": "Math 141",
+    "section": "Goals for Today",
+    "text": "Goals for Today\n\nMotivate the need for probability models and random variables\nDefine and introduce random variables\n\n\nAnnoucements\n\nExtended deadline for midterm revisions: Thursday the 13th at 8pm"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#definitions",
+    "href": "slides/math141_wk10mon.html#definitions",
+    "title": "Math 141",
+    "section": "Definitions",
+    "text": "Definitions\nA random variable is a numeric quantity whose value depends on the result of a random process.\n\n\nCapital letters at the end of the alphabet \\((W,X,Y,Z)\\) to denote random variables\n\n\n\n\nLowercase letters \\((w,x,y,z)\\) to denote the particular values of a random variable\n\ne.g., \\(X=x\\)\n\n\n\n\n\nEquations to express events associated to random variables.\n\ne.g., “\\(X=5\\)” represents the event “The random variable \\(X\\) takes the value \\(5\\)”.\n\n\n\n\n\nEvents associated to variables have probabilities of occurring.\n\ne.g., \\(P(X=5) = 0.5\\) means \\(X\\) has probability 0.5 of taking the value \\(5\\)."
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#types-of-random-variables",
+    "href": "slides/math141_wk10mon.html#types-of-random-variables",
+    "title": "Math 141",
+    "section": "Types of Random Variables",
+    "text": "Types of Random Variables\nThere are two main types of random variables:\n\nDiscrete variables can take only finitely many different values.\nContinuous variables can take values equal to any real number in an interval.\n\n\nExamples of discrete variables:\n\nThe number of credits a randomly chosen Reed student is taking.\nThe number of vegetarians in a random sample of 10 people.\nThe result of a coin flip\n\n\n\nExamples of continuous variables:\n\nThe temperature of my office at a particular time of the day.\nThe amount of time it takes a radioactive particle to decay."
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#today-well-focus-on-discrete-random-variables",
+    "href": "slides/math141_wk10mon.html#today-well-focus-on-discrete-random-variables",
+    "title": "Math 141",
+    "section": "Today, we’ll focus on discrete random variables",
+    "text": "Today, we’ll focus on discrete random variables\nFor a discrete random variable, care about its:\n\nDistribution: \\(p(x) = P(X = x)\\)\nCenter – Mean:\n\n\n\\[\n\\mu = \\sum x p(x)\n\\]\n\n\nSpread – Variance & Standard Deviation:\n\n\n\\[\n\\sigma^2 = \\sum (x - \\mu)^2 p(x)\n\\]\n\\[\n\\sigma = \\sqrt{ \\sum (x - \\mu)^2 p(x)}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#the-distribution-of-a-random-variable",
+    "href": "slides/math141_wk10mon.html#the-distribution-of-a-random-variable",
+    "title": "Math 141",
+    "section": "The Distribution of a Random Variable",
+    "text": "The Distribution of a Random Variable\n\nRandom variables have distributions, which tell us…\n\nthe values the variable can take, and the probability the variable takes those values.\n\n\n\nExample: I play a casino game, where that the amount of money I win (in dollars) has the following distribution:\n\n\n\nWinnings\n$5\n$10\n$20\n$50\n\n\n\n\nProbability\n.3\n.4\n.2\n.1\n\n\n\n\n\n\nSuppose instead that I have a purse filled with the following 100 bills:\n\n\n\nType\n$5\n$10\n$20\n$50\n\n\n\n\nFrequency\n30\n40\n20\n10\n\n\n\n\n\n\nPlaying this casino game is very similar to drawing a random bill from the purse!"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#visualizing-discrete-distributions",
+    "href": "slides/math141_wk10mon.html#visualizing-discrete-distributions",
+    "title": "Math 141",
+    "section": "Visualizing Discrete Distributions",
+    "text": "Visualizing Discrete Distributions\nWe often use bar charts to visualize the distribution of discrete random variables.\n\n\nSuppose a fair 6-sided die is rolled 6 times. Let \\(X\\) be the number of \\(1\\)s rolled. The distribution of \\(X\\) is given by:\n\n\n\n\n\n\n\n\n\n\n\n\nHeights of bars are probabilities"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#expected-value",
+    "href": "slides/math141_wk10mon.html#expected-value",
+    "title": "Math 141",
+    "section": "Expected Value",
+    "text": "Expected Value\nInformally: The expected value is the average value the random variable takes.\n\nIf \\(X\\) represents the number of Heads when flipping a fair coin, its expected value is 0.5\n\n\nFormally: The expected value (or mean) of a discrete random variable \\(X\\) is \\[\nE[X] = x_1 P(X = x_1) + x_2 P(X = x_2) + \\dots x_n P(X = x_n) = \\sum_{i =1}^n x_i P(X = x_i)\n\\] where \\(x_1, \\dots, x_n\\) are all the values X could potentially take."
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#expected-value-1",
+    "href": "slides/math141_wk10mon.html#expected-value-1",
+    "title": "Math 141",
+    "section": "Expected Value",
+    "text": "Expected Value\n\nRecall the example: if \\(X\\) represents the number of Heads when flipping a fair coin, its expected value is 0.5\n\\[\n\\begin{align}\nE[X] &= 0 P(X=0) + 1 P(X=1)\\\\\n&= 0(0.5) + 1(0.5) \\\\\n&= 0.5\n\\end{align}\n\\]\n\n\n\nThe expected value of \\(X\\) is a weighted average of the values \\(X\\) can take, where weights are probabilities."
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#practice",
+    "href": "slides/math141_wk10mon.html#practice",
+    "title": "Math 141",
+    "section": "Practice",
+    "text": "Practice\n\\[\nE[X] = x_1 P(X = x_1) + x_2 P(X = x_2) + \\dots x_n P(X = x_n) = \\sum_{i =1}^n x_i P(X = x_i)\n\\]\nSuppose we have a data set consisting of 10 values: \\(\\{1,1,2,2,2,2,3,4,5,5\\}\\).\n\nLet \\(X\\) be a value chosen from this data set randomly.\nWhat is the expected value of \\(X\\)?\n\n\n\n\n−+\n02:00"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#practice-answers",
+    "href": "slides/math141_wk10mon.html#practice-answers",
+    "title": "Math 141",
+    "section": "Practice (Answers)",
+    "text": "Practice (Answers)\n\\[\nE[X] = x_1 P(X = x_1) + x_2 P(X = x_2) + \\dots x_n P(X = x_n) = \\sum_{i =1}^n x_i P(X = x_i)\n\\]\nSuppose we have a data set consisting of 10 values: \\(\\{1,1,2,2,2,2,3,4,5,5\\}\\).\n\n\nLet \\(X\\) be a value chosen from this data set randomly.\nWhat is the expected value of \\(X\\)?\n\n\n\\[\n\\begin{align}\nE[X] =& 1 P(X = 1) + 2 P(X = 2) + 3 P(X =3) + 4 P(X = 4) + 5 P(X = 5) \\\\\n=& 1 \\frac{2}{10} + 2 \\frac{4}{10} + 3 \\frac{1}{10} + 4 \\frac{1}{10} + 5 \\frac{2}{10} \\\\\n=& \\frac{27}{10}\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#the-law-of-large-numbers-again",
+    "href": "slides/math141_wk10mon.html#the-law-of-large-numbers-again",
+    "title": "Math 141",
+    "section": "The Law of Large Numbers, again",
+    "text": "The Law of Large Numbers, again\nPreviously, we said that by the Law of Large numbers, the proportion of times an outcome occurs in a long sequence of trials is close to the probability for that outcome.\n\nThis is a generalization:\n\n\n\n\nTheorem: The Law of Large Numbers\n\n\nLet \\(X\\) be a random variable.\n\nSuppose we observe the random variable \\(n\\) times, \\(x_1,x_2,\\dots,x_n\\).\nLet \\(\\bar{x}_n\\) denote the mean of our \\(n\\) observations of \\(X\\).\nThen, as \\(n\\) becomes large, \\(\\bar{x}_n\\) will approach the expected value \\(E[X]\\) of the random variable \\(X\\)."
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#a-roll-of-the-die",
+    "href": "slides/math141_wk10mon.html#a-roll-of-the-die",
+    "title": "Math 141",
+    "section": "A Roll of the Die",
+    "text": "A Roll of the Die\nSuppose we roll a fair 6-sided die. What is the expected value of the result?\n\n\nLet’s roll the same die 1000 times and keep track of the running mean of the results…\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nWe can see that the expected value is \\(3.5\\)"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#variance-and-standard-deviation",
+    "href": "slides/math141_wk10mon.html#variance-and-standard-deviation",
+    "title": "Math 141",
+    "section": "Variance and Standard Deviation",
+    "text": "Variance and Standard Deviation\nThe variance of a discrete random variable \\(X\\) with mean \\(E(X) = \\mu\\) is \\[\n\\begin{align}\n\\mathrm{Var}(X) =& (x_1 - \\mu)^2 P(X = x_1) + (x_2- \\mu)^2 P(X = x_2) + \\dots  + (x_n-\\mu)^2 P(X = x_n)  \\\\\n=& \\sum_{i =1}^n (x_i-\\mu)^2 P(X = x_i)\n\\end{align}\n\\]\n\nThe variance of \\(X\\) is the sum the squared deviations of \\(X\\) from its mean \\(\\mu\\), weighted by the corresponding probabilities.\n\n\nWe also define the standard deviation of a random variable \\(X\\) to be \\[\n\\textrm{SD}(X) = \\sqrt{\\mathrm{Var}(X)}\n\\]\n\n\nWe often use:\n\n\\(\\sigma^2\\) to denote the variance of a variable\n\\(\\sigma\\) to denote the standard deviation"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#variance-and-standard-deviation-1",
+    "href": "slides/math141_wk10mon.html#variance-and-standard-deviation-1",
+    "title": "Math 141",
+    "section": "Variance and Standard Deviation",
+    "text": "Variance and Standard Deviation\n\\[\n\\begin{align}\n\\mathrm{Var}(X) =& (x_1 - \\mu)^2 P(X = x_1) + (x_2- \\mu)^2 P(X = x_2) + \\dots  + (x_n-\\mu)^2 P(X = x_n)  \\\\\n=& \\sum_{i =1}^n (x_i-\\mu)^2 P(X = x_i)\n\\end{align}\n\\]\nSuppose we have a data set consisting of 5 values: \\(\\{1,1,3,5, 5\\}\\). Let \\(X\\) be a value chosen from this data set randomly. What is the variance of \\(X\\)?\n\n\n\nNote that \\(E(X) = \\mu = 3\\)\n\n\n\n\n\\[\n\\begin{align}\n\\mathrm{Var}(X) =& (1 - 3)^2 P(X = 1) + (3 - 3)^2 P(X = 3) + (5 - 3)^2 P(X =5) \\\\\n=& (-2)^2 \\frac{2}{5} + (0)^2 \\frac{1}{5} + 2^2 \\frac{2}{5} = \\frac{16}{5}\n\\end{align}\n\\]\n\n\n\n\n−+\n03:00"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#practice-one-coin-flip",
+    "href": "slides/math141_wk10mon.html#practice-one-coin-flip",
+    "title": "Math 141",
+    "section": "Practice: One Coin Flip",
+    "text": "Practice: One Coin Flip\nConsider a random variable \\(X\\) which is the number of heads in a single coin flip.\n\nQ: What are the possible values for \\(X\\)? What are the probabilities each value of \\(X\\)?\n\n\n\n\n\\(X = 1\\) (H) with \\(P(X=1) = \\frac{1}{2}\\)\n\\(X = 0\\) (T) with \\(P(X=0) = \\frac{1}{2}\\)\n\n\n\n\nQ: Compute the expected value and variance for \\(X\\) (the number of heads in a single coin flip)\n\n\n\\[\nE[X] = (0)\\frac{1}{2} +  (1)\\frac{1}{2} = \\frac{1}{2}\n\\]\n\n\n\\[\nVar[X] = (0-1/2)^2\\frac{1}{2} +  (1-1/2)^2\\frac{1}{2} = \\frac{1}{4}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#linearity-of-expected-value",
+    "href": "slides/math141_wk10mon.html#linearity-of-expected-value",
+    "title": "Math 141",
+    "section": "Linearity of Expected Value",
+    "text": "Linearity of Expected Value\n\n\n\nTheorem: Expectation of Sum\n\n\nLet \\(X\\) and \\(Y\\) be random variables. Then \\[\nE(X + Y) = E(X) + E(Y)\n\\]\n\n\n\n\n\ne.g., If \\(X\\) is the face of one die roll, and \\(Y\\) is the face of another die roll, then \\(X + Y\\) would be the sum of the faces. And: \\[\nE(X + Y) = E(X) + E(Y) = 3.5 + 3.5 = 7\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#linearity-of-expected-value-1",
+    "href": "slides/math141_wk10mon.html#linearity-of-expected-value-1",
+    "title": "Math 141",
+    "section": "Linearity of Expected Value",
+    "text": "Linearity of Expected Value\n\n\n\nTheorem: Scalar Multiplication with Expectation\n\n\nLet \\(X\\) be a random variable, and let \\(c\\) be a number. Then \\[\nE(cX) = cE(X)\n\\]\n\n\n\n\n\ne.g., We’re rolling a die, and we’ll make $5 times the number we roll – what are our expected earnings?\n\n\n\n\\[\nX = \\text{face of die roll} \\quad \\quad \\quad E(5 X) = 5 E(X) = 5(3.5) = 17.5\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#variance-of-sums-and-scalar-multiplication",
+    "href": "slides/math141_wk10mon.html#variance-of-sums-and-scalar-multiplication",
+    "title": "Math 141",
+    "section": "Variance of Sums and Scalar Multiplication",
+    "text": "Variance of Sums and Scalar Multiplication\n\n\n\nTheorem: Variance of Sum\n\n\nLet \\(X\\) and \\(Y\\) be random variables. Additionally, let \\(X\\) and \\(Y\\) be independent. Then \\[\n\\mathrm{Var}(X + Y) = \\mathrm{Var}(X) + \\mathrm{Var}(Y)\n\\]\n\n\n\n\n\nNote that \\(X\\) and \\(Y\\) must be independent for the above!\n\n\n\n\n\n\nTheorem: Scalar Multiplication with Variance\n\n\nLet \\(X\\) be a random variable, and let \\(c\\) be a number. Then \\[\n\\mathrm{Var}(cX) = c^2\\mathrm{Var}(X)\n\\]\n\n\n\n\nWe get the \\(c^2\\) because variances look at squared differences from the mean"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#practice-two-coin-flips",
+    "href": "slides/math141_wk10mon.html#practice-two-coin-flips",
+    "title": "Math 141",
+    "section": "Practice: Two Coin Flips",
+    "text": "Practice: Two Coin Flips\nNow let \\(Y\\) be the number of heads in two coin flips.\n\nQ: What are the possible values for \\(Y\\)? What are the probabilities each value of \\(Y\\)?\n\n\n\n\n\\(Y = 0\\) (TT) with \\(P (Y = 0) = \\frac{1}{4}\\)\n\\(Y = 1\\) (HT or TH) with \\(P (Y = 1) = \\frac{1}{2}\\)\n\\(Y = 2\\) (HH) with \\(P (Y = 2) = \\frac{1}{4}\\)\n\n\n\n\nQ: Compute the expected value and variance for \\(Y\\) (the number of heads in two coin flips.)\n\n\nWe could use the definitions of expected value and variance directly…\n\\[\nE[Y] = (0)\\frac{1}{4} +  (1)\\frac{1}{2} +(2)\\frac{1}{4} = 1\n\\]\n\n\n\\[\nVar[Y] = (0-1)^2\\frac{1}{4} +  (1-1)^2\\frac{1}{2}+ (2-1)^2\\frac{1}{4}= \\frac{1}{2}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#practice-two-coin-flips-1",
+    "href": "slides/math141_wk10mon.html#practice-two-coin-flips-1",
+    "title": "Math 141",
+    "section": "Practice: Two Coin Flips",
+    "text": "Practice: Two Coin Flips\n…or, we could use our rules for expected value and variance:\n\n\\[Y = X_1 + X_2\\] where \\(X_1\\) and \\(X_2\\) are two independent versions of our random variable, \\(X\\).\nThus,\n\\[\nE[Y] = E[X_1] + E[X_2] = 0.5 + 0.5 = 1\n\\]\n\n\n\\[\nVar[Y] = Var[X_1] + Var[X_2] = 0.25+ 0.25 = 0.5\n\\]\n\n\nThat’s a lot simpler!"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#what-about-23-coin-tosses",
+    "href": "slides/math141_wk10mon.html#what-about-23-coin-tosses",
+    "title": "Math 141",
+    "section": "What about 23 coin tosses?",
+    "text": "What about 23 coin tosses?\nLet \\(Z\\) be the number of heads in \\(23\\) independent coin tosses.\nQ: What is \\(E(Z)\\)?\nQ: What is \\(\\mathrm{Var}(Z)\\)?\nQ: Suppose \\(W\\) represents the number of heads in \\(n\\) independent coin tosses. What is \\(E(W)\\) and \\(\\mathrm{Var}(W)\\)?\n\n\n\n−+\n05:00"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#activity-answers",
+    "href": "slides/math141_wk10mon.html#activity-answers",
+    "title": "Math 141",
+    "section": "Activity: Answers",
+    "text": "Activity: Answers\nLet \\(Z\\) be the number of heads in \\(23\\) independent coin tosses.\n\nQ: What is \\(E(Z)\\)?\n\n\n\n\nLet \\(X_1\\) = Heads on 1st toss, \\(\\dots\\) , \\(X_{23}\\) = Heads on \\(23\\)rd toss: \\[\nE(Z) = E(X_1) + \\dots + E(X_{23}) = 0.5+\\dots+0.5 = 23(0.5)\n\\]\n\n\n\n\nQ: What is \\(\\mathrm{Var}(Z)\\)?\n\n\n\\[\n  \\mathrm{Var}(Z) = \\mathrm{Var}(X_1) + \\dots + \\mathrm{Var}(X_{23}) = 0.25+\\dots+0.25 = 23(0.25)\n\\]\n\n\nQ: Suppose \\(W\\) represents the number of heads in \\(n\\) independent coin tosses. What is \\(E(W)\\) and \\(\\mathrm{Var}(W)\\)?\n\n\n\n\n\\(E(W) = nE(X_1) = (n)(0.5)\\)\n\\(\\mathrm{Var}(W) = n\\mathrm{Var}(X_1) = (n)(0.25)\\)"
+  },
+  {
+    "objectID": "slides/math141_wk10mon.html#next-time",
+    "href": "slides/math141_wk10mon.html#next-time",
+    "title": "Math 141",
+    "section": "Next time:",
+    "text": "Next time:\n\nWe’ll define some specific named random variables!"
+  },
+  {
     "objectID": "slides/math141_wk09mon.html#penguins-example",
     "href": "slides/math141_wk09mon.html#penguins-example",
     "title": "Math 141",
@@ -1479,23 +1640,23 @@
   {
     "objectID": "readings/readings_wk10wed.html",
     "href": "readings/readings_wk10wed.html",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for November 12, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\nSuppose 4 students have still not received their graded Math 141 midterm (yes, let’s pretend we actually had a hand-written midterm) and that I hand back the exams randomly to each student. Let X = the number of students who get their correct exam.\n\nLet’s say the student’s names are A(licia), B(ob), C(olin), and D(onna) and they are sitting in a row ABCD. One possible outcome is ABDC (1st exam goes to A, 2nd to B, 3rd to D, 4th to C). In that case, what does X equal?\nList out all possible outcomes. And for each outcome, determine what X equals.\nWhy is P(X = 3) = 0?\nWrite out the probability distribution for X.\nDetermine the mean value of X.\nDetermine the standard deviation of X.\nWhat is the probability that at least one student gets their correct exam?"
   },
   {
     "objectID": "readings/readings_wk10wed.html#reading",
     "href": "readings/readings_wk10wed.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for November 12, 2025",
     "section": "",
     "text": "Before coming to lecture today, please read the following material:"
   },
   {
     "objectID": "readings/readings_wk10wed.html#homework-assignment",
     "href": "readings/readings_wk10wed.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for November 12, 2025",
     "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\nSuppose 4 students have still not received their graded Math 141 midterm (yes, let’s pretend we actually had a hand-written midterm) and that I hand back the exams randomly to each student. Let X = the number of students who get their correct exam.\n\nLet’s say the student’s names are A(licia), B(ob), C(olin), and D(onna) and they are sitting in a row ABCD. One possible outcome is ABDC (1st exam goes to A, 2nd to B, 3rd to D, 4th to C). In that case, what does X equal?\nList out all possible outcomes. And for each outcome, determine what X equals.\nWhy is P(X = 3) = 0?\nWrite out the probability distribution for X.\nDetermine the mean value of X.\nDetermine the standard deviation of X.\nWhat is the probability that at least one student gets their correct exam?"
   },
   {
     "objectID": "readings/readings_wk10fri.html",
@@ -1523,7 +1684,7 @@
     "href": "readings/readings_wk09mon.html",
     "title": "Math 141: Readings for November 3, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nNo new reading today.\n\n\n\n\nSupposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.636 62.023 63.177 64.830 66.035 66.435 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
+    "text": "Before coming to lecture today, please read the following material:\n\nNo new reading today.\n\n\n\n\nSupposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.612 62.018 63.177 64.823 66.008 66.357 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
   },
   {
     "objectID": "readings/readings_wk09mon.html#reading",
@@ -1537,7 +1698,7 @@
     "href": "readings/readings_wk09mon.html#homework-assignment",
     "title": "Math 141: Readings for November 3, 2025",
     "section": "",
-    "text": "Supposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.636 62.023 63.177 64.830 66.035 66.435 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
+    "text": "Supposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.612 62.018 63.177 64.823 66.008 66.357 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
   },
   {
     "objectID": "readings/readings_wk08wed.html",
@@ -3750,5 +3911,117 @@
     "title": "Math 141",
     "section": "Next time:",
     "text": "Next time:\n\n\n\\(p\\)-value pitfalls\nIntroduce random variables!"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#goals-for-today",
+    "href": "slides/math141_wk10wed.html#goals-for-today",
+    "title": "Math 141",
+    "section": "Goals for Today",
+    "text": "Goals for Today\n\nContinue our discussion of expected value and variance\nIntroduce the Bernoulli distribution\nIntroduce the Binomial distribution"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#review-expected-value-variance-and-standard-deviation",
+    "href": "slides/math141_wk10wed.html#review-expected-value-variance-and-standard-deviation",
+    "title": "Math 141",
+    "section": "Review: Expected Value, Variance, and Standard Deviation",
+    "text": "Review: Expected Value, Variance, and Standard Deviation\nThe expected value (or mean) of a discrete random variable \\(X\\) is \\[\n\\mu = E[X] = \\sum_{i =1}^n x_i P(X = x_i)\n\\] where \\(x_1, \\dots, x_n\\) are all the values X could potentially take.\n\nThe variance and standard deviation of a discrete random variable \\(X\\) with mean \\(E(X) = \\mu\\) is \\[\n\\sigma^2 = \\mathrm{Var}(X) = \\sum_{i =1}^n (x_i-\\mu)^2 P(X = x_i)\n\\] \\[\n\\sigma = \\textrm{SD}(X) = \\sqrt{\\mathrm{Var}(X)}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#review-rules-for-expected-value-and-variance",
+    "href": "slides/math141_wk10wed.html#review-rules-for-expected-value-and-variance",
+    "title": "Math 141",
+    "section": "Review: Rules for Expected Value and Variance",
+    "text": "Review: Rules for Expected Value and Variance\n\n\n\n\n\nTheorem: Expectation of Sum\n\n\nLet \\(X\\) and \\(Y\\) be random variables. Then \\[\nE(X + Y) = E(X) + E(Y)\n\\]\n\n\n\n\n\n\nTheorem: Scalar Multiplication with Expectation\n\n\nLet \\(X\\) be a random variable, and let \\(c\\) be a number. Then \\[\nE(cX) = cE(X)\n\\]\n\n\n\n\n\n\n\nTheorem: Variance of Sum\n\n\nLet \\(X\\) and \\(Y\\) be random variables. Additionally, let \\(X\\) and \\(Y\\) be independent. Then \\[\n\\mathrm{Var}(X + Y) = \\mathrm{Var}(X) + \\mathrm{Var}(Y)\n\\]\n\n\n\n\n\n\nTheorem: Scalar Multiplication with Variance\n\n\nLet \\(X\\) be a random variable, and let \\(c\\) be a number. Then \\[\n\\mathrm{Var}(cX) = c^2\\mathrm{Var}(X)\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#recall-one-coin-flip",
+    "href": "slides/math141_wk10wed.html#recall-one-coin-flip",
+    "title": "Math 141",
+    "section": "Recall: One Coin Flip",
+    "text": "Recall: One Coin Flip\nConsider a random variable \\(X\\) which is the number of heads in a single coin flip.\n\nQ: What are the possible values for \\(X\\)? What are the probabilities each value of \\(X\\)?\n\n\n\n\n\\(X = 1\\) (H) with \\(P(X=1) = \\frac{1}{2}\\)\n\\(X = 0\\) (T) with \\(P(X=0) = \\frac{1}{2}\\)\n\n\n\n\nQ: Compute the expected value and variance for \\(X\\) (the number of heads in a single coin flip)\n\n\n\\[\nE[X] = (0)\\frac{1}{2} +  (1)\\frac{1}{2} = \\frac{1}{2}\n\\]\n\n\n\\[\nVar[X] = (0-1/2)^2\\frac{1}{2} +  (1-1/2)^2\\frac{1}{2} = \\frac{1}{4}\n\\]\n\n\nThis distribution has a name!\n\n\\(X\\sim \\text{Bernoulli}(p = 0.5)\\)"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#n-coin-tosses-expected-value-and-variance",
+    "href": "slides/math141_wk10wed.html#n-coin-tosses-expected-value-and-variance",
+    "title": "Math 141",
+    "section": "\\(n\\) coin tosses: Expected Value and Variance",
+    "text": "\\(n\\) coin tosses: Expected Value and Variance\nLet \\(X\\) be the number of heads in \\(n\\) independent coin tosses.\nQ: What are \\(E(X)\\) and \\(\\mathrm{Var}(X)\\)?\n\nHint: We know, from the Bernoulli distribution, that if \\(X_1\\) is the number of heads in a single coin flip, \\[E(X_1)=0.5 \\quad \\text{ and } \\quad \\text{Var}(X_1)=0.25\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#n-coin-tosses-expected-value-and-variance-1",
+    "href": "slides/math141_wk10wed.html#n-coin-tosses-expected-value-and-variance-1",
+    "title": "Math 141",
+    "section": "\\(n\\) coin tosses: Expected Value and Variance",
+    "text": "\\(n\\) coin tosses: Expected Value and Variance\nLet \\(X\\) be the number of heads in \\(n\\) independent coin tosses.\nAnswer: Let \\(X_1\\) = Heads in 1st toss, \\(\\dots\\) , \\(X_n\\) = Heads in \\(n\\)th toss: \\[\n  X = X_1 + \\dots + X_n = \\sum_{i=1}^n X_i\n\\]\n\\[\n\\begin{align}\n  E(X) &= E \\left( \\sum_{i=1}^n X_i \\right) =  \\sum_{i=1}^n E(X_i) = \\sum_{i=1}^n 0.5 = 0.5n\\\\\n  \\mathrm{Var}(X) &=  \\mathrm{Var}\\left( \\sum_{i=1}^n X_i \\right) =  \\sum_{i=1}^n  \\mathrm{Var}(X_i) = \\sum_{i=1}^n 0.25 = 0.25n\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#n-coin-toss-probabilities",
+    "href": "slides/math141_wk10wed.html#n-coin-toss-probabilities",
+    "title": "Math 141",
+    "section": "\\(n\\) coin toss probabilities?",
+    "text": "\\(n\\) coin toss probabilities?\nWe’ve calculated Expectation and Variance for the number of heads in \\(n\\) coin tosses.\n\n\n\nBut what about the probability that there are \\(k\\) heads in the \\(n\\) tosses?\n\n\n\n\nFor example, What’s the probability of \\(k=2\\) heads in \\(n=3\\) coin tosses?\n\n\n\n\nLet’s break down the problem: What are the possible outcomes?\n\n\n\n\n\\[\n\\begin{align}\n\\text{TTT} & \\implies X=0 \\quad& \\text{TTH or THT or HTT} & \\implies X=1\\\\\n\\text{HHH} & \\implies X=3 \\quad& \\text{THH or HTH or HHT} & \\implies X=2\\\\\n\\end{align}\n\\]\n\n\n\n\nThe 3 coin flips had \\(8\\) possible outcomes, each with equal probability.\n\n\n\n\nDifferently, \\(X\\) had \\(4\\) possible outcomes: 0, 1, 2, or 3. Those probabilities are: \\[\n\\begin{align}\nP(X=0) &= \\frac{1}{8} \\quad&\\quad P(X=1) &= \\frac{3}{8}\\\\\nP(X=3) &= \\frac{1}{8} \\quad&\\quad P(X=2) &= \\frac{3}{8}\\\\\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#coin-tosses-probabilities",
+    "href": "slides/math141_wk10wed.html#coin-tosses-probabilities",
+    "title": "Math 141",
+    "section": "3 coin tosses probabilities",
+    "text": "3 coin tosses probabilities\nNotice that the probability of \\(k\\) heads in \\(n\\) coin flips is\n\\[P[X=k] = \\big(\\text{Number of ways to get k heads}\\big) \\times \\big(\\text{Prob of each way}\\big)\\]\n\nFor example, we found that in \\(n=3\\) coin tosses,\n\n3 ways to get 2 heads\nEach sequence of 3 coin flips has probability \\(\\frac12\\times\\frac12\\times\\frac12=\\frac18\\)\nThus, \\(P(X=2) = \\frac38\\)"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#generalization-1",
+    "href": "slides/math141_wk10wed.html#generalization-1",
+    "title": "Math 141",
+    "section": "Generalization 1",
+    "text": "Generalization 1\nFirst: What if \\(n\\) and \\(k\\) are bigger?\n\n\nIn this case, it’s hard to count all the different combinations.\n\n\n\n\nInstead, we can rely on a handy formula: The number of ways to get \\(k\\) “successes” in \\(n\\) “trials” is \\[{n\\choose k} = \\frac{n!}{k!(n-k)!}\\] We read this as “n choose k”\n\n\n\nThe exclamation point is a factorial: \\[\n\\begin{align}\n  0! &= 1\\\\\n  1! &= 1\\\\\n  2! &= 2\\times 1=2\\\\\n  3! &= 3\\times2\\times1=6\\\\\n  4! &= 4\\times3\\times2\\times1=24\n\\end{align}\n\\]"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#generalization-2",
+    "href": "slides/math141_wk10wed.html#generalization-2",
+    "title": "Math 141",
+    "section": "Generalization 2",
+    "text": "Generalization 2\nSecond: What if the probability of “success” changes?\n\n\nBefore, we were flipping fair coins, i.e., \\(p=0.5\\).\nBut we could think of flipping “unfair coins”, i.e., \\(p\\) is a number between 0 and 1.\nIn other words, how can we generalize to the sum of Bernoulli(\\(p\\)) case from the Bernoulli(\\(p=0.5\\)) case?\n\n\n\n\nIn this case, the probability of getting a sequence of \\(k\\) “successes” in \\(n\\) trials is: \\[p^k\\times(1-p)^{n-k}\\]\n\n\n\n\nThere are \\(k\\) “successes”, each with probability \\(p\\): \\(p^k\\)\nThere are \\(n-k\\) “failures”, each with probability \\(1-p\\): \\((1-p)^{n-k}\\)"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#putting-it-all-together",
+    "href": "slides/math141_wk10wed.html#putting-it-all-together",
+    "title": "Math 141",
+    "section": "Putting it all together",
+    "text": "Putting it all together\nThus, the probability of observing \\(k\\) successes in \\(n\\) independent Bernoulli trials with probability of success \\(p\\) is\n\\[P[X=k] = {n \\choose k}p^k(1-p)^{n-k}\\]\nIn this case, \\(X \\sim \\text{Binomial}(n,~p)\\). Or, in words: \\(X\\) follows a binomial distribution with \\(n\\) trials each with \\(p\\) probability of success\n\nHow to tell if your distribution is a Binomial?\n\nNumber of trials, \\(n\\), must be fixed.\nEach trial must be Bernoulli, with success probability \\(p\\). (\\(p\\) must stay the same for each trial!)\nWe must be counting the number of successes"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#expectation-and-variance-of-binomial",
+    "href": "slides/math141_wk10wed.html#expectation-and-variance-of-binomial",
+    "title": "Math 141",
+    "section": "Expectation and Variance of Binomial",
+    "text": "Expectation and Variance of Binomial\nIf \\(X \\sim \\text{Binomial}(n,~p)\\), then:\n\n\\[\n\\begin{align}\n    E(X) &= np \\\\\n    Var(X) &= np(1-p)\n\\end{align}\n\\]\n\n\nNote that when \\(p=0.5\\) we get \\[\n\\begin{align}\n    E(X) &= 0.5n \\\\\n    Var(X) &= 0.25n\n\\end{align}\n\\] which is what we derived earlier!"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#calculating-binomial-probabilities-dbinom",
+    "href": "slides/math141_wk10wed.html#calculating-binomial-probabilities-dbinom",
+    "title": "Math 141",
+    "section": "Calculating Binomial Probabilities: dbinom()",
+    "text": "Calculating Binomial Probabilities: dbinom()\nIf \\(X\\) is a binomial random variable with \\(n\\) trials and probability of success \\(p\\), we can use R to calculate the probabilities with the dbinom() function\n\n\ne.g., \\(P(X = 2)\\) where \\(n=3\\) and \\(p=0.5\\) (2 heads in 3 fair coin tosses)\n\n\ndbinom(x=2, size=3, prob=0.5)\n\n[1] 0.375\n\n\n\n\n\ne.g., \\(P(X = 10)\\) where \\(n=15\\) and \\(p=0.7\\)\n\n\ndbinom(x=10, size=15, prob=0.7)\n\n[1] 0.2061304"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#calculating-binomial-probabilities-pbinom",
+    "href": "slides/math141_wk10wed.html#calculating-binomial-probabilities-pbinom",
+    "title": "Math 141",
+    "section": "Calculating Binomial Probabilities: pbinom()",
+    "text": "Calculating Binomial Probabilities: pbinom()\nWe can also calculate \\(P(X \\leq k)\\) with pbinom()\n\n\ne.g., \\(P(X \\leq 2)\\) where \\(n=3\\) and \\(p=0.5\\) (2 or fewer heads in 3 fair coin tosses)\n\n\npbinom(q=2, size=3, prob=0.5)\n\n[1] 0.875\n\n\n\n\nCan also calculate \\(P(X &gt; k)\\) by doing 1 - pbinom():\n\n\n\ne.g., \\(P(X &gt; 2)\\) where \\(n=3\\) and \\(p=0.5\\) (more than 2 heads in 3 fair coin tosses)\n\n\n1 - pbinom(q=2, size=3, prob=0.5)\n\n[1] 0.125\n\n\n\n\n\ne.g., \\(P(X \\geq 2)\\) where \\(n=3\\) and \\(p=0.5\\)\n\n\n1 - pbinom(q=1, size=3, prob=0.5)\n\n[1] 0.5"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#activity-survey-of-portlanders",
+    "href": "slides/math141_wk10wed.html#activity-survey-of-portlanders",
+    "title": "Math 141",
+    "section": "Activity: Survey of Portlanders",
+    "text": "Activity: Survey of Portlanders\nSuppose you believe 40% of Portlanders think the city should install more bike lanes. You will take a simple random survey of 50 Portlanders to test your belief.\n\nAssume your belief is true. Let \\(X\\) be the number of survey respondents who think the city should install more bike lanes. Does \\(X\\) follow a Binomial distribution? If so, what are \\(n\\) and \\(p\\)?\nCalculate the expected value and standard deviation of \\(X\\) (still assuming your belief is true)\nSuppose you conducted the survey and found 30 respondents wanted more bike lanes. What’s the probability that \\(X\\geq 30\\)? (use R!)\nDraw the connection between the probability you calculated and a hypothesis test.\n\n\n\n\n−+\n08:00"
+  },
+  {
+    "objectID": "slides/math141_wk10wed.html#activity-survey-of-portlanders-answers",
+    "href": "slides/math141_wk10wed.html#activity-survey-of-portlanders-answers",
+    "title": "Math 141",
+    "section": "Activity: Survey of Portlanders (Answers)",
+    "text": "Activity: Survey of Portlanders (Answers)\nSuppose you believe 40% of Portlanders think the city should install more bike lanes. You will take a simple random survey of 50 Portlanders to test your belief.\n\n\nAssume your belief is true. Let \\(X\\) be the number of survey respondents who think the city should install more bike lanes. Does \\(X\\) follow a Binomial distribution? If so, what are \\(n\\) and \\(p\\)?\n\n\\(X\\) follows a Binomial(\\(n=50,p=0.4\\)) distribution.\n\n\n\n\n\nCalculate the expected value and standard deviation of \\(X\\) (assuming your belief)\n\n\\(E[X] = (50)(.4) = 20\\)\n\\(SD[X] = \\sqrt{(50)(.4)(1-.4)} = 3.46\\)\n\n\n\n\n\nSuppose you conducted the survey and found 30 respondents wanted more bike lanes. What’s the probability that \\(X\\geq 30\\)? (use R!)\n\n\\(P[X\\geq30] = 1 - \\texttt{pbinom}(29,~ 50,~ .4) = 0.0033\\)\n\n\n\n\n\nDraw the connection between the probability you calculated and a hypothesis test.\n\nWe are testing \\(H_0: p=0.4\\) vs. \\(H_a: p&gt;0.4\\)\nTest statistic: \\(\\hat{p}=30/50\\)\np-value = 0.0033"
   }
 ]

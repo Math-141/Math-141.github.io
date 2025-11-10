@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 11/12/25
 editor: source
 ---
 
@@ -15,4 +15,19 @@ Before coming to lecture today, please read the following material:
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+Suppose 4 students have still not received their graded Math 141 midterm (yes, let's pretend we actually had a hand-written midterm) and that I hand back the exams randomly to each student. Let X = the number of students who get their correct exam.
+
+-   Let's say the student's names are A(licia), B(ob), C(olin), and D(onna) and they are sitting in a row ABCD. One possible outcome is ABDC (1st exam goes to A, 2nd to B, 3rd to D, 4th to C). In that case, what does X equal?
+
+-   List out all possible outcomes. And for each outcome, determine what X equals.
+
+-   Why is P(X = 3) = 0?
+
+-   Write out the probability distribution for X.
+
+-   Determine the mean value of X.
+
+-   Determine the standard deviation of X.
+
+-   What is the probability that at least one student gets their correct exam?
+

@@ -1,0 +1,705 @@
+---
+pagetitle: "Random Variables I"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+library(ggthemes)
+library(moderndive)
+library(gapminder)
+library(infer)
+theme_set(theme_bw())
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Random Variables I]{.custom-title}
+
+<br> <br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 10 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Goals for Today
+
+-   Motivate the need for probability models and random variables
+-   Define and introduce **random variables**
+
+
+::: {.fragment .nonincremental}
+
+### Annoucements
+
+-   Extended deadline for midterm revisions: Thursday the 13th at 8pm
+
+:::
+
+------------------------------------------------------------------------
+
+### Statistical Inference Zoom Out -- Estimation
+
+![](img/ci_diagram_sim.png){width="70%" fig-align="center"}
+
+::: fragment
+**Question**: How did folks do inference before computers?
+:::
+
+------------------------------------------------------------------------
+
+### Statistical Inference Zoom Out -- Testing
+
+![](img/hyp_testing_diagram_sim.png){width="80%" fig-align="center"}
+
+::: fragment
+**Question**: How did folks do inference before computers?
+:::
+
+------------------------------------------------------------------------
+
+### Statistical Inference Zoom Out -- Estimation
+
+![](img/ci_diagram.png){width="70%" fig-align="center"}
+
+**Question**: How did folks do inference before computers?
+
+------------------------------------------------------------------------
+
+### Statistical Inference Zoom Out -- Testing
+
+![](img/hyp_testing_diagram.png){width="80%" fig-align="center"}
+
+**Question**: How did folks do inference before computers?
+
+# This means we need to learn about probability models!
+
+------------------------------------------------------------------------
+
+### Probability Models
+
+> *"All models are wrong but some are useful."* -- George Box
+
+::: columns
+::: column
+**Question**: How can we use theoretical probability models to approximate our (sampling) distributions?
+
+```{r, echo=FALSE, fig.width = 6}
+library(tidyverse)
+library(palmerpenguins)
+library(infer)
+penguins %>%
+  drop_na(sex) %>%
+  specify(flipper_length_mm ~ sex) %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat ="diff in means", order = c("female", "male")) %>%
+  visualize()
+```
+:::
+
+::: column
+::: fragment
+Before we can answer that question and apply the models, we need to learn about the theoretical probability models themselves.
+:::
+:::
+:::
+
+
+# Random Variables
+
+## Definitions
+
+A **random variable** is a numeric quantity whose value depends on the result of a random process.
+
+::: {.fragment}
+- Capital letters at the end of the alphabet $(W,X,Y,Z)$ to denote **random variables**
+:::
+
+::: {.fragment}
+- Lowercase letters $(w,x,y,z)$ to denote the **particular values** of a random variable
+    - e.g., $X=x$
+:::
+
+::: {.fragment}
+- Equations to express **events** associated to random variables.
+    - e.g., "$X=5$" represents the event "The random variable $X$ takes the value $5$".
+:::
+
+::: {.fragment}
+- Events associated to variables have probabilities of occurring.
+    - e.g., $P(X=5) = 0.5$ means $X$ has probability 0.5 of taking the value $5$.
+:::
+
+------------------------------------------------------------------------
+
+## Types of Random Variables
+
+There are two main types of random variables:
+
+1. **Discrete** variables can take only finitely many different values.
+
+2. **Continuous** variables can take values equal to any real number in an interval.
+
+::: {.fragment}
+Examples of **discrete** variables:
+
+- The number of credits a randomly chosen Reed student is taking.
+- The number of vegetarians in a random sample of 10 people.
+- The result of a coin flip
+:::
+
+::: {.fragment}
+Examples of **continuous** variables:
+
+- The temperature of my office at a particular time of the day.
+- The amount of time it takes a radioactive particle to decay.
+:::
+
+------------------------------------------------------------------------
+
+## Today, we'll focus on discrete random variables
+
+For a discrete random variable, care about its:
+
+-   Distribution: $p(x) = P(X = x)$
+
+-   Center -- Mean:
+
+::: fragment
+$$
+\mu = \sum x p(x)
+$$
+:::
+
+-   Spread -- Variance & Standard Deviation:
+
+::: fragment
+$$
+\sigma^2 = \sum (x - \mu)^2 p(x)
+$$
+
+$$
+\sigma = \sqrt{ \sum (x - \mu)^2 p(x)}
+$$
+:::
+
+## The Distribution of a Random Variable
+
+::: {.fragment}
+**Random** variables have distributions, which tell us...
+
+- the values the variable can take, and the *probability* the variable takes those values.
+:::
+
+::: {.fragment}
+**Example:** I play a casino game, where that the amount of money I win (in dollars) has the following distribution:
+
+| Winnings | $5 | $10 | $20 | $50 |
+|----------|-----|-----|-----|-----|
+| Probability | .3 | .4 | .2 | .1 |
+:::
+
+<br>
+
+::: {.fragment}
+Suppose instead that I have a purse filled with the following 100 bills:
+
+| Type | $5 | $10 | $20 | $50 |
+|------|-----|-----|-----|-----|
+| Frequency | 30 | 40 | 20 | 10 |
+:::
+
+<br>
+
+::: {.fragment}
+Playing this casino game is very similar to drawing a random bill from the purse!
+:::
+
+------------------------------------------------------------------------
+
+## Visualizing Discrete Distributions
+
+We often use bar charts to visualize the distribution of discrete random variables.
+
+::: {.fragment .nonincremental}
+- Suppose a fair 6-sided die is rolled 6 times. Let $X$ be the number of $1$s rolled. The distribution of $X$ is given by:
+
+```{r}
+#| fig-height: 3.5
+t <- 0:6
+p <- dbinom(t, 6, 1/6)
+dd <- data.frame(t, p)
+ggplot(dd, aes(x = t, y = p)) +
+  geom_col() +
+  scale_x_continuous(breaks = t) +
+  labs(x = "X", y = "Probability", title = "Distribution for number of 1's in 6 rolls")
+```
+
+:::
+
+::: {.fragment}
+Heights of bars are **probabilities**
+:::
+
+
+# Expected Value and Variance
+
+
+## Expected Value
+
+Informally: The **expected value** is the average value the random variable takes.
+
+- If $X$ represents the number of Heads when flipping a fair coin, its expected value is 0.5
+
+::: {.fragment}
+Formally: The **expected value** (or mean) of a discrete random variable $X$ is
+$$
+E[X] = x_1 P(X = x_1) + x_2 P(X = x_2) + \dots x_n P(X = x_n) = \sum_{i =1}^n x_i P(X = x_i)
+$$
+where $x_1, \dots, x_n$ are *all the values X could potentially take*.
+:::
+
+## Expected Value
+
+::: {.fragment}
+Recall the example: if $X$ represents the number of Heads when flipping a fair coin, its expected value is 0.5
+
+
+$$
+\begin{align}
+E[X] &= 0 P(X=0) + 1 P(X=1)\\
+&= 0(0.5) + 1(0.5) \\
+&= 0.5
+\end{align}
+$$
+:::
+
+::: {.fragment}
+- The expected value of $X$ is a **weighted average** of the values $X$ can take, where weights are probabilities.
+:::
+
+------------------------------------------------------------------------
+
+## Practice
+
+$$
+E[X] = x_1 P(X = x_1) + x_2 P(X = x_2) + \dots x_n P(X = x_n) = \sum_{i =1}^n x_i P(X = x_i)
+$$
+
+Suppose we have a data set consisting of 10 values: $\{1,1,2,2,2,2,3,4,5,5\}$.
+
+- Let $X$ be a value chosen from this data set randomly.
+- What is the expected value of $X$?
+
+```{r}
+#| echo: false
+countdown::countdown(2)
+```
+
+
+------------------------------------------------------------------------
+
+## Practice (Answers)
+
+$$
+E[X] = x_1 P(X = x_1) + x_2 P(X = x_2) + \dots x_n P(X = x_n) = \sum_{i =1}^n x_i P(X = x_i)
+$$
+
+Suppose we have a data set consisting of 10 values: $\{1,1,2,2,2,2,3,4,5,5\}$.
+
+::: {.nonincremental}
+- Let $X$ be a value chosen from this data set randomly.
+- What is the expected value of $X$?
+:::
+
+
+$$
+\begin{align}
+E[X] =& 1 P(X = 1) + 2 P(X = 2) + 3 P(X =3) + 4 P(X = 4) + 5 P(X = 5) \\
+=& 1 \frac{2}{10} + 2 \frac{4}{10} + 3 \frac{1}{10} + 4 \frac{1}{10} + 5 \frac{2}{10} \\
+=& \frac{27}{10}
+\end{align}
+$$
+
+
+------------------------------------------------------------------------
+
+## The Law of Large Numbers, again
+
+Previously, we said that by the **Law of Large numbers**, the proportion of times an outcome occurs in a long sequence of trials is close to the probability for that outcome.
+
+::: {.fragment}
+This is a generalization:
+
+::: {.callout-note icon=false .nonincremental}
+## Theorem: The Law of Large Numbers
+Let $X$ be a random variable.
+
+1. Suppose we observe the random variable $n$ times, $x_1,x_2,\dots,x_n$.
+
+2. Let $\bar{x}_n$ denote the mean of our $n$ observations of $X$.
+
+3. Then, as $n$ becomes large, $\bar{x}_n$ will approach the expected value $E[X]$ of the random variable $X$.
+:::
+:::
+
+------------------------------------------------------------------------
+
+## A Roll of the Die
+
+Suppose we roll a fair 6-sided die. What is the expected value of the result?
+
+::: {.fragment}
+- Let's roll the same die 1000 times and keep track of the running mean of the results...
+:::
+
+
+::: {.fragment}
+
+```{r}
+#| fig-height: 4
+set.seed(10)
+sim <- sample(1:6, size = 1000, replace = TRUE)
+prop <- cumsum(sim) / 1:1000
+sim_data <- data.frame(prop, n = 1:1000)
+
+ggplot(sim_data, aes(x = n, y = prop)) +
+  geom_line() +
+  geom_hline(yintercept = 3.5, linetype = "dashed", color = "red") +
+  labs(y = "mean", x = "number of die rolls")
+```
+
+:::
+
+::: {.fragment}
+We can see that the **expected value** is $3.5$
+:::
+
+------------------------------------------------------------------------
+
+## Variance and Standard Deviation
+
+The **variance** of a discrete random variable $X$ with mean $E(X) = \mu$ is
+$$
+\begin{align}
+\mathrm{Var}(X) =& (x_1 - \mu)^2 P(X = x_1) + (x_2- \mu)^2 P(X = x_2) + \dots  + (x_n-\mu)^2 P(X = x_n)  \\ 
+=& \sum_{i =1}^n (x_i-\mu)^2 P(X = x_i)
+\end{align}
+$$
+
+::: {.fragment}
+The variance of $X$ is the **sum the squared deviations of $X$ from its mean $\mu$, weighted by the corresponding probabilities.**
+:::
+
+::: {.fragment}
+We also define the **standard deviation** of a random variable $X$ to be
+$$
+\textrm{SD}(X) = \sqrt{\mathrm{Var}(X)}
+$$
+:::
+
+::: {.fragment}
+We often use:
+
+- $\sigma^2$ to denote the variance of a variable
+- $\sigma$ to denote the standard deviation
+:::
+
+------------------------------------------------------------------------
+
+## Variance and Standard Deviation
+
+$$
+\begin{align}
+\mathrm{Var}(X) =& (x_1 - \mu)^2 P(X = x_1) + (x_2- \mu)^2 P(X = x_2) + \dots  + (x_n-\mu)^2 P(X = x_n)  \\ 
+=& \sum_{i =1}^n (x_i-\mu)^2 P(X = x_i)
+\end{align}
+$$
+
+Suppose we have a data set consisting of 5 values: $\{1,1,3,5, 5\}$. Let $X$ be a value chosen from this data set randomly. What is the variance of $X$?
+
+::: {.fragment}
+::: {.nonincremental}
+- Note that $E(X) = \mu = 3$
+:::
+:::
+
+::: {.fragment}
+$$
+\begin{align}
+\mathrm{Var}(X) =& (1 - 3)^2 P(X = 1) + (3 - 3)^2 P(X = 3) + (5 - 3)^2 P(X =5) \\
+=& (-2)^2 \frac{2}{5} + (0)^2 \frac{1}{5} + 2^2 \frac{2}{5} = \frac{16}{5}
+\end{align}
+$$
+:::
+
+```{r}
+#| echo: false
+countdown::countdown(3)
+```
+
+
+------------------------------------------------------------------------
+
+## Practice: One Coin Flip
+
+Consider a random variable $X$ which is the number of heads in a single coin flip.
+
+::: {.fragment}
+**Q:** What are the possible values for $X$? What are the probabilities each value of $X$?
+:::
+
+::: {.fragment}
+::: {.nonincremental}
+- $X = 1$ (H) with $P(X=1) = \frac{1}{2}$
+- $X = 0$ (T) with $P(X=0) = \frac{1}{2}$
+:::
+:::
+
+::: {.fragment}
+**Q:** Compute the expected value and variance for $X$ (the number of heads in a single coin flip)
+:::
+
+::: {.fragment}
+$$
+E[X] = (0)\frac{1}{2} +  (1)\frac{1}{2} = \frac{1}{2}
+$$
+:::
+
+::: {.fragment}
+$$
+Var[X] = (0-1/2)^2\frac{1}{2} +  (1-1/2)^2\frac{1}{2} = \frac{1}{4}
+$$
+:::
+
+------------------------------------------------------------------------
+
+## Linearity of Expected Value
+
+::: {.callout-note icon=false}
+## Theorem: Expectation of Sum
+Let $X$ and $Y$ be random variables. Then
+$$
+E(X + Y) = E(X) + E(Y)
+$$
+:::
+
+::: {.fragment}
+- e.g., If $X$ is the face of one die roll, and $Y$ is the face of another die roll, then $X + Y$ would be the sum of the faces. And:
+$$
+  E(X + Y) = E(X) + E(Y) = 3.5 + 3.5 = 7
+$$
+:::
+
+
+## Linearity of Expected Value
+
+::: {.callout-note icon=false}
+## Theorem: Scalar Multiplication with Expectation
+Let $X$ be a random variable, and let $c$ be a number. Then
+$$
+E(cX) = cE(X) 
+$$
+:::
+
+::: {.fragment}
+- e.g., We're rolling a die, and we'll make $5 times the number we roll -- what are our expected earnings?
+:::
+
+::: {.fragment}
+$$
+X = \text{face of die roll} \quad \quad \quad E(5 X) = 5 E(X) = 5(3.5) = 17.5
+$$
+:::
+
+------------------------------------------------------------------------
+
+## Variance of Sums and Scalar Multiplication
+
+
+::: {.callout-note icon=false}
+## Theorem: Variance of Sum
+Let $X$ and $Y$ be random variables. Additionally, let $X$ and $Y$ be *independent*. Then
+$$
+\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)
+$$
+:::
+
+::: {.fragment}
+- Note that $X$ and $Y$ **must be independent** for the above!
+:::
+
+::: {.fragment}
+
+::: {.callout-note icon=false}
+## Theorem: Scalar Multiplication with Variance
+Let $X$ be a random variable, and let $c$ be a number. Then
+$$
+\mathrm{Var}(cX) = c^2\mathrm{Var}(X) 
+$$
+:::
+
+
+- We get the $c^2$ because variances look at squared differences from the mean
+:::
+
+------------------------------------------------------------------------
+
+## Practice: Two Coin Flips
+
+Now let $Y$ be the number of heads in two coin flips.
+
+::: {.fragment}
+**Q:** What are the possible values for $Y$? What are the probabilities each value of $Y$?
+:::
+
+::: {.fragment}
+::: {.nonincremental}
+- $Y = 0$ (TT) with $P (Y = 0) = \frac{1}{4}$
+- $Y = 1$ (HT or TH) with $P (Y = 1) = \frac{1}{2}$
+- $Y = 2$ (HH) with $P (Y = 2) = \frac{1}{4}$
+:::
+:::
+
+::: {.fragment}
+**Q:** Compute the expected value and variance for $Y$ (the number of heads in two coin flips.)
+:::
+
+::: {.fragment}
+We could use the definitions of expected value and variance directly...
+
+$$
+E[Y] = (0)\frac{1}{4} +  (1)\frac{1}{2} +(2)\frac{1}{4} = 1
+$$
+:::
+
+::: {.fragment}
+$$
+Var[Y] = (0-1)^2\frac{1}{4} +  (1-1)^2\frac{1}{2}+ (2-1)^2\frac{1}{4}= \frac{1}{2}
+$$
+:::
+
+------------------------------------------------------------------------
+
+## Practice: Two Coin Flips
+
+...or, we could use our rules for expected value and variance:
+
+::: {.fragment}
+$$Y = X_1 + X_2$$
+where $X_1$ and $X_2$ are two independent versions of our random variable, $X$.
+
+Thus,
+
+$$
+E[Y] = E[X_1] + E[X_2] = 0.5 + 0.5 = 1
+$$
+:::
+
+::: {.fragment}
+$$
+Var[Y] = Var[X_1] + Var[X_2] = 0.25+ 0.25 = 0.5
+$$
+:::
+
+::: {.fragment}
+That's a lot simpler!
+:::
+
+# Activity
+
+
+## What about 23 coin tosses?
+
+Let $Z$ be the number of heads in $23$ independent coin tosses.
+
+**Q:** What is $E(Z)$?
+
+**Q:** What is $\mathrm{Var}(Z)$?
+
+**Q:** Suppose $W$ represents the number of heads in $n$ independent coin tosses. What is $E(W)$ and $\mathrm{Var}(W)$?
+
+```{r}
+countdown::countdown(5)
+```
+
+
+------------------------------------------------------------------------
+
+## Activity: Answers
+
+Let $Z$ be the number of heads in $23$ independent coin tosses.
+
+::: {.fragment}
+**Q:** What is $E(Z)$?
+:::
+
+::: {.fragment}
+::: {.nonincremental}
+- Let $X_1$ = Heads on 1st toss, $\dots$  , $X_{23}$ = Heads on $23$rd toss:
+$$
+  E(Z) = E(X_1) + \dots + E(X_{23}) = 0.5+\dots+0.5 = 23(0.5)
+$$
+:::
+:::
+
+::: {.fragment}
+**Q:** What is $\mathrm{Var}(Z)$?
+:::
+
+::: {.fragment}
+$$
+  \mathrm{Var}(Z) = \mathrm{Var}(X_1) + \dots + \mathrm{Var}(X_{23}) = 0.25+\dots+0.25 = 23(0.25)
+$$
+:::
+
+::: {.fragment}
+**Q:** Suppose $W$ represents the number of heads in $n$ independent coin tosses. What is $E(W)$ and $\mathrm{Var}(W)$?
+:::
+
+::: {.fragment}
+::: {.nonincremental}
+-   $E(W) = nE(X_1) = (n)(0.5)$ 
+-   $\mathrm{Var}(W) = n\mathrm{Var}(X_1) = (n)(0.25)$
+:::
+:::
+
+## Next time:
+
+-   We'll define some specific named random variables!

@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>Math 141 – Data Collection</title>
+  <title>Math 141 – Random Variables II</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -188,6 +188,8 @@
       margin-right: 0; 
     }
   </style>
+  <link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+  <script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -201,507 +203,617 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Data Collection</span></p>
+<p><span class="custom-title">Random Variables II</span></p>
 <p><br> <br> <br> <br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
-<p><span class="custom-subtitle">Math 141 <br> Week 3 | Fall 2025</span></p>
+<p><span class="custom-subtitle">Math 141 <br> Week 10 | Fall 2025</span></p>
 </div></div>
 </section>
 <section id="goals-for-today" class="slide level2">
 <h2>Goals for Today</h2>
 <ul>
-<li class="fragment">Cover data collection/acquisition.</li>
+<li class="fragment">Continue our discussion of expected value and variance</li>
+<li class="fragment">Introduce the <strong>Bernoulli distribution</strong></li>
+<li class="fragment">Introduce the <strong>Binomial distribution</strong></li>
 </ul>
-</section>
-<section class="slide level2">
-
-<h3 id="when-to-get-coding-help">When to Get Coding Help</h3>
-<p>😢 <em>“I have no idea how to do this problem.”</em></p>
-<div class="fragment">
-<p>→ Ask someone to point you to an similar example from the lecture, handouts, and guides.</p>
-</div>
-<div class="fragment">
-<p>→ Talk it through with a course assistant, a fellow Math 141 student, or Grayson so together we can verbalize the process of going from Q to A.</p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p>😡 <em>“I am getting a weird error but really think my code is correct/on the right track/matches the examples from class.”</em></p>
-</div>
-<div class="fragment">
-<p>→ It is time for a second pair of eyes. Don’t stare at the error for over 10 minutes.</p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p>🤩 And lots of other times too! 😬</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="when-to-get-help">When to Get Help</h3>
-<p>Remember:</p>
-<div class="fragment">
-<p>→ Struggling is part of learning.</p>
-</div>
-<div class="fragment">
-<p>→ But let us help you ensure it is a <strong>productive</strong> struggle.</p>
-</div>
-<div class="fragment">
-<p>→ Struggling does NOT mean you are bad at stats, it actually means you are doing the work to <strong>learn</strong> the material!</p>
-</div>
-</section>
-<section id="now-for-data-collection" class="slide level2">
-<h2>Now for Data Collection</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/DAW.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="motivating-our-discussion-of-data-collection" class="slide level2">
-<h2>Motivating Our Discussion of Data Collection</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/twitter-study-design.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="who-are-the-data-supposed-to-represent" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.002.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Key questions:</strong></p>
-<ul>
-<li class="fragment">What evidence is there that the data are <strong>representative</strong>?</li>
-<li class="fragment">Who is present? Who is absent?</li>
-<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
-</ul>
-</section>
-<section id="who-are-the-data-supposed-to-represent-1" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.003.jpeg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
-</figure>
-</div>
-<p><strong>Census</strong>: We have data on the whole population!</p>
-</section>
-<section id="who-are-the-data-supposed-to-represent-2" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sampling.002.jpeg" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
-</figure>
-</div>
-</section>
-<section id="who-are-the-data-supposed-to-represent-3" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.005.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Key questions:</strong></p>
-<ul>
-<li class="fragment">What evidence is there that the <strong>sample</strong> is <strong>representative</strong> of the <strong>population</strong>?</li>
-<li class="fragment">Who is present? Who is absent?</li>
-<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
-</ul>
-</section>
-<section id="sampling-bias" class="slide level2">
-<h2>Sampling Bias</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sampling.001.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Sampling bias</strong>: When the sampled units are <strong>systematically different</strong> from the non-sampled units on the variables of interest.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="sampling-bias-example">Sampling Bias Example</h3>
-<p>The <strong>Literary Digest</strong> was a political magazine that correctly predicted the presidential outcomes from 1916 to 1932. In 1936, they conducted the most extensive (to that date) public opinion poll. They mailed questionnaires to over 10 million people (about 1/3 of US households) whose names and addresses they obtained from telephone books and vehicle registration lists.</p>
-<p><strong>Population of Interest</strong>:</p>
-<p><br></p>
-<p><strong>Sample</strong>:</p>
-<p><br></p>
-<p><strong>Sampling bias</strong>:</p>
-</section>
-<section id="random-sampling" class="slide level2">
-<h2>Random Sampling</h2>
-<p>Use random sampling (a random mechanism for selecting cases from the population) to remove sampling bias.</p>
-<h4 id="types-of-random-sampling">Types of random sampling</h4>
-<div>
-<ul>
-<li><p>Simple random sampling</p></li>
-<li><p>Cluster sampling</p></li>
-<li><p>Stratified random sampling</p></li>
-<li><p>Systematic sampling</p></li>
-</ul>
-</div>
-<div class="fragment">
-<p>Why aren’t all samples generated using simple random sampling?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="us-forest-inventory-and-analysis-program">US Forest Inventory and Analysis Program</h3>
-<div class="columns">
-<div class="column" style="width:15%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/fs.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:85%;">
-<blockquote>
-<p>Mission: “Make and keep current a comprehensive inventory and analysis of the present and prospective conditions of and requirements for the renewable resources of the forest and rangelands of the US.”</p>
-</blockquote>
-</div></div>
-<div class="fragment">
-<p>Need a <strong>random sample</strong> of ground plots to say something about the state of our nation’s forests!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-simple-random-sampling">FIA: Simple Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Number each plot from 1 to 62,963,840.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to sample 10,494 plots.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">62963840</span>, <span class="at">size =</span> <span class="dv">10494</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 39566062  9436141 39545159 37884304   614245  8872360</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Put each plot in a cluster.
-<ul>
-<li class="fragment">For our example: cluster = county.</li>
-</ul></li>
-<li class="fragment">Number each cluster.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to sample 2 clusters.</li>
-<li class="fragment">Sample <strong>all</strong> plots in those 2 clusters.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 14 29</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/legend.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling-1">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div>
-<ul>
-<li>Break the landscape up into equally sized plots (~1 acre).</li>
-<li>Put each plot in a cluster.
-<ul>
-<li>For our example: cluster = county.</li>
-</ul></li>
-<li>Number each cluster.</li>
-<li>Use a <strong>random</strong> mechanism to sample 2 clusters.</li>
-<li>Take a <strong>simple random sample</strong> within the sampled clusters.</li>
-</ul>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 31 29</code></pre>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:---</span>, <span class="at">size =</span> <span class="sc">---</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/legend.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p>Subsampling within each sampled cluster is much more common than subsampling the whole sampled cluster!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling-2">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/Forest-types-Map-combo.jpg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<ul>
-<li class="fragment"><p>Are our clusters based on counties <strong>homogeneous</strong>?</p></li>
-<li class="fragment"><p>Why is <strong>homogeneity</strong> important for cluster sampling?</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-stratified-random-sampling">FIA: Stratified Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Put each plot in a stratum.
-<ul>
-<li class="fragment">For our example: stratum = county.</li>
-</ul></li>
-<li class="fragment">Take a <strong>simple random sample</strong> within every stratum.
-<ul>
-<li class="fragment">Don’t have to be equally sized!</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Do this for each stratum</span></span>
-<span id="cb8-2"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:---</span>, <span class="at">size =</span> <span class="sc">---</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-systematic-random-sampling">FIA: Systematic Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>This is FIA’s <strong>actual</strong> sampling design (okay, slightly simplified).</p>
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Number each plot from 1 to 62,963,840.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to pick starting point. Then sample about once every 6000 acres.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">62963840</span>, <span class="at">size =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 50730938</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Why is this design <strong>better</strong> than simple random sampling?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 class="smaller" id="national-health-and-nutrition-examination-survey">National Health and Nutrition Examination Survey</h3>
-<div class="columns">
-<div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/nhanes_logo.jpg" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:80%;">
-<blockquote>
-<p>Mission: “Assess the health and nutritional status of adults and children in the United States.”</p>
-</blockquote>
-</div></div>
-<p>How are these data collected?</p>
-</section>
-<section class="slide level2">
-
-<h3 id="nhanes-sampling-design">NHANES Sampling Design</h3>
-<ul>
-<li class="fragment"><p><strong>Stage 1</strong>: US is stratified by geography and distribution of minority populations. Counties are randomly selected within each stratum.</p></li>
-<li class="fragment"><p><strong>Stage 2</strong>: From the sampled counties, city blocks are randomly selected. (City blocks are clusters.)</p></li>
-<li class="fragment"><p><strong>Stage 3</strong>: From sampled city blocks, households are randomly selected. (Households are clusters.)</p></li>
-<li class="fragment"><p><strong>Stage 4</strong>: From sampled households, people are randomly selected. For the sampled households, a mobile health vehicle goes to the house and medical professionals take the necessary measurements.</p></li>
-</ul>
-<div class="fragment">
-<p><strong>Why don’t they use simple random sampling?</strong></p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="careful-using-non-simple-random-sample-data">Careful Using Non-Simple Random Sample Data</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
 </section>
 <section>
-<section id="detour-data-ethics" class="title-slide slide level1 center">
-<h1>Detour: Data Ethics</h1>
+<section id="review" class="title-slide slide level1 center">
+<h1>Review</h1>
+
+</section>
+<section id="review-expected-value-variance-and-standard-deviation" class="slide level2">
+<h2>Review: Expected Value, Variance, and Standard Deviation</h2>
+<p>The <strong>expected value</strong> (or mean) of a discrete random variable <span class="math inline">\(X\)</span> is <span class="math display">\[
+\mu = E[X] = \sum_{i =1}^n x_i P(X = x_i)
+\]</span> where <span class="math inline">\(x_1, \dots, x_n\)</span> are <em>all the values X could potentially take</em>.</p>
+<div class="fragment">
+<p>The <strong>variance</strong> and <strong>standard deviation</strong> of a discrete random variable <span class="math inline">\(X\)</span> with mean <span class="math inline">\(E(X) = \mu\)</span> is <span class="math display">\[
+\sigma^2 = \mathrm{Var}(X) = \sum_{i =1}^n (x_i-\mu)^2 P(X = x_i)
+\]</span> <span class="math display">\[
+\sigma = \textrm{SD}(X) = \sqrt{\mathrm{Var}(X)}
+\]</span></p>
+</div>
+</section>
+<section id="review-rules-for-expected-value-and-variance" class="slide level2">
+<h2>Review: Rules for Expected Value and Variance</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem: Expectation of Sum</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables. Then <span class="math display">\[
+E(X + Y) = E(X) + E(Y)
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem: Scalar Multiplication with Expectation</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\(X\)</span> be a random variable, and let <span class="math inline">\(c\)</span> be a number. Then <span class="math display">\[
+E(cX) = cE(X)
+\]</span></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem: Variance of Sum</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be random variables. Additionally, let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be <em>independent</em>. Then <span class="math display">\[
+\mathrm{Var}(X + Y) = \mathrm{Var}(X) + \mathrm{Var}(Y)
+\]</span></p>
+</div>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem: Scalar Multiplication with Variance</strong></p>
+</div>
+<div class="callout-content">
+<p>Let <span class="math inline">\(X\)</span> be a random variable, and let <span class="math inline">\(c\)</span> be a number. Then <span class="math display">\[
+\mathrm{Var}(cX) = c^2\mathrm{Var}(X)
+\]</span></p>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="recall-one-coin-flip" class="slide level2">
+<h2>Recall: One Coin Flip</h2>
+<p>Consider a random variable <span class="math inline">\(X\)</span> which is the number of heads in a single coin flip.</p>
+<div class="fragment">
+<p><strong>Q:</strong> What are the possible values for <span class="math inline">\(X\)</span>? What are the probabilities each value of <span class="math inline">\(X\)</span>?</p>
+</div>
+<div class="fragment">
+<div>
+<ul>
+<li><span class="math inline">\(X = 1\)</span> (H) with <span class="math inline">\(P(X=1) = \frac{1}{2}\)</span></li>
+<li><span class="math inline">\(X = 0\)</span> (T) with <span class="math inline">\(P(X=0) = \frac{1}{2}\)</span></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Q:</strong> Compute the expected value and variance for <span class="math inline">\(X\)</span> (the number of heads in a single coin flip)</p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+E[X] = (0)\frac{1}{2} +  (1)\frac{1}{2} = \frac{1}{2}
+\]</span></p>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+Var[X] = (0-1/2)^2\frac{1}{2} +  (1-1/2)^2\frac{1}{2} = \frac{1}{4}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>This distribution has a name!</p>
+<ul>
+<li class="fragment"><span class="math inline">\(X\sim \text{Bernoulli}(p = 0.5)\)</span></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="specific-named-random-variables" class="title-slide slide level1 center">
+<h1>Specific Named Random Variables</h1>
 
 </section>
 <section class="slide level2">
 
-<h3 id="data-ethics">Data Ethics</h3>
-<blockquote>
-<p>“Good statistical practice is fundamentally based on transparent assumptions, reproducible results, and valid interpretations.” – Committee on Professional Ethics of the American Statistical Association (ASA)</p>
-</blockquote>
-<p>The ASA has created <a href="https://www.amstat.org/ASA/Your-Career/Ethical-Guidelines-for-Statistical-Practice.aspx">“Ethical Guidelines for Statistical Practice”</a></p>
+<h3 id="specific-named-random-variables-1">Specific Named Random Variables</h3>
+<ul>
+<li class="fragment"><p>There is a vast array of random variables out there.</p></li>
+<li class="fragment"><p>But there are a few particular ones that we will find useful.</p>
+<ul>
+<li class="fragment">Because these ones are used often, they have been given names.</li>
+</ul></li>
+<li class="fragment"><p>Will identify these named RVs using the following format:</p></li>
+</ul>
 <div class="fragment">
-<p>→ These guidelines are for EVERYONE doing statistical work.</p>
+<p><span class="math display">\[
+X \sim \mbox{Name(values of key parameters)}
+\]</span></p>
 </div>
-<div class="fragment">
-<p>→ There are ethical decisions at all steps of the Data Analysis Process.</p>
-</div>
-<div class="fragment">
-<p>→ We will periodically refer to specific guidelines throughout this class.</p>
-</div>
-<div class="fragment">
-<blockquote>
-<p>“Above all, professionalism in statistical practice presumes the goal of advancing knowledge while avoiding harm; using statistics in pursuit of unethical ends is inherently unethical.”</p>
-</blockquote>
-</div>
-</section>
-<section id="responsibilities-to-research-subjects" class="slide level2">
-<h2>Responsibilities to Research Subjects</h2>
-<blockquote>
-<p>“The ethical statistician protects and respects the rights and interests of human and animal subjects at all stages of their involvement in a project. This includes respondents to the census or to surveys, those whose data are contained in administrative records, and subjects of physically or psychologically invasive research.”</p>
-</blockquote>
 </section>
 <section class="slide level2">
 
-<h3 id="responsibilities-to-research-subjects-1">Responsibilities to Research Subjects</h3>
-<p>Why do you think the <code>Age</code> variable maxes out at 80?</p>
+<h3 id="bernoulli-random-variables">Bernoulli Random Variables</h3>
+<div class="columns">
+<div class="column">
+<p><span class="math inline">\(X \sim\)</span> Bernoulli <span class="math inline">\((p)\)</span></p>
+<span class="math display">\[\begin{align*}
+X=   \left\{
+\begin{array}{ll}
+      1 &amp; \mbox{success} \\
+      0 &amp; \mbox{failure} \\
+\end{array}
+\right.  
+\end{align*}\]</span>
+<p>Important parameter:</p>
+<p><span class="math display">\[
+\begin{align*}
+p &amp; = \mbox{probability of success} \\
+&amp; = P(X = 1)
+\end{align*}
+\]</span></p>
+</div><div class="column">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk10wed_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Distribution:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p(x)\)</span></td>
+<td>1 - <span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(p\)</span></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="bernoulli-random-variables-1">Bernoulli Random Variables</h3>
+<div class="columns">
+<div class="column">
+<p><span class="math inline">\(X \sim\)</span> Bernoulli <span class="math inline">\((p = 0.5)\)</span></p>
+<span class="math display">\[\begin{align*}
+X=   \left\{
+\begin{array}{ll}
+      1 &amp; \mbox{success} \\
+      0 &amp; \mbox{failure} \\
+\end{array}
+\right.  
+\end{align*}\]</span>
+</div><div class="column">
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10wed_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Distribution:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p(x)\)</span></td>
+<td>0.5</td>
+<td>0.5</td>
+</tr>
+</tbody>
+</table>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="bernoulli-random-variables-2">Bernoulli Random Variables</h3>
+<div class="columns">
+<div class="column">
+<p><span class="math inline">\(X \sim\)</span> Bernoulli <span class="math inline">\((p)\)</span></p>
+<span class="math display">\[\begin{align*}
+X=   \left\{
+\begin{array}{ll}
+      1 &amp; \mbox{success} \\
+      0 &amp; \mbox{failure} \\
+\end{array}
+\right.  
+\end{align*}\]</span>
+</div><div class="column">
+<p>Distribution:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p(x)\)</span></td>
+<td>1 - <span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(p\)</span></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p>Mean:</p>
+<p><span class="math display">\[
+\begin{align*}
+\mu &amp;= \sum x p(x) \\
+&amp; = 1*p + 0*(1 - p) \\
+&amp; = p
+\end{align*}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="bernoulli-random-variables-3">Bernoulli Random Variables</h3>
+<div class="columns">
+<div class="column">
+<p><span class="math inline">\(X \sim\)</span> Bernoulli <span class="math inline">\((p)\)</span></p>
+<span class="math display">\[\begin{align*}
+X=   \left\{
+\begin{array}{ll}
+      1 &amp; \mbox{success} \\
+      0 &amp; \mbox{failure} \\
+\end{array}
+\right.  
+\end{align*}\]</span>
+</div><div class="column">
+<p>Distribution:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p(x)\)</span></td>
+<td>1 - <span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(p\)</span></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p>Standard deviation:</p>
+<p><span class="math display">\[
+\begin{align*}
+\sigma &amp; = \sqrt{ \sum (x - \mu)^2 p(x)} \\
+&amp; = \sqrt{(1 - p)^2*p + (0 - p)^2*(1 - p)}  \\
+&amp; = \sqrt{p(1 - p)}
+\end{align*}
+\]</span></p>
+</section></section>
+<section>
+<section id="what-about-the-sum-of-many-bernoulli-random-variables" class="title-slide slide level1 center">
+<h1>What about the sum of many Bernoulli random variables?</h1>
+
+</section>
+<section id="n-coin-tosses-expected-value-and-variance" class="slide level2">
+<h2><span class="math inline">\(n\)</span> coin tosses: Expected Value and Variance</h2>
+<p>Let <span class="math inline">\(X\)</span> be the number of heads in <span class="math inline">\(n\)</span> independent coin tosses.</p>
+<p><strong>Q:</strong> What are <span class="math inline">\(E(X)\)</span> and <span class="math inline">\(\mathrm{Var}(X)\)</span>?</p>
 <div class="fragment">
-<blockquote>
-<p>“Protects the privacy and confidentiality of research subjects and data concerning them, whether obtained from the subjects directly, other persons, or existing records.”</p>
-</blockquote>
+<p><em>Hint:</em> We know, from the Bernoulli distribution, that if <span class="math inline">\(X_1\)</span> is the number of heads in a <em>single</em> coin flip, <span class="math display">\[E(X_1)=0.5 \quad \text{ and } \quad \text{Var}(X_1)=0.25\]</span></p>
 </div>
 </section>
-<section id="next-time" class="slide level2">
-<h2>Next time:</h2>
+<section id="n-coin-tosses-expected-value-and-variance-1" class="slide level2">
+<h2><span class="math inline">\(n\)</span> coin tosses: Expected Value and Variance</h2>
+<p>Let <span class="math inline">\(X\)</span> be the number of heads in <span class="math inline">\(n\)</span> independent coin tosses.</p>
+<p><strong>Answer:</strong> Let <span class="math inline">\(X_1\)</span> = Heads in 1st toss, <span class="math inline">\(\dots\)</span> , <span class="math inline">\(X_n\)</span> = Heads in <span class="math inline">\(n\)</span>th toss: <span class="math display">\[
+  X = X_1 + \dots + X_n = \sum_{i=1}^n X_i
+\]</span></p>
+<p><span class="math display">\[
+\begin{align}
+  E(X) &amp;= E \left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n E(X_i) = \sum_{i=1}^n 0.5 = 0.5n\\
+  \mathrm{Var}(X) &amp;=  \mathrm{Var}\left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n  \mathrm{Var}(X_i) = \sum_{i=1}^n 0.25 = 0.25n
+\end{align}
+\]</span></p>
+</section>
+<section id="n-coin-toss-probabilities" class="slide level2 smaller">
+<h2><span class="math inline">\(n\)</span> coin toss probabilities?</h2>
+<p>We’ve calculated Expectation and Variance for the number of heads in <span class="math inline">\(n\)</span> coin tosses.</p>
+<div class="fragment">
+<div>
 <ul>
-<li class="fragment">More sampling</li>
-<li class="fragment">Sampling bias</li>
+<li>But what about the <strong>probability</strong> that there are <span class="math inline">\(k\)</span> heads in the <span class="math inline">\(n\)</span> tosses?</li>
 </ul>
+</div>
+</div>
+<div class="fragment">
+<p>For example, <strong>What’s the probability of <span class="math inline">\(k=2\)</span> heads in <span class="math inline">\(n=3\)</span> coin tosses?</strong></p>
+</div>
+<div class="fragment">
+<div>
+<ul>
+<li>Let’s break down the problem: <strong>What are the possible outcomes?</strong></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{align}
+\text{TTT} &amp; \implies X=0 \quad&amp; \text{TTH or THT or HTT} &amp; \implies X=1\\
+\text{HHH} &amp; \implies X=3 \quad&amp; \text{THH or HTH or HHT} &amp; \implies X=2\\
+\end{align}
+\]</span></p>
+</div>
+<div class="fragment">
+<div>
+<ul>
+<li>The <strong>3 coin flips</strong> had <span class="math inline">\(8\)</span> possible outcomes, each with equal probability.</li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<p>Differently, <span class="math inline">\(X\)</span> had <span class="math inline">\(4\)</span> possible outcomes: 0, 1, 2, or 3. Those probabilities are: <span class="math display">\[
+\begin{align}
+P(X=0) &amp;= \frac{1}{8} \quad&amp;\quad P(X=1) &amp;= \frac{3}{8}\\
+P(X=3) &amp;= \frac{1}{8} \quad&amp;\quad P(X=2) &amp;= \frac{3}{8}\\
+\end{align}
+\]</span></p>
+</div>
+</section>
+<section id="coin-tosses-probabilities" class="slide level2">
+<h2>3 coin tosses probabilities</h2>
+<p>Notice that the probability of <span class="math inline">\(k\)</span> heads in <span class="math inline">\(n\)</span> coin flips is</p>
+<p><span class="math display">\[P[X=k] = \big(\text{Number of ways to get k heads}\big) \times \big(\text{Prob of each way}\big)\]</span></p>
+<div class="fragment">
+<p>For example, we found that in <span class="math inline">\(n=3\)</span> coin tosses,</p>
+<ul>
+<li class="fragment">3 ways to get 2 heads</li>
+<li class="fragment">Each sequence of 3 coin flips has probability <span class="math inline">\(\frac12\times\frac12\times\frac12=\frac18\)</span></li>
+<li class="fragment">Thus, <span class="math inline">\(P(X=2) = \frac38\)</span></li>
+</ul>
+</div>
+</section>
+<section id="generalization-1" class="slide level2 smaller">
+<h2>Generalization 1</h2>
+<p>First: <strong>What if <span class="math inline">\(n\)</span> and <span class="math inline">\(k\)</span> are bigger?</strong></p>
+<div class="fragment">
+<ul>
+<li class="fragment">In this case, it’s hard to count all the different combinations.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">Instead, we can rely on a <strong>handy formula</strong>: The number of ways to get <span class="math inline">\(k\)</span> “successes” in <span class="math inline">\(n\)</span> “trials” is <span class="math display">\[{n\choose k} = \frac{n!}{k!(n-k)!}\]</span> We read this as <strong>“n choose k”</strong></li>
+</ul>
+</div>
+<div class="fragment">
+<p>The exclamation point is a <strong>factorial</strong>: <span class="math display">\[
+\begin{align}
+  0! &amp;= 1\\
+  1! &amp;= 1\\
+  2! &amp;= 2\times 1=2\\
+  3! &amp;= 3\times2\times1=6\\
+  4! &amp;= 4\times3\times2\times1=24
+\end{align}
+\]</span></p>
+</div>
+</section>
+<section id="generalization-2" class="slide level2">
+<h2>Generalization 2</h2>
+<p>Second: <strong>What if the probability of “success” changes?</strong></p>
+<div class="fragment">
+<ul>
+<li class="fragment">Before, we were flipping fair coins, i.e., <span class="math inline">\(p=0.5\)</span>.</li>
+<li class="fragment">But we could think of flipping “unfair coins”, i.e., <span class="math inline">\(p\)</span> is a number between 0 and 1.</li>
+<li class="fragment">In other words, how can we generalize to the sum of Bernoulli(<span class="math inline">\(p\)</span>) case from the Bernoulli(<span class="math inline">\(p=0.5\)</span>) case?</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">In this case, the probability of getting <em>a sequence</em> of <span class="math inline">\(k\)</span> “successes” in <span class="math inline">\(n\)</span> trials is: <span class="math display">\[p^k\times(1-p)^{n-k}\]</span></li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li class="fragment">There are <span class="math inline">\(k\)</span> “successes”, each with probability <span class="math inline">\(p\)</span>: <span class="math inline">\(p^k\)</span></li>
+<li class="fragment">There are <span class="math inline">\(n-k\)</span> “failures”, each with probability <span class="math inline">\(1-p\)</span>: <span class="math inline">\((1-p)^{n-k}\)</span></li>
+</ul>
+</div>
+</section>
+<section id="putting-it-all-together" class="slide level2">
+<h2>Putting it all together</h2>
+<p>Thus, the probability of observing <span class="math inline">\(k\)</span> successes in <span class="math inline">\(n\)</span> independent Bernoulli trials with probability of success <span class="math inline">\(p\)</span> is</p>
+<p><span class="math display">\[P[X=k] = {n \choose k}p^k(1-p)^{n-k}\]</span></p>
+<p>In this case, <span class="math inline">\(X \sim \text{Binomial}(n,~p)\)</span>. Or, in words: <span class="math inline">\(X\)</span> follows a binomial distribution with <span class="math inline">\(n\)</span> trials each with <span class="math inline">\(p\)</span> probability of success</p>
+<div class="fragment">
+<p><strong>How to tell if your distribution is a Binomial?</strong></p>
+<ul>
+<li class="fragment">Number of trials, <span class="math inline">\(n\)</span>, must be <strong>fixed</strong>.</li>
+<li class="fragment">Each trial must be <strong>Bernoulli</strong>, with success probability <span class="math inline">\(p\)</span>. (<span class="math inline">\(p\)</span> must stay the same for each trial!)</li>
+<li class="fragment">We must be counting the <strong>number of successes</strong></li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="properties" class="title-slide slide level1 center">
+<h1>Properties</h1>
+
+</section>
+<section id="expectation-and-variance-of-binomial" class="slide level2">
+<h2>Expectation and Variance of Binomial</h2>
+<p>If <span class="math inline">\(X \sim \text{Binomial}(n,~p)\)</span>, then:</p>
+<div class="fragment">
+<p><span class="math display">\[
+\begin{align}
+    E(X) &amp;= np \\
+    Var(X) &amp;= np(1-p)
+\end{align}
+\]</span></p>
+</div>
+<div class="fragment">
+<p>Note that when <span class="math inline">\(p=0.5\)</span> we get <span class="math display">\[
+\begin{align}
+    E(X) &amp;= 0.5n \\
+    Var(X) &amp;= 0.25n
+\end{align}
+\]</span> which is what we derived earlier!</p>
+</div>
+</section>
+<section id="calculating-binomial-probabilities-dbinom" class="slide level2">
+<h2>Calculating Binomial Probabilities: <code>dbinom()</code></h2>
+<p>If <span class="math inline">\(X\)</span> is a binomial random variable with <span class="math inline">\(n\)</span> trials and probability of success <span class="math inline">\(p\)</span>, we can use <code>R</code> to calculate the probabilities with the <code>dbinom()</code> function</p>
+<div class="fragment">
+<ul>
+<li>e.g., <span class="math inline">\(P(X = 2)\)</span> where <span class="math inline">\(n=3\)</span> and <span class="math inline">\(p=0.5\)</span> (2 heads in 3 fair coin tosses)</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">2</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.375</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>e.g., <span class="math inline">\(P(X = 10)\)</span> where <span class="math inline">\(n=15\)</span> and <span class="math inline">\(p=0.7\)</span></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">dbinom</span>(<span class="at">x=</span><span class="dv">10</span>, <span class="at">size=</span><span class="dv">15</span>, <span class="at">prob=</span><span class="fl">0.7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2061304</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-binomial-probabilities-pbinom" class="slide level2">
+<h2>Calculating Binomial Probabilities: <code>pbinom()</code></h2>
+<p>We can also calculate <span class="math inline">\(P(X \leq k)\)</span> with <code>pbinom()</code></p>
+<div class="fragment">
+<ul>
+<li>e.g., <span class="math inline">\(P(X \leq 2)\)</span> where <span class="math inline">\(n=3\)</span> and <span class="math inline">\(p=0.5\)</span> (2 or fewer heads in 3 fair coin tosses)</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">pbinom</span>(<span class="at">q=</span><span class="dv">2</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.875</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>Can also calculate <span class="math inline">\(P(X &gt; k)\)</span> by doing <code>1 - pbinom()</code>:</p>
+</div>
+<div class="fragment">
+<ul>
+<li>e.g., <span class="math inline">\(P(X &gt; 2)\)</span> where <span class="math inline">\(n=3\)</span> and <span class="math inline">\(p=0.5\)</span> (more than 2 heads in 3 fair coin tosses)</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(<span class="at">q=</span><span class="dv">2</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.125</code></pre>
+</div>
+</div>
+</div>
+<div class="fragment">
+<ul>
+<li>e.g., <span class="math inline">\(P(X \geq 2)\)</span> where <span class="math inline">\(n=3\)</span> and <span class="math inline">\(p=0.5\)</span></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="dv">1</span> <span class="sc">-</span> <span class="fu">pbinom</span>(<span class="at">q=</span><span class="dv">1</span>, <span class="at">size=</span><span class="dv">3</span>, <span class="at">prob=</span><span class="fl">0.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5</code></pre>
+</div>
+</div>
+</div>
+</section>
+<section id="activity-survey-of-portlanders" class="slide level2">
+<h2>Activity: Survey of Portlanders</h2>
+<p>Suppose you believe 40% of Portlanders think the city should install more bike lanes. You will take a simple random survey of 50 Portlanders to test your belief.</p>
+<ol type="1">
+<li class="fragment"><p>Assume your belief is true. Let <span class="math inline">\(X\)</span> be the number of survey respondents who think the city should install more bike lanes. Does <span class="math inline">\(X\)</span> follow a Binomial distribution? If so, what are <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>?</p></li>
+<li class="fragment"><p>Calculate the expected value and standard deviation of <span class="math inline">\(X\)</span> (still assuming your belief is true)</p></li>
+<li class="fragment"><p>Suppose you conducted the survey and found 30 respondents wanted more bike lanes. What’s the probability that <span class="math inline">\(X\geq 30\)</span>? (use R!)</p></li>
+<li class="fragment"><p>Draw the connection between the probability you calculated and a hypothesis test.</p></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="countdown" id="timer_7b2996a0" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+</section>
+<section id="activity-survey-of-portlanders-answers" class="slide level2 smaller">
+<h2>Activity: Survey of Portlanders (Answers)</h2>
+<p>Suppose you believe 40% of Portlanders think the city should install more bike lanes. You will take a simple random survey of 50 Portlanders to test your belief.</p>
+<div class="fragment">
+<ol type="1">
+<li><p>Assume your belief is true. Let <span class="math inline">\(X\)</span> be the number of survey respondents who think the city should install more bike lanes. Does <span class="math inline">\(X\)</span> follow a Binomial distribution? If so, what are <span class="math inline">\(n\)</span> and <span class="math inline">\(p\)</span>?</p>
+<ul>
+<li><span class="math inline">\(X\)</span> follows a Binomial(<span class="math inline">\(n=50,p=0.4\)</span>) distribution.</li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="2" type="1">
+<li><p>Calculate the expected value and standard deviation of <span class="math inline">\(X\)</span> (assuming your belief)</p>
+<ul>
+<li><span class="math inline">\(E[X] = (50)(.4) = 20\)</span></li>
+<li><span class="math inline">\(SD[X] = \sqrt{(50)(.4)(1-.4)} = 3.46\)</span></li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li><p>Suppose you conducted the survey and found 30 respondents wanted more bike lanes. What’s the probability that <span class="math inline">\(X\geq 30\)</span>? (use R!)</p>
+<ul>
+<li><span class="math inline">\(P[X\geq30] = 1 - \texttt{pbinom}(29,~ 50,~ .4) = 0.0033\)</span></li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="4" type="1">
+<li><p>Draw the connection between the probability you calculated and a hypothesis test.</p>
+<ul>
+<li>We are testing <span class="math inline">\(H_0: p=0.4\)</span> vs.&nbsp;<span class="math inline">\(H_a: p&gt;0.4\)</span></li>
+<li>Test statistic: <span class="math inline">\(\hat{p}=30/50\)</span></li>
+<li>p-value = 0.0033</li>
+</ul></li>
+</ol>
+</div>
 
 
 </section></section>
