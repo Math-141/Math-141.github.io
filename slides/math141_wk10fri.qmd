@@ -1,0 +1,687 @@
+---
+pagetitle: "Random Variables III"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+library(ggthemes)
+library(moderndive)
+library(gapminder)
+library(infer)
+theme_set(theme_bw())
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Random Variables III]{.custom-title}
+
+<br> <br> <br> <br> <br> 
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 10 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Goals for Today
+
+- Discuss continuous random variables
+- Introduce the normal distribution
+- Introduce the $t$ distribution
+
+
+# Continuous Random Variables
+
+## The Distribution of a Continuous Variable
+
+If $X$ is a **continuous random variable**, it can take on any value in an **interval**.
+
+::: {.nonincremental}
+- e.g., $0\leq X\leq 10$ or $-\infty < X < \infty$
+:::
+
+::: {.fragment}
+Recall: For discrete random variables, we could list the probability of each possible outcome.
+
+- For **continuous** random variables, this won't work. There are infinite outcomes!
+:::
+
+::: {.fragment}
+Instead, we represent relative chances of different possible outcomes using a **density** function $f(X)$
+:::
+
+::: {.fragment}
+- $f(X) \geq 0$ for all possible $X$
+- The total area under the function is $1$
+- $P(a\leq X\leq b)$ is the area under $f$ between $a$ and $b$
+:::
+
+------------------------------------------------------------------------
+
+## Density Curve
+
+Suppose $X$ is a random variable representing the time (in seconds) it takes for a particle to experience radioactive decay, where
+$$
+f(x) = e^{-x} \qquad \textrm{for } x\geq 0
+$$
+
+```{r}
+#| fig-height: 3.5
+t <- seq(0, 4, length = 200)
+p <- dexp(t, 1)
+dd <- data.frame(t, p)
+ggplot(dd, aes(x = t, y = p)) +
+  geom_area(fill = "gray", color = "black") +
+  labs(x = "X", y = "Density", 
+       title = "Distribution for X (time in seconds until particle decays)")
+```
+
+::: {.fragment}
+::: {.nonincremental}
+- The probability that it takes between $1$ and $2$ seconds to decay is the area under the curve between $1$ and $2$. $P(1 < T < 2) =$
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Density Curve
+
+Suppose $X$ is a random variable representing the time (in seconds) it takes for a particle to experience radioactive decay, where
+$$
+f(x) = e^{-x} \qquad \textrm{for } x\geq 0
+$$
+
+```{r}
+#| fig-height: 3.5
+t <- seq(0, 4, length = 200)
+p <- dexp(t, 1)
+dd <- data.frame(t, p)
+ggplot(dd, aes(x = t, y = p)) +
+  geom_area(fill = "gray", color = "black") +
+  geom_ribbon(data = subset(dd, t > 1 & t < 2), aes(ymax = p), 
+              ymin = 0, fill = "red", alpha = .75) +
+  labs(x = "X", y = "Density", 
+       title = "Distribution for X (time in seconds until particle decays)")
+```
+
+::: {.nonincremental}
+- The probability that it takes between $1$ and $2$ seconds to decay is the area under the curve between $1$ and $2$. $P(1 < T < 2) = \color{red}{0.232}$
+:::
+
+------------------------------------------------------------------------
+
+## Mean and Variance
+
+Continuous variables have a **mean, variance, and standard deviation** too!
+
+::: {.fragment}
+::: {.nonincremental}
+- We can't use the same definition as for discrete random variables.
+$$E[X] = \sum_x xP[X=x]$$
+:::
+:::
+
+::: {.fragment}
+1. There are infinitely many values
+2. With infinitely many, each specific one has probability 0
+:::
+
+::: {.fragment}
+Instead, we have to use *calculus* to define mean and variance:
+$$
+\begin{align}
+E[X] &= \int x f(x) \, dx\\
+\mathrm{Var}(X) &= \int (x - \mu)^2 f(x) \, dx
+\end{align}
+$$
+:::
+
+------------------------------------------------------------------------
+
+## Mean and Variance
+
+$$
+\begin{align}
+E[X] &= \int x f(x) \, dx\\
+\mathrm{Var}(X) &= \int (x - \mu)^2 f(x) \, dx\\
+\mathrm{SD}(X) &=\sqrt{\mathrm{Var}(X)}
+\end{align}
+$$
+
+::: {.fragment}
+- These **integrals** are tools to meaningfully average infinitely many values
+- *(We won't compute any integrals in this class!)*
+:::
+
+::: {.fragment}
+As always...
+
+- the **mean** of a random variable represents a **typical value**.
+- the **standard deviation** represents the typical size of deviations from the mean.
+:::
+
+
+
+# The Normal Distribution
+
+
+## The Normal Distribution
+
+The **Normal distribution** is defined by two parameters:
+
+1. Mean, $\mu$
+2. Standard deviation, $\sigma$
+
+::: {.fragment}
+Suppose $X$ follows a Normal($\mu$,$\sigma$) distribution. The density function is
+$$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot\exp \left(\frac{-(x-\mu)^2}{2\sigma^2}\right) \qquad \quad \textrm{Don't memorize this!}$$
+:::
+
+```{r}
+#| fig-height: 3
+#| fig-width: 8
+ggplot(data.frame(x = c(-3, 3)), aes(x)) +
+  stat_function(fun = dnorm) + 
+  stat_function(fun = dnorm, 
+                xlim = c(-3, 3),
+                geom = "area", fill = "steelblue") +
+  scale_x_continuous(breaks = -1:1, 
+                     labels = c(expression(mu - sigma), 
+                               expression(mu), 
+                               expression(mu + sigma))) +
+  labs(x = "X", y = "Density", title = "The Normal Distribution")
+```
+
+------------------------------------------------------------------------
+
+## Calculating Probabilities
+
+`R` has built-in functions for calculating probabilities from a normal distribution.
+
+::: {.fragment}
+Suppose $X\sim \text{Normal}(\mu=75, sd=5)$. Then:
+:::
+
+::: {.fragment}
+::: {.nonincremental}
+- $P(X < 80) =$
+```{r}
+#| echo: true
+pnorm(q = 80, mean = 75, sd = 5)
+```
+:::
+:::
+
+```{r}
+#| fig-height: 3
+s <- seq(55, 95, by = 0.1)
+p <- dnorm(s, 75, 5)
+dd <- data.frame(s, p)
+dnorm3 <- function(x){dnorm(x, mean = 75, sd = 5)}
+
+ggplot(dd, aes(x = s, y = p)) +
+  geom_line(size = 0.5) +
+  stat_function(fun = dnorm3, 
+                xlim = c(55, 80),
+                geom = "area", fill = "steelblue") +
+  labs(x = element_blank(), y = "Density") +
+  theme(panel.grid = element_blank()) +
+  annotate(geom = "text", label = "Area = 0.84", x = 75, y = .04)
+```
+
+------------------------------------------------------------------------
+
+## Calculating Probabilities
+
+`R` has built-in functions for calculating probabilities from a normal distribution.
+
+Suppose $X\sim \text{Normal}(\mu=75, sd=5)$. Then:
+
+::: {.nonincremental}
+- $P(X \geq 80) = P(X>80)=$ 
+```{r}
+#| echo: true
+1-pnorm(q = 80, mean = 75, sd = 5)
+```
+
+:::
+
+```{r}
+#| fig-height: 3
+s <- seq(55, 95, by = 0.1)
+p <- dnorm(s, 75, 5)
+dd <- data.frame(s, p)
+dnorm3 <- function(x){dnorm(x, mean = 75, sd = 5)}
+
+ggplot(dd, aes(x = s, y = p)) +
+  geom_line(size = 0.5) +
+  stat_function(fun = dnorm3, 
+                xlim = c(80, 95),
+                geom = "area", fill = "steelblue") +
+  labs(x = element_blank(), y = "Density") +
+  theme(panel.grid = element_blank()) +
+  annotate(geom = "text", label = "Area = 0.16", x = 87, y = .03)
+```
+
+------------------------------------------------------------------------
+
+## Calculating Probabilities
+
+`R` has built-in functions for calculating probabilities from a normal distribution.
+
+Suppose $X\sim \text{Normal}(\mu=75, sd=5)$. Then:
+
+::: {.nonincremental}
+- $P(70 \leq X \leq 80) = P(X\leq 80) - P(X\leq 70) =$
+
+```{r}
+#| echo: true
+pnorm(q = 80, mean = 75, sd = 5) - pnorm(q = 70, mean = 75, sd = 5)
+```
+:::
+
+```{r}
+#| fig-height: 3
+s <- seq(55, 95, by = 0.1)
+p <- dnorm(s, 75, 5)
+dd <- data.frame(s, p)
+dnorm3 <- function(x){dnorm(x, mean = 75, sd = 5)}
+
+ggplot(dd, aes(x = s, y = p)) +
+  geom_line(size = 0.5) +
+  stat_function(fun = dnorm3, 
+                xlim = c(70, 80),
+                geom = "area", fill = "steelblue") +
+  labs(x = element_blank(), y = "Density") +
+  theme(panel.grid = element_blank()) +
+  annotate(geom = "text", label = "Area = 0.68", x = 75, y = .04)
+```
+
+------------------------------------------------------------------------
+
+## Finding Quantiles
+
+We can also use `R` to find **quantiles** of a Normal distribution.
+
+::: {.fragment}
+Suppose $X\sim \text{Normal}(\mu=75, sd=5)$. Then:
+:::
+
+::: {.fragment}
+::: {.nonincremental}
+- The 0.95 quantile is the value $c$ such that $P(X<c) = 0.95$
+
+```{r}
+#| echo: true
+qnorm(p = 0.95, mean = 75, sd = 5)
+```
+
+:::
+:::
+
+```{r}
+#| fig-height: 3
+s <- seq(55, 95, by = 0.1)
+p <- dnorm(s, 75, 5)
+dd <- data.frame(s, p)
+dnorm3 <- function(x){dnorm(x, mean = 75, sd = 5)}
+
+ggplot(dd, aes(x = s, y = p)) +
+  geom_line(size = 0.5) +
+  stat_function(fun = dnorm3, 
+                xlim = c(55, 83.224),
+                geom = "area", fill = "steelblue") +
+  scale_x_continuous(breaks = c(60, 70, 80, 83.22, 90),
+                    labels = c(60, 70, 80, "c=83.22", 90)) +
+  labs(x = element_blank(), y = "Density") +
+  theme(panel.grid = element_blank()) +
+  annotate(geom = "text", label = "Area = 0.95", x = 75, y = .04)
+```
+
+------------------------------------------------------------------------
+
+## Scale and Translation Invariance
+
+Suppose $X\sim\text{Normal}(\mu=0,\sigma=1)$ and $Y\sim\text{Normal}(\mu=2,\sigma=0.25)$.
+
+```{r}
+#| fig-height: 4
+#| fig-width: 8
+dnorm3 <- function(x){
+  dnorm(x, mean = 2, sd = .5)
+}
+ggplot(data.frame(x = c(-3, 4)), aes(x)) +
+  stat_function(fun = dnorm) + 
+  stat_function(fun = dnorm, 
+                xlim = c(-3, 4),
+                geom = "area", fill = "steelblue", alpha = 0.5) +
+  stat_function(fun = dnorm3) + 
+  stat_function(fun = dnorm3, 
+                xlim = c(-3, 4),
+                geom = "area", fill = "red", alpha = 0.5) +
+  labs(x = "X", y = "Probability", title = "The Normal Distribution") +
+  annotate(geom = "text", label = "X", x = 0, y = .15) +
+  annotate(geom = "text", label = "Y", x = 2, y = .35)
+```
+
+::: {.fragment}
+$X$ and $Y$ have different means, heights, and widths...
+
+- But the **same shapes!!**
+:::
+
+------------------------------------------------------------------------
+
+## Scale and Translation Invariance
+
+Suppose $X\sim\text{Normal}(\mu=0,\sigma=1)$ and $Y\sim\text{Normal}(\mu=2,\sigma=0.25)$.
+
+```{r}
+#| fig-height: 4
+#| fig-width: 8
+dnorm3 <- function(x){
+  dnorm(x, mean = 2, sd = .5)
+}
+ggplot(data.frame(x = c(-3, 3)), aes(x)) +
+  stat_function(fun = dnorm) + 
+  stat_function(fun = dnorm, 
+                xlim = c(-3, 3),
+                geom = "area", fill = "steelblue", alpha = 0.5) +
+  labs(x = "X", y = "Probability", 
+       title = "The Normal Distribution of X (I only changed the plot window)") +
+  annotate(geom = "text", label = "X", x = 0, y = .15)
+```
+
+$X$ and $Y$ have different means, heights, and widths...
+
+::: {.nonincremental}
+- But the **same shapes!!**
+:::
+
+------------------------------------------------------------------------
+
+## Scale and Translation Invariance
+
+Suppose $X\sim\text{Normal}(\mu=0,\sigma=1)$ and $Y\sim\text{Normal}(\mu=2,\sigma=0.25)$.
+
+```{r}
+#| fig-height: 4
+#| fig-width: 8
+dnorm3 <- function(x){
+  dnorm(x, mean = 2, sd = .5)
+}
+ggplot(data.frame(x = c(.5, 3.5)), aes(x)) +
+  stat_function(fun = dnorm3) + 
+  stat_function(fun = dnorm3, 
+                xlim = c(.5, 3.5),
+                geom = "area", fill = "red", alpha = 0.5) +
+  labs(x = "X", y = "Probability", 
+       title = "The Normal Distribution of Y (I only changed the plot window)") +
+  annotate(geom = "text", label = "Y", x = 2, y = .3)
+```
+
+$X$ and $Y$ have different means, heights, and widths...
+
+::: {.nonincremental}
+- But the **same shapes!!**
+:::
+
+------------------------------------------------------------------------
+
+## Standardization
+
+::: {.callout-note icon=false}
+## Theorem: Standardization
+Suppose $X\sim\text{Normal}(\mu,\sigma)$. Then, $Z = \frac{X - \mu}{\sigma}$ is a Normal random variable with mean 0 and standard deviation 1.
+:::
+
+::: {.fragment}
+**Standard Normal:** a Normal random variable with mean $0$ and standard deviation $1$.
+
+::: {.nonincremental}
+- We call the process of subtracting off $\mu$ and dividing by $\sigma$, **standardizing.**
+:::
+:::
+
+::: {.fragment}
+::: {.nonincremental}
+- Useful Fact: If $X\sim\text{Normal}(\mu=100,\sigma=10)$ and $Z\sim\text{Normal}(\mu=0,\sigma=1)$, then,
+:::
+:::
+
+::: {.fragment}
+$$P\Big[X < 90\Big] = P\Big[X<\text{ 1 SD below }\mu\Big] = P\Big[Z<-1\Big]$$
+:::
+
+
+
+# The Central Limit Theorem
+
+
+
+## Daily Temperatures
+
+Suppose I'm an astronomer studying four far away planets: Naboo, Tatooine, Coruscant, and Dagobah. I have the daily temperature on each of these planets over 200 days:
+
+```{r}
+#| fig-height: 5
+#| fig-width: 10
+set.seed(1)
+Naboo <- runif(200, 0, 100)
+Tatooine <- rnorm(200, 50, sd = 15)
+Coruscant <- c(rnorm(100, 20, 10), rnorm(100, 80, 2))
+Dagobah <- c(rnorm(40, 20, 5), rnorm(80, 50, 5), rnorm(80, 80, 5))
+temps <- data.frame(Planet = c(rep("Naboo", 200),
+                                rep("Tatooine", 200),
+                                rep("Coruscant", 200),
+                                rep("Dagobah", 200)),
+                    temps = c(Naboo, Tatooine, Coruscant, Dagobah))
+ggplot(temps, aes(x = temps)) +
+  labs(x = "Temperature") +
+  geom_histogram(bins = 40, color = "white", fill = "steelblue") +
+  facet_wrap(~Planet, nrow = 2)
+```
+
+------------------------------------------------------------------------
+
+## Random Sample Means (n=10)
+
+Suppose we repeatedly take samples of **10 days** from each planet, and compute the average temperature $\bar{x}$ for each sample:
+
+```{r}
+#| fig-height: 5
+#| fig-width: 10
+mean1 <- temps %>% filter(Planet == "Naboo") %>%
+  rep_sample_n(size = 10, reps = 1000) %>% 
+  group_by(replicate) %>% 
+  summarize(avg = mean(temps))
+mean2 <- temps %>% filter(Planet == "Tatooine") %>%
+  rep_sample_n(size = 10, reps = 1000) %>% 
+  group_by(replicate) %>% 
+  summarize(avg = mean(temps))
+mean3 <- temps %>% filter(Planet == "Coruscant") %>%
+  rep_sample_n(size = 10, reps = 1000) %>% 
+  group_by(replicate) %>% 
+  summarize(avg = mean(temps))
+mean4 <- temps %>% filter(Planet == "Dagobah") %>%
+  rep_sample_n(size = 10, reps = 1000) %>% 
+  group_by(replicate) %>% 
+  summarize(avg = mean(temps))
+means <- bind_rows(mean1, mean2, mean3, mean4) %>% 
+  mutate(Planet = c(replicate(1000, "Naboo"), 
+                   replicate(1000, "Tatooine"), 
+                   replicate(1000, "Coruscant"), 
+                   replicate(1000, "Dagobah")))
+g10 <- ggplot(means, aes(x = avg)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 75, 
+                 color = "white", fill = "steelblue") +
+  facet_wrap(~Planet) +
+  scale_x_continuous(limits = c(0, 100)) +
+  labs(x = "Average Daily Temp for Samples of 10 Days")
+g10
+```
+
+::: {.fragment}
+What does the distribution of sample means look like?
+:::
+
+------------------------------------------------------------------------
+
+## Random Sample Means (n=50)
+
+Suppose we repeatedly take samples of **50 days** from each planet, and compute the average temperature $\bar{x}$ for each sample:
+
+```{r}
+#| fig-height: 5
+#| fig-width: 10
+mean1 <- temps %>% filter(Planet == "Naboo") %>%
+  rep_sample_n(size = 50, reps = 5000) %>% 
+  group_by(replicate) %>% 
+  summarize(avg = mean(temps))
+mean2 <- temps %>% filter(Planet == "Tatooine") %>%
+  rep_sample_n(size = 50, reps = 5000) %>% 
+  group_by(replicate) %>% 
+  summarize(avg = mean(temps))
+mean3 <- temps %>% filter(Planet == "Coruscant") %>%
+  rep_sample_n(size = 50, reps = 5000) %>% 
+  group_by(replicate) %>% 
+  summarize(avg = mean(temps))
+mean4 <- temps %>% filter(Planet == "Dagobah") %>%
+  rep_sample_n(size = 50, reps = 5000) %>% 
+  group_by(replicate) %>% 
+  summarize(avg = mean(temps))
+means <- bind_rows(mean1, mean2, mean3, mean4) %>% 
+  mutate(Planet = c(replicate(5000, "Naboo"), 
+                   replicate(5000, "Tatooine"), 
+                   replicate(5000, "Coruscant"), 
+                   replicate(5000, "Dagobah")))
+g50 <- ggplot(means, aes(x = avg)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 75, 
+                 color = "white", fill = "steelblue") +
+  facet_wrap(~Planet) +
+  scale_x_continuous(limits = c(0, 100)) +
+  labs(x = "Average Daily Temp for Samples of 50 Days")
+g50
+```
+
+::: {.fragment}
+What does the distribution of sample means look like?
+:::
+
+------------------------------------------------------------------------
+
+## Sampling Distributions are Approximately Normal
+
+In the previous example, the **sampling distribution** for *each* planet appeared approximately Normal, regardless of the shape of the population distribution.
+
+```{r}
+summary_stats <- means %>% 
+  group_by(Planet) %>% 
+  summarize(mean = mean(avg), sd = sd(avg))
+x <- seq(30, 70, length = 100)
+density_df <- data.frame(x = c(), d = c(), exam = c())
+
+for (i in 1:4){
+  d <- dnorm(x, summary_stats[i, 2] %>% pull(), 
+             summary_stats[i, 3] %>% pull())
+  if(i == 3){Planet <- rep("Naboo", 100)}
+  if(i == 4){Planet <- rep("Tatooine", 100)}
+  if(i == 1){Planet <- rep("Coruscant", 100)}
+  if(i == 2){Planet <- rep("Dagobah", 100)}
+  density_df <- rbind(density_df, data.frame(x, d, Planet))
+}
+```
+
+```{r}
+#| fig-height: 3.5
+#| fig-width: 10
+ggplot(means, aes(x = avg)) +
+  geom_histogram(aes(y = after_stat(density)), bins = 40, 
+                 color = "white", fill = "steelblue") +
+  geom_line(data = density_df, aes(x = x, y = d)) +
+  facet_wrap(~Planet)
+```
+
+::: {.fragment}
+We've seen this before! As $n$ increases,
+
+- Sampling distributions become more Normal
+- Variance decreases
+- Mean doesn't change; it is the parameter.
+:::
+
+------------------------------------------------------------------------
+
+## The Central Limit Theorem (CLT)
+
+::: {.callout-note icon=false}
+## Theorem: Central Limit Theorem
+Suppose a simple random sample of size $n$ is drawn from a population with finite mean $\mu$ and finite standard deviation $\sigma$. Let $\bar{x}$ be the sample mean. When $n$ is large, then approximately
+$$\bar{x} \sim Normal\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$$
+:::
+
+::: {.fragment}
+A proof of the CLT requires more advanced techniques in probability (See Math 391).
+
+- We have gained intuition already for the CLT by examining sampling distributions!
+- We will use the CLT to conduct hypothesis tests/confidence intervals *without* simulation.
+:::
+
+------------------------------------------------------------------------
+
+## The CLT is a BIG deal!
+
+1. When conducting inference, our statistic is often a sample mean
+    - A proportion is a sample mean of sorts too!
+
+::: {.fragment}
+2. For nearly any population distribution, the sample mean is approximately Normal
+    - The sampling distribution is thus Normal too!
+:::
+
+::: {.fragment}
+3. We have a formula to calculate the mean and variance of a sample mean.
+    - We can quickly figure out what the sampling distribution looks like!
+:::
+
+## Next week
+
+::: {.nonincremental}
+
+-   We'll use the CLT to help us do statistical inference
+
+:::

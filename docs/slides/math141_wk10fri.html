@@ -10,7 +10,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.6.42">
 
-  <title>Math 141 – Data Collection</title>
+  <title>Math 141 – Random Variables III</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -201,507 +201,484 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Data Collection</span></p>
+<p><span class="custom-title">Random Variables III</span></p>
 <p><br> <br> <br> <br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
-<p><span class="custom-subtitle">Math 141 <br> Week 3 | Fall 2025</span></p>
+<p><span class="custom-subtitle">Math 141 <br> Week 10 | Fall 2025</span></p>
 </div></div>
 </section>
 <section id="goals-for-today" class="slide level2">
 <h2>Goals for Today</h2>
 <ul>
-<li class="fragment">Cover data collection/acquisition.</li>
+<li class="fragment">Discuss continuous random variables</li>
+<li class="fragment">Introduce the normal distribution</li>
+<li class="fragment">Introduce the <span class="math inline">\(t\)</span> distribution</li>
 </ul>
-</section>
-<section class="slide level2">
-
-<h3 id="when-to-get-coding-help">When to Get Coding Help</h3>
-<p>😢 <em>“I have no idea how to do this problem.”</em></p>
-<div class="fragment">
-<p>→ Ask someone to point you to an similar example from the lecture, handouts, and guides.</p>
-</div>
-<div class="fragment">
-<p>→ Talk it through with a course assistant, a fellow Math 141 student, or Grayson so together we can verbalize the process of going from Q to A.</p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p>😡 <em>“I am getting a weird error but really think my code is correct/on the right track/matches the examples from class.”</em></p>
-</div>
-<div class="fragment">
-<p>→ It is time for a second pair of eyes. Don’t stare at the error for over 10 minutes.</p>
-</div>
-<p><br></p>
-<div class="fragment">
-<p>🤩 And lots of other times too! 😬</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="when-to-get-help">When to Get Help</h3>
-<p>Remember:</p>
-<div class="fragment">
-<p>→ Struggling is part of learning.</p>
-</div>
-<div class="fragment">
-<p>→ But let us help you ensure it is a <strong>productive</strong> struggle.</p>
-</div>
-<div class="fragment">
-<p>→ Struggling does NOT mean you are bad at stats, it actually means you are doing the work to <strong>learn</strong> the material!</p>
-</div>
-</section>
-<section id="now-for-data-collection" class="slide level2">
-<h2>Now for Data Collection</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/DAW.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="motivating-our-discussion-of-data-collection" class="slide level2">
-<h2>Motivating Our Discussion of Data Collection</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/twitter-study-design.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</section>
-<section id="who-are-the-data-supposed-to-represent" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.002.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Key questions:</strong></p>
-<ul>
-<li class="fragment">What evidence is there that the data are <strong>representative</strong>?</li>
-<li class="fragment">Who is present? Who is absent?</li>
-<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
-</ul>
-</section>
-<section id="who-are-the-data-supposed-to-represent-1" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.003.jpeg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
-</figure>
-</div>
-<p><strong>Census</strong>: We have data on the whole population!</p>
-</section>
-<section id="who-are-the-data-supposed-to-represent-2" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sampling.002.jpeg" class="quarto-figure quarto-figure-center" style="width:85.0%"></p>
-</figure>
-</div>
-</section>
-<section id="who-are-the-data-supposed-to-represent-3" class="slide level2">
-<h2>Who are the data supposed to represent?</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/week4.005.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Key questions:</strong></p>
-<ul>
-<li class="fragment">What evidence is there that the <strong>sample</strong> is <strong>representative</strong> of the <strong>population</strong>?</li>
-<li class="fragment">Who is present? Who is absent?</li>
-<li class="fragment">Who is overrepresented? Who is underrepresented?</li>
-</ul>
-</section>
-<section id="sampling-bias" class="slide level2">
-<h2>Sampling Bias</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/sampling.001.jpeg" class="quarto-figure quarto-figure-center" style="width:75.0%"></p>
-</figure>
-</div>
-<p><strong>Sampling bias</strong>: When the sampled units are <strong>systematically different</strong> from the non-sampled units on the variables of interest.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="sampling-bias-example">Sampling Bias Example</h3>
-<p>The <strong>Literary Digest</strong> was a political magazine that correctly predicted the presidential outcomes from 1916 to 1932. In 1936, they conducted the most extensive (to that date) public opinion poll. They mailed questionnaires to over 10 million people (about 1/3 of US households) whose names and addresses they obtained from telephone books and vehicle registration lists.</p>
-<p><strong>Population of Interest</strong>:</p>
-<p><br></p>
-<p><strong>Sample</strong>:</p>
-<p><br></p>
-<p><strong>Sampling bias</strong>:</p>
-</section>
-<section id="random-sampling" class="slide level2">
-<h2>Random Sampling</h2>
-<p>Use random sampling (a random mechanism for selecting cases from the population) to remove sampling bias.</p>
-<h4 id="types-of-random-sampling">Types of random sampling</h4>
-<div>
-<ul>
-<li><p>Simple random sampling</p></li>
-<li><p>Cluster sampling</p></li>
-<li><p>Stratified random sampling</p></li>
-<li><p>Systematic sampling</p></li>
-</ul>
-</div>
-<div class="fragment">
-<p>Why aren’t all samples generated using simple random sampling?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="us-forest-inventory-and-analysis-program">US Forest Inventory and Analysis Program</h3>
-<div class="columns">
-<div class="column" style="width:15%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/fs.png" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:85%;">
-<blockquote>
-<p>Mission: “Make and keep current a comprehensive inventory and analysis of the present and prospective conditions of and requirements for the renewable resources of the forest and rangelands of the US.”</p>
-</blockquote>
-</div></div>
-<div class="fragment">
-<p>Need a <strong>random sample</strong> of ground plots to say something about the state of our nation’s forests!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-simple-random-sampling">FIA: Simple Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Number each plot from 1 to 62,963,840.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to sample 10,494 plots.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">62963840</span>, <span class="at">size =</span> <span class="dv">10494</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb1-2"><a></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 13480720  9979179 10668563 51700446 44400294 46783771</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Put each plot in a cluster.
-<ul>
-<li class="fragment">For our example: cluster = county.</li>
-</ul></li>
-<li class="fragment">Number each cluster.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to sample 2 clusters.</li>
-<li class="fragment">Sample <strong>all</strong> plots in those 2 clusters.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 31 35</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-5-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/legend.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling-1">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div>
-<ul>
-<li>Break the landscape up into equally sized plots (~1 acre).</li>
-<li>Put each plot in a cluster.
-<ul>
-<li>For our example: cluster = county.</li>
-</ul></li>
-<li>Number each cluster.</li>
-<li>Use a <strong>random</strong> mechanism to sample 2 clusters.</li>
-<li>Take a <strong>simple random sample</strong> within the sampled clusters.</li>
-</ul>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">36</span>, <span class="at">size =</span> <span class="dv">2</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 26 14</code></pre>
-</div>
-</div>
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:---</span>, <span class="at">size =</span> <span class="sc">---</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/legend.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
-</figure>
-</div>
-</div></div>
-<div class="fragment">
-<p>Subsampling within each sampled cluster is much more common than subsampling the whole sampled cluster!</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-cluster-random-sampling-2">FIA: Cluster Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/Forest-types-Map-combo.jpg" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<ul>
-<li class="fragment"><p>Are our clusters based on counties <strong>homogeneous</strong>?</p></li>
-<li class="fragment"><p>Why is <strong>homogeneity</strong> important for cluster sampling?</p></li>
-</ul>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-stratified-random-sampling">FIA: Stratified Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Put each plot in a stratum.
-<ul>
-<li class="fragment">For our example: stratum = county.</li>
-</ul></li>
-<li class="fragment">Take a <strong>simple random sample</strong> within every stratum.
-<ul>
-<li class="fragment">Don’t have to be equally sized!</li>
-</ul></li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="co"># Do this for each stratum</span></span>
-<span id="cb8-2"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:---</span>, <span class="at">size =</span> <span class="sc">---</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Thoughts on this sampling design?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="fia-systematic-random-sampling">FIA: Systematic Random Sampling</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p>This is FIA’s <strong>actual</strong> sampling design (okay, slightly simplified).</p>
-<ul>
-<li class="fragment">Break the landscape up into equally sized plots (~1 acre).</li>
-<li class="fragment">Number each plot from 1 to 62,963,840.</li>
-<li class="fragment">Use a <strong>random</strong> mechanism to pick starting point. Then sample about once every 6000 acres.</li>
-</ul>
-<div class="fragment">
-<div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">sample</span>(<span class="at">x =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">62963840</span>, <span class="at">size =</span> <span class="dv">1</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 14886351</code></pre>
-</div>
-</div>
-</div>
-</div><div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
-<div class="fragment">
-<p>Why is this design <strong>better</strong> than simple random sampling?</p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 class="smaller" id="national-health-and-nutrition-examination-survey">National Health and Nutrition Examination Survey</h3>
-<div class="columns">
-<div class="column" style="width:20%;">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/nhanes_logo.jpg" class="quarto-figure quarto-figure-center"></p>
-</figure>
-</div>
-</div><div class="column" style="width:80%;">
-<blockquote>
-<p>Mission: “Assess the health and nutritional status of adults and children in the United States.”</p>
-</blockquote>
-</div></div>
-<p>How are these data collected?</p>
-</section>
-<section class="slide level2">
-
-<h3 id="nhanes-sampling-design">NHANES Sampling Design</h3>
-<ul>
-<li class="fragment"><p><strong>Stage 1</strong>: US is stratified by geography and distribution of minority populations. Counties are randomly selected within each stratum.</p></li>
-<li class="fragment"><p><strong>Stage 2</strong>: From the sampled counties, city blocks are randomly selected. (City blocks are clusters.)</p></li>
-<li class="fragment"><p><strong>Stage 3</strong>: From sampled city blocks, households are randomly selected. (Households are clusters.)</p></li>
-<li class="fragment"><p><strong>Stage 4</strong>: From sampled households, people are randomly selected. For the sampled households, a mobile health vehicle goes to the house and medical professionals take the necessary measurements.</p></li>
-</ul>
-<div class="fragment">
-<p><strong>Why don’t they use simple random sampling?</strong></p>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="careful-using-non-simple-random-sample-data">Careful Using Non-Simple Random Sample Data</h3>
-<div class="columns">
-<div class="column" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div><div class="column fragment" style="width:50%;">
-<div class="cell" data-layout-align="center">
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div></div>
 </section>
 <section>
-<section id="detour-data-ethics" class="title-slide slide level1 center">
-<h1>Detour: Data Ethics</h1>
+<section id="continuous-random-variables" class="title-slide slide level1 center">
+<h1>Continuous Random Variables</h1>
 
 </section>
-<section class="slide level2">
-
-<h3 id="data-ethics">Data Ethics</h3>
-<blockquote>
-<p>“Good statistical practice is fundamentally based on transparent assumptions, reproducible results, and valid interpretations.” – Committee on Professional Ethics of the American Statistical Association (ASA)</p>
-</blockquote>
-<p>The ASA has created <a href="https://www.amstat.org/ASA/Your-Career/Ethical-Guidelines-for-Statistical-Practice.aspx">“Ethical Guidelines for Statistical Practice”</a></p>
-<div class="fragment">
-<p>→ These guidelines are for EVERYONE doing statistical work.</p>
+<section id="the-distribution-of-a-continuous-variable" class="slide level2">
+<h2>The Distribution of a Continuous Variable</h2>
+<p>If <span class="math inline">\(X\)</span> is a <strong>continuous random variable</strong>, it can take on any value in an <strong>interval</strong>.</p>
+<div>
+<ul>
+<li>e.g., <span class="math inline">\(0\leq X\leq 10\)</span> or <span class="math inline">\(-\infty &lt; X &lt; \infty\)</span></li>
+</ul>
 </div>
 <div class="fragment">
-<p>→ There are ethical decisions at all steps of the Data Analysis Process.</p>
+<p>Recall: For discrete random variables, we could list the probability of each possible outcome.</p>
+<ul>
+<li class="fragment">For <strong>continuous</strong> random variables, this won’t work. There are infinite outcomes!</li>
+</ul>
 </div>
 <div class="fragment">
-<p>→ We will periodically refer to specific guidelines throughout this class.</p>
+<p>Instead, we represent relative chances of different possible outcomes using a <strong>density</strong> function <span class="math inline">\(f(X)\)</span></p>
 </div>
 <div class="fragment">
-<blockquote>
-<p>“Above all, professionalism in statistical practice presumes the goal of advancing knowledge while avoiding harm; using statistics in pursuit of unethical ends is inherently unethical.”</p>
-</blockquote>
+<ul>
+<li class="fragment"><span class="math inline">\(f(X) \geq 0\)</span> for all possible <span class="math inline">\(X\)</span></li>
+<li class="fragment">The total area under the function is <span class="math inline">\(1\)</span></li>
+<li class="fragment"><span class="math inline">\(P(a\leq X\leq b)\)</span> is the area under <span class="math inline">\(f\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span></li>
+</ul>
 </div>
 </section>
-<section id="responsibilities-to-research-subjects" class="slide level2">
-<h2>Responsibilities to Research Subjects</h2>
-<blockquote>
-<p>“The ethical statistician protects and respects the rights and interests of human and animal subjects at all stages of their involvement in a project. This includes respondents to the census or to surveys, those whose data are contained in administrative records, and subjects of physically or psychologically invasive research.”</p>
-</blockquote>
-</section>
-<section class="slide level2">
-
-<h3 id="responsibilities-to-research-subjects-1">Responsibilities to Research Subjects</h3>
-<p>Why do you think the <code>Age</code> variable maxes out at 80?</p>
+<section id="density-curve" class="slide level2">
+<h2>Density Curve</h2>
+<p>Suppose <span class="math inline">\(X\)</span> is a random variable representing the time (in seconds) it takes for a particle to experience radioactive decay, where <span class="math display">\[
+f(x) = e^{-x} \qquad \textrm{for } x\geq 0
+\]</span></p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk03wed_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-2-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="fragment">
-<blockquote>
-<p>“Protects the privacy and confidentiality of research subjects and data concerning them, whether obtained from the subjects directly, other persons, or existing records.”</p>
-</blockquote>
+<div>
+<ul>
+<li>The probability that it takes between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> seconds to decay is the area under the curve between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>. <span class="math inline">\(P(1 &lt; T &lt; 2) =\)</span></li>
+</ul>
+</div>
 </div>
 </section>
-<section id="next-time" class="slide level2">
-<h2>Next time:</h2>
+<section id="density-curve-1" class="slide level2">
+<h2>Density Curve</h2>
+<p>Suppose <span class="math inline">\(X\)</span> is a random variable representing the time (in seconds) it takes for a particle to experience radioactive decay, where <span class="math display">\[
+f(x) = e^{-x} \qquad \textrm{for } x\geq 0
+\]</span></p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-3-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div>
 <ul>
-<li class="fragment">More sampling</li>
-<li class="fragment">Sampling bias</li>
+<li>The probability that it takes between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span> seconds to decay is the area under the curve between <span class="math inline">\(1\)</span> and <span class="math inline">\(2\)</span>. <span class="math inline">\(P(1 &lt; T &lt; 2) = \color{red}{0.232}\)</span></li>
 </ul>
+</div>
+</section>
+<section id="mean-and-variance" class="slide level2">
+<h2>Mean and Variance</h2>
+<p>Continuous variables have a <strong>mean, variance, and standard deviation</strong> too!</p>
+<div class="fragment">
+<div>
+<ul>
+<li>We can’t use the same definition as for discrete random variables. <span class="math display">\[E[X] = \sum_x xP[X=x]\]</span></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<ol type="1">
+<li class="fragment">There are infinitely many values</li>
+<li class="fragment">With infinitely many, each specific one has probability 0</li>
+</ol>
+</div>
+<div class="fragment">
+<p>Instead, we have to use <em>calculus</em> to define mean and variance: <span class="math display">\[
+\begin{align}
+E[X] &amp;= \int x f(x) \, dx\\
+\mathrm{Var}(X) &amp;= \int (x - \mu)^2 f(x) \, dx
+\end{align}
+\]</span></p>
+</div>
+</section>
+<section id="mean-and-variance-1" class="slide level2">
+<h2>Mean and Variance</h2>
+<p><span class="math display">\[
+\begin{align}
+E[X] &amp;= \int x f(x) \, dx\\
+\mathrm{Var}(X) &amp;= \int (x - \mu)^2 f(x) \, dx\\
+\mathrm{SD}(X) &amp;=\sqrt{\mathrm{Var}(X)}
+\end{align}
+\]</span></p>
+<div class="fragment">
+<ul>
+<li class="fragment">These <strong>integrals</strong> are tools to meaningfully average infinitely many values</li>
+<li class="fragment"><em>(We won’t compute any integrals in this class!)</em></li>
+</ul>
+</div>
+<div class="fragment">
+<p>As always…</p>
+<ul>
+<li class="fragment">the <strong>mean</strong> of a random variable represents a <strong>typical value</strong>.</li>
+<li class="fragment">the <strong>standard deviation</strong> represents the typical size of deviations from the mean.</li>
+</ul>
+</div>
+</section></section>
+<section>
+<section id="the-normal-distribution" class="title-slide slide level1 center">
+<h1>The Normal Distribution</h1>
+
+</section>
+<section id="the-normal-distribution-1" class="slide level2">
+<h2>The Normal Distribution</h2>
+<p>The <strong>Normal distribution</strong> is defined by two parameters:</p>
+<ol type="1">
+<li class="fragment">Mean, <span class="math inline">\(\mu\)</span></li>
+<li class="fragment">Standard deviation, <span class="math inline">\(\sigma\)</span></li>
+</ol>
+<div class="fragment">
+<p>Suppose <span class="math inline">\(X\)</span> follows a Normal(<span class="math inline">\(\mu\)</span>,<span class="math inline">\(\sigma\)</span>) distribution. The density function is <span class="math display">\[f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot\exp \left(\frac{-(x-\mu)^2}{2\sigma^2}\right) \qquad \quad \textrm{Don't memorize this!}\]</span></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-4-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-probabilities" class="slide level2">
+<h2>Calculating Probabilities</h2>
+<p><code>R</code> has built-in functions for calculating probabilities from a normal distribution.</p>
+<div class="fragment">
+<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, sd=5)\)</span>. Then:</p>
+</div>
+<div class="fragment">
+<div>
+<ul>
+<li><span class="math inline">\(P(X &lt; 80) =\)</span></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">80</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.8413447</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-6-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-probabilities-1" class="slide level2">
+<h2>Calculating Probabilities</h2>
+<p><code>R</code> has built-in functions for calculating probabilities from a normal distribution.</p>
+<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, sd=5)\)</span>. Then:</p>
+<div>
+<ul>
+<li><span class="math inline">\(P(X \geq 80) = P(X&gt;80)=\)</span></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="dv">1</span><span class="sc">-</span><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">80</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.1586553</code></pre>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-8-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-probabilities-2" class="slide level2">
+<h2>Calculating Probabilities</h2>
+<p><code>R</code> has built-in functions for calculating probabilities from a normal distribution.</p>
+<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, sd=5)\)</span>. Then:</p>
+<div>
+<ul>
+<li><span class="math inline">\(P(70 \leq X \leq 80) = P(X\leq 80) - P(X\leq 70) =\)</span></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">80</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">5</span>) <span class="sc">-</span> <span class="fu">pnorm</span>(<span class="at">q =</span> <span class="dv">70</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6826895</code></pre>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-10-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="finding-quantiles" class="slide level2">
+<h2>Finding Quantiles</h2>
+<p>We can also use <code>R</code> to find <strong>quantiles</strong> of a Normal distribution.</p>
+<div class="fragment">
+<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, sd=5)\)</span>. Then:</p>
+</div>
+<div class="fragment">
+<div>
+<ul>
+<li>The 0.95 quantile is the value <span class="math inline">\(c\)</span> such that <span class="math inline">\(P(X&lt;c) = 0.95\)</span></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">qnorm</span>(<span class="at">p =</span> <span class="fl">0.95</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 83.22427</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-12-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="scale-and-translation-invariance" class="slide level2">
+<h2>Scale and Translation Invariance</h2>
+<p>Suppose <span class="math inline">\(X\sim\text{Normal}(\mu=0,\sigma=1)\)</span> and <span class="math inline">\(Y\sim\text{Normal}(\mu=2,\sigma=0.25)\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-13-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have different means, heights, and widths…</p>
+<ul>
+<li class="fragment">But the <strong>same shapes!!</strong></li>
+</ul>
+</div>
+</section>
+<section id="scale-and-translation-invariance-1" class="slide level2">
+<h2>Scale and Translation Invariance</h2>
+<p>Suppose <span class="math inline">\(X\sim\text{Normal}(\mu=0,\sigma=1)\)</span> and <span class="math inline">\(Y\sim\text{Normal}(\mu=2,\sigma=0.25)\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-14-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have different means, heights, and widths…</p>
+<div>
+<ul>
+<li>But the <strong>same shapes!!</strong></li>
+</ul>
+</div>
+</section>
+<section id="scale-and-translation-invariance-2" class="slide level2">
+<h2>Scale and Translation Invariance</h2>
+<p>Suppose <span class="math inline">\(X\sim\text{Normal}(\mu=0,\sigma=1)\)</span> and <span class="math inline">\(Y\sim\text{Normal}(\mu=2,\sigma=0.25)\)</span>.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-15-1.png" class="quarto-figure quarto-figure-center" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have different means, heights, and widths…</p>
+<div>
+<ul>
+<li>But the <strong>same shapes!!</strong></li>
+</ul>
+</div>
+</section>
+<section id="standardization" class="slide level2">
+<h2>Standardization</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem: Standardization</strong></p>
+</div>
+<div class="callout-content">
+<p>Suppose <span class="math inline">\(X\sim\text{Normal}(\mu,\sigma)\)</span>. Then, <span class="math inline">\(Z = \frac{X - \mu}{\sigma}\)</span> is a Normal random variable with mean 0 and standard deviation 1.</p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>Standard Normal:</strong> a Normal random variable with mean <span class="math inline">\(0\)</span> and standard deviation <span class="math inline">\(1\)</span>.</p>
+<div>
+<ul>
+<li>We call the process of subtracting off <span class="math inline">\(\mu\)</span> and dividing by <span class="math inline">\(\sigma\)</span>, <strong>standardizing.</strong></li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<div>
+<ul>
+<li>Useful Fact: If <span class="math inline">\(X\sim\text{Normal}(\mu=100,\sigma=10)\)</span> and <span class="math inline">\(Z\sim\text{Normal}(\mu=0,\sigma=1)\)</span>, then,</li>
+</ul>
+</div>
+</div>
+<div class="fragment">
+<p><span class="math display">\[P\Big[X &lt; 90\Big] = P\Big[X&lt;\text{ 1 SD below }\mu\Big] = P\Big[Z&lt;-1\Big]\]</span></p>
+</div>
+</section></section>
+<section>
+<section id="the-central-limit-theorem" class="title-slide slide level1 center">
+<h1>The Central Limit Theorem</h1>
+
+</section>
+<section id="daily-temperatures" class="slide level2">
+<h2>Daily Temperatures</h2>
+<p>Suppose I’m an astronomer studying four far away planets: Naboo, Tatooine, Coruscant, and Dagobah. I have the daily temperature on each of these planets over 200 days:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-16-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="random-sample-means-n10" class="slide level2">
+<h2>Random Sample Means (n=10)</h2>
+<p>Suppose we repeatedly take samples of <strong>10 days</strong> from each planet, and compute the average temperature <span class="math inline">\(\bar{x}\)</span> for each sample:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-17-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>What does the distribution of sample means look like?</p>
+</div>
+</section>
+<section id="random-sample-means-n50" class="slide level2">
+<h2>Random Sample Means (n=50)</h2>
+<p>Suppose we repeatedly take samples of <strong>50 days</strong> from each planet, and compute the average temperature <span class="math inline">\(\bar{x}\)</span> for each sample:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-18-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>What does the distribution of sample means look like?</p>
+</div>
+</section>
+<section id="sampling-distributions-are-approximately-normal" class="slide level2">
+<h2>Sampling Distributions are Approximately Normal</h2>
+<p>In the previous example, the <strong>sampling distribution</strong> for <em>each</em> planet appeared approximately Normal, regardless of the shape of the population distribution.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-20-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>We’ve seen this before! As <span class="math inline">\(n\)</span> increases,</p>
+<ul>
+<li class="fragment">Sampling distributions become more Normal</li>
+<li class="fragment">Variance decreases</li>
+<li class="fragment">Mean doesn’t change; it is the parameter.</li>
+</ul>
+</div>
+</section>
+<section id="the-central-limit-theorem-clt" class="slide level2">
+<h2>The Central Limit Theorem (CLT)</h2>
+<div class="callout callout-note no-icon callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Theorem: Central Limit Theorem</strong></p>
+</div>
+<div class="callout-content">
+<p>Suppose a simple random sample of size <span class="math inline">\(n\)</span> is drawn from a population with finite mean <span class="math inline">\(\mu\)</span> and finite standard deviation <span class="math inline">\(\sigma\)</span>. Let <span class="math inline">\(\bar{x}\)</span> be the sample mean. When <span class="math inline">\(n\)</span> is large, then approximately <span class="math display">\[\bar{x} \sim Normal\left(\mu, \frac{\sigma}{\sqrt{n}}\right)\]</span></p>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p>A proof of the CLT requires more advanced techniques in probability (See Math 391).</p>
+<ul>
+<li class="fragment">We have gained intuition already for the CLT by examining sampling distributions!</li>
+<li class="fragment">We will use the CLT to conduct hypothesis tests/confidence intervals <em>without</em> simulation.</li>
+</ul>
+</div>
+</section>
+<section id="the-clt-is-a-big-deal" class="slide level2">
+<h2>The CLT is a BIG deal!</h2>
+<ol type="1">
+<li class="fragment">When conducting inference, our statistic is often a sample mean
+<ul>
+<li class="fragment">A proportion is a sample mean of sorts too!</li>
+</ul></li>
+</ol>
+<div class="fragment">
+<ol start="2" type="1">
+<li class="fragment">For nearly any population distribution, the sample mean is approximately Normal
+<ul>
+<li class="fragment">The sampling distribution is thus Normal too!</li>
+</ul></li>
+</ol>
+</div>
+<div class="fragment">
+<ol start="3" type="1">
+<li class="fragment">We have a formula to calculate the mean and variance of a sample mean.
+<ul>
+<li class="fragment">We can quickly figure out what the sampling distribution looks like!</li>
+</ul></li>
+</ol>
+</div>
+</section>
+<section id="next-week" class="slide level2">
+<h2>Next week</h2>
+<div>
+<ul>
+<li>We’ll use the CLT to help us do statistical inference</li>
+</ul>
+</div>
 
 
 </section></section>
