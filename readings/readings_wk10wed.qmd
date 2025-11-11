@@ -9,25 +9,27 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   OI Sections 3.4 and 4.3
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
-Suppose 4 students have still not received their graded Math 141 midterm (yes, let's pretend we actually had a hand-written midterm) and that I hand back the exams randomly to each student. Let X = the number of students who get their correct exam.
+-   OI Exercises: 3.30, 3.34 (these are at the end of Section 3.4)
 
--   Let's say the student's names are A(licia), B(ob), C(olin), and D(onna) and they are sitting in a row ABCD. One possible outcome is ABDC (1st exam goes to A, 2nd to B, 3rd to D, 4th to C). In that case, what does X equal?
+-   Suppose 4 students have still not received their graded Math 141 midterm (yes, let's pretend we actually had a hand-written midterm) and that I hand back the exams randomly to each student. Let X = the number of students who get their correct exam.
 
--   List out all possible outcomes. And for each outcome, determine what X equals.
+    a. Let's say the student's names are A(licia), B(ob), C(olin), and D(onna) and they are sitting in a row ABCD. One possible outcome is ABDC (1st exam goes to A, 2nd to B, 3rd to D, 4th to C). In that case, what does X equal?
 
--   Why is P(X = 3) = 0?
+    b. List out all possible outcomes. And for each outcome, determine what X equals.
 
--   Write out the probability distribution for X.
+    c. Why is P(X = 3) = 0?
 
--   Determine the mean value of X.
+    d. Write out the probability distribution for X.
 
--   Determine the standard deviation of X.
+    e. Determine the mean value of X.
 
--   What is the probability that at least one student gets their correct exam?
+    f. Determine the standard deviation of X.
+
+    g. What is the probability that at least one student gets their correct exam?
 
