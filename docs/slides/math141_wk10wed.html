@@ -320,7 +320,7 @@ Var[X] = (0-1/2)^2\frac{1}{2} +  (1-1/2)^2\frac{1}{2} = \frac{1}{4}
 <div class="fragment">
 <p>This distribution has a name!</p>
 <ul>
-<li class="fragment"><span class="math inline">\(X\sim \text{Bernoulli}(p = 0.5)\)</span></li>
+<li class="fragment"><span class="math inline">\(X\)</span> is a <strong>Bernoulli</strong> random variable!</li>
 </ul>
 </div>
 </section></section>
@@ -472,14 +472,22 @@ X=   \left\{
 </tbody>
 </table>
 </div></div>
-<p>Mean:</p>
-<p><span class="math display">\[
-\begin{align*}
-\mu &amp;= \sum x p(x) \\
-&amp; = 1*p + 0*(1 - p) \\
-&amp; = p
-\end{align*}
-\]</span></p>
+<p><strong>Question</strong>: What’s the mean of a Bernoulli(<span class="math inline">\(p\)</span>) random variable?</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="countdown" id="timer_5b73ce85" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">01</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">30</span></code>
+</div>
+</div>
+</div>
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \mu &= \sum x p(x) \\ -->
+<!-- & = 1*p + 0*(1 - p) \\ -->
+<!-- & = p -->
+<!-- \end{align*} -->
+<!-- $$ -->
 </section>
 <section class="slide level2">
 
@@ -514,7 +522,99 @@ X=   \left\{
 </tbody>
 </table>
 </div></div>
-<p>Standard deviation:</p>
+<p><strong>Question</strong>: What’s the mean of a Bernoulli(<span class="math inline">\(p\)</span>) random variable?</p>
+<p><span class="math display">\[
+\begin{align*}
+\mu &amp;= \sum x p(x) \\
+&amp; = 1*p + 0*(1 - p) \\
+&amp; = p
+\end{align*}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="bernoulli-random-variables-4">Bernoulli Random Variables</h3>
+<div class="columns">
+<div class="column">
+<p><span class="math inline">\(X \sim\)</span> Bernoulli <span class="math inline">\((p)\)</span></p>
+<span class="math display">\[\begin{align*}
+X=   \left\{
+\begin{array}{ll}
+      1 &amp; \mbox{success} \\
+      0 &amp; \mbox{failure} \\
+\end{array}
+\right.  
+\end{align*}\]</span>
+</div><div class="column">
+<p>Distribution:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p(x)\)</span></td>
+<td>1 - <span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(p\)</span></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p><strong>Question</strong>: What’s the standard deviation of a Bernoulli(<span class="math inline">\(p\)</span>) random variable?</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="countdown" id="timer_1d69ca11" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
+</div>
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \sigma & = \sqrt{ \sum (x - \mu)^2 p(x)} \\ -->
+<!-- & = \sqrt{(1 - p)^2*p + (0 - p)^2*(1 - p)}  \\ -->
+<!-- & = \sqrt{p(1 - p)} -->
+<!-- \end{align*} -->
+<!-- $$ -->
+</section>
+<section class="slide level2">
+
+<h3 id="bernoulli-random-variables-5">Bernoulli Random Variables</h3>
+<div class="columns">
+<div class="column">
+<p><span class="math inline">\(X \sim\)</span> Bernoulli <span class="math inline">\((p)\)</span></p>
+<span class="math display">\[\begin{align*}
+X=   \left\{
+\begin{array}{ll}
+      1 &amp; \mbox{success} \\
+      0 &amp; \mbox{failure} \\
+\end{array}
+\right.  
+\end{align*}\]</span>
+</div><div class="column">
+<p>Distribution:</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th><span class="math inline">\(x\)</span></th>
+<th>0</th>
+<th>1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(p(x)\)</span></td>
+<td>1 - <span class="math inline">\(p\)</span></td>
+<td><span class="math inline">\(p\)</span></td>
+</tr>
+</tbody>
+</table>
+</div></div>
+<p><strong>Question</strong>: What’s the standard deviation of a Bernoulli(<span class="math inline">\(p\)</span>) random variable?</p>
 <p><span class="math display">\[
 \begin{align*}
 \sigma &amp; = \sqrt{ \sum (x - \mu)^2 p(x)} \\
@@ -528,26 +628,41 @@ X=   \left\{
 <h1>What about the sum of many Bernoulli random variables?</h1>
 
 </section>
-<section id="n-coin-tosses-expected-value-and-variance" class="slide level2">
-<h2><span class="math inline">\(n\)</span> coin tosses: Expected Value and Variance</h2>
-<p>Let <span class="math inline">\(X\)</span> be the number of heads in <span class="math inline">\(n\)</span> independent coin tosses.</p>
+<section id="n-weighted-coin-tosses-expected-value-and-variance" class="slide level2">
+<h2><span class="math inline">\(n\)</span> “weighted coin tosses”: Expected Value and Variance</h2>
+<p>Let <span class="math inline">\(X\)</span> be the number of successes in <span class="math inline">\(n\)</span> independent Bernoulli(<span class="math inline">\(p\)</span>) random variables.</p>
 <p><strong>Q:</strong> What are <span class="math inline">\(E(X)\)</span> and <span class="math inline">\(\mathrm{Var}(X)\)</span>?</p>
 <div class="fragment">
-<p><em>Hint:</em> We know, from the Bernoulli distribution, that if <span class="math inline">\(X_1\)</span> is the number of heads in a <em>single</em> coin flip, <span class="math display">\[E(X_1)=0.5 \quad \text{ and } \quad \text{Var}(X_1)=0.25\]</span></p>
+<p><em>Hint:</em> We know, from the Bernoulli distribution, that if <span class="math inline">\(X_1\)</span> is the number of heads in a <em>single</em> weighted coin flip with success probability <span class="math inline">\(p\)</span>, <span class="math display">\[E(X_1)=p \quad \text{ and } \quad \text{Var}(X_1)= p (1 - p)\]</span></p>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="countdown" id="timer_78b49994" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">02</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
+</div>
+</div>
 </div>
 </section>
-<section id="n-coin-tosses-expected-value-and-variance-1" class="slide level2">
-<h2><span class="math inline">\(n\)</span> coin tosses: Expected Value and Variance</h2>
-<p>Let <span class="math inline">\(X\)</span> be the number of heads in <span class="math inline">\(n\)</span> independent coin tosses.</p>
+<section id="n-weighted-coin-tosses-expected-value-and-variance-1" class="slide level2">
+<h2><span class="math inline">\(n\)</span> “weighted coin tosses”: Expected Value and Variance</h2>
+<p>Let <span class="math inline">\(X\)</span> be the number of heads in <span class="math inline">\(n\)</span> independent Bernoulli(<span class="math inline">\(p\)</span>) random variables.</p>
 <p><strong>Answer:</strong> Let <span class="math inline">\(X_1\)</span> = Heads in 1st toss, <span class="math inline">\(\dots\)</span> , <span class="math inline">\(X_n\)</span> = Heads in <span class="math inline">\(n\)</span>th toss: <span class="math display">\[
   X = X_1 + \dots + X_n = \sum_{i=1}^n X_i
 \]</span></p>
 <p><span class="math display">\[
 \begin{align}
-  E(X) &amp;= E \left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n E(X_i) = \sum_{i=1}^n 0.5 = 0.5n\\
-  \mathrm{Var}(X) &amp;=  \mathrm{Var}\left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n  \mathrm{Var}(X_i) = \sum_{i=1}^n 0.25 = 0.25n
+  E(X) &amp;= E \left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n E(X_i) = \sum_{i=1}^n p = np\\
+  \mathrm{Var}(X) &amp;=  \mathrm{Var}\left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n  \mathrm{Var}(X_i) = \sum_{i=1}^n p(1-p) = np(1-p)
 \end{align}
 \]</span></p>
+</section></section>
+<section>
+<section id="what-about-the-distribution-of-n-weighted-coin-tosses" class="title-slide slide level1 center">
+<h1>What about the distribution of <span class="math inline">\(n\)</span> weighted coin tosses?</h1>
+<div class="fragment">
+<p>We’ll start with the unweighted case, i.e., <span class="math inline">\(p = 0.5\)</span></p>
+</div>
 </section>
 <section id="n-coin-toss-probabilities" class="slide level2 smaller">
 <h2><span class="math inline">\(n\)</span> coin toss probabilities?</h2>
@@ -636,9 +751,7 @@ P(X=3) &amp;= \frac{1}{8} \quad&amp;\quad P(X=2) &amp;= \frac{3}{8}\\
 <p>Second: <strong>What if the probability of “success” changes?</strong></p>
 <div class="fragment">
 <ul>
-<li class="fragment">Before, we were flipping fair coins, i.e., <span class="math inline">\(p=0.5\)</span>.</li>
-<li class="fragment">But we could think of flipping “unfair coins”, i.e., <span class="math inline">\(p\)</span> is a number between 0 and 1.</li>
-<li class="fragment">In other words, how can we generalize to the sum of Bernoulli(<span class="math inline">\(p\)</span>) case from the Bernoulli(<span class="math inline">\(p=0.5\)</span>) case?</li>
+<li class="fragment">In other words, how can we generalize to the sum of Bernoulli(<span class="math inline">\(p\)</span>) case from the sum of the Bernoulli(<span class="math inline">\(p=0.5\)</span>) case?</li>
 </ul>
 </div>
 <div class="fragment">
@@ -684,12 +797,7 @@ P(X=3) &amp;= \frac{1}{8} \quad&amp;\quad P(X=2) &amp;= \frac{3}{8}\\
 \]</span></p>
 </div>
 <div class="fragment">
-<p>Note that when <span class="math inline">\(p=0.5\)</span> we get <span class="math display">\[
-\begin{align}
-    E(X) &amp;= 0.5n \\
-    Var(X) &amp;= 0.25n
-\end{align}
-\]</span> which is what we derived earlier!</p>
+<p>Note that we derived this earlier before we knew what a Binomial was, just by using Theorems about sums of random variables!</p>
 </div>
 </section>
 <section id="calculating-binomial-probabilities-dbinom" class="slide level2">
@@ -769,7 +877,7 @@ P(X=3) &amp;= \frac{1}{8} \quad&amp;\quad P(X=2) &amp;= \frac{3}{8}\\
 </ol>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
-<div class="countdown" id="timer_b21087cb" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_c5b0f873" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
 <code class="countdown-time"><span class="countdown-digits minutes">08</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>

@@ -2440,7 +2440,7 @@
     "href": "readings/readings_wk09mon.html",
     "title": "Math 141: Readings for November 3, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nNo new reading today.\n\n\n\n\nSupposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.594 61.982 63.155 64.827 65.995 66.413 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
+    "text": "Before coming to lecture today, please read the following material:\n\nNo new reading today.\n\n\n\n\nSupposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.577 62.008 63.181 64.794 65.969 66.382 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
   },
   {
     "objectID": "readings/readings_wk09mon.html#reading",
@@ -2454,7 +2454,7 @@
     "href": "readings/readings_wk09mon.html#homework-assignment",
     "title": "Math 141: Readings for November 3, 2025",
     "section": "",
-    "text": "Supposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.594 61.982 63.155 64.827 65.995 66.413 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
+    "text": "Supposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.577 62.008 63.181 64.794 65.969 66.382 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
   },
   {
     "objectID": "readings/readings_wk10fri.html",
@@ -4092,21 +4092,21 @@
     "href": "slides/math141_wk10wed.html#recall-one-coin-flip",
     "title": "Math 141",
     "section": "Recall: One Coin Flip",
-    "text": "Recall: One Coin Flip\nConsider a random variable \\(X\\) which is the number of heads in a single coin flip.\n\nQ: What are the possible values for \\(X\\)? What are the probabilities each value of \\(X\\)?\n\n\n\n\n\\(X = 1\\) (H) with \\(P(X=1) = \\frac{1}{2}\\)\n\\(X = 0\\) (T) with \\(P(X=0) = \\frac{1}{2}\\)\n\n\n\n\nQ: Compute the expected value and variance for \\(X\\) (the number of heads in a single coin flip)\n\n\n\\[\nE[X] = (0)\\frac{1}{2} +  (1)\\frac{1}{2} = \\frac{1}{2}\n\\]\n\n\n\\[\nVar[X] = (0-1/2)^2\\frac{1}{2} +  (1-1/2)^2\\frac{1}{2} = \\frac{1}{4}\n\\]\n\n\nThis distribution has a name!\n\n\\(X\\sim \\text{Bernoulli}(p = 0.5)\\)"
+    "text": "Recall: One Coin Flip\nConsider a random variable \\(X\\) which is the number of heads in a single coin flip.\n\nQ: What are the possible values for \\(X\\)? What are the probabilities each value of \\(X\\)?\n\n\n\n\n\\(X = 1\\) (H) with \\(P(X=1) = \\frac{1}{2}\\)\n\\(X = 0\\) (T) with \\(P(X=0) = \\frac{1}{2}\\)\n\n\n\n\nQ: Compute the expected value and variance for \\(X\\) (the number of heads in a single coin flip)\n\n\n\\[\nE[X] = (0)\\frac{1}{2} +  (1)\\frac{1}{2} = \\frac{1}{2}\n\\]\n\n\n\\[\nVar[X] = (0-1/2)^2\\frac{1}{2} +  (1-1/2)^2\\frac{1}{2} = \\frac{1}{4}\n\\]\n\n\nThis distribution has a name!\n\n\\(X\\) is a Bernoulli random variable!"
   },
   {
-    "objectID": "slides/math141_wk10wed.html#n-coin-tosses-expected-value-and-variance",
-    "href": "slides/math141_wk10wed.html#n-coin-tosses-expected-value-and-variance",
+    "objectID": "slides/math141_wk10wed.html#n-weighted-coin-tosses-expected-value-and-variance",
+    "href": "slides/math141_wk10wed.html#n-weighted-coin-tosses-expected-value-and-variance",
     "title": "Math 141",
-    "section": "\\(n\\) coin tosses: Expected Value and Variance",
-    "text": "\\(n\\) coin tosses: Expected Value and Variance\nLet \\(X\\) be the number of heads in \\(n\\) independent coin tosses.\nQ: What are \\(E(X)\\) and \\(\\mathrm{Var}(X)\\)?\n\nHint: We know, from the Bernoulli distribution, that if \\(X_1\\) is the number of heads in a single coin flip, \\[E(X_1)=0.5 \\quad \\text{ and } \\quad \\text{Var}(X_1)=0.25\\]"
+    "section": "\\(n\\) “weighted coin tosses”: Expected Value and Variance",
+    "text": "\\(n\\) “weighted coin tosses”: Expected Value and Variance\nLet \\(X\\) be the number of successes in \\(n\\) independent Bernoulli(\\(p\\)) random variables.\nQ: What are \\(E(X)\\) and \\(\\mathrm{Var}(X)\\)?\n\nHint: We know, from the Bernoulli distribution, that if \\(X_1\\) is the number of heads in a single weighted coin flip with success probability \\(p\\), \\[E(X_1)=p \\quad \\text{ and } \\quad \\text{Var}(X_1)= p (1 - p)\\]\n\n\n\n\n−+\n02:00"
   },
   {
-    "objectID": "slides/math141_wk10wed.html#n-coin-tosses-expected-value-and-variance-1",
-    "href": "slides/math141_wk10wed.html#n-coin-tosses-expected-value-and-variance-1",
+    "objectID": "slides/math141_wk10wed.html#n-weighted-coin-tosses-expected-value-and-variance-1",
+    "href": "slides/math141_wk10wed.html#n-weighted-coin-tosses-expected-value-and-variance-1",
     "title": "Math 141",
-    "section": "\\(n\\) coin tosses: Expected Value and Variance",
-    "text": "\\(n\\) coin tosses: Expected Value and Variance\nLet \\(X\\) be the number of heads in \\(n\\) independent coin tosses.\nAnswer: Let \\(X_1\\) = Heads in 1st toss, \\(\\dots\\) , \\(X_n\\) = Heads in \\(n\\)th toss: \\[\n  X = X_1 + \\dots + X_n = \\sum_{i=1}^n X_i\n\\]\n\\[\n\\begin{align}\n  E(X) &= E \\left( \\sum_{i=1}^n X_i \\right) =  \\sum_{i=1}^n E(X_i) = \\sum_{i=1}^n 0.5 = 0.5n\\\\\n  \\mathrm{Var}(X) &=  \\mathrm{Var}\\left( \\sum_{i=1}^n X_i \\right) =  \\sum_{i=1}^n  \\mathrm{Var}(X_i) = \\sum_{i=1}^n 0.25 = 0.25n\n\\end{align}\n\\]"
+    "section": "\\(n\\) “weighted coin tosses”: Expected Value and Variance",
+    "text": "\\(n\\) “weighted coin tosses”: Expected Value and Variance\nLet \\(X\\) be the number of heads in \\(n\\) independent Bernoulli(\\(p\\)) random variables.\nAnswer: Let \\(X_1\\) = Heads in 1st toss, \\(\\dots\\) , \\(X_n\\) = Heads in \\(n\\)th toss: \\[\n  X = X_1 + \\dots + X_n = \\sum_{i=1}^n X_i\n\\]\n\\[\n\\begin{align}\n  E(X) &= E \\left( \\sum_{i=1}^n X_i \\right) =  \\sum_{i=1}^n E(X_i) = \\sum_{i=1}^n p = np\\\\\n  \\mathrm{Var}(X) &=  \\mathrm{Var}\\left( \\sum_{i=1}^n X_i \\right) =  \\sum_{i=1}^n  \\mathrm{Var}(X_i) = \\sum_{i=1}^n p(1-p) = np(1-p)\n\\end{align}\n\\]"
   },
   {
     "objectID": "slides/math141_wk10wed.html#n-coin-toss-probabilities",
@@ -4134,7 +4134,7 @@
     "href": "slides/math141_wk10wed.html#generalization-2",
     "title": "Math 141",
     "section": "Generalization 2",
-    "text": "Generalization 2\nSecond: What if the probability of “success” changes?\n\n\nBefore, we were flipping fair coins, i.e., \\(p=0.5\\).\nBut we could think of flipping “unfair coins”, i.e., \\(p\\) is a number between 0 and 1.\nIn other words, how can we generalize to the sum of Bernoulli(\\(p\\)) case from the Bernoulli(\\(p=0.5\\)) case?\n\n\n\n\nIn this case, the probability of getting a sequence of \\(k\\) “successes” in \\(n\\) trials is: \\[p^k\\times(1-p)^{n-k}\\]\n\n\n\n\nThere are \\(k\\) “successes”, each with probability \\(p\\): \\(p^k\\)\nThere are \\(n-k\\) “failures”, each with probability \\(1-p\\): \\((1-p)^{n-k}\\)"
+    "text": "Generalization 2\nSecond: What if the probability of “success” changes?\n\n\nIn other words, how can we generalize to the sum of Bernoulli(\\(p\\)) case from the sum of the Bernoulli(\\(p=0.5\\)) case?\n\n\n\n\nIn this case, the probability of getting a sequence of \\(k\\) “successes” in \\(n\\) trials is: \\[p^k\\times(1-p)^{n-k}\\]\n\n\n\n\nThere are \\(k\\) “successes”, each with probability \\(p\\): \\(p^k\\)\nThere are \\(n-k\\) “failures”, each with probability \\(1-p\\): \\((1-p)^{n-k}\\)"
   },
   {
     "objectID": "slides/math141_wk10wed.html#putting-it-all-together",
@@ -4148,7 +4148,7 @@
     "href": "slides/math141_wk10wed.html#expectation-and-variance-of-binomial",
     "title": "Math 141",
     "section": "Expectation and Variance of Binomial",
-    "text": "Expectation and Variance of Binomial\nIf \\(X \\sim \\text{Binomial}(n,~p)\\), then:\n\n\\[\n\\begin{align}\n    E(X) &= np \\\\\n    Var(X) &= np(1-p)\n\\end{align}\n\\]\n\n\nNote that when \\(p=0.5\\) we get \\[\n\\begin{align}\n    E(X) &= 0.5n \\\\\n    Var(X) &= 0.25n\n\\end{align}\n\\] which is what we derived earlier!"
+    "text": "Expectation and Variance of Binomial\nIf \\(X \\sim \\text{Binomial}(n,~p)\\), then:\n\n\\[\n\\begin{align}\n    E(X) &= np \\\\\n    Var(X) &= np(1-p)\n\\end{align}\n\\]\n\n\nNote that we derived this earlier before we knew what a Binomial was, just by using Theorems about sums of random variables!"
   },
   {
     "objectID": "slides/math141_wk10wed.html#calculating-binomial-probabilities-dbinom",

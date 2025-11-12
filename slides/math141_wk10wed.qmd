@@ -174,7 +174,7 @@ $$
 
 This distribution has a name! 
 
--   $X\sim \text{Bernoulli}(p = 0.5)$
+-   $X$ is a **Bernoulli** random variable!
 
 :::
 
@@ -312,7 +312,52 @@ Distribution:
 :::
 :::
 
-Mean:
+**Question**: What's the mean of a Bernoulli($p$) random variable?
+
+```{r}
+#| echo: false
+countdown::countdown(1.5)
+```
+
+
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \mu &= \sum x p(x) \\ -->
+<!-- & = 1*p + 0*(1 - p) \\ -->
+<!-- & = p -->
+<!-- \end{align*} -->
+<!-- $$ -->
+
+------------------------------------------------------------------------
+
+### Bernoulli Random Variables
+
+::: columns
+::: column
+$X \sim$ Bernoulli $(p)$
+
+```{=tex}
+\begin{align*}
+X=   \left\{
+\begin{array}{ll}
+      1 & \mbox{success} \\
+      0 & \mbox{failure} \\
+\end{array} 
+\right.  
+\end{align*}
+```
+:::
+
+::: column
+Distribution:
+
+| $x$    | 0       | 1   |
+|--------|---------|-----|
+| $p(x)$ | 1 - $p$ | $p$ |
+:::
+:::
+
+**Question**: What's the mean of a Bernoulli($p$) random variable?
 
 $$
 \begin{align*}
@@ -351,7 +396,51 @@ Distribution:
 :::
 :::
 
-Standard deviation:
+**Question**: What's the standard deviation of a Bernoulli($p$) random variable?
+
+```{r}
+countdown::countdown(2)
+```
+
+
+<!-- $$ -->
+<!-- \begin{align*} -->
+<!-- \sigma & = \sqrt{ \sum (x - \mu)^2 p(x)} \\ -->
+<!-- & = \sqrt{(1 - p)^2*p + (0 - p)^2*(1 - p)}  \\ -->
+<!-- & = \sqrt{p(1 - p)} -->
+<!-- \end{align*} -->
+<!-- $$ -->
+
+------------------------------------------------------------------------
+
+### Bernoulli Random Variables
+
+::: columns
+::: column
+$X \sim$ Bernoulli $(p)$
+
+```{=tex}
+\begin{align*}
+X=   \left\{
+\begin{array}{ll}
+      1 & \mbox{success} \\
+      0 & \mbox{failure} \\
+\end{array} 
+\right.  
+\end{align*}
+```
+:::
+
+::: column
+Distribution:
+
+| $x$    | 0       | 1   |
+|--------|---------|-----|
+| $p(x)$ | 1 - $p$ | $p$ |
+:::
+:::
+
+**Question**: What's the standard deviation of a Bernoulli($p$) random variable?
 
 $$
 \begin{align*}
@@ -365,23 +454,29 @@ $$
 # What about the sum of many Bernoulli random variables?
 
 
-## $n$ coin tosses: Expected Value and Variance
+## $n$ "weighted coin tosses": Expected Value and Variance
 
-Let $X$ be the number of heads in $n$ independent coin tosses.
+Let $X$ be the number of successes in $n$ independent Bernoulli($p$) random variables.
 
 **Q:** What are $E(X)$ and $\mathrm{Var}(X)$?
 
 ::: {.fragment}
-*Hint:* We know, from the Bernoulli distribution, that if $X_1$ is the number of heads in a *single* coin flip,
-$$E(X_1)=0.5 \quad \text{ and } \quad \text{Var}(X_1)=0.25$$
+*Hint:* We know, from the Bernoulli distribution, that if $X_1$ is the number of heads in a *single* weighted coin flip with success probability $p$,
+$$E(X_1)=p \quad \text{ and } \quad \text{Var}(X_1)= p (1 - p)$$
 :::
+
+```{r}
+#| echo: false
+countdown::countdown(2)
+```
+
 
 
 ------------------------------------------------------------------------
 
-## $n$ coin tosses: Expected Value and Variance
+## $n$ "weighted coin tosses": Expected Value and Variance
 
-Let $X$ be the number of heads in $n$ independent coin tosses.
+Let $X$ be the number of heads in $n$ independent Bernoulli($p$) random variables.
 
 
 **Answer:** Let $X_1$ = Heads in 1st toss, $\dots$  , $X_n$ = Heads in $n$th toss:
@@ -393,10 +488,16 @@ $$
 
 $$
 \begin{align}
-  E(X) &= E \left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n E(X_i) = \sum_{i=1}^n 0.5 = 0.5n\\
-  \mathrm{Var}(X) &=  \mathrm{Var}\left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n  \mathrm{Var}(X_i) = \sum_{i=1}^n 0.25 = 0.25n
+  E(X) &= E \left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n E(X_i) = \sum_{i=1}^n p = np\\
+  \mathrm{Var}(X) &=  \mathrm{Var}\left( \sum_{i=1}^n X_i \right) =  \sum_{i=1}^n  \mathrm{Var}(X_i) = \sum_{i=1}^n p(1-p) = np(1-p)
 \end{align}
 $$
+
+# What about the distribution of $n$ weighted coin tosses?
+
+::: {.fragment}
+We'll start with the unweighted case, i.e., $p = 0.5$
+:::
 
 
 ## $n$ coin toss probabilities? {.smaller}
@@ -496,9 +597,7 @@ $$
 Second: **What if the probability of "success" changes?**
 
 ::: {.fragment}
-- Before, we were flipping fair coins, i.e., $p=0.5$.
-- But we could think of flipping "unfair coins", i.e., $p$ is a number between 0 and 1.
-- In other words, how can we generalize to the sum of Bernoulli($p$) case from the Bernoulli($p=0.5$) case?
+- In other words, how can we generalize to the sum of Bernoulli($p$) case from the sum of the Bernoulli($p=0.5$) case?
 :::
 
 ::: {.fragment}
@@ -548,14 +647,7 @@ $$
 :::
 
 ::: {.fragment}
-Note that when $p=0.5$ we get
-$$
-\begin{align}
-    E(X) &= 0.5n \\ 
-    Var(X) &= 0.25n
-\end{align}
-$$
-which is what we derived earlier!
+Note that we derived this earlier before we knew what a Binomial was, just by using Theorems about sums of random variables!
 :::
 
 ------------------------------------------------------------------------
