@@ -9,10 +9,22 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   OI Section 4.1
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+-   OI Exercises: 4.2, 4.4, 4.6 (note: use R when needed!)
+
+-   Suppose you believe 40% of Portlanders think the city should install more bike lanes. You will take a simple random survey of 50 Portlanders to test your belief.
+
+    a. Assume your belief is true. Let $X$ be the number of survey respondents who think the city should install more bike lanes. Does $X$ follow a Binomial distribution? If so, what are $n$ and $p$?
+
+    b. Calculate the expected value and standard deviation of $X$ (still assuming your belief is true)
+
+    c. Suppose you conducted the survey and found 30 respondents wanted more bike lanes. What's the probability that $X\geq 30$? (use R!)
+
+    d. Draw the connection between the probability you calculated and a hypothesis test.
+
+

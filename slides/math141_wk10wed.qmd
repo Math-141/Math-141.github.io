@@ -726,40 +726,40 @@ countdown::countdown(8)
 ```
 
 
-------------------------------------------------------------------------
+<!-- ------------------------------------------------------------------------ -->
 
-## Activity: Survey of Portlanders (Answers) {.smaller}
+<!-- ## Activity: Survey of Portlanders (Answers) {.smaller} -->
 
-Suppose you believe 40% of Portlanders think the city should install more bike lanes. You will take a simple random survey of 50 Portlanders to test your belief.
+<!-- Suppose you believe 40% of Portlanders think the city should install more bike lanes. You will take a simple random survey of 50 Portlanders to test your belief. -->
 
-::: {.fragment .nonincremental}
-1. Assume your belief is true. Let $X$ be the number of survey respondents who think the city should install more bike lanes. Does $X$ follow a Binomial distribution? If so, what are $n$ and $p$?
+<!-- ::: {.fragment .nonincremental} -->
+<!-- 1. Assume your belief is true. Let $X$ be the number of survey respondents who think the city should install more bike lanes. Does $X$ follow a Binomial distribution? If so, what are $n$ and $p$? -->
 
-    - $X$ follows a Binomial($n=50,p=0.4$) distribution.
+<!--     - $X$ follows a Binomial($n=50,p=0.4$) distribution. -->
 
-:::
+<!-- ::: -->
 
-::: {.fragment .nonincremental}
-2. Calculate the expected value and standard deviation of $X$ (assuming your belief)
+<!-- ::: {.fragment .nonincremental} -->
+<!-- 2. Calculate the expected value and standard deviation of $X$ (assuming your belief) -->
 
 
-    - $E[X] = (50)(.4) = 20$
-    - $SD[X] = \sqrt{(50)(.4)(1-.4)} = 3.46$
+<!--     - $E[X] = (50)(.4) = 20$ -->
+<!--     - $SD[X] = \sqrt{(50)(.4)(1-.4)} = 3.46$ -->
 
-:::
+<!-- ::: -->
 
-::: {.fragment .nonincremental}
-3. Suppose you conducted the survey and found 30 respondents wanted more bike lanes. What's the probability that $X\geq 30$? (use R!)
+<!-- ::: {.fragment .nonincremental} -->
+<!-- 3. Suppose you conducted the survey and found 30 respondents wanted more bike lanes. What's the probability that $X\geq 30$? (use R!) -->
 
-    - $P[X\geq30] = 1 - \texttt{pbinom}(29,~ 50,~ .4) = 0.0033$ 
+<!--     - $P[X\geq30] = 1 - \texttt{pbinom}(29,~ 50,~ .4) = 0.0033$  -->
 
-:::
+<!-- ::: -->
 
-::: {.fragment .nonincremental}
-4. Draw the connection between the probability you calculated and a hypothesis test.
+<!-- ::: {.fragment .nonincremental} -->
+<!-- 4. Draw the connection between the probability you calculated and a hypothesis test. -->
 
-    - We are testing $H_0: p=0.4$ vs. $H_a: p>0.4$
-    - Test statistic: $\hat{p}=30/50$
-    - p-value = 0.0033
+<!--     - We are testing $H_0: p=0.4$ vs. $H_a: p>0.4$ -->
+<!--     - Test statistic: $\hat{p}=30/50$ -->
+<!--     - p-value = 0.0033 -->
 
-:::
+<!-- ::: -->
