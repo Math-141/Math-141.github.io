@@ -6,7 +6,7 @@ toc: false
 ---
 
 
-## Lab 7
+## Lab 8
 
 Please clone the following repository to access the lab. 
 
