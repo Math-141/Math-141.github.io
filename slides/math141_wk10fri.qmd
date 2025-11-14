@@ -234,7 +234,7 @@ ggplot(data.frame(x = c(-3, 3)), aes(x)) +
 `R` has built-in functions for calculating probabilities from a normal distribution.
 
 ::: {.fragment}
-Suppose $X\sim \text{Normal}(\mu=75, sd=5)$. Then:
+Suppose $X\sim \text{Normal}(\mu=75, \sigma=5)$. Then:
 :::
 
 ::: {.fragment}
@@ -270,7 +270,7 @@ ggplot(dd, aes(x = s, y = p)) +
 
 `R` has built-in functions for calculating probabilities from a normal distribution.
 
-Suppose $X\sim \text{Normal}(\mu=75, sd=5)$. Then:
+Suppose $X\sim \text{Normal}(\mu=75, \sigma=5)$. Then:
 
 ::: {.nonincremental}
 - $P(X \geq 80) = P(X>80)=$ 
@@ -304,7 +304,7 @@ ggplot(dd, aes(x = s, y = p)) +
 
 `R` has built-in functions for calculating probabilities from a normal distribution.
 
-Suppose $X\sim \text{Normal}(\mu=75, sd=5)$. Then:
+Suppose $X\sim \text{Normal}(\mu=75, \sigma=5)$. Then:
 
 ::: {.nonincremental}
 - $P(70 \leq X \leq 80) = P(X\leq 80) - P(X\leq 70) =$
@@ -339,7 +339,7 @@ ggplot(dd, aes(x = s, y = p)) +
 We can also use `R` to find **quantiles** of a Normal distribution.
 
 ::: {.fragment}
-Suppose $X\sim \text{Normal}(\mu=75, sd=5)$. Then:
+Suppose $X\sim \text{Normal}(\mu=75, \sigma=5)$. Then:
 :::
 
 ::: {.fragment}
@@ -502,7 +502,7 @@ $X \sim$ t(df)
 Distribution:
 
 $$
-p(x) = \frac{\Gamma(\mbox{df} + 1)}{\sqrt{\mbox{df}\pi} \Gamma(2^{-1}\mbox{df})}\left(1 + \frac{x^2}{\mbox{df}} \right)^{-\frac{df + 1}{2}}
+f(x) = \frac{\Gamma(\mbox{df} + 1)}{\sqrt{\mbox{df}\pi} \Gamma(2^{-1}\mbox{df})}\left(1 + \frac{x^2}{\mbox{df}} \right)^{-\frac{df + 1}{2}}
 $$
 
 where $-\infty < x < \infty$

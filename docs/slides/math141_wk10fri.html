@@ -365,7 +365,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <h2>Calculating Probabilities</h2>
 <p><code>R</code> has built-in functions for calculating probabilities from a normal distribution.</p>
 <div class="fragment">
-<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, sd=5)\)</span>. Then:</p>
+<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, \sigma=5)\)</span>. Then:</p>
 </div>
 <div class="fragment">
 <div>
@@ -393,7 +393,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <section id="calculating-probabilities-1" class="slide level2">
 <h2>Calculating Probabilities</h2>
 <p><code>R</code> has built-in functions for calculating probabilities from a normal distribution.</p>
-<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, sd=5)\)</span>. Then:</p>
+<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, \sigma=5)\)</span>. Then:</p>
 <div>
 <ul>
 <li><span class="math inline">\(P(X \geq 80) = P(X&gt;80)=\)</span></li>
@@ -418,7 +418,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <section id="calculating-probabilities-2" class="slide level2">
 <h2>Calculating Probabilities</h2>
 <p><code>R</code> has built-in functions for calculating probabilities from a normal distribution.</p>
-<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, sd=5)\)</span>. Then:</p>
+<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, \sigma=5)\)</span>. Then:</p>
 <div>
 <ul>
 <li><span class="math inline">\(P(70 \leq X \leq 80) = P(X\leq 80) - P(X\leq 70) =\)</span></li>
@@ -444,7 +444,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <h2>Finding Quantiles</h2>
 <p>We can also use <code>R</code> to find <strong>quantiles</strong> of a Normal distribution.</p>
 <div class="fragment">
-<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, sd=5)\)</span>. Then:</p>
+<p>Suppose <span class="math inline">\(X\sim \text{Normal}(\mu=75, \sigma=5)\)</span>. Then:</p>
 </div>
 <div class="fragment">
 <div>
@@ -570,7 +570,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <div class="column">
 <p>Distribution:</p>
 <p><span class="math display">\[
-p(x) = \frac{\Gamma(\mbox{df} + 1)}{\sqrt{\mbox{df}\pi} \Gamma(2^{-1}\mbox{df})}\left(1 + \frac{x^2}{\mbox{df}} \right)^{-\frac{df + 1}{2}}
+f(x) = \frac{\Gamma(\mbox{df} + 1)}{\sqrt{\mbox{df}\pi} \Gamma(2^{-1}\mbox{df})}\left(1 + \frac{x^2}{\mbox{df}} \right)^{-\frac{df + 1}{2}}
 \]</span></p>
 <p>where <span class="math inline">\(-\infty &lt; x &lt; \infty\)</span></p>
 <ul>
