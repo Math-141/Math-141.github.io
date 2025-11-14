@@ -62,6 +62,7 @@ theme_set(theme_bw())
 - Discuss continuous random variables
 - Introduce the normal distribution
 - Introduce the $t$ distribution
+- Discuss the **Central Limit Theorem**!
 
 
 # Continuous Random Variables
@@ -208,7 +209,7 @@ The **Normal distribution** is defined by two parameters:
 
 ::: {.fragment}
 Suppose $X$ follows a Normal($\mu$,$\sigma$) distribution. The density function is
-$$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot\exp \left(\frac{-(x-\mu)^2}{2\sigma^2}\right) \qquad \quad \textrm{Don't memorize this!}$$
+$$f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot\exp \left(\frac{-(x-\mu)^2}{2\sigma^2}\right)$$
 :::
 
 ```{r}
@@ -401,7 +402,7 @@ ggplot(data.frame(x = c(-3, 4)), aes(x)) +
 ::: {.fragment}
 $X$ and $Y$ have different means, heights, and widths...
 
-- But the **same shapes!!**
+- But the **same shapes!**
 :::
 
 ------------------------------------------------------------------------
@@ -429,7 +430,7 @@ ggplot(data.frame(x = c(-3, 3)), aes(x)) +
 $X$ and $Y$ have different means, heights, and widths...
 
 ::: {.nonincremental}
-- But the **same shapes!!**
+- But the **same shapes!**
 :::
 
 ------------------------------------------------------------------------
@@ -457,7 +458,7 @@ ggplot(data.frame(x = c(.5, 3.5)), aes(x)) +
 $X$ and $Y$ have different means, heights, and widths...
 
 ::: {.nonincremental}
-- But the **same shapes!!**
+- But the **same shapes!**
 :::
 
 ------------------------------------------------------------------------
@@ -488,200 +489,370 @@ $$P\Big[X < 90\Big] = P\Big[X<\text{ 1 SD below }\mu\Big] = P\Big[Z<-1\Big]$$
 :::
 
 
+# t distribution
+
+------------------------------------------------------------------------
+
+### t distribution
+
+$X \sim$ t(df)
+
+::: columns
+::: column
+Distribution:
+
+$$
+p(x) = \frac{\Gamma(\mbox{df} + 1)}{\sqrt{\mbox{df}\pi} \Gamma(2^{-1}\mbox{df})}\left(1 + \frac{x^2}{\mbox{df}} \right)^{-\frac{df + 1}{2}}
+$$
+
+where $-\infty < x < \infty$
+
+-   Mean: 0
+
+-   Standard deviation: $\sqrt{\mbox{df}/(\mbox{df} - 2)}$
+:::
+
+::: column
+```{r, echo = FALSE}
+library(tidyverse)
+dat <- data.frame(x = seq(from = -5, to = 5, length.out = 1000)) %>%
+  mutate(X1 = dnorm(x, mean = 0, sd = 1),
+         X2 = dt(x, df = 2),
+         X3 = dt(x, df = 8)) %>%
+  pivot_longer(-x, names_to = "variable") %>%
+  mutate(variable = case_when(
+    variable == "X1" ~ "N(0, 1)",
+    variable == "X2" ~ "t(2)",
+    TRUE ~ "t(8)"
+  ))
+ggplot(dat, aes(x = x, y = value, color = variable)) + 
+  geom_line(size = 1) +
+  labs(title = "Standard Normal versus t",
+       x = "x", y = "p(x)")
+```
+:::
+:::
+
+# It is time to recast some of the sample statistics we have been exploring as random variables!
+
+------------------------------------------------------------------------
+
+### Sample Statistics as Random Variables
+
+Here are some of the sample statistics we've seen lately:
+
+::: nonincremental
+-   $\hat{p}$ = sample proportion of correct receiver guesses out of 329 trials
+
+-   $\bar{x}_I - \bar{x}_N$ = difference in sample mean tuition between Ivies and non-Ivies
+
+-   $\hat{p}_D - \hat{p}_Y$ = difference in sample improvement proportions between those who swam with dolphins and those who did not
+:::
+
+Why are these all random variables?
+
+-   But they aren't **Bernoulli** random variables, nor **Binomial** random variables, nor **Normal** random variables, nor **t** random variables.
+
+::: fragment
+> *"All models are wrong but some are useful."* -- George Box
+:::
+
+------------------------------------------------------------------------
+
+## Approximating These Distributions
+
+-   $\hat{p}$ = sample proportion of correct receiver guesses out of 329 ESP trials
+
+::: columns
+::: {.column width=45%}
+::: fragment
+
+We generated its Null Distribution:
+
+```{r, echo = FALSE}
+library(infer)
+# Construct data frame of sample results
+esp <- data.frame(guess = c(rep("correct", 106),
+                            rep("incorrect", 329 - 106)))
+
+# Generate null distribution 
+set.seed(4111)
+null_dist <- esp %>%
+  specify(response = guess, success = "correct") %>%
+  hypothesize(null = "point", p = 0.25) %>%
+  generate(reps = 1000, type = "draw") %>%
+  calculate(stat ="prop")
+
+# Graph null distribution with test statistic
+dat <- data.frame(x = seq(16, 36, length.out = 1000)/100) %>%
+  mutate(y = dnorm(x, mean = .25, sd = sqrt(.25*.75/329)))
+ggplot(null_dist, aes(x = stat, y = ..density..)) +
+  geom_histogram(bins = 23) +
+  xlim(.16, .36) + ylim(0, 17)
+```
+:::
+:::
+
+::: {.column}
+::: fragment
+Which is well approximated by the distribution of a N(0.25, 0.024).
+
+```{r, echo = FALSE}
+ggplot(null_dist, aes(x = stat, y = ..density..)) +
+  geom_histogram(bins = 23)  +
+  geom_line(data = dat, mapping = aes(x, y), color = "deeppink", size = 2) +
+  xlim(.16, .36) + ylim(0, 17)
+```
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Approximating These Distributions
+
+-   $\bar{x}_I - \bar{x}_N$ = difference in sample mean tuition between Ivies and non-Ivies
+
+::: columns
+::: column
+::: fragment
+We generated its Null Distribution:
+
+```{r, echo = FALSE}
+#load the data
+load("data/colleges_endow.Rdata")
+
+#create ivy_binary
+colleges <- colleges %>% 
+  mutate(ivy_binary = case_when(
+    tier_name == "Ivy Plus" ~ "Yes",
+    tier_name != "Ivy Plus" ~ "No",
+  ))
+
+# Generate null distribution 
+set.seed(4111)
+null_dist <- colleges %>% 
+  specify(scorecard_netprice_2013 ~ ivy_binary) %>% 
+  hypothesize(null = "independence") %>% 
+  generate(reps = 1000, type = "permute") %>% 
+  calculate(stat = "diff in means", order = c("Yes", "No"))
+
+# Graph null distribution with test statistic
+# Find sd
+dat <- data.frame(x = seq(-6000, 6000, length.out = 1000)) %>%
+  mutate(y = dnorm(x, mean = 0, sd = (8395/t.test(scorecard_netprice_2013 ~ ivy_binary, data = colleges)$statistic)))
+ggplot(null_dist, aes(x = stat, y = ..density..)) +
+  geom_histogram(bins = 21) +
+  xlim(-6000, 6000) + ylim(0, .00024)
+```
+:::
+:::
+
+::: column
+::: fragment
+Which is somewhat approximated by the distribution of a N(0, 1036).
+
+```{r, echo = FALSE}
+ggplot(null_dist, aes(x = stat, y = ..density..)) +
+  geom_histogram(bins = 21) +
+  xlim(-6000, 6000) + ylim(0, .0004)  +
+  geom_line(data = dat, mapping = aes(x, y), color = "deeppink", size = 2)
+```
+:::
+:::
+:::
+
+::: fragment
+We will learn that a **standardized** version of the difference in sample means is **better** approximated by the distribution of a t(df = 7).
+:::
+
+------------------------------------------------------------------------
+
+## Approximating These Distributions
+
+-   $\hat{p}_D - \hat{p}_Y$ = difference in sample improvement proportions between those who swam with dolphins and those who did not
+
+::: columns
+::: column
+::: fragment
+We generated its Null Distribution:
+
+```{r, echo = FALSE}
+dolphins <- read.csv("data/Dolphins.txt", sep="")
+
+null_dist <- dolphins %>%
+  specify(improve ~ group, success = "yes") %>%
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>%
+  calculate(stat = "diff in props", order = c("Treatment", "Control"))
+
+# Graph null distribution with test statistic
+phat1 <- 10/15
+phat2 <- 3/15
+dat <- data.frame(x = seq(-65, 65, length.out = 1000)/100) %>%
+  mutate(y = dnorm(x, mean = 0, sd = sqrt(phat1*(1-phat1)/15 + phat2*(1-phat2)/15)))
+ggplot(null_dist, aes(x = stat, y = ..density..)) +
+  geom_histogram(bins = 23) +
+  xlim(-.5, .5) + ylim(0, 7)
+```
+:::
+:::
+
+::: column
+::: fragment
+Which is **kinda somewhat** approximated by the probability function of a N(0, 0.16).
+
+```{r, echo = FALSE}
+ggplot(null_dist, aes(x = stat, y = ..density..)) +
+  geom_histogram(bins = 23)  +
+  geom_line(data = dat, mapping = aes(x, y), color = "deeppink", size = 2) +
+  xlim(-.5, .5) + ylim(0, 7)
+```
+:::
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Approximating These Distributions
+
+-   How do I know **which** probability function is a good approximation for my sample statistic's distribution?
+
+-   Once I have figured out a probability function that approximates the distribution of my sample statistic, how do I **use it** to do statistical inference?
+
 
 # The Central Limit Theorem
 
+------------------------------------------------------------------------
 
+### Approximating Sampling Distributions
 
-## Daily Temperatures
+**Central Limit Theorem (CLT):** For random samples and a large sample size $(n)$, the sampling distribution of many sample statistics is approximately normal.
 
-Suppose I'm an astronomer studying four far away planets: Naboo, Tatooine, Coruscant, and Dagobah. I have the daily temperature on each of these planets over 200 days:
+**Example**: Japanese Flowering Cherry Trees at Portland's Waterfront Park
 
-```{r}
-#| fig-height: 5
-#| fig-width: 10
-set.seed(1)
-Naboo <- runif(200, 0, 100)
-Tatooine <- rnorm(200, 50, sd = 15)
-Coruscant <- c(rnorm(100, 20, 10), rnorm(100, 80, 2))
-Dagobah <- c(rnorm(40, 20, 5), rnorm(80, 50, 5), rnorm(80, 80, 5))
-temps <- data.frame(Planet = c(rep("Naboo", 200),
-                                rep("Tatooine", 200),
-                                rep("Coruscant", 200),
-                                rep("Dagobah", 200)),
-                    temps = c(Naboo, Tatooine, Coruscant, Dagobah))
-ggplot(temps, aes(x = temps)) +
-  labs(x = "Temperature") +
-  geom_histogram(bins = 40, color = "white", fill = "steelblue") +
-  facet_wrap(~Planet, nrow = 2)
+```{r, echo = FALSE}
+set.seed(18)
+library(tidyverse)
+library(pdxTrees)
+waterfrontTrees <- get_pdxTrees_parks(park = "Gov Tom McCall Waterfront Park")
+waterfrontTrees <- waterfrontTrees %>%
+  mutate(Japanese_Flowering_Cherry = case_when(
+    Common_Name == "Japanese Flowering Cherry" ~ "yes",
+    Common_Name != "Japanese Flowering Cherry" ~ "no"
+  ))
+
+# Population distribution
+p1 <- ggplot(data = waterfrontTrees, mapping = aes(x = Japanese_Flowering_Cherry)) +
+  geom_bar(aes(y = ..prop.., group = 1), stat = "count")  +
+  labs(title = "The Population\n Distribution")
+
+# Construct the sampling distribution
+samp_dist <- waterfrontTrees %>% 
+  rep_sample_n(size = 100, reps = 1000) %>%
+  group_by(replicate) %>%
+  summarize(statistic = mean(Japanese_Flowering_Cherry == "yes"))
+
+# Theoretical Distribution
+dat <- data.frame(x = seq(10, 40, length.out = 1000)/100) %>%
+  mutate(y = dnorm(x, mean = 0.231, sd = sqrt(0.231*(1 - 0.231)/100)))
+
+# Graph the sampling distribution
+p2 <- ggplot(data = samp_dist) + geom_blank() + theme_minimal()
+
+library(cowplot)
+plot_grid(p1, p2)
 ```
 
 ------------------------------------------------------------------------
 
-## Random Sample Means (n=10)
+### Approximating Sampling Distributions
 
-Suppose we repeatedly take samples of **10 days** from each planet, and compute the average temperature $\bar{x}$ for each sample:
+**Central Limit Theorem (CLT):** For random samples and a large sample size $(n)$, the sampling distribution of many sample statistics is approximately normal.
 
-```{r}
-#| fig-height: 5
-#| fig-width: 10
-mean1 <- temps %>% filter(Planet == "Naboo") %>%
-  rep_sample_n(size = 10, reps = 1000) %>% 
-  group_by(replicate) %>% 
-  summarize(avg = mean(temps))
-mean2 <- temps %>% filter(Planet == "Tatooine") %>%
-  rep_sample_n(size = 10, reps = 1000) %>% 
-  group_by(replicate) %>% 
-  summarize(avg = mean(temps))
-mean3 <- temps %>% filter(Planet == "Coruscant") %>%
-  rep_sample_n(size = 10, reps = 1000) %>% 
-  group_by(replicate) %>% 
-  summarize(avg = mean(temps))
-mean4 <- temps %>% filter(Planet == "Dagobah") %>%
-  rep_sample_n(size = 10, reps = 1000) %>% 
-  group_by(replicate) %>% 
-  summarize(avg = mean(temps))
-means <- bind_rows(mean1, mean2, mean3, mean4) %>% 
-  mutate(Planet = c(replicate(1000, "Naboo"), 
-                   replicate(1000, "Tatooine"), 
-                   replicate(1000, "Coruscant"), 
-                   replicate(1000, "Dagobah")))
-g10 <- ggplot(means, aes(x = avg)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 75, 
-                 color = "white", fill = "steelblue") +
-  facet_wrap(~Planet) +
-  scale_x_continuous(limits = c(0, 100)) +
-  labs(x = "Average Daily Temp for Samples of 10 Days")
-g10
+**Example**: Japanese Flowering Cherry Trees at Portland's Waterfront Park
+
+```{r, echo = FALSE}
+# Graph the sampling distribution
+p2 <- ggplot(data = samp_dist, mapping = , aes(x = statistic, y = ..density..)) +
+  geom_histogram(bins = 31) +
+  geom_line(data = dat, mapping = aes(x, y), color = "deeppink", size = 2) + labs(title = "The Sampling\n Distribution")
+
+library(cowplot)
+plot_grid(p1, p2)
 ```
 
-::: {.fragment}
-What does the distribution of sample means look like?
+-   But **which** Normal? (What is the value of $\mu$ and $\sigma$?)
+
+------------------------------------------------------------------------
+
+### Approximating Sampling Distributions
+
+**Question**: But **which** normal? (What is the value of $\mu$ and $\sigma$?)
+
+-   The sampling distribution of a statistic is always centered around: _____
+
+-   The CLT also provides formula estimates of the standard error.
+
+    -   The formula varies based on the statistic.
+
+------------------------------------------------------------------------
+
+### Approximating the Sampling Distribution of a Sample Proportion
+
+CLT says: For large $n$ (At least 10 successes and 10 failures),
+
+$$
+\hat{p} \sim N \left(p, \sqrt{\frac{p(1-p)}{n}} \right)
+$$
+
+**Example**: Japanese Flowering Cherry Trees at Portland's Waterfront Park
+
+-   Parameter: $p$ = proportion of Japanese Flowering Cherry Trees at Portland's Waterfront Park = 0.231
+
+-   Statistic: $\hat{p}$ = proportion of Japanese Flowering Cherries in a sample of 100 trees
+
+::: fragment
+$$
+\hat{p} \sim N \left(0.231, \sqrt{\frac{0.231(1-0.231)}{100}} \right)
+$$
+
+**NOTE**: Can plug in the true parameter here because we had data on the whole population.
 :::
 
 ------------------------------------------------------------------------
 
-## Random Sample Means (n=50)
+### Approximating the Sampling Distribution of a Sample Proportion
 
-Suppose we repeatedly take samples of **50 days** from each planet, and compute the average temperature $\bar{x}$ for each sample:
+**Question**: What do we do when we don't have access to the whole population?
 
-```{r}
-#| fig-height: 5
-#| fig-width: 10
-mean1 <- temps %>% filter(Planet == "Naboo") %>%
-  rep_sample_n(size = 50, reps = 5000) %>% 
-  group_by(replicate) %>% 
-  summarize(avg = mean(temps))
-mean2 <- temps %>% filter(Planet == "Tatooine") %>%
-  rep_sample_n(size = 50, reps = 5000) %>% 
-  group_by(replicate) %>% 
-  summarize(avg = mean(temps))
-mean3 <- temps %>% filter(Planet == "Coruscant") %>%
-  rep_sample_n(size = 50, reps = 5000) %>% 
-  group_by(replicate) %>% 
-  summarize(avg = mean(temps))
-mean4 <- temps %>% filter(Planet == "Dagobah") %>%
-  rep_sample_n(size = 50, reps = 5000) %>% 
-  group_by(replicate) %>% 
-  summarize(avg = mean(temps))
-means <- bind_rows(mean1, mean2, mean3, mean4) %>% 
-  mutate(Planet = c(replicate(5000, "Naboo"), 
-                   replicate(5000, "Tatooine"), 
-                   replicate(5000, "Coruscant"), 
-                   replicate(5000, "Dagobah")))
-g50 <- ggplot(means, aes(x = avg)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 75, 
-                 color = "white", fill = "steelblue") +
-  facet_wrap(~Planet) +
-  scale_x_continuous(limits = c(0, 100)) +
-  labs(x = "Average Daily Temp for Samples of 50 Days")
-g50
-```
+Have:
 
-::: {.fragment}
-What does the distribution of sample means look like?
+$$
+\hat{p} \sim N \left(p, \sqrt{\frac{p(1-p)}{n}} \right)
+$$
+
+::: fragment
+**Answer**: We will have to estimate the SE.
 :::
 
 ------------------------------------------------------------------------
 
-## Sampling Distributions are Approximately Normal
+### Approximating the Sampling Distribution of a Sample Mean
 
-In the previous example, the **sampling distribution** for *each* planet appeared approximately Normal, regardless of the shape of the population distribution.
+There is a version of the CLT for many of our sample statistics.
 
-```{r}
-summary_stats <- means %>% 
-  group_by(Planet) %>% 
-  summarize(mean = mean(avg), sd = sd(avg))
-x <- seq(30, 70, length = 100)
-density_df <- data.frame(x = c(), d = c(), exam = c())
-
-for (i in 1:4){
-  d <- dnorm(x, summary_stats[i, 2] %>% pull(), 
-             summary_stats[i, 3] %>% pull())
-  if(i == 3){Planet <- rep("Naboo", 100)}
-  if(i == 4){Planet <- rep("Tatooine", 100)}
-  if(i == 1){Planet <- rep("Coruscant", 100)}
-  if(i == 2){Planet <- rep("Dagobah", 100)}
-  density_df <- rbind(density_df, data.frame(x, d, Planet))
-}
-```
-
-```{r}
-#| fig-height: 3.5
-#| fig-width: 10
-ggplot(means, aes(x = avg)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 40, 
-                 color = "white", fill = "steelblue") +
-  geom_line(data = density_df, aes(x = x, y = d)) +
-  facet_wrap(~Planet)
-```
-
-::: {.fragment}
-We've seen this before! As $n$ increases,
-
-- Sampling distributions become more Normal
-- Variance decreases
-- Mean doesn't change; it is the parameter.
-:::
-
-------------------------------------------------------------------------
-
-## The Central Limit Theorem (CLT)
+For the sample mean, the CLT says:
 
 ::: {.callout-note icon=false}
 ## Theorem: Central Limit Theorem
-Suppose a simple random sample of size $n$ is drawn from a population with finite mean $\mu$ and finite standard deviation $\sigma$. Let $\bar{x}$ be the sample mean. When $n$ is large, then approximately
-$$\bar{x} \sim Normal\left(\mu, \frac{\sigma}{\sqrt{n}}\right)$$
-:::
 
-::: {.fragment}
-A proof of the CLT requires more advanced techniques in probability (See Math 391).
+For large $n$ (At least 30 observations),
 
-- We have gained intuition already for the CLT by examining sampling distributions!
-- We will use the CLT to conduct hypothesis tests/confidence intervals *without* simulation.
-:::
-
-------------------------------------------------------------------------
-
-## The CLT is a BIG deal!
-
-1. When conducting inference, our statistic is often a sample mean
-    - A proportion is a sample mean of sorts too!
-
-::: {.fragment}
-2. For nearly any population distribution, the sample mean is approximately Normal
-    - The sampling distribution is thus Normal too!
-:::
-
-::: {.fragment}
-3. We have a formula to calculate the mean and variance of a sample mean.
-    - We can quickly figure out what the sampling distribution looks like!
-:::
-
-## Next week
-
-::: {.nonincremental}
-
--   We'll use the CLT to help us do statistical inference
+$$
+\bar{x} \sim N \left(\mu, \frac{\sigma}{\sqrt{n}} \right)
+$$
 
 :::
+
+# Next week: We'll use the approximate distribution of the sample statistic (given by the CLT) to construct confidence intervals and to conduct hypothesis tests!

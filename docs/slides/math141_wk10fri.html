@@ -213,6 +213,7 @@
 <li class="fragment">Discuss continuous random variables</li>
 <li class="fragment">Introduce the normal distribution</li>
 <li class="fragment">Introduce the <span class="math inline">\(t\)</span> distribution</li>
+<li class="fragment">Discuss the <strong>Central Limit Theorem</strong>!</li>
 </ul>
 </section>
 <section>
@@ -348,7 +349,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <li class="fragment">Standard deviation, <span class="math inline">\(\sigma\)</span></li>
 </ol>
 <div class="fragment">
-<p>Suppose <span class="math inline">\(X\)</span> follows a Normal(<span class="math inline">\(\mu\)</span>,<span class="math inline">\(\sigma\)</span>) distribution. The density function is <span class="math display">\[f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot\exp \left(\frac{-(x-\mu)^2}{2\sigma^2}\right) \qquad \quad \textrm{Don't memorize this!}\]</span></p>
+<p>Suppose <span class="math inline">\(X\)</span> follows a Normal(<span class="math inline">\(\mu\)</span>,<span class="math inline">\(\sigma\)</span>) distribution. The density function is <span class="math display">\[f(x) = \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot\exp \left(\frac{-(x-\mu)^2}{2\sigma^2}\right)\]</span></p>
 </div>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
@@ -483,7 +484,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <div class="fragment">
 <p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have different means, heights, and widths…</p>
 <ul>
-<li class="fragment">But the <strong>same shapes!!</strong></li>
+<li class="fragment">But the <strong>same shapes!</strong></li>
 </ul>
 </div>
 </section>
@@ -502,7 +503,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have different means, heights, and widths…</p>
 <div>
 <ul>
-<li>But the <strong>same shapes!!</strong></li>
+<li>But the <strong>same shapes!</strong></li>
 </ul>
 </div>
 </section>
@@ -521,7 +522,7 @@ E[X] &amp;= \int x f(x) \, dx\\
 <p><span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> have different means, heights, and widths…</p>
 <div>
 <ul>
-<li>But the <strong>same shapes!!</strong></li>
+<li>But the <strong>same shapes!</strong></li>
 </ul>
 </div>
 </section>
@@ -557,13 +558,26 @@ E[X] &amp;= \int x f(x) \, dx\\
 </div>
 </section></section>
 <section>
-<section id="the-central-limit-theorem" class="title-slide slide level1 center">
-<h1>The Central Limit Theorem</h1>
+<section id="t-distribution" class="title-slide slide level1 center">
+<h1>t distribution</h1>
 
 </section>
-<section id="daily-temperatures" class="slide level2">
-<h2>Daily Temperatures</h2>
-<p>Suppose I’m an astronomer studying four far away planets: Naboo, Tatooine, Coruscant, and Dagobah. I have the daily temperature on each of these planets over 200 days:</p>
+<section class="slide level2">
+
+<h3 id="t-distribution-1">t distribution</h3>
+<p><span class="math inline">\(X \sim\)</span> t(df)</p>
+<div class="columns">
+<div class="column">
+<p>Distribution:</p>
+<p><span class="math display">\[
+p(x) = \frac{\Gamma(\mbox{df} + 1)}{\sqrt{\mbox{df}\pi} \Gamma(2^{-1}\mbox{df})}\left(1 + \frac{x^2}{\mbox{df}} \right)^{-\frac{df + 1}{2}}
+\]</span></p>
+<p>where <span class="math inline">\(-\infty &lt; x &lt; \infty\)</span></p>
+<ul>
+<li class="fragment"><p>Mean: 0</p></li>
+<li class="fragment"><p>Standard deviation: <span class="math inline">\(\sqrt{\mbox{df}/(\mbox{df} - 2)}\)</span></p></li>
+</ul>
+</div><div class="column">
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -573,10 +587,43 @@ E[X] &amp;= \int x f(x) \, dx\\
 </div>
 </div>
 </div>
+</div></div>
+</section></section>
+<section>
+<section id="it-is-time-to-recast-some-of-the-sample-statistics-we-have-been-exploring-as-random-variables" class="title-slide slide level1 center">
+<h1>It is time to recast some of the sample statistics we have been exploring as random variables!</h1>
+
 </section>
-<section id="random-sample-means-n10" class="slide level2">
-<h2>Random Sample Means (n=10)</h2>
-<p>Suppose we repeatedly take samples of <strong>10 days</strong> from each planet, and compute the average temperature <span class="math inline">\(\bar{x}\)</span> for each sample:</p>
+<section class="slide level2">
+
+<h3 id="sample-statistics-as-random-variables">Sample Statistics as Random Variables</h3>
+<p>Here are some of the sample statistics we’ve seen lately:</p>
+<div>
+<ul>
+<li><p><span class="math inline">\(\hat{p}\)</span> = sample proportion of correct receiver guesses out of 329 trials</p></li>
+<li><p><span class="math inline">\(\bar{x}_I - \bar{x}_N\)</span> = difference in sample mean tuition between Ivies and non-Ivies</p></li>
+<li><p><span class="math inline">\(\hat{p}_D - \hat{p}_Y\)</span> = difference in sample improvement proportions between those who swam with dolphins and those who did not</p></li>
+</ul>
+</div>
+<p>Why are these all random variables?</p>
+<ul>
+<li class="fragment">But they aren’t <strong>Bernoulli</strong> random variables, nor <strong>Binomial</strong> random variables, nor <strong>Normal</strong> random variables, nor <strong>t</strong> random variables.</li>
+</ul>
+<div class="fragment">
+<blockquote>
+<p><em>“All models are wrong but some are useful.”</em> – George Box</p>
+</blockquote>
+</div>
+</section>
+<section id="approximating-these-distributions" class="slide level2">
+<h2>Approximating These Distributions</h2>
+<ul>
+<li class="fragment"><span class="math inline">\(\hat{p}\)</span> = sample proportion of correct receiver guesses out of 329 ESP trials</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div class="fragment">
+<p>We generated its Null Distribution:</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -586,13 +633,10 @@ E[X] &amp;= \int x f(x) \, dx\\
 </div>
 </div>
 </div>
-<div class="fragment">
-<p>What does the distribution of sample means look like?</p>
 </div>
-</section>
-<section id="random-sample-means-n50" class="slide level2">
-<h2>Random Sample Means (n=50)</h2>
-<p>Suppose we repeatedly take samples of <strong>50 days</strong> from each planet, and compute the average temperature <span class="math inline">\(\bar{x}\)</span> for each sample:</p>
+</div><div class="column">
+<div class="fragment">
+<p>Which is well approximated by the distribution of a N(0.25, 0.024).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -602,13 +646,31 @@ E[X] &amp;= \int x f(x) \, dx\\
 </div>
 </div>
 </div>
-<div class="fragment">
-<p>What does the distribution of sample means look like?</p>
 </div>
+</div></div>
 </section>
-<section id="sampling-distributions-are-approximately-normal" class="slide level2">
-<h2>Sampling Distributions are Approximately Normal</h2>
-<p>In the previous example, the <strong>sampling distribution</strong> for <em>each</em> planet appeared approximately Normal, regardless of the shape of the population distribution.</p>
+<section id="approximating-these-distributions-1" class="slide level2">
+<h2>Approximating These Distributions</h2>
+<ul>
+<li class="fragment"><span class="math inline">\(\bar{x}_I - \bar{x}_N\)</span> = difference in sample mean tuition between Ivies and non-Ivies</li>
+</ul>
+<div class="columns">
+<div class="column">
+<div class="fragment">
+<p>We generated its Null Distribution:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-19-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="fragment">
+<p>Which is somewhat approximated by the distribution of a N(0, 1036).</p>
 <div class="cell" data-layout-align="center">
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
@@ -618,70 +680,158 @@ E[X] &amp;= \int x f(x) \, dx\\
 </div>
 </div>
 </div>
+</div>
+</div></div>
 <div class="fragment">
-<p>We’ve seen this before! As <span class="math inline">\(n\)</span> increases,</p>
-<ul>
-<li class="fragment">Sampling distributions become more Normal</li>
-<li class="fragment">Variance decreases</li>
-<li class="fragment">Mean doesn’t change; it is the parameter.</li>
-</ul>
+<p>We will learn that a <strong>standardized</strong> version of the difference in sample means is <strong>better</strong> approximated by the distribution of a t(df = 7).</p>
 </div>
 </section>
-<section id="the-central-limit-theorem-clt" class="slide level2">
-<h2>The Central Limit Theorem (CLT)</h2>
+<section id="approximating-these-distributions-2" class="slide level2">
+<h2>Approximating These Distributions</h2>
+<ul>
+<li class="fragment"><span class="math inline">\(\hat{p}_D - \hat{p}_Y\)</span> = difference in sample improvement proportions between those who swam with dolphins and those who did not</li>
+</ul>
+<div class="columns">
+<div class="column">
+<div class="fragment">
+<p>We generated its Null Distribution:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-21-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column">
+<div class="fragment">
+<p>Which is <strong>kinda somewhat</strong> approximated by the probability function of a N(0, 0.16).</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-22-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="approximating-these-distributions-3" class="slide level2">
+<h2>Approximating These Distributions</h2>
+<ul>
+<li class="fragment"><p>How do I know <strong>which</strong> probability function is a good approximation for my sample statistic’s distribution?</p></li>
+<li class="fragment"><p>Once I have figured out a probability function that approximates the distribution of my sample statistic, how do I <strong>use it</strong> to do statistical inference?</p></li>
+</ul>
+</section></section>
+<section>
+<section id="the-central-limit-theorem" class="title-slide slide level1 center">
+<h1>The Central Limit Theorem</h1>
+
+</section>
+<section class="slide level2">
+
+<h3 id="approximating-sampling-distributions">Approximating Sampling Distributions</h3>
+<p><strong>Central Limit Theorem (CLT):</strong> For random samples and a large sample size <span class="math inline">\((n)\)</span>, the sampling distribution of many sample statistics is approximately normal.</p>
+<p><strong>Example</strong>: Japanese Flowering Cherry Trees at Portland’s Waterfront Park</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-23-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="approximating-sampling-distributions-1">Approximating Sampling Distributions</h3>
+<p><strong>Central Limit Theorem (CLT):</strong> For random samples and a large sample size <span class="math inline">\((n)\)</span>, the sampling distribution of many sample statistics is approximately normal.</p>
+<p><strong>Example</strong>: Japanese Flowering Cherry Trees at Portland’s Waterfront Park</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk10fri_files/figure-revealjs/unnamed-chunk-24-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li class="fragment">But <strong>which</strong> Normal? (What is the value of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>?)</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="approximating-sampling-distributions-2">Approximating Sampling Distributions</h3>
+<p><strong>Question</strong>: But <strong>which</strong> normal? (What is the value of <span class="math inline">\(\mu\)</span> and <span class="math inline">\(\sigma\)</span>?)</p>
+<ul>
+<li class="fragment"><p>The sampling distribution of a statistic is always centered around: _____</p></li>
+<li class="fragment"><p>The CLT also provides formula estimates of the standard error.</p>
+<ul>
+<li class="fragment">The formula varies based on the statistic.</li>
+</ul></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="approximating-the-sampling-distribution-of-a-sample-proportion">Approximating the Sampling Distribution of a Sample Proportion</h3>
+<p>CLT says: For large <span class="math inline">\(n\)</span> (At least 10 successes and 10 failures),</p>
+<p><span class="math display">\[
+\hat{p} \sim N \left(p, \sqrt{\frac{p(1-p)}{n}} \right)
+\]</span></p>
+<p><strong>Example</strong>: Japanese Flowering Cherry Trees at Portland’s Waterfront Park</p>
+<ul>
+<li class="fragment"><p>Parameter: <span class="math inline">\(p\)</span> = proportion of Japanese Flowering Cherry Trees at Portland’s Waterfront Park = 0.231</p></li>
+<li class="fragment"><p>Statistic: <span class="math inline">\(\hat{p}\)</span> = proportion of Japanese Flowering Cherries in a sample of 100 trees</p></li>
+</ul>
+<div class="fragment">
+<p><span class="math display">\[
+\hat{p} \sim N \left(0.231, \sqrt{\frac{0.231(1-0.231)}{100}} \right)
+\]</span></p>
+<p><strong>NOTE</strong>: Can plug in the true parameter here because we had data on the whole population.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="approximating-the-sampling-distribution-of-a-sample-proportion-1">Approximating the Sampling Distribution of a Sample Proportion</h3>
+<p><strong>Question</strong>: What do we do when we don’t have access to the whole population?</p>
+<p>Have:</p>
+<p><span class="math display">\[
+\hat{p} \sim N \left(p, \sqrt{\frac{p(1-p)}{n}} \right)
+\]</span></p>
+<div class="fragment">
+<p><strong>Answer</strong>: We will have to estimate the SE.</p>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="approximating-the-sampling-distribution-of-a-sample-mean">Approximating the Sampling Distribution of a Sample Mean</h3>
+<p>There is a version of the CLT for many of our sample statistics.</p>
+<p>For the sample mean, the CLT says:</p>
 <div class="callout callout-note no-icon callout-titled callout-style-simple">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>Theorem: Central Limit Theorem</strong></p>
 </div>
 <div class="callout-content">
-<p>Suppose a simple random sample of size <span class="math inline">\(n\)</span> is drawn from a population with finite mean <span class="math inline">\(\mu\)</span> and finite standard deviation <span class="math inline">\(\sigma\)</span>. Let <span class="math inline">\(\bar{x}\)</span> be the sample mean. When <span class="math inline">\(n\)</span> is large, then approximately <span class="math display">\[\bar{x} \sim Normal\left(\mu, \frac{\sigma}{\sqrt{n}}\right)\]</span></p>
+<p>For large <span class="math inline">\(n\)</span> (At least 30 observations),</p>
+<p><span class="math display">\[
+\bar{x} \sim N \left(\mu, \frac{\sigma}{\sqrt{n}} \right)
+\]</span></p>
 </div>
 </div>
 </div>
-<div class="fragment">
-<p>A proof of the CLT requires more advanced techniques in probability (See Math 391).</p>
-<ul>
-<li class="fragment">We have gained intuition already for the CLT by examining sampling distributions!</li>
-<li class="fragment">We will use the CLT to conduct hypothesis tests/confidence intervals <em>without</em> simulation.</li>
-</ul>
-</div>
-</section>
-<section id="the-clt-is-a-big-deal" class="slide level2">
-<h2>The CLT is a BIG deal!</h2>
-<ol type="1">
-<li class="fragment">When conducting inference, our statistic is often a sample mean
-<ul>
-<li class="fragment">A proportion is a sample mean of sorts too!</li>
-</ul></li>
-</ol>
-<div class="fragment">
-<ol start="2" type="1">
-<li class="fragment">For nearly any population distribution, the sample mean is approximately Normal
-<ul>
-<li class="fragment">The sampling distribution is thus Normal too!</li>
-</ul></li>
-</ol>
-</div>
-<div class="fragment">
-<ol start="3" type="1">
-<li class="fragment">We have a formula to calculate the mean and variance of a sample mean.
-<ul>
-<li class="fragment">We can quickly figure out what the sampling distribution looks like!</li>
-</ul></li>
-</ol>
-</div>
-</section>
-<section id="next-week" class="slide level2">
-<h2>Next week</h2>
-<div>
-<ul>
-<li>We’ll use the CLT to help us do statistical inference</li>
-</ul>
-</div>
-
-
 </section></section>
+<section id="next-week-well-use-the-approximate-distribution-of-the-sample-statistic-given-by-the-clt-to-construct-confidence-intervals-and-to-conduct-hypothesis-tests" class="title-slide slide level1 center">
+<h1>Next week: We’ll use the approximate distribution of the sample statistic (given by the CLT) to construct confidence intervals and to conduct hypothesis tests!</h1>
+
+
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">

@@ -751,7 +751,7 @@ countdown::countdown(8)
 <!-- ::: {.fragment .nonincremental} -->
 <!-- 3. Suppose you conducted the survey and found 30 respondents wanted more bike lanes. What's the probability that $X\geq 30$? (use R!) -->
 
-<!--     - $P[X\geq30] = 1 - \texttt{pbinom}(29,~ 50,~ .4) = 0.0033$  -->
+<!--     - $P[X\geq30] = 1 - \texttt{pbinom}(29,~ 50,~ .4) = 0.0033$ -->
 
 <!-- ::: -->
 

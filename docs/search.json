@@ -2454,7 +2454,7 @@
     "href": "readings/readings_wk09mon.html",
     "title": "Math 141: Readings for November 3, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nNo new reading today.\n\n\n\n\nSupposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.650 62.013 63.209 64.826 65.973 66.367 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
+    "text": "Before coming to lecture today, please read the following material:\n\nNo new reading today.\n\n\n\n\nSupposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.669 62.001 63.171 64.827 66.012 66.358 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
   },
   {
     "objectID": "readings/readings_wk09mon.html#reading",
@@ -2468,7 +2468,7 @@
     "href": "readings/readings_wk09mon.html#homework-assignment",
     "title": "Math 141: Readings for November 3, 2025",
     "section": "",
-    "text": "Supposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.650 62.013 63.209 64.826 65.973 66.367 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
+    "text": "Supposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.669 62.001 63.171 64.827 66.012 66.358 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
   },
   {
     "objectID": "readings/readings_wk10fri.html",
@@ -3931,7 +3931,7 @@
     "href": "slides/math141_wk10fri.html#goals-for-today",
     "title": "Math 141",
     "section": "Goals for Today",
-    "text": "Goals for Today\n\nDiscuss continuous random variables\nIntroduce the normal distribution\nIntroduce the \\(t\\) distribution"
+    "text": "Goals for Today\n\nDiscuss continuous random variables\nIntroduce the normal distribution\nIntroduce the \\(t\\) distribution\nDiscuss the Central Limit Theorem!"
   },
   {
     "objectID": "slides/math141_wk10fri.html#the-distribution-of-a-continuous-variable",
@@ -3973,7 +3973,7 @@
     "href": "slides/math141_wk10fri.html#the-normal-distribution-1",
     "title": "Math 141",
     "section": "The Normal Distribution",
-    "text": "The Normal Distribution\nThe Normal distribution is defined by two parameters:\n\nMean, \\(\\mu\\)\nStandard deviation, \\(\\sigma\\)\n\n\nSuppose \\(X\\) follows a Normal(\\(\\mu\\),\\(\\sigma\\)) distribution. The density function is \\[f(x) = \\frac{1}{\\sqrt{2 \\pi \\sigma^2}} \\cdot\\exp \\left(\\frac{-(x-\\mu)^2}{2\\sigma^2}\\right) \\qquad \\quad \\textrm{Don't memorize this!}\\]"
+    "text": "The Normal Distribution\nThe Normal distribution is defined by two parameters:\n\nMean, \\(\\mu\\)\nStandard deviation, \\(\\sigma\\)\n\n\nSuppose \\(X\\) follows a Normal(\\(\\mu\\),\\(\\sigma\\)) distribution. The density function is \\[f(x) = \\frac{1}{\\sqrt{2 \\pi \\sigma^2}} \\cdot\\exp \\left(\\frac{-(x-\\mu)^2}{2\\sigma^2}\\right)\\]"
   },
   {
     "objectID": "slides/math141_wk10fri.html#calculating-probabilities",
@@ -4008,21 +4008,21 @@
     "href": "slides/math141_wk10fri.html#scale-and-translation-invariance",
     "title": "Math 141",
     "section": "Scale and Translation Invariance",
-    "text": "Scale and Translation Invariance\nSuppose \\(X\\sim\\text{Normal}(\\mu=0,\\sigma=1)\\) and \\(Y\\sim\\text{Normal}(\\mu=2,\\sigma=0.25)\\).\n\n\n\n\n\n\n\n\n\n\n\\(X\\) and \\(Y\\) have different means, heights, and widths…\n\nBut the same shapes!!"
+    "text": "Scale and Translation Invariance\nSuppose \\(X\\sim\\text{Normal}(\\mu=0,\\sigma=1)\\) and \\(Y\\sim\\text{Normal}(\\mu=2,\\sigma=0.25)\\).\n\n\n\n\n\n\n\n\n\n\n\\(X\\) and \\(Y\\) have different means, heights, and widths…\n\nBut the same shapes!"
   },
   {
     "objectID": "slides/math141_wk10fri.html#scale-and-translation-invariance-1",
     "href": "slides/math141_wk10fri.html#scale-and-translation-invariance-1",
     "title": "Math 141",
     "section": "Scale and Translation Invariance",
-    "text": "Scale and Translation Invariance\nSuppose \\(X\\sim\\text{Normal}(\\mu=0,\\sigma=1)\\) and \\(Y\\sim\\text{Normal}(\\mu=2,\\sigma=0.25)\\).\n\n\n\n\n\n\n\n\n\n\\(X\\) and \\(Y\\) have different means, heights, and widths…\n\n\nBut the same shapes!!"
+    "text": "Scale and Translation Invariance\nSuppose \\(X\\sim\\text{Normal}(\\mu=0,\\sigma=1)\\) and \\(Y\\sim\\text{Normal}(\\mu=2,\\sigma=0.25)\\).\n\n\n\n\n\n\n\n\n\n\\(X\\) and \\(Y\\) have different means, heights, and widths…\n\n\nBut the same shapes!"
   },
   {
     "objectID": "slides/math141_wk10fri.html#scale-and-translation-invariance-2",
     "href": "slides/math141_wk10fri.html#scale-and-translation-invariance-2",
     "title": "Math 141",
     "section": "Scale and Translation Invariance",
-    "text": "Scale and Translation Invariance\nSuppose \\(X\\sim\\text{Normal}(\\mu=0,\\sigma=1)\\) and \\(Y\\sim\\text{Normal}(\\mu=2,\\sigma=0.25)\\).\n\n\n\n\n\n\n\n\n\n\\(X\\) and \\(Y\\) have different means, heights, and widths…\n\n\nBut the same shapes!!"
+    "text": "Scale and Translation Invariance\nSuppose \\(X\\sim\\text{Normal}(\\mu=0,\\sigma=1)\\) and \\(Y\\sim\\text{Normal}(\\mu=2,\\sigma=0.25)\\).\n\n\n\n\n\n\n\n\n\n\\(X\\) and \\(Y\\) have different means, heights, and widths…\n\n\nBut the same shapes!"
   },
   {
     "objectID": "slides/math141_wk10fri.html#standardization",
@@ -4032,53 +4032,32 @@
     "text": "Standardization\n\n\n\nTheorem: Standardization\n\n\nSuppose \\(X\\sim\\text{Normal}(\\mu,\\sigma)\\). Then, \\(Z = \\frac{X - \\mu}{\\sigma}\\) is a Normal random variable with mean 0 and standard deviation 1.\n\n\n\n\nStandard Normal: a Normal random variable with mean \\(0\\) and standard deviation \\(1\\).\n\n\nWe call the process of subtracting off \\(\\mu\\) and dividing by \\(\\sigma\\), standardizing.\n\n\n\n\n\n\nUseful Fact: If \\(X\\sim\\text{Normal}(\\mu=100,\\sigma=10)\\) and \\(Z\\sim\\text{Normal}(\\mu=0,\\sigma=1)\\), then,\n\n\n\n\n\\[P\\Big[X &lt; 90\\Big] = P\\Big[X&lt;\\text{ 1 SD below }\\mu\\Big] = P\\Big[Z&lt;-1\\Big]\\]"
   },
   {
-    "objectID": "slides/math141_wk10fri.html#daily-temperatures",
-    "href": "slides/math141_wk10fri.html#daily-temperatures",
+    "objectID": "slides/math141_wk10fri.html#approximating-these-distributions",
+    "href": "slides/math141_wk10fri.html#approximating-these-distributions",
     "title": "Math 141",
-    "section": "Daily Temperatures",
-    "text": "Daily Temperatures\nSuppose I’m an astronomer studying four far away planets: Naboo, Tatooine, Coruscant, and Dagobah. I have the daily temperature on each of these planets over 200 days:"
+    "section": "Approximating These Distributions",
+    "text": "Approximating These Distributions\n\n\\(\\hat{p}\\) = sample proportion of correct receiver guesses out of 329 ESP trials\n\n\n\n\nWe generated its Null Distribution:\n\n\n\n\n\n\n\n\n\n\n\n\nWhich is well approximated by the distribution of a N(0.25, 0.024)."
   },
   {
-    "objectID": "slides/math141_wk10fri.html#random-sample-means-n10",
-    "href": "slides/math141_wk10fri.html#random-sample-means-n10",
+    "objectID": "slides/math141_wk10fri.html#approximating-these-distributions-1",
+    "href": "slides/math141_wk10fri.html#approximating-these-distributions-1",
     "title": "Math 141",
-    "section": "Random Sample Means (n=10)",
-    "text": "Random Sample Means (n=10)\nSuppose we repeatedly take samples of 10 days from each planet, and compute the average temperature \\(\\bar{x}\\) for each sample:\n\n\n\n\n\n\n\n\n\n\nWhat does the distribution of sample means look like?"
+    "section": "Approximating These Distributions",
+    "text": "Approximating These Distributions\n\n\\(\\bar{x}_I - \\bar{x}_N\\) = difference in sample mean tuition between Ivies and non-Ivies\n\n\n\n\nWe generated its Null Distribution:\n\n\n\n\n\n\n\n\n\n\n\n\nWhich is somewhat approximated by the distribution of a N(0, 1036).\n\n\n\n\n\n\n\n\n\n\n\n\nWe will learn that a standardized version of the difference in sample means is better approximated by the distribution of a t(df = 7)."
   },
   {
-    "objectID": "slides/math141_wk10fri.html#random-sample-means-n50",
-    "href": "slides/math141_wk10fri.html#random-sample-means-n50",
+    "objectID": "slides/math141_wk10fri.html#approximating-these-distributions-2",
+    "href": "slides/math141_wk10fri.html#approximating-these-distributions-2",
     "title": "Math 141",
-    "section": "Random Sample Means (n=50)",
-    "text": "Random Sample Means (n=50)\nSuppose we repeatedly take samples of 50 days from each planet, and compute the average temperature \\(\\bar{x}\\) for each sample:\n\n\n\n\n\n\n\n\n\n\nWhat does the distribution of sample means look like?"
+    "section": "Approximating These Distributions",
+    "text": "Approximating These Distributions\n\n\\(\\hat{p}_D - \\hat{p}_Y\\) = difference in sample improvement proportions between those who swam with dolphins and those who did not\n\n\n\n\nWe generated its Null Distribution:\n\n\n\n\n\n\n\n\n\n\n\n\nWhich is kinda somewhat approximated by the probability function of a N(0, 0.16)."
   },
   {
-    "objectID": "slides/math141_wk10fri.html#sampling-distributions-are-approximately-normal",
-    "href": "slides/math141_wk10fri.html#sampling-distributions-are-approximately-normal",
+    "objectID": "slides/math141_wk10fri.html#approximating-these-distributions-3",
+    "href": "slides/math141_wk10fri.html#approximating-these-distributions-3",
     "title": "Math 141",
-    "section": "Sampling Distributions are Approximately Normal",
-    "text": "Sampling Distributions are Approximately Normal\nIn the previous example, the sampling distribution for each planet appeared approximately Normal, regardless of the shape of the population distribution.\n\n\n\n\n\n\n\n\n\n\nWe’ve seen this before! As \\(n\\) increases,\n\nSampling distributions become more Normal\nVariance decreases\nMean doesn’t change; it is the parameter."
-  },
-  {
-    "objectID": "slides/math141_wk10fri.html#the-central-limit-theorem-clt",
-    "href": "slides/math141_wk10fri.html#the-central-limit-theorem-clt",
-    "title": "Math 141",
-    "section": "The Central Limit Theorem (CLT)",
-    "text": "The Central Limit Theorem (CLT)\n\n\n\nTheorem: Central Limit Theorem\n\n\nSuppose a simple random sample of size \\(n\\) is drawn from a population with finite mean \\(\\mu\\) and finite standard deviation \\(\\sigma\\). Let \\(\\bar{x}\\) be the sample mean. When \\(n\\) is large, then approximately \\[\\bar{x} \\sim Normal\\left(\\mu, \\frac{\\sigma}{\\sqrt{n}}\\right)\\]\n\n\n\n\nA proof of the CLT requires more advanced techniques in probability (See Math 391).\n\nWe have gained intuition already for the CLT by examining sampling distributions!\nWe will use the CLT to conduct hypothesis tests/confidence intervals without simulation."
-  },
-  {
-    "objectID": "slides/math141_wk10fri.html#the-clt-is-a-big-deal",
-    "href": "slides/math141_wk10fri.html#the-clt-is-a-big-deal",
-    "title": "Math 141",
-    "section": "The CLT is a BIG deal!",
-    "text": "The CLT is a BIG deal!\n\nWhen conducting inference, our statistic is often a sample mean\n\nA proportion is a sample mean of sorts too!\n\n\n\n\nFor nearly any population distribution, the sample mean is approximately Normal\n\nThe sampling distribution is thus Normal too!\n\n\n\n\n\nWe have a formula to calculate the mean and variance of a sample mean.\n\nWe can quickly figure out what the sampling distribution looks like!"
-  },
-  {
-    "objectID": "slides/math141_wk10fri.html#next-week",
-    "href": "slides/math141_wk10fri.html#next-week",
-    "title": "Math 141",
-    "section": "Next week",
-    "text": "Next week\n\n\nWe’ll use the CLT to help us do statistical inference"
+    "section": "Approximating These Distributions",
+    "text": "Approximating These Distributions\n\nHow do I know which probability function is a good approximation for my sample statistic’s distribution?\nOnce I have figured out a probability function that approximates the distribution of my sample statistic, how do I use it to do statistical inference?"
   },
   {
     "objectID": "slides/math141_wk10wed.html#goals-for-today",
