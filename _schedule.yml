@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 11/14/25
+  draft-after: 11/17/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -351,8 +351,8 @@ scheduled-docs:
           docs:
             - type: Reading + HW
               href: readings/readings_wk11mon.qmd
-            - type: Slides
-              href: slides/math141_wk11mon.qmd
+            # - type: Slides
+            #   href: slides/math141_wk11mon.qmd
         - topic: "Theoretical distribution-based inference"
           display-date: Wednesday, Nov 19
           date: 11/19/25
