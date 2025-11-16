@@ -1,0 +1,680 @@
+---
+pagetitle: "CLT-based inference"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+library(knitr)
+library(tidyverse)
+library(infer)
+set.seed(5)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[CLT-based inference]{.custom-title}
+
+<br> <br> <br> <br> <br>
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 11 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Logistics
+
+-   Final exam format discussion.
+
+### Goals for Today
+
+::: columns
+::: column
+
+-   Learn theory-based statistical inference methods.
+:::
+
+::: column
+-   Theory-based inference for:
+    - a single mean
+    - a difference in means
+    - a difference in proportions
+:::
+:::
+
+------------------------------------------------------------------------
+
+### Statistical Inference Zoom Out -- Estimation
+
+![](img/ci_diagram.png){width="60%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+### Statistical Inference Zoom Out -- Testing
+
+![](img/hyp_testing_diagram.png){width="70%" fig-align="center"}
+
+------------------------------------------------------------------------
+
+### Recap:
+
+**Z-score test statistics**:
+
+$$
+\mbox{Z-score} = \frac{\mbox{statistic} - \mu}{\sigma}
+$$
+
+-   Usually follows a **standard normal** or a **t** distribution.
+
+-   Use the approximate distribution to find the p-value.
+
+------------------------------------------------------------------------
+
+### Recap:
+
+**Formula-Based** P\*100% Confidence Intervals
+
+$$
+\mbox{statistic} \pm z^* SE
+$$
+
+where $P(-z^* \leq Z \leq z^*) = P$
+
+Or we will see that sometimes we use a **t** critical value:
+
+$$
+\mbox{statistic} \pm t^* SE
+$$
+
+where $P(-t^* \leq t \leq t^*) = P$
+
+***
+
+### Recap: Probability Calculations in R
+
+**To help you remember**:
+
+::: fragment
+Want a **P**robability?
+
+→ use `pnorm()`, `pt()`, ...
+:::
+
+::: fragment
+Want a **Q**uantile (i.e. percentile)?
+
+→ use `qnorm()`, `qt()`, ...
+:::
+
+------------------------------------------------------------------------
+
+### Recap: Probability Calculations in R
+
+**Question**: When might I want to do probability calculations in R?
+
+-   Computed a test statistic that is approximated by a named random variable. Want to compute the p-value with `p---()`
+
+-   Compute a confidence interval. Want to find the critical value with `q---()`.
+
+-   To do a **Sample Size Calculation**.
+
+
+# More CLT-based inference
+
+------------------------------------------------------------------------
+
+### Inference for a Single Mean
+
+**Example:** *Are lakes in Florida more acidic or alkaline?* The pH of a liquid is the measure of its acidity or alkalinity where pure water has a pH of 7, a pH greater than 7 is alkaline and a pH less than 7 is acidic. The following dataset contains observations on a sample of 53 lakes in Florida.
+
+```{r}
+library(tidyverse)
+FloridaLakes <- read_csv("https://www.lock5stat.com/datasets1e/FloridaLakes.csv")
+```
+
+**Cases**:
+
+**Variable of interest**:
+
+<br>
+
+**Parameter of interest:**
+
+**Hypotheses:**
+
+<br>
+
+------------------------------------------------------------------------
+
+### Inference for a Single Mean
+
+Let's consider conducting a hypothesis test for a single mean: $\mu$
+
+Need:
+
+-   Hypotheses
+    -   Same as with the simulation-based methods
+-   Test statistic and its null distribution
+    -   Use a z-score test statistic and a t distribution
+-   P-value
+    -   Compute from the t distribution directly
+
+------------------------------------------------------------------------
+
+### Inference for a Single Mean
+
+Let's consider conducting a hypothesis test for a single mean: $\mu$
+
+$H_o: \mu = \mu_o$ where $\mu_o$ = null value
+
+$H_a: \mu > \mu_o$ or $H_a: \mu < \mu_o$ or $H_a: \mu \neq \mu_o$
+
+By the CLT, under $H_o$:
+
+$$
+\bar{x} \sim N \left(\mu_o, \frac{\sigma}{\sqrt{n}} \right)
+$$
+
+Z-score test statistic:
+
+::: fragment
+$$
+Z = \frac{\bar{x} - \mu_o}{\frac{\sigma}{\sqrt{n}}}
+$$
+:::
+
+-   **Problem:** Don't know $\sigma$: the population standard deviation of our response variable!
+
+------------------------------------------------------------------------
+
+### Inference for a Single Mean
+
+Z-score test statistic:
+
+$$
+t = \frac{\bar{x} - \mu_o}{\frac{s}{\sqrt{n}}}
+$$
+
+-   **Problem:** Don't know $\sigma$: the population standard deviation of our response variable!
+    -   For our example, $\sigma$ would be the standard deviation of the Ph level for all lakes in Florida.
+-   **Solution:** Plug in $s$: the sample standard deviation of our response variable!
+    -   For our example, $s$ would be the standard deviation of the Ph level for the sampled lakes in Florida.
+-   Use $t(\mbox{df} = n - 1)$ to find the p-value
+
+------------------------------------------------------------------------
+
+### Inference for a Single Mean
+
+::: columns
+::: column
+```{r}
+library(infer)
+
+#Compute obs stat
+t_obs <- FloridaLakes %>%
+  specify(response = pH) %>%
+  hypothesize(null = "point", mu = 7) %>%  
+  calculate(stat = "t")
+t_obs
+```
+:::
+
+::: column
+```{r}
+# Generate null distribution
+null_dist <- FloridaLakes %>%
+ specify(response = pH) %>%
+ hypothesize(null = "point", mu = 7) %>%
+ generate(reps = 10000, type = "bootstrap") %>%
+ calculate(stat = "t")
+
+```
+:::
+:::
+
+**Why are we using `type = "bootstrap"` when constructing a null distribution?!**
+
+------------------------------------------------------------------------
+
+### Inference for a Single Mean
+
+What probability function is a good approximation to the null distribution?
+
+```{r}
+#| output-location: column
+
+
+null_dist %>%
+  visualize(bins = 30) +
+  geom_vline(xintercept = t_obs$stat,
+             color = "deeppink",
+             size = 2) +
+  geom_vline(xintercept = abs(t_obs$stat),
+             color = "deeppink", 
+             size = 2)
+```
+
+------------------------------------------------------------------------
+
+### Inference for a Single Mean
+
+What probability function is a good approximation to the null distribution?
+
+```{r}
+#| output-location: column
+
+null_dist %>%
+  visualize(bins = 30, method = "both",
+            dens_color = "orange") +
+  geom_vline(xintercept = t_obs$stat,
+             color = "deeppink",
+             size = 2) +
+  geom_vline(xintercept = abs(t_obs$stat),
+             color = "deeppink", 
+             size = 2)
+```
+
+------------------------------------------------------------------------
+
+## P-value options
+
+::: columns
+::: column
+::: fragment
+P-value using the generated null distribution:
+
+```{r}
+pvalue <- null_dist %>%
+  get_p_value(obs_stat = t_obs,
+              direction = "both")
+pvalue
+
+```
+:::
+:::
+
+::: column
+::: fragment
+P-value using an approximate probability function:
+
+```{r}
+# Using t distribution
+pt(q = t_obs$stat, df = 52)*2
+```
+:::
+:::
+:::
+
+::: fragment
+Do-it-all function:
+
+```{r}
+t_test(FloridaLakes, response = pH, mu = 7,
+       alternative = "two-sided")
+```
+:::
+
+------------------------------------------------------------------------
+
+### Recall the CLT:
+
+**Central Limit Theorem (CLT):** For random samples and a large sample size $(n)$, the sampling distribution of many sample statistics is approximately normal.
+
+::: columns
+::: column
+**Sample Proportion Version:**
+
+When $n$ is large (at least 10 successes and 10 failures):
+
+$$
+\hat{p} \sim N \left(p,~ \sqrt{\frac{p(1-p)}{n}} \right)
+$$
+:::
+
+::: column
+**Sample Mean Version:**
+
+When $n$ is large (at least 30):
+
+$$
+\bar{x} \sim N \left(\mu,~ \frac{\sigma}{\sqrt{n}} \right)
+$$
+:::
+:::
+
+------------------------------------------------------------------------
+
+### There Are [Several Versions](https://math-141.github.io/inference_summary.html) of the CLT!
+
+```{r, echo = FALSE}
+symbols <- data.frame(Response = c("quantitative", "categorical",
+                                   "quantitative", "categorical",
+                                   "quantitative"),
+                         Explanatory = c("-", "-",
+                                         "categorical",
+                                         "categorical",
+                                         "quantitative"),
+                         Numerical_Quantity = c("mean", 
+                                                "proportion",
+                                                "difference in means",
+                                                "difference in proportions",
+                                                "correlation"),
+                         Parameter = c("$\\mu$", "$p$", 
+                                       "$\\mu_1 - \\mu_2$",
+                                       "$p_1 - p_2$",
+                                       "$\\rho$"),
+                                       Statistic = c("$\\bar{x}$",
+                                                     "$\\hat{p}$",
+                                                     "$\\bar{x}_1 - \\bar{x}_2$",
+                                                     "$\\hat{p}_1 - \\hat{p}_2$",
+                                                     "$r$"))
+
+symbols %>% 
+  kableExtra::kbl(format="markdown")
+```
+
+-   Refer to [these tables](https://math-141.github.io/inference_summary.html) for:
+    -   CLT's "large sample" assumption
+    -   Equation for the test statistic
+    -   Equation for the confidence interval
+
+
+# Let's cover examples of theory-based inference for two variables.
+
+------------------------------------------------------------------------
+
+## Data Example
+
+We have data on a random sub-sample of the 2010 American Community Survey. The American Community Survey is given every year to a random sample of US residents.
+
+```{r}
+# Libraries
+library(tidyverse)
+library(Lock5Data)
+
+# Data
+data(ACS)
+# Focus on adults
+ACS_adults <- filter(ACS, Age >= 18)
+
+glimpse(ACS_adults)
+```
+
+------------------------------------------------------------------------
+
+### Difference in Proportions
+
+Let's try to determine if there's a relationship between US citizenship and marriage status.
+
+**Response variable:**
+
+**Explanatory variable:**
+
+**Parameter of interest:**
+
+**Sample size requirement for theory-based inference**:
+
+------------------------------------------------------------------------
+
+## Difference in Proportions {.smaller}
+
+Let's try to determine if there's a relationship between US citizenship and marriage status.
+
+```{r}
+#| output-location: column
+
+# Exploratory data analysis
+ggplot(data = ACS_adults, 
+       mapping = aes(x = factor(USCitizen),
+                     fill  = factor(Married))) +
+  geom_bar(position = "fill")
+```
+
+```{r}
+#| output-location: column
+# Sample size
+ACS_adults %>%
+  count(Married, USCitizen)
+```
+
+------------------------------------------------------------------------
+
+### Difference in Proportions
+
+Let's try to determine if there's a relationship between US citizenship and marriage status.
+
+Why is`prop_test()` failing?
+
+```{r}
+#| error: true
+
+library(infer)
+ACS_adults %>%
+prop_test(Married ~ USCitizen, 
+          order = c("1", "0"), z = TRUE,
+          success = "1")
+```
+
+------------------------------------------------------------------------
+
+### Difference in Proportions
+
+Let's try to determine if there's a relationship between US citizenship and marriage status.
+
+```{r}
+ACS_adults %>%
+  mutate(MarriedCat = case_when(Married == 0 ~ "No",
+                                Married == 1 ~ "Yes"),
+         USCitizenCat = case_when(USCitizen == 0 ~ "Not citizen",
+                                  USCitizen == 1 ~ "Citizen")) %>%
+prop_test(MarriedCat ~ USCitizenCat, 
+          order = c("Citizen", "Not citizen"), z = TRUE,
+          success = "Yes")
+```
+
+------------------------------------------------------------------------
+
+### Difference in Means
+
+Let's estimate the average hours worked per week between married and unmarried US residents.
+
+**Response variable:**
+
+**Explanatory variable:**
+
+**Parameter of interest:**
+
+**Sample size requirement for theory-based inference**:
+
+------------------------------------------------------------------------
+
+## Difference in Means {.smaller}
+
+Let's estimate the average hours worked per week between married and unmarried US residents.
+
+```{r}
+#| output-location: column
+
+# Exploratory data analysis
+ggplot(data = ACS_adults, mapping = aes(x = HoursWk)) +
+  geom_histogram() +
+  facet_wrap(~Married, ncol = 1)
+```
+
+```{r}
+#| output-location: column
+# Sample size
+ACS_adults %>%
+  drop_na(HoursWk) %>%
+  count(Married)
+```
+
+------------------------------------------------------------------------
+
+### Difference in Means
+
+Let's estimate the average hours worked per week between married and unmarried US residents.
+
+Which arguments for `t_test()` reflect my research question?
+
+::: columns
+::: column
+```{r}
+library(infer)
+ACS_adults %>%
+t_test(HoursWk ~ Married, order = c("1", "0"))
+```
+:::
+
+::: column
+```{r}
+library(infer)
+ACS_adults %>%
+t_test(HoursWk ~ Married, order = c("1", "0"),
+       alternative = "greater")
+```
+:::
+:::
+
+------------------------------------------------------------------------
+
+### Correlation
+
+We want to determine if age and hours worked per week have a positive linear relationship.
+
+**Response variable:**
+
+**Explanatory variable:**
+
+**Parameter of interest:**
+
+**Sample size requirement for theory-based inference**:
+
+------------------------------------------------------------------------
+
+### Correlation
+
+We want to determine if age and hours worked per week have a positive linear relationship.
+
+```{r}
+#| output-location: column
+
+# Exploratory data analysis
+ggplot(data = ACS_adults, 
+       mapping = aes(x = Age,
+                     y  = HoursWk)) +
+  geom_jitter(alpha = 0.5) +
+  geom_smooth()
+```
+
+------------------------------------------------------------------------
+
+### Correlation
+
+We want to determine if age and hours worked per week have a positive linear relationship.
+
+```{r}
+cor.test(~ HoursWk + Age, data = ACS_adults, alternative = "greater")
+```
+
+------------------------------------------------------------------------
+
+### Correlation
+
+We want to determine if age and hours worked per week have a positive linear relationship.
+
+```{r}
+#| output-location: column
+
+# Exploratory data analysis
+ggplot(data = ACS_adults, 
+       mapping = aes(x = Age,
+                     y  = HoursWk)) +
+  geom_jitter(alpha = 0.5) +
+  geom_smooth()
+```
+
+# Have Learned Two Routes to Statistical Inference
+
+[Which is **better**?]{.custom-subtitle .fragment}
+
+------------------------------------------------------------------------
+
+#### Is Simulation-Based Inference or Theory-Based Inference better?
+
+Depends on how you define **better**.
+
+::: columns
+::: column
+-   If **better** = Leads to better understanding:
+:::
+
+::: column
+::: fragment
+→ Research tends to show students have a better understanding of **p-values** and **confidence** from learning simulation-based methods.
+:::
+:::
+:::
+
+::: columns
+::: column
+-   If **better** = More flexible/robust to assumptions:
+:::
+
+::: column
+::: fragment
+→ The simulation-based methods tend to be more flexible but that generally requires learning extensions beyond what we've seen in Math 141.
+:::
+:::
+:::
+
+::: columns
+::: column
+-   If **better** = More commonly used:
+:::
+
+::: column
+::: fragment
+→ Definitely the theory-based methods but the simulation-based methods are becoming more **common**.
+:::
+:::
+:::
+
+-   Good to be comfortable with both as you will find both approaches used in journal and news articles!
+
+# What does statistical inference (estimation and hypothesis testing) look like when I have more than 0 or 1 explanatory variables?
+
+
+
