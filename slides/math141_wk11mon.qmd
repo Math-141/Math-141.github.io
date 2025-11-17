@@ -594,7 +594,7 @@ Want a **Q**uantile (i.e. percentile)?
 
 ### Sample Size Calculations -- Single Proportion
 
-Let's focus on estimating a single proportion. Suppose we want to estimate the current proportion of Harvard undergraduates with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. **How large does our sample size need to be?**
+Let's focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reed undergraduates with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. **How large does our sample size need to be?**
 
 Want
 
@@ -616,7 +616,7 @@ $$
 
 ### Sample Size Calculations -- Single Proportion
 
-Let's focus on estimating a single proportion. Suppose we want to estimate the current proportion of Harvard undergraduates with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. **How large does our sample size need to be?**
+Let's focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reed undergraduates with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. **How large does our sample size need to be?**
 
 **Sample size calculation:**
 
