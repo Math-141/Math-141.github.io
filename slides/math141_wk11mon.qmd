@@ -200,18 +200,6 @@ $$
 
 ------------------------------------------------------------------------
 
-### Statistical Inference Zoom Out -- Estimation
-
-![](img/ci_diagram.png){width="60%" fig-align="center"}
-
-------------------------------------------------------------------------
-
-### Statistical Inference Zoom Out -- Testing
-
-![](img/hyp_testing_diagram.png){width="70%" fig-align="center"}
-
-------------------------------------------------------------------------
-
 ### Inference for a Single Proportion -- Testing
 
 Let's consider conducting a hypothesis test for a single proportion: $p$
@@ -231,13 +219,24 @@ Need:
 
 Let's consider conducting a hypothesis test for a single proportion: $p$
 
+::: fragment
+
 $H_o: p = p_o$ where $p_o$ = null value and $H_a: p > p_o$ or $H_a: p < p_o$ or $H_a: p \neq p_o$
+
+:::
+
+::: fragment
 
 By the CLT, under $H_o$:
 
 $$
 \hat{p} \sim N \left(p_o, \sqrt{\frac{p_o(1-p_o)}{n}} \right)
 $$
+
+:::
+
+
+::: fragment
 
 Z-score test statistic:
 
@@ -246,6 +245,8 @@ Z = \frac{\hat{p} - p_o}{\sqrt{\frac{p_o(1-p_o)}{n}}}
 $$
 
 Use $N(0, 1)$ to find the p-value once you have computed the test statistic.
+
+:::
 
 ------------------------------------------------------------------------
 
@@ -271,6 +272,7 @@ Let's consider conducting a hypothesis test for a single proportion: $p$
 
 ::: columns
 ::: column
+
 ```{r}
 library(infer)
 # Compute observed test statistic
@@ -281,9 +283,12 @@ test_stat <- esp %>%
   calculate(stat = "z")
 test_stat
 ```
+
 :::
 
 ::: column
+
+::: fragment
 ```{r}
 # Use N(0,1) to find p-value
 pnorm(q = test_stat$stat, mean = 0, sd = 1,
@@ -294,7 +299,11 @@ pnorm(q = test_stat$stat, mean = 0, sd = 1,
           mean = 0, sd = 1)
 ```
 :::
+
 :::
+:::
+
+::: fragment
 
 ```{r}
 prop_test(esp, response = guess, success = "correct", p = 0.25,
@@ -302,6 +311,8 @@ prop_test(esp, response = guess, success = "correct", p = 0.25,
 ```
 
 Note: There is also a base `R` function called `prop.test()` but its arguments are different.
+
+:::
 
 ------------------------------------------------------------------------
 
@@ -417,7 +428,7 @@ ggplot(data = dat, mapping = aes(x, y)) +
               data = dat2) +
   guides(fill = FALSE) +
   geom_line(size = 2) +
-  scale_fill_manual(values = "deeppink")
+  scale_fill_manual(values = "seagreen3")
 ```
 :::
 
@@ -451,7 +462,7 @@ ggplot(data = dat, mapping = aes(x, y)) +
               data = dat2) +
   guides(fill = FALSE) +
   geom_line(size = 2) +
-  scale_fill_manual(values = "deeppink")
+  scale_fill_manual(values = "seagreen3")
 ```
 :::
 
@@ -487,8 +498,8 @@ dat <- data.frame(x = seq(-3, 3, length.out = 1000)) %>%
   mutate(y = dnorm(x, mean = 0, sd = 1))
 ggplot(data = dat, mapping = aes(x, y)) +
   geom_line(size = 2) +
-  geom_vline(xintercept = -1.96, color = "deeppink", size = 2) +
-  geom_vline(xintercept = 1.96, color = "deeppink", size = 2)
+  geom_vline(xintercept = -1.96, color = "seagreen3", size = 2) +
+  geom_vline(xintercept = 1.96, color = "seagreen3", size = 2)
 ```
 :::
 
@@ -518,8 +529,8 @@ dat <- data.frame(x = seq(-3, 3, length.out = 1000)) %>%
   mutate(y = dnorm(x, mean = 0, sd = 1))
 ggplot(data = dat, mapping = aes(x, y)) +
   geom_line(size = 2) +
-  geom_vline(xintercept = -1.645, color = "deeppink", size = 2) +
-  geom_vline(xintercept = 1.645, color = "deeppink", size = 2)
+  geom_vline(xintercept = -1.645, color = "seagreen3", size = 2) +
+  geom_vline(xintercept = 1.645, color = "seagreen3", size = 2)
 ```
 :::
 
@@ -594,7 +605,7 @@ Want a **Q**uantile (i.e. percentile)?
 
 ### Sample Size Calculations -- Single Proportion
 
-Let's focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reed undergraduates with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. **How large does our sample size need to be?**
+Let's focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reedies with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. **How large does our sample size need to be?**
 
 Want
 
@@ -616,7 +627,7 @@ $$
 
 ### Sample Size Calculations -- Single Proportion
 
-Let's focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reed undergraduates with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. **How large does our sample size need to be?**
+Let's focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reedies with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. **How large does our sample size need to be?**
 
 **Sample size calculation:**
 

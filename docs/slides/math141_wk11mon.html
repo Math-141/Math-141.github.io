@@ -354,24 +354,6 @@
 </section>
 <section class="slide level2">
 
-<h3 id="statistical-inference-zoom-out-estimation-1">Statistical Inference Zoom Out – Estimation</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/ci_diagram.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-
-<h3 id="statistical-inference-zoom-out-testing-1">Statistical Inference Zoom Out – Testing</h3>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="img/hyp_testing_diagram.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
-</figure>
-</div>
-</section>
-<section class="slide level2">
-
 <h3 id="inference-for-a-single-proportion-testing">Inference for a Single Proportion – Testing</h3>
 <p>Let’s consider conducting a hypothesis test for a single proportion: <span class="math inline">\(p\)</span></p>
 <p>Need:</p>
@@ -394,16 +376,22 @@
 
 <h3 id="inference-for-a-single-proportion-testing-1">Inference for a Single Proportion – Testing</h3>
 <p>Let’s consider conducting a hypothesis test for a single proportion: <span class="math inline">\(p\)</span></p>
+<div class="fragment">
 <p><span class="math inline">\(H_o: p = p_o\)</span> where <span class="math inline">\(p_o\)</span> = null value and <span class="math inline">\(H_a: p &gt; p_o\)</span> or <span class="math inline">\(H_a: p &lt; p_o\)</span> or <span class="math inline">\(H_a: p \neq p_o\)</span></p>
+</div>
+<div class="fragment">
 <p>By the CLT, under <span class="math inline">\(H_o\)</span>:</p>
 <p><span class="math display">\[
 \hat{p} \sim N \left(p_o, \sqrt{\frac{p_o(1-p_o)}{n}} \right)
 \]</span></p>
+</div>
+<div class="fragment">
 <p>Z-score test statistic:</p>
 <p><span class="math display">\[
 Z = \frac{\hat{p} - p_o}{\sqrt{\frac{p_o(1-p_o)}{n}}}
 \]</span></p>
 <p>Use <span class="math inline">\(N(0, 1)\)</span> to find the p-value once you have computed the test statistic.</p>
+</div>
 </section>
 <section class="slide level2">
 
@@ -442,6 +430,7 @@ Null Hypothesis: point
 </div>
 </div>
 </div><div class="column">
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="co"># Use N(0,1) to find p-value</span></span>
 <span id="cb4-2"><a></a><span class="fu">pnorm</span>(<span class="at">q =</span> test_stat<span class="sc">$</span>stat, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>,</span>
@@ -456,7 +445,9 @@ Null Hypothesis: point
 <pre><code>[1] 0.001247763</code></pre>
 </div>
 </div>
+</div>
 </div></div>
+<div class="fragment">
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a></a><span class="fu">prop_test</span>(esp, <span class="at">response =</span> guess, <span class="at">success =</span> <span class="st">"correct"</span>, <span class="at">p =</span> <span class="fl">0.25</span>,</span>
 <span id="cb8-2"><a></a>          <span class="at">z =</span> <span class="cn">TRUE</span>, <span class="at">alternative =</span> <span class="st">"greater"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -468,6 +459,7 @@ Null Hypothesis: point
 </div>
 </div>
 <p>Note: There is also a base <code>R</code> function called <code>prop.test()</code> but its arguments are different.</p>
+</div>
 </section>
 <section class="slide level2">
 
@@ -745,7 +737,7 @@ Null Hypothesis: point
 <section class="slide level2">
 
 <h3 id="sample-size-calculations-single-proportion">Sample Size Calculations – Single Proportion</h3>
-<p>Let’s focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reed undergraduates with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. <strong>How large does our sample size need to be?</strong></p>
+<p>Let’s focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reedies with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. <strong>How large does our sample size need to be?</strong></p>
 <p>Want</p>
 <p><span class="math display">\[
 z^* \sqrt{\frac{\hat{p}(1 - \hat{p})}{n}} \leq B
@@ -761,7 +753,7 @@ n \geq \quad ...
 <section class="slide level2">
 
 <h3 id="sample-size-calculations-single-proportion-1">Sample Size Calculations – Single Proportion</h3>
-<p>Let’s focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reed undergraduates with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. <strong>How large does our sample size need to be?</strong></p>
+<p>Let’s focus on estimating a single proportion. Suppose we want to estimate the current proportion of Reedies with COVID with 95% confidence and we want the margin of error on our interval to be less than or equal to 0.02. <strong>How large does our sample size need to be?</strong></p>
 <p><strong>Sample size calculation:</strong></p>
 <p><span class="math display">\[
 n \geq \frac{\hat{p}(1 - \hat{p})z^{*2}}{B^2}
