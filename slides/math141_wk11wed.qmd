@@ -264,7 +264,6 @@ null_dist <- FloridaLakes %>%
 :::
 :::
 
-**Why are we using `type = "bootstrap"` when constructing a null distribution?!**
 
 ------------------------------------------------------------------------
 

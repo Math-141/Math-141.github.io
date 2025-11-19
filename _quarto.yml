@@ -23,6 +23,8 @@ website:
         text: Syllabus
       - href: office_hours.qmd
         text: Office Hours
+      - href: inference_summary.qmd
+        text: Inference Summary Tables
     tools:
       - icon: chat-dots-fill
         href: https://reedmath141fall2025.slack.com
