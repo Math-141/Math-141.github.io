@@ -1,5 +1,5 @@
 ---
-date: 9/4/25
+date: 11/21/25
 editor: source
 ---
 
@@ -9,10 +9,16 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   MD 10.1 - 10.3 (feel free to skim 10.1 as a refersher on SLR, but read 10.2 and 10.3 closely)
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+We're interested in average weight of cheese blocks, $\mu$, at the Tillamook factory. Suppose we've observed the following data:
+
+- We collect an SRS of $n=40$ cheese blocks, and find 
+- $\bar{x} = 16.5$ grams and 
+- $s = 2$ grams.
+
+Given these data, create a 90\% confidence interval for $\mu$. Show your work.

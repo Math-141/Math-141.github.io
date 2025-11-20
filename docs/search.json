@@ -1717,23 +1717,23 @@
   {
     "objectID": "readings/readings_wk11fri.html",
     "href": "readings/readings_wk11fri.html",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for November 21, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\n\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 10.1 - 10.3 (feel free to skim 10.1 as a refersher on SLR, but read 10.2 and 10.3 closely)\n\n\n\n\nAfter you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\nWe’re interested in average weight of cheese blocks, \\(\\mu\\), at the Tillamook factory. Suppose we’ve observed the following data:\n\nWe collect an SRS of \\(n=40\\) cheese blocks, and find\n\\(\\bar{x} = 16.5\\) grams and\n\\(s = 2\\) grams.\n\nGiven these data, create a 90% confidence interval for \\(\\mu\\). Show your work."
   },
   {
     "objectID": "readings/readings_wk11fri.html#reading",
     "href": "readings/readings_wk11fri.html#reading",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for November 21, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:"
+    "text": "Before coming to lecture today, please read the following material:\n\nMD 10.1 - 10.3 (feel free to skim 10.1 as a refersher on SLR, but read 10.2 and 10.3 closely)"
   },
   {
     "objectID": "readings/readings_wk11fri.html#homework-assignment",
     "href": "readings/readings_wk11fri.html#homework-assignment",
-    "title": "Math 141: Readings for September 4, 2025",
+    "title": "Math 141: Readings for November 21, 2025",
     "section": "",
-    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:"
+    "text": "After you’ve completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper:\nWe’re interested in average weight of cheese blocks, \\(\\mu\\), at the Tillamook factory. Suppose we’ve observed the following data:\n\nWe collect an SRS of \\(n=40\\) cheese blocks, and find\n\\(\\bar{x} = 16.5\\) grams and\n\\(s = 2\\) grams.\n\nGiven these data, create a 90% confidence interval for \\(\\mu\\). Show your work."
   },
   {
     "objectID": "readings/readings_wk10mon.html",
@@ -2489,7 +2489,7 @@
     "href": "readings/readings_wk09mon.html",
     "title": "Math 141: Readings for November 3, 2025",
     "section": "",
-    "text": "Before coming to lecture today, please read the following material:\n\nNo new reading today.\n\n\n\n\nSupposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.636 62.014 63.184 64.812 66.003 66.374 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
+    "text": "Before coming to lecture today, please read the following material:\n\nNo new reading today.\n\n\n\n\nSupposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.572 61.984 63.162 64.822 65.969 66.364 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
   },
   {
     "objectID": "readings/readings_wk09mon.html#reading",
@@ -2503,7 +2503,7 @@
     "href": "readings/readings_wk09mon.html#homework-assignment",
     "title": "Math 141: Readings for November 3, 2025",
     "section": "",
-    "text": "Supposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.636 62.014 63.184 64.812 66.003 66.374 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
+    "text": "Supposed you’d like to know the average height of all Reedies (\\(\\mu\\)). To help figure it out, you’ve collected a sample of 50 Reedies and measured their heights. You find that the sample mean \\(\\overline{x} = 64\\) inches. Based on your sample, suppose you calculate a bootstrap distribution based on 10,000 re-samples from your sample. The bootstrap distribution is shown below, as well as the 0.025, 0.05, 0.25, 0.75, 0.95, and 0.975 quantiles of the bootstrap distribution (shown as vertical lines in the histogram as well).\n\n\n\n\n\n\n\n\n\n  2.5%     5%    25%    75%    95%  97.5% \n61.572 61.984 63.162 64.822 65.969 66.364 \n\n\nBased on the histogram and table of quantiles, write down an appropriate confidence interval based on a (i) 95% confidence level, (ii) 90% confidence interval, and (iii) 50% confidence interval. Also, interpret one of these confidence intervals in the context of the data."
   },
   {
     "objectID": "readings/readings_wk10fri.html",
