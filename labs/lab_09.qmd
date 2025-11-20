@@ -11,3 +11,6 @@ toc: false
 Please clone the following repository to access the lab. 
 
 **https://github.com/Math-141/lab09.git**
+
+
+Download the data for Problem 0 and 1 here: [vitd_subset.csv](data/vitd_subset.csv).
