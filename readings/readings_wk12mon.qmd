@@ -9,7 +9,7 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   MD 10.3
+-   No new readings, but review MD 10.1 - 10.3 as needed. 
 
 ## Homework Assignment
 
