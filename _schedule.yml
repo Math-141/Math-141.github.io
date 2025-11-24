@@ -385,8 +385,8 @@ scheduled-docs:
           docs:
             - type: Reading + HW
               href: readings/readings_wk12mon.qmd
-            # - type: Slides
-            #   href: slides/math141_wk12mon.qmd
+            - type: Slides
+              href: slides/math141_wk12mon.qmd
         - topic: "Inference for regression III"
           display-date: Wednesday, Nov 26
           date: 11/26/25

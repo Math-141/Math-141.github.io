@@ -1,0 +1,721 @@
+---
+pagetitle: "Inference for Regression I: Quantitative Predictors"
+editor: source
+format: 
+  revealjs:
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: false
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE, 
+                      fig.retina = 3, fig.align = 'center')
+options(digits = 2)
+library(knitr)
+library(tidyverse)
+library(ggthemes)
+library(moderndive)
+library(gapminder)
+library(infer)
+library(gridExtra)
+library(kableExtra)
+theme_set(theme_bw())
+
+set.seed(100)
+theses <- read_csv("../../Pearce_Fall2024/Lecture Materials/Data/theses.csv") %>% drop_na(n_pages, year) 
+theses_samp <- theses %>% sample_n(size = 100)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Inference for Regression II]{.custom-title}
+
+<br> <br> 
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 11 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+### Goals for Today
+
+::: columns
+::: column
+
+-   Brief review of theory-based inference for regression
+:::
+
+::: column
+-   Learn simulation-based inference for regression
+:::
+:::
+
+------------------------------------------------------------------------
+
+## Example for Today: Forest Service data in Oregon
+
+Today, we'll use data from the US Forest Service, Forest Inventory & Analysis Program.
+
+
+:::: {.columns}
+
+::: {.column width=50%}
+![](img/usfs.png)
+:::
+
+::: {.column width=50%}
+![](img/fia.gif)
+:::
+
+::::
+
+```{r}
+library(saeczi)
+oregon <- saeczi::samp %>%
+  rename(biomass = DRYBIO_AG_TPA_live_ADJ,
+         county = COUNTYFIPS,
+         canopy_cover = tcc16) %>%
+  mutate(biomass = biomass^.5) %>%
+  filter(biomass > 0)
+```
+
+-   The FIA program collects forest **plot** data on forest attributes across the United States. 
+-   They also rely on remotely sensed data to model relationships between forest variables and remotely sensed variables. 
+-   Each row in our dataset represents a plot. We include a forest variable (biomass) and remotely sensed predictors.
+
+
+
+------------------------------------------------------------------------
+
+## Example for Today: Forest Service data in Oregon
+
+```{r}
+#| echo: true
+head(oregon)
+```
+
+
+
+
+------------------------------------------------------------------------
+
+
+## Oregon biomass data: EDA
+
+
+```{r}
+#| output-location: column
+#| echo: true
+oregon %>% 
+  ggplot(aes(x = canopy_cover, y = biomass)) + 
+  theme_bw() +
+  geom_point() +
+  labs(title = "FIA plots in Oregon", 
+       x = "Tree canopy cover (x)", 
+       y = "Biomass (y)")
+```
+
+------------------------------------------------------------------------
+
+## Recall: Linear Models in R
+
+Fit a linear model to our data using `lm()`
+```{r}
+#| echo: true
+biomass_mod <- lm(biomass ~ canopy_cover, data = oregon)
+```
+
+::: {.fragment}
+View coefficients of the model using `get_regression_table()`
+```{r}
+#| echo: true
+get_regression_table(biomass_mod)
+```
+:::
+
+------------------------------------------------------------------------
+
+## Plotting a Regression Line
+
+Let's add the regression line to our plot from before:
+
+```{r}
+#| fig-height: 5
+#| fig-width: 10
+oregon %>% 
+  ggplot(aes(x = canopy_cover, y = biomass)) + 
+  theme_bw() +
+  geom_point() +
+  geom_smooth(method = "lm") + 
+  labs(title = "FIA plots in Oregon", 
+       x = "Tree canopy cover (x)", 
+       y = "Biomass (y)")
+```
+
+------------------------------------------------------------------------
+
+## Recall: Linear Regression Assumptions {.smaller}
+
+We can *always* find the line of best fit to explore data, but...
+
+
+:::{.fragment}
+**To make accurate predictions or inferences, certain conditions should be met.**
+:::
+
+:::{.fragment}
+To responsibly use linear regression tools for prediction or inference, we require:
+:::
+
+:::{.fragment .nonincremental}
+1. **Linearity:** The relationship between explanatory and response variables must be approximately linear
+    
+    - Check using scatterplot of data, or residual plot
+::: 
+
+:::{.fragment .nonincremental}
+2. **Independence:** The observations should be independent of one another.
+
+    - Can check by considering data context, and
+    - by looking at residual scatterplots too
+::: 
+
+:::{.fragment .nonincremental}
+3. **Normality:** The distribution of residuals should be *approximately* bell-shaped, unimodal, symmetric, and centered at 0 at every "slice" of the explanatory variable
+
+    - Simple check: look at histogram of residuals
+    - Better to use a "Q-Q plot" 
+:::  
+
+:::{.fragment .nonincremental}
+4. **Equal Variability:** Variance of residuals should be roughly constant across data set. Also called "homoscedasticity". Models that violate this assumption are sometimes called "heteroscedastic"
+    
+    - Check using residual plot.
+:::  
+------------------------------------------------------------------------
+
+## 1) Linearity
+
+**Linearity:** The relationship between explanatory and response variables must be approximately linear.
+
+```{r}
+#| echo: true
+library(gglm)
+ggplot(biomass_mod) + 
+  stat_fitted_resid()
+```
+
+::: {.fragment}
+**I think this assumption has been met.**
+:::
+
+------------------------------------------------------------------------
+
+## 2) Independent Observations
+
+**Independence:** The observations should be "independent" of one another, after accounting for the variables in the model.
+
+
+::: {.fragment}
+Each FIA plot location is selected randomly, and we have **essentially** a simple random sample of plots. Because of this...
+:::
+
+
+::: {.fragment}
+**I think this assumption has been met.**
+:::
+
+------------------------------------------------------------------------
+
+## 3) Normality (of Residuals)
+
+**Normality of Residuals:** The residuals should follow a normal distribution.
+
+```{r}
+#| echo: true
+#| output-location: column
+library(patchwork)
+p1 <- ggplot(biomass_mod) + 
+  stat_resid_hist()
+
+p2 <- ggplot(biomass_mod) + 
+  stat_normal_qq()
+
+p1 + p2
+```
+
+
+- Residuals aren't *quite* Normal (right-skew, high outliers)
+- Don't discard all conclusions, but be skeptical in them.
+
+
+::: {.fragment}
+**I *don't* think this assumption has been met.**
+:::
+
+------------------------------------------------------------------------
+
+## 4) Equal Variability (of Residuals)
+
+**Equal Variability:** Variance of residuals should be roughly constant across data set.
+
+```{r}
+#| echo: true
+#| output-location: column
+ggplot(biomass_mod) + 
+  stat_fitted_resid()
+```
+
+- There seems to be non-constant variability
+- As canopy cover increases, the variance of the residuals increases.
+
+::: {.fragment}
+**I think this assumption is *not met*.**
+:::
+
+------------------------------------------------------------------------
+
+## Conducting CLT-based inference {.smaller}
+
+
+```{r}
+get_regression_table(biomass_mod)
+```
+
+::: {.fragment}
+
+**Hypothesis testing:**
+
+$H_o: \beta_o = 0$, $H_A: \beta_o \neq 0$, and 
+
+$H_o: \beta_1 = 0$, $H_A: \beta_1 \neq 0$.
+
+:::
+
+::: {.fragment}
+
+**Estimation:**
+
+We are 95\% confident that the true parameter for the intercept, $\beta_o$, is between 1.152 and 2.38.
+
+We are 95\% confident that the true parameter for the slope, $\beta_1$, is between 0.099 and 0.12.
+
+-   **Bonus**: for different confidence levels, you can set `conf.level` in `get_regression_table()`!
+
+:::
+
+::: {.fragment}
+
+
+```{r}
+#| echo: true
+get_regression_table(biomass_mod, conf.level = 0.8)
+```
+
+
+:::
+
+
+# But these results depend on all LINE conditions being met! 
+
+::: {.fragment}
+...and they weren't
+:::
+
+# Simulation-based inference for regression
+
+
+## Conducting simulation-based inference for regression
+
+We can use bootstrap methods (and permutation) to help us do simulation-based inference for regression. 
+
+This approach is very flexible:
+
+::: {.fragment}
+- Only requires Linearity and Independence.
+    - Residuals **do not** need to be normally distributed or have equal variability!
+- Needs some extra code (we get to use `infer`!)
+:::
+
+------------------------------------------------------------------------
+
+
+
+## Simulation-Based Inference for Regression
+
+To conduct valid inference on regression parameters using simulation-based methods, we need:
+
+- Linearity
+- Independence
+- A "bigger" sample size
+
+::: {.fragment}
+- **Same types of inference**, just no "theory-based sampling distribution"
+:::
+
+------------------------------------------------------------------------
+
+## Bootstrapping in Regression
+
+To approximate variability in our regression coefficients, $\hat\beta_0$ and $\hat\beta_1$ for this simple linear regression example, we bootstrap our sample!
+
+::: {.nonincremental}
+- i.e., we sample, with replacement, rows from our original data.
+- For each bootstrap sample, we calculate a new linear model
+:::
+
+:::: {.columns}
+
+::: {.column width=40%}
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+oregon %>% 
+  specify(biomass ~ canopy_cover) %>% 
+  generate(
+    reps = 1,
+    type = "bootstrap"
+    ) 
+```
+
+```{r}
+#| echo: false
+set.seed(11)
+samp1 <- oregon %>% 
+  specify(biomass ~ canopy_cover) %>% 
+  generate(1, type = "bootstrap") 
+```
+
+:::
+
+::: {.column width=60%}
+
+```{r}
+b1 <- biomass_mod$coefficients[2]
+b0 <- biomass_mod$coefficients[1]
+ggplot(samp1, aes(x = canopy_cover, y = biomass, group = replicate)) +
+  geom_point(alpha = 1, size = 2) +
+  geom_abline(slope = b1, intercept = b0, color = "red", size = 1.25) +
+  geom_smooth(method = "lm", se = FALSE, size = 1.25) +
+  theme_bw(base_size = 14) +
+  labs(x = "Tree canopy cover (x)", y = "Biomass (y)")
+```
+
+
+
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+**Red line:** Original regression line
+
+:::
+
+::: {.column width=50%}
+
+**Blue line:** Bootstrap regression line
+
+:::
+
+::::
+
+------------------------------------------------------------------------
+
+## Bootstrapping in Regression
+
+To approximate variability in our regression coefficients, $\hat\beta_0$ and $\hat\beta_1$ for this simple linear regression example, we bootstrap our sample!
+
+::: {.nonincremental}
+- i.e., we sample, with replacement, rows from our original data.
+- For each bootstrap sample, we calculate a new linear model
+:::
+
+:::: {.columns}
+
+::: {.column width=40%}
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+oregon %>% 
+  specify(biomass ~ canopy_cover) %>% 
+  generate(
+    reps = 2, 
+    type = "bootstrap"
+    ) 
+```
+
+```{r}
+#| echo: false
+set.seed(11)
+samp2 <- oregon %>% 
+  specify(biomass ~ canopy_cover) %>% 
+  generate(2, type = "bootstrap") 
+```
+
+:::
+
+::: {.column width=60%}
+
+```{r}
+ggplot(samp2, aes(x = canopy_cover, y = biomass, group = replicate)) +
+  geom_point(alpha = 1, size = 2) +
+  geom_abline(slope = b1, intercept = b0, color = "red", size = 1.25) +
+  geom_smooth(method = "lm", se = FALSE, size = 1.25) +
+  labs(title = "Two Bootstrap Samples") +
+  theme_bw(base_size = 14) +
+  labs(x = "Tree canopy cover (x)", y = "Biomass (y)")
+```
+
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+**Red line:** Original regression line
+
+:::
+
+::: {.column width=50%}
+
+**Blue line:** Bootstrap regression line
+
+:::
+
+::::
+
+------------------------------------------------------------------------
+
+## Bootstrapping in Regression
+
+To approximate variability in our regression coefficients, $\hat\beta_0$ and $\hat\beta_1$ for this simple linear regression example, we bootstrap our sample!
+
+::: {.nonincremental}
+- i.e., we sample, with replacement, rows from our original data.
+- For each bootstrap sample, we calculate a new linear model
+:::
+
+:::: {.columns}
+
+::: {.column width=40%}
+
+```{r}
+#| echo: true
+#| eval: false
+#| code-line-numbers: false
+oregon %>% 
+  specify(biomass ~ canopy_cover) %>% 
+  generate(
+    reps = 1000,
+    type = "bootstrap"
+    ) 
+```
+
+```{r}
+#| echo: false
+set.seed(11)
+samp20 <- oregon %>% 
+  specify(biomass ~ canopy_cover) %>% 
+  generate(1000, type = "bootstrap") 
+```
+
+:::
+
+::: {.column width=60%}
+
+```{r}
+ggplot(samp20, aes(x = canopy_cover, y = biomass, group = replicate)) +
+  geom_point(alpha = 0.5, size = 2) +
+  geom_abline(slope = b1, intercept = b0, color = "red", size = 1.25) +
+  geom_line(stat = "smooth", method = "lm", se = FALSE, 
+            size = 1.25, alpha = 0.01, color = "blue") +
+  labs(title = "Many Bootstrap Samples") +
+  theme_bw(base_size = 14) +
+  labs(x = "Tree canopy cover (x)", y = "Biomass (y)")
+```
+
+
+
+:::
+
+::::
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+**Red line:** Original regression line
+
+:::
+
+::: {.column width=50%}
+
+**Blue line:** Bootstrap regression line
+
+:::
+
+::::
+
+------------------------------------------------------------------------
+
+### Full `infer` workflow: bootstrapping sampling distributions for coefficients
+
+```{r}
+#| echo: true
+boot_coefs <- oregon %>% # data
+  specify(biomass ~ canopy_cover) %>% # linear regression model
+  generate(
+    reps = 1000, # number of bootstraps
+    type = "bootstrap" 
+    ) %>% 
+  fit() # new function! fits the regrssion models on each bootstrap sample
+
+head(boot_coefs)
+nrow(boot_coefs) # number of rows = reps * coefficients 
+```
+
+------------------------------------------------------------------------
+
+## Confidence intervals
+
+We use the bootstrap distributions to produce confidence intervals. 
+
+```{r}
+visualize(boot_coefs)
+```
+
+------------------------------------------------------------------------
+
+## Confidence intervals
+
+For the **intercept**: 
+```{r}
+#| echo: true
+#| output-location: column
+ci_intercept <- boot_coefs %>% 
+  ungroup() %>% # by default, infer groups by rep so we need to ungroup
+  filter(term == "intercept") %>% # keep only the intercept
+  summarize(
+    lower = quantile(estimate, probs = 0.025),
+    upper = quantile(estimate, probs = 0.975)
+  )
+ci_intercept
+
+visualize(boot_coefs)
+```
+
+
+------------------------------------------------------------------------
+
+## Confidence intervals
+
+For  **slopes**: 
+```{r}
+#| echo: true
+#| output-location: column
+ci_coef <- boot_coefs %>% 
+  ungroup() %>% # by default, infer groups by rep so we need to ungroup
+  filter(term == "canopy_cover") %>% # keep only the coefficient you are interested in
+  summarize(
+    lower = quantile(estimate, probs = 0.025),
+    upper = quantile(estimate, probs = 0.975)
+  )
+ci_coef
+
+visualize(boot_coefs)
+```
+
+------------------------------------------------------------------------
+
+
+
+## Hypothesis Tests
+
+Let's conduct our standard regrssion hypothesis tests:
+$$H_o: \beta_o=0 \qquad H_a: \beta_0 \neq 0$$ 
+and
+
+$$H_o: \beta_1=0 \qquad H_a: \beta_1 \neq 0$$ 
+
+
+```{r}
+#| echo: true
+
+obs_stats <- oregon %>%
+  specify(biomass ~ canopy_cover) %>% 
+  fit() 
+
+obs_stats
+```
+
+
+------------------------------------------------------------------------
+
+## Hypothesis Tests
+
+Generating the null distribution: use permutation
+
+```{r}
+#| echo: true
+null <- oregon %>% 
+  specify(biomass ~ canopy_cover) %>% 
+  hypothesize(null = "independence") %>%
+  generate(reps = 1000, type = "permute") %>% 
+  fit() 
+
+null %>%
+  get_p_value(obs_stat = obs_stats, direction = "both")
+```
+
+
+------------------------------------------------------------------------
+
+
+## Hypothesis Tests
+
+Visualizing the null distribution and observed statistics
+
+```{r}
+#| echo: true
+visualize(null) + 
+  shade_p_value(obs_stat = obs_stats, direction = "both")
+```
+
+# Next time: Inference for regression with categorical variables
