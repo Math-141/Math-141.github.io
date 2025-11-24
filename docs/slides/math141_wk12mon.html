@@ -201,10 +201,10 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Inference for Regression II</span></p>
-<p><br> <br></p>
+<p><span class="custom-title">Regression Inference II</span></p>
+<p><br> <br> <br> <br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
-<p><span class="custom-subtitle">Math 141 <br> Week 11 | Fall 2025</span></p>
+<p><span class="custom-subtitle">Math 141 <br> Week 12 | Fall 2025</span></p>
 </div></div>
 </section>
 <section class="slide level2">
@@ -726,16 +726,43 @@
 </div>
 </div></div>
 </section>
+<section id="comparing-confidence-intervals" class="slide level2">
+<h2>Comparing confidence intervals</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>ci_intercept</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  lower upper
+  &lt;dbl&gt; &lt;dbl&gt;
+1  1.22  2.31</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>ci_coef</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+   lower upper
+   &lt;dbl&gt; &lt;dbl&gt;
+1 0.0990 0.121</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">get_regression_table</span>(biomass_mod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 7
+  term         estimate std_error statistic p_value lower_ci upper_ci
+  &lt;chr&gt;           &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;
+1 intercept        1.76     0.312      5.66       0    1.15     2.38 
+2 canopy_cover     0.11     0.006     19.6        0    0.099    0.122</code></pre>
+</div>
+</div>
+</section>
 <section id="hypothesis-tests" class="slide level2">
 <h2>Hypothesis Tests</h2>
 <p>Let’s conduct our standard regrssion hypothesis tests: <span class="math display">\[H_o: \beta_o=0 \qquad H_a: \beta_0 \neq 0\]</span> and</p>
 <p><span class="math display">\[H_o: \beta_1=0 \qquad H_a: \beta_1 \neq 0\]</span></p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a>obs_stats <span class="ot">&lt;-</span> oregon <span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a></a>  <span class="fu">specify</span>(biomass <span class="sc">~</span> canopy_cover) <span class="sc">%&gt;%</span> </span>
-<span id="cb26-3"><a></a>  <span class="fu">fit</span>() </span>
-<span id="cb26-4"><a></a></span>
-<span id="cb26-5"><a></a>obs_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a>obs_stats <span class="ot">&lt;-</span> oregon <span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a></a>  <span class="fu">specify</span>(biomass <span class="sc">~</span> canopy_cover) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a></a>  <span class="fu">fit</span>() </span>
+<span id="cb32-4"><a></a></span>
+<span id="cb32-5"><a></a>obs_stats</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   term         estimate
@@ -749,14 +776,14 @@
 <h2>Hypothesis Tests</h2>
 <p>Generating the null distribution: use permutation</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a>null <span class="ot">&lt;-</span> oregon <span class="sc">%&gt;%</span> </span>
-<span id="cb28-2"><a></a>  <span class="fu">specify</span>(biomass <span class="sc">~</span> canopy_cover) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-3"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb28-4"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb28-5"><a></a>  <span class="fu">fit</span>() </span>
-<span id="cb28-6"><a></a></span>
-<span id="cb28-7"><a></a>null <span class="sc">%&gt;%</span></span>
-<span id="cb28-8"><a></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> obs_stats, <span class="at">direction =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a>null <span class="ot">&lt;-</span> oregon <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a></a>  <span class="fu">specify</span>(biomass <span class="sc">~</span> canopy_cover) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-3"><a></a>  <span class="fu">hypothesize</span>(<span class="at">null =</span> <span class="st">"independence"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-4"><a></a>  <span class="fu">generate</span>(<span class="at">reps =</span> <span class="dv">1000</span>, <span class="at">type =</span> <span class="st">"permute"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-5"><a></a>  <span class="fu">fit</span>() </span>
+<span id="cb34-6"><a></a></span>
+<span id="cb34-7"><a></a>null <span class="sc">%&gt;%</span></span>
+<span id="cb34-8"><a></a>  <span class="fu">get_p_value</span>(<span class="at">obs_stat =</span> obs_stats, <span class="at">direction =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 2 × 2
   term         p_value
@@ -770,16 +797,119 @@
 <h2>Hypothesis Tests</h2>
 <p>Visualizing the null distribution and observed statistics</p>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="fu">visualize</span>(null) <span class="sc">+</span> </span>
-<span id="cb30-2"><a></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> obs_stats, <span class="at">direction =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a></a><span class="fu">visualize</span>(null)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="math141_wk12mon_files/figure-revealjs/unnamed-chunk-28-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+<p><img data-src="math141_wk12mon_files/figure-revealjs/unnamed-chunk-29-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
+<div class="fragment">
+<p><strong>What’s wrong here?</strong></p>
+</div>
+</section>
+<section id="hypothesis-tests-3" class="slide level2">
+<h2>Hypothesis Tests</h2>
+<p>Visualizing the null distribution and observed statistics</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a></a><span class="fu">visualize</span>(null) <span class="sc">+</span> </span>
+<span id="cb37-2"><a></a>  <span class="fu">shade_p_value</span>(<span class="at">obs_stat =</span> obs_stats, <span class="at">direction =</span> <span class="st">"both"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk12mon_files/figure-revealjs/unnamed-chunk-30-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="fragment">
+<p><strong>What’s wrong here?</strong></p>
+</div>
+</section>
+<section id="hypothesis-tests-for-the-intercept" class="slide level2">
+<h2>Hypothesis Tests for the intercept</h2>
+<p>Visualizing the null distribution for the intercept “by hand”:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a></a>null <span class="sc">%&gt;%</span> </span>
+<span id="cb38-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"intercept"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb38-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate)) <span class="sc">+</span> </span>
+<span id="cb38-4"><a></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk12mon_files/figure-revealjs/unnamed-chunk-31-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-tests-for-the-intercept-1" class="slide level2">
+<h2>Hypothesis Tests for the intercept</h2>
+<p>Visualizing the null distribution for the intercept “by hand”:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a></a>null <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"intercept"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb39-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate <span class="sc">-</span> <span class="fu">mean</span>(estimate))) <span class="sc">+</span> </span>
+<span id="cb39-4"><a></a>  <span class="fu">geom_histogram</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk12mon_files/figure-revealjs/unnamed-chunk-32-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-tests-for-the-intercept-2" class="slide level2">
+<h2>Hypothesis Tests for the intercept</h2>
+<p>Visualizing the null distribution and observed statistics, for the intercept, “by hand”:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a></a>null <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"intercept"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate <span class="sc">-</span> <span class="fu">mean</span>(estimate))) <span class="sc">+</span> </span>
+<span id="cb40-4"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb40-5"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> obs_stats<span class="sc">$</span>estimate[<span class="dv">1</span>], <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb40-6"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="sc">-</span>obs_stats<span class="sc">$</span>estimate[<span class="dv">1</span>], <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk12mon_files/figure-revealjs/unnamed-chunk-33-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="hypothesis-tests-4" class="slide level2">
+<h2>Hypothesis Tests</h2>
+<p>Visualizing the null distribution and observed statistics, for the intercept:</p>
+<div class="cell columns column-output-location" data-layout-align="center">
+<div class="column">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a></a>p1 <span class="ot">&lt;-</span> null <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"intercept"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate <span class="sc">-</span> <span class="fu">mean</span>(estimate))) <span class="sc">+</span> </span>
+<span id="cb41-4"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb41-5"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> obs_stats<span class="sc">$</span>estimate[<span class="dv">1</span>], <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb41-6"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="sc">-</span>obs_stats<span class="sc">$</span>estimate[<span class="dv">1</span>], <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb41-7"><a></a></span>
+<span id="cb41-8"><a></a>p2 <span class="ot">&lt;-</span> null <span class="sc">%&gt;%</span> </span>
+<span id="cb41-9"><a></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">"canopy_cover"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb41-10"><a></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> estimate)) <span class="sc">+</span> </span>
+<span id="cb41-11"><a></a>  <span class="fu">geom_histogram</span>() <span class="sc">+</span> </span>
+<span id="cb41-12"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> obs_stats<span class="sc">$</span>estimate[<span class="dv">2</span>], <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span> </span>
+<span id="cb41-13"><a></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="sc">-</span>obs_stats<span class="sc">$</span>estimate[<span class="dv">2</span>], <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">size =</span> <span class="dv">2</span>)</span>
+<span id="cb41-14"><a></a></span>
+<span id="cb41-15"><a></a>p1 <span class="sc">/</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div><div class="column">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="math141_wk12mon_files/figure-revealjs/unnamed-chunk-34-1.png" class="quarto-figure quarto-figure-center" width="960"></p>
+</figure>
+</div>
+</div>
+</div></div>
 </section></section>
 <section id="next-time-inference-for-regression-with-categorical-variables" class="title-slide slide level1 center">
 <h1>Next time: Inference for regression with categorical variables</h1>

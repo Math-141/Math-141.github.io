@@ -52,13 +52,13 @@ theses_samp <- theses %>% sample_n(size = 100)
 ::: {.column .center width="40%"}
 <br>
 
-[Inference for Regression II]{.custom-title}
+[Regression Inference II]{.custom-title}
 
-<br> <br> 
+<br> <br> <br> <br> <br> 
 
 [Grayson White]{.custom-subtitle}
 
-[Math 141 <br> Week 11 \| Fall 2025]{.custom-subtitle}
+[Math 141 <br> Week 12 \| Fall 2025]{.custom-subtitle}
 :::
 :::::
 
@@ -665,6 +665,20 @@ visualize(boot_coefs)
 ------------------------------------------------------------------------
 
 
+## Comparing confidence intervals
+
+
+```{r}
+#| echo: true
+ci_intercept
+ci_coef
+get_regression_table(biomass_mod)
+
+```
+
+------------------------------------------------------------------------
+
+
 
 ## Hypothesis Tests
 
@@ -714,8 +728,108 @@ Visualizing the null distribution and observed statistics
 
 ```{r}
 #| echo: true
+visualize(null)
+```
+
+::: {.fragment}
+
+**What's wrong here?**
+
+:::
+
+
+------------------------------------------------------------------------
+
+## Hypothesis Tests
+
+Visualizing the null distribution and observed statistics
+
+```{r}
+#| echo: true
 visualize(null) + 
   shade_p_value(obs_stat = obs_stats, direction = "both")
+```
+
+::: {.fragment}
+
+**What's wrong here?**
+
+:::
+
+
+------------------------------------------------------------------------
+
+## Hypothesis Tests for the intercept
+
+Visualizing the null distribution for the intercept "by hand":
+
+```{r}
+#| echo: true
+
+null %>% 
+  filter(term == "intercept") %>%
+  ggplot(aes(x = estimate)) + 
+  geom_histogram()
+```
+
+------------------------------------------------------------------------
+
+
+## Hypothesis Tests for the intercept
+
+Visualizing the null distribution for the intercept "by hand":
+
+```{r}
+#| echo: true
+
+null %>% 
+  filter(term == "intercept") %>%
+  ggplot(aes(x = estimate - mean(estimate))) + 
+  geom_histogram()
+```
+
+------------------------------------------------------------------------
+
+## Hypothesis Tests for the intercept
+
+Visualizing the null distribution and observed statistics, for the intercept, "by hand":
+
+```{r}
+#| echo: true
+
+null %>% 
+  filter(term == "intercept") %>%
+  ggplot(aes(x = estimate - mean(estimate))) + 
+  geom_histogram() + 
+  geom_vline(xintercept = obs_stats$estimate[1], color = "red", size = 2) + 
+  geom_vline(xintercept = -obs_stats$estimate[1], color = "red", size = 2)
+```
+
+------------------------------------------------------------------------
+
+## Hypothesis Tests
+
+Visualizing the null distribution and observed statistics, for the intercept:
+
+```{r}
+#| echo: true
+#| output-location: column
+
+p1 <- null %>% 
+  filter(term == "intercept") %>%
+  ggplot(aes(x = estimate - mean(estimate))) + 
+  geom_histogram() + 
+  geom_vline(xintercept = obs_stats$estimate[1], color = "red", size = 2) + 
+  geom_vline(xintercept = -obs_stats$estimate[1], color = "red", size = 2)
+
+p2 <- null %>% 
+  filter(term == "canopy_cover") %>%
+  ggplot(aes(x = estimate)) + 
+  geom_histogram() + 
+  geom_vline(xintercept = obs_stats$estimate[2], color = "red", size = 2) + 
+  geom_vline(xintercept = -obs_stats$estimate[2], color = "red", size = 2)
+
+p1 / p2
 ```
 
 # Next time: Inference for regression with categorical variables
