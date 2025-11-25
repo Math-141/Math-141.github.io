@@ -9,10 +9,14 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   no new reading today.
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+Explain how to do the following inference tasks both with the CLT-based method and the simulation-based method: 
+
+-   Creating and interpreting a 90% confidence interval for $\beta_1$ in the regression equation $y = \beta_o + \beta_1 x_1 + \beta_2 x_2 + \epsilon$,
+-   Carrying out the hypothesis test $H_o: \beta_1 = 0$, $H_A: \beta_1 \neq 0$ at the $\alpha = 0.1$ in the same regression model,
+-   Finally, connect the results from the hypothesis test to the bounds of the interval you described. What will be true about the bounds of the interval if we fail to reject $H_o$?
