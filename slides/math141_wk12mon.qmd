@@ -1,5 +1,5 @@
 ---
-pagetitle: "Inference for Regression I: Quantitative Predictors"
+pagetitle: "Inference for Regression II"
 editor: source
 format: 
   revealjs:
@@ -38,10 +38,6 @@ library(infer)
 library(gridExtra)
 library(kableExtra)
 theme_set(theme_bw())
-
-set.seed(100)
-theses <- read_csv("../../Pearce_Fall2024/Lecture Materials/Data/theses.csv") %>% drop_na(n_pages, year) 
-theses_samp <- theses %>% sample_n(size = 100)
 ```
 
 ::::: columns
