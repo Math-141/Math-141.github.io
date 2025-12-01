@@ -399,7 +399,7 @@ scheduled-docs:
       #   - 'Some text'
     - week: 13
       days:
-        - topic: "Inference for regression III and ANOVA"
+        - topic: "ANOVA (and wrap up inference for regression)"
           display-date: Monday, Dec 1
           date: 12/1/25
           docs:
@@ -407,7 +407,7 @@ scheduled-docs:
               href: readings/readings_wk13mon.qmd
             - type: Slides
               href: slides/math141_wk13mon.qmd
-        - topic: "Chi-squared tests"
+        - topic: "Chi-squared test of independence"
           display-date: Wednesday, Dec 3
           date: 12/3/25
           docs:
@@ -415,13 +415,13 @@ scheduled-docs:
               href: readings/readings_wk13wed.qmd
             - type: Slides
               href: slides/math141_wk13wed.qmd
-        - topic: "Lab: Inference for regression/ANOVA/Chi-squared tests"
+        - topic: "Lab: Advanced topics in inference (regression, ANOVA, and chi-squared tests)"
           display-date: Thursday, Dec 4
           date: 12/4/25
           docs:
             - type: Lab
               href: labs/lab_10.qmd
-        - topic: "Chi-squared tests"
+        - topic: "Inference: big picture"
           display-date: Friday, Dec 5
           date: 12/5/25
           docs:
@@ -433,7 +433,7 @@ scheduled-docs:
       #   - 'Some text'
     - week: 14
       days:
-        - topic: "A model for categorical response variables"
+        - topic: "A model for binary categorical response variables"
           display-date: Monday, Dec 8
           date: 12/8/25
           docs:
