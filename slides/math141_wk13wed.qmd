@@ -436,4 +436,3 @@ chisq_test(eye_data, Eye ~ Lighting)
 
 -   Causal link between room lighting at bedtime and eye conditions?
 
--   Decisions, decisions...

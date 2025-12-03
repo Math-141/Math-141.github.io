@@ -9,10 +9,30 @@ editor: source
 
 Before coming to lecture today, please read the following material: 
 
--   
+-   no new reading today.
 
 ## Homework Assignment
 
 After you've completed the reading, but before coming to class, please complete the following homework assignment. Bring your responses to this assignment (handwritten or typed) to class on a piece of paper: 
 
--   
+Consider a multiple linear regression model for a sample of 200 trees on Reed's campus: 
+
+$$
+y = \beta_o + \beta_1 x_1 + \beta_2 x_2 + \epsilon
+$$
+
+Here, $y$ represents the height of a tree, $x_1$ represents the diameter of the tree, and $x_2$ takes the value 1 if the tree is evergreen and 0 otherwise. Suppose we fit the model and get the following: 
+
+$$
+\hat{y} = 10 + 40x_1 - 3x_2.
+$$
+
+(a) Precisely interpret each of the coefficients in the context of the data (for this question, don't worry about units). 
+
+(b) Suppose we would like to test if $\beta_2 = 0$. 
+
+    - Does the magnitude of its coefficient help us determine whether or not it is significant? Why or why not? 
+    
+    - Suppose, after checking and satisfying the necessary assumptions, we find that the observed test statistic, $t^*$, is -4. Without performing any calculations, is this significant at the $\alpha = 0.05$ level? Why or why not? Feel free to draw a picture. 
+    
+    - Using R, calculate the p-value for the test. 
