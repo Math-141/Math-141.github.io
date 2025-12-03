@@ -1,0 +1,13 @@
+---
+title: "Math 141: Lab 10"
+format: html
+editor: source
+toc: false
+---
+
+
+## Lab 10
+
+Please clone the following repository to access the lab. 
+
+**https://github.com/Math-141/lab10.git**
