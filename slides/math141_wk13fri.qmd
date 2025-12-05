@@ -77,7 +77,7 @@ library(palmerpenguins)
 ::: {.incremental}
 
 -   Our final will occur on during finals week. 
--   **Two components**: a take-home written exam, and an in-person oral exam
+-   **Two components**: an in-person written exam, and an in-person oral exam
 -   **Oral component** 
     -   To be completed on Monday or Tuesday of finals week (Dec 15 or 16), in Library 390 (my office). 
     -   No resources are allowed for the oral exam, except for your final exam review problems.
