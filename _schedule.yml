@@ -427,8 +427,8 @@ scheduled-docs:
           docs:
             - type: Reading + HW
               href: readings/readings_wk13fri.qmd
-            # - type: Slides
-            #   href: slides/math141_wk13fri.qmd
+            - type: Slides
+              href: slides/math141_wk13fri.qmd
       resources:
         - '<a href="https://calendar.app.google/cUfa8N1bafKrTetVA">Sign up for a final oral exam slot</a>'
     - week: 14
