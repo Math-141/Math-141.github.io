@@ -98,7 +98,7 @@ library(palmerpenguins)
 
 -   **Written component** 
     -   Will occur in Vollum Lecture Hall, on Wednesday, December 17, from 6pm - 9pm.  
-    -   The exam is **closed book/notes/resources**, except for the following materials: content on the course website, an 8.5"x11" "cheatsheet" (this must be on a physical peice of paper out but does not need to be handwritten). You can also use the `R` help files (for example, by running `?function_name` in the console).
+    -   The exam is **closed book/notes/resources**, except for the following materials: content on the course website, an 8.5"x11" "cheatsheet" (this must be on a physical piece of paper out but does not need to be handwritten). You can also use the `R` help files (for example, by running `?function_name` in the console).
     -   You have **3 hours** to complete the written component of the exam. You must use this time consecutively. 
     -   You may **not** collaborate or consult with others about the exam. You may not use generative AI or any resources outside of the ones listed above. 
     
