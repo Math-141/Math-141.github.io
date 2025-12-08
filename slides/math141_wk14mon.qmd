@@ -618,7 +618,7 @@ $$\widehat{P(Y = 1)} < 0.5 \rightarrow \hat{y} = 0$$
 ### Prediction Accuracy
 
 ```{r}
-preds <- predict.glm(mod, newdata = forested, type = "response")
+preds <- predict(mod, newdata = forested, type = "response")
 head(preds)
 ```
 

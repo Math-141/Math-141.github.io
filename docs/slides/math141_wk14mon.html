@@ -650,7 +650,7 @@ Y =   \left\{
 
 <h3 id="prediction-accuracy">Prediction Accuracy</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>preds <span class="ot">&lt;-</span> <span class="fu">predict.glm</span>(mod, <span class="at">newdata =</span> forested, <span class="at">type =</span> <span class="st">"response"</span>)</span>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a>preds <span class="ot">&lt;-</span> <span class="fu">predict</span>(mod, <span class="at">newdata =</span> forested, <span class="at">type =</span> <span class="st">"response"</span>)</span>
 <span id="cb9-2"><a></a><span class="fu">head</span>(preds)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        1         2         3         4         5         6 
