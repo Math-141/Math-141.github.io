@@ -1,5 +1,5 @@
 scheduled-docs:
-  draft-after: 12/9/25
+  draft-after: 12/10/25
   timezone: "-08:00"
   autonav:
     hybrid:
@@ -439,8 +439,8 @@ scheduled-docs:
           docs:
             - type: Reading + HW
               href: readings/readings_wk14mon.qmd
-            # - type: Slides
-            #   href: slides/math141_wk14mon.qmd
+            - type: Slides
+              href: slides/math141_wk14mon.qmd
         - topic: "Lab: Exam Review"
           display-date: Tuesday, Dec 9
           date: 12/9/25
@@ -453,7 +453,7 @@ scheduled-docs:
           docs:
             - type: Reading + HW
               href: readings/readings_wk14wed.qmd
-            - type: Slides
-              href: slides/math141_wk14wed.qmd
+            # - type: Slides
+            #   href: slides/math141_wk14wed.qmd
       # resources:
       #   - 'Some text'
