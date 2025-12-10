@@ -141,14 +141,14 @@ knitr::include_graphics("img/broman-tweet.png")
 
 **Assert a model (i.e., state the null hypothesis)**
 
-::: {.nonincremental}
+::: {.incremental}
 - $H_o$: I have $N_{pairs}$ pairs of socks and $N_{singles}$ singletons. The first 11 socks that I pull out of the machine are a random sample from this population.
 :::
 
 ::: {.fragment}
 **Decide on a test statistic**
 
-::: {.nonincremental}
+::: {.incremental}
 - The number of singletons in the sample: 11.
 :::
 :::
@@ -725,7 +725,7 @@ Bayesian methods . . .
 
 ```{r}
 #| echo: false
-#| out-width: "40%"
+#| out-width: "35%"
 knitr::include_graphics("img/supernova.png")
 ```
 

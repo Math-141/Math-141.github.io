@@ -290,14 +290,14 @@
 <p><strong>Assert a model (i.e., state the null hypothesis)</strong></p>
 <div>
 <ul>
-<li><span class="math inline">\(H_o\)</span>: I have <span class="math inline">\(N_{pairs}\)</span> pairs of socks and <span class="math inline">\(N_{singles}\)</span> singletons. The first 11 socks that I pull out of the machine are a random sample from this population.</li>
+<li class="fragment"><span class="math inline">\(H_o\)</span>: I have <span class="math inline">\(N_{pairs}\)</span> pairs of socks and <span class="math inline">\(N_{singles}\)</span> singletons. The first 11 socks that I pull out of the machine are a random sample from this population.</li>
 </ul>
 </div>
 <div class="fragment">
 <p><strong>Decide on a test statistic</strong></p>
 <div>
 <ul>
-<li>The number of singletons in the sample: 11.</li>
+<li class="fragment">The number of singletons in the sample: 11.</li>
 </ul>
 </div>
 </div>
@@ -374,7 +374,7 @@
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>picked_socks <span class="ot">&lt;-</span> <span class="fu">sample</span>(socks, <span class="at">size =</span> <span class="dv">11</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb4-2"><a></a>picked_socks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "E" "G" "I" "J" "K" "p" "l" "K" "A" "m" "F"</code></pre>
+<pre><code> [1] "H" "J" "B" "F" "H" "n" "m" "C" "A" "D" "A"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -383,17 +383,16 @@
 <span id="cb6-2"><a></a>  <span class="fu">count</span>(picked_socks)</span>
 <span id="cb6-3"><a></a>sock_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   picked_socks n
-1             A 1
-2             E 1
-3             F 1
-4             G 1
-5             I 1
-6             J 1
-7             K 2
-8             l 1
-9             m 1
-10            p 1</code></pre>
+<pre><code>  picked_socks n
+1            A 2
+2            B 1
+3            C 1
+4            D 1
+5            F 1
+6            H 2
+7            J 1
+8            m 1
+9            n 1</code></pre>
 </div>
 </div>
 </div>
@@ -404,7 +403,7 @@
 <span id="cb8-3"><a></a>  <span class="fu">pull</span>()</span>
 <span id="cb8-4"><a></a>n_singles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
 </div>
 </div>
@@ -849,7 +848,7 @@
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="img/supernova.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
+<p><img data-src="img/supernova.png" class="quarto-figure quarto-figure-center" style="width:35.0%"></p>
 </figure>
 </div>
 </div>
