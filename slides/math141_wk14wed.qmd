@@ -45,7 +45,7 @@ library(patchwork)
 ::: {.column .center width="40%"}
 <br>
 
-[Bayesian Estimation]{.custom-title}
+[Bayesian Estimation[^2]]{.custom-title}
 
 <br> <br> <br> <br> <br> 
 
@@ -54,6 +54,8 @@ library(patchwork)
 [Math 141 <br> Week 14 \| Fall 2025]{.custom-subtitle}
 :::
 :::::
+
+[^2]: Slides/story adapted from Andrew Bray
 
 ------------------------------------------------------------------------
 
@@ -351,11 +353,11 @@ What is the best definition for our one-tailed p-value in probability notation?
 
 ::: {.nonincremental}
 
-1. P( $H_o$ is true | data) = `r pval`
-2. P( $H_o$ is false | data) = `r pval`
-3. P( $H_o$ is true) = `r pval`
-4. P( data | $H_o$ is true) = `r pval`
-5. P( data) = `r pval`
+1. P($H_o$ is true | data) = `r pval`
+2. P($H_o$ is false | data) = `r pval`
+3. P($H_o$ is true) = `r pval`
+4. P(data | $H_o$ is true) = `r pval`
+5. P(data) = `r pval`
 
 :::
 
@@ -366,11 +368,11 @@ What is the best definition for our one-tailed p-value in probability notation?
 What is the best definition for our one-tailed p-value in probability notation?
 
 ::: {.nonincremental}
-1. P( $H_o$ is true | data) = `r pval`
-2. P( $H_o$ is false | data) = `r pval`
-3. P( $H_o$ is true) = `r pval`
-4. **P( data | $H_o$ is true) = `r pval`**
-5. P( data) = `r pval`
+1. P($H_o$ is true | data) = `r pval`
+2. P($H_o$ is false | data) = `r pval`
+3. P($H_o$ is true) = `r pval`
+4. **P(data | $H_o$ is true) = `r pval`**
+5. P(data) = `r pval`
 :::
 
 ------------------------------------------------------------------------

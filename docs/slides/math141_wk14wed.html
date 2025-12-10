@@ -201,12 +201,12 @@
 <p><img data-src="img/DAW.jpeg" style="width:90.0%"></p>
 </div><div class="column center" style="width:40%;">
 <p><br></p>
-<p><span class="custom-title">Bayesian Estimation</span></p>
+<p><span class="custom-title">Bayesian Estimation<sup>1</sup></span></p>
 <p><br> <br> <br> <br> <br></p>
 <p><span class="custom-subtitle">Grayson White</span></p>
 <p><span class="custom-subtitle">Math 141 <br> Week 14 | Fall 2025</span></p>
 </div></div>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Slides/story adapted from Andrew Bray</p></li></ol></aside></section>
 <section id="activity" class="slide level2">
 <h2>Activity</h2>
 <div>
@@ -374,7 +374,7 @@
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>picked_socks <span class="ot">&lt;-</span> <span class="fu">sample</span>(socks, <span class="at">size =</span> <span class="dv">11</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb4-2"><a></a>picked_socks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "p" "J" "A" "E" "A" "F" "C" "D" "n" "G" "J"</code></pre>
+<pre><code> [1] "m" "A" "D" "I" "K" "J" "B" "C" "G" "H" "o"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -383,16 +383,18 @@
 <span id="cb6-2"><a></a>  <span class="fu">count</span>(picked_socks)</span>
 <span id="cb6-3"><a></a>sock_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  picked_socks n
-1            A 2
-2            C 1
-3            D 1
-4            E 1
-5            F 1
-6            G 1
-7            J 2
-8            n 1
-9            p 1</code></pre>
+<pre><code>   picked_socks n
+1             A 1
+2             B 1
+3             C 1
+4             D 1
+5             G 1
+6             H 1
+7             I 1
+8             J 1
+9             K 1
+10            m 1
+11            o 1</code></pre>
 </div>
 </div>
 </div>
@@ -403,7 +405,7 @@
 <span id="cb8-3"><a></a>  <span class="fu">pull</span>()</span>
 <span id="cb8-4"><a></a>n_singles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 7</code></pre>
+<pre><code>[1] 11</code></pre>
 </div>
 </div>
 </div>
@@ -521,11 +523,11 @@
 <p>What is the best definition for our one-tailed p-value in probability notation?</p>
 <div>
 <ol type="1">
-<li>P( <span class="math inline">\(H_o\)</span> is true | data) = 0.043</li>
-<li>P( <span class="math inline">\(H_o\)</span> is false | data) = 0.043</li>
-<li>P( <span class="math inline">\(H_o\)</span> is true) = 0.043</li>
-<li>P( data | <span class="math inline">\(H_o\)</span> is true) = 0.043</li>
-<li>P( data) = 0.043</li>
+<li>P(<span class="math inline">\(H_o\)</span> is true | data) = 0.043</li>
+<li>P(<span class="math inline">\(H_o\)</span> is false | data) = 0.043</li>
+<li>P(<span class="math inline">\(H_o\)</span> is true) = 0.043</li>
+<li>P(data | <span class="math inline">\(H_o\)</span> is true) = 0.043</li>
+<li>P(data) = 0.043</li>
 </ol>
 </div>
 </section>
@@ -534,11 +536,11 @@
 <p>What is the best definition for our one-tailed p-value in probability notation?</p>
 <div>
 <ol type="1">
-<li>P( <span class="math inline">\(H_o\)</span> is true | data) = 0.043</li>
-<li>P( <span class="math inline">\(H_o\)</span> is false | data) = 0.043</li>
-<li>P( <span class="math inline">\(H_o\)</span> is true) = 0.043</li>
-<li><strong>P( data | <span class="math inline">\(H_o\)</span> is true) = 0.043</strong></li>
-<li>P( data) = 0.043</li>
+<li>P(<span class="math inline">\(H_o\)</span> is true | data) = 0.043</li>
+<li>P(<span class="math inline">\(H_o\)</span> is false | data) = 0.043</li>
+<li>P(<span class="math inline">\(H_o\)</span> is true) = 0.043</li>
+<li><strong>P(data | <span class="math inline">\(H_o\)</span> is true) = 0.043</strong></li>
+<li>P(data) = 0.043</li>
 </ol>
 </div>
 </section>
@@ -741,7 +743,7 @@
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>The simulation technique used here and depicted in the previous slides is called “approximate Bayesian computation” (or “ABC” for short).</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>The simulation technique used here and depicted in the previous slides is called “approximate Bayesian computation” (or “ABC” for short).</p></li></ol></aside></section>
 <section id="proportion-of-pairs" class="slide level2">
 <h2>Proportion of pairs</h2>
 <div class="cell" data-layout-align="center">
