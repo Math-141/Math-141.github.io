@@ -1,0 +1,728 @@
+---
+pagetitle: "Bayesian Estimation"
+editor: source
+format: 
+  revealjs:
+    html-math-method: mathjax
+    chalkboard: true
+    incremental: true
+    theme: [default, custom.scss]
+    height: 900
+    width: 1600
+    slide-number: c
+    auto-stretch: false
+    callout-appearance: simple
+    pdf-max-pages-per-slide: 2
+    menu: 
+      side: right
+      numbers: true
+execute:
+  echo: true
+  warning: false
+  message: false
+---
+
+```{r}
+#| include: false
+#| warning: false
+#| message: false
+
+library(knitr)
+options(digits = 3)
+knitr::opts_chunk$set(echo = TRUE, fig.align = "center", 
+                      warning = FALSE, message = FALSE,
+                      fig.retina = 3)
+library(dplyr)
+library(ggplot2)
+library(patchwork)
+```
+
+::::: columns
+::: {.column .center width="60%"}
+![](img/DAW.jpeg){width="90%"}
+:::
+
+::: {.column .center width="40%"}
+<br>
+
+[Bayesian Estimation]{.custom-title}
+
+<br> <br> <br> <br> <br> 
+
+[Grayson White]{.custom-subtitle}
+
+[Math 141 <br> Week 14 \| Fall 2025]{.custom-subtitle}
+:::
+:::::
+
+------------------------------------------------------------------------
+
+## Activity
+
+::: {.nonincremental}
+
+Please draw your own subjective distributions for the following events/items.
+
+1. The probability that it will snow at Reed this winter.
+2. The probability that, on a given night, the sun has gone supernova.
+3. The total number of individual socks that you own.
+
+:::
+
+## Goals for today
+
+-   Discuss socks
+
+
+------------------------------------------------------------------------
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+![](img/socks1.jpg){width=85% fig-align='center'}
+
+:::
+
+::: {.column width=50%}
+
+![](img/socks2.jpg){width=85% fig-align='center'}
+
+:::
+
+
+::::
+
+------------------------------------------------------------------------
+
+:::: {.columns}
+
+::: {.column width=50%}
+
+![](img/socks3.jpg){width=85% fig-align='center'}
+
+:::
+
+::: {.column width=50%}
+
+![](img/socks4.jpg){width=85% fig-align='center'}
+
+:::
+
+
+::::
+
+# No... not *that* socks
+
+# Karl Broman's socks
+
+------------------------------------------------------------------------
+
+## Karl Broman's socks
+
+```{r}
+#| echo: false
+#| out-width: "40%"
+knitr::include_graphics("img/broman-tweet.png")
+```
+
+
+# Let's formalize this...
+
+------------------------------------------------------------------------
+
+
+
+## Classical hypothesis test (what we learned this semester!)
+
+**Assert a model (i.e., state the null hypothesis)**
+
+::: {.nonincremental}
+- $H_o$: I have $N_{pairs}$ pairs of socks and $N_{singles}$ singletons. The first 11 socks that I pull out of the machine are a random sample from this population.
+:::
+
+::: {.fragment}
+**Decide on a test statistic**
+
+::: {.nonincremental}
+- The number of singletons in the sample: 11.
+:::
+:::
+
+::: {.fragment}
+**Construct the null distribution**
+
+::: {.nonincremental}
+- Probability theory or simulation.
+:::
+:::
+
+::: {.fragment}
+**See where your observed stat lies in that distribution**
+
+::: {.nonincremental}
+- Find the p-value.
+:::
+:::
+
+------------------------------------------------------------------------
+
+## The null hypothesis
+
+```{r}
+#| echo: false
+#| out-width: "20%"
+knitr::include_graphics("img/pairs-socks.png")
+```
+
+$$N_{pairs} = 9$$
+
+------------------------------------------------------------------------
+
+## The null hypothesis
+
+```{r}
+#| echo: false
+#| out-width: "35%"
+knitr::include_graphics("img/all-socks.png")
+```
+
+$$N_{pairs} = 9; \quad N_{singles} = 5$$
+
+------------------------------------------------------------------------
+
+## Constructing the null distribution
+
+We'll use simulation.
+
+::: {.fragment}
+Create the population of socks:
+
+```{r}
+sock_pairs <- c("A", "B", "C", "D", "E", 
+                "F", "G", "H", "I", "J", "K")
+sock_singles <- c("l", "m", "n", "o", "p")
+socks <- c(rep(sock_pairs, 
+               each = 2), 
+           sock_singles)
+```
+:::
+
+::: {.fragment}
+```{r}
+socks
+```
+:::
+
+------------------------------------------------------------------------
+
+## One draw from the machine
+
+```{r}
+picked_socks <- sample(socks, size = 11, replace = FALSE)
+picked_socks
+```
+
+::: {.fragment}
+```{r}
+sock_counts <- data.frame(picked_socks) %>%
+  count(picked_socks)
+sock_counts
+```
+:::
+
+::: {.fragment}
+```{r}
+n_singles <- sock_counts %>%
+  summarize(n = sum(n == 1)) %>%
+  pull()
+n_singles
+```
+:::
+
+------------------------------------------------------------------------
+
+## Our simulator
+
+```{r}
+#| echo: false
+#| out-width: "30%"
+knitr::include_graphics("img/washing-machine.png")
+```
+
+------------------------------------------------------------------------
+
+## Constructing the null distribution
+
+```{r}
+#| echo: false
+pick_socks <- function(N_pairs, N_singles, N_pick) {
+  N_sock_types <- N_pairs + N_singles
+  socks <- rep(1:N_sock_types, rep( 2:1, c(N_pairs, N_singles) ))
+  picked_socks <- sample(socks, 11)
+  sock_counts <- table(picked_socks)
+  n_singles <- sum(sock_counts == 1)
+  n_singles
+}
+set.seed(200)
+```
+
+```{r}
+pick_socks(N_pairs = 9, N_singles = 5,
+           N_pick = 11)
+```
+
+::: {.fragment}
+```{r}
+pick_socks(9, 5, 11)
+```
+:::
+
+::: {.fragment}
+```{r}
+pick_socks(9, 5, 11)
+```
+
+Repeat many, many times...
+:::
+
+------------------------------------------------------------------------
+
+## The null distribution
+
+```{r}
+#| cache: true
+#| output-location: column
+set.seed(301)
+sim_singles <- rep(0, 1000)
+
+for (i in 1:1000) {
+  sim_singles[i] <- pick_socks(9, 5, 11)
+}
+
+ggplot(data.frame(sim_singles),
+       aes(x = as.factor(sim_singles))) +
+  geom_bar() +
+  labs(x = "number of singletons") +
+  theme_bw(base_size = 18)
+```
+
+------------------------------------------------------------------------
+
+## The null distribution
+
+```{r}
+#| output-location: column
+ggplot(data.frame(sim_singles),
+       aes(x = as.factor(sim_singles))) +
+  geom_bar() +
+  labs(x = "number of singletons") +
+  theme_bw(base_size = 18) +
+  geom_vline(xintercept = 6, col = "tomato", size = 2)
+```
+
+------------------------------------------------------------------------
+
+## The p-value
+
+Quantifying how far into the tails our observed count was.
+
+```{r}
+head(sim_singles)
+```
+
+::: {.fragment}
+```{r}
+pval <- data.frame(sim_singles) %>%
+  mutate(geq_11 = sim_singles >= 11) %>%
+  summarize(pval = mean(geq_11)) %>%
+  pull()
+
+pval
+```
+:::
+
+
+------------------------------------------------------------------------
+
+## Question
+
+What is the best definition for our one-tailed p-value in probability notation?
+
+::: {.nonincremental}
+
+1. P( $H_o$ is true | data) = `r pval`
+2. P( $H_o$ is false | data) = `r pval`
+3. P( $H_o$ is true) = `r pval`
+4. P( data | $H_o$ is true) = `r pval`
+5. P( data) = `r pval`
+
+:::
+
+------------------------------------------------------------------------
+
+## Question
+
+What is the best definition for our one-tailed p-value in probability notation?
+
+::: {.nonincremental}
+1. P( $H_o$ is true | data) = `r pval`
+2. P( $H_o$ is false | data) = `r pval`
+3. P( $H_o$ is true) = `r pval`
+4. **P( data | $H_o$ is true) = `r pval`**
+5. P( data) = `r pval`
+:::
+
+------------------------------------------------------------------------
+
+## The challenge with the classical method
+
+The result of a hypothesis test is a probability of the form:
+
+$$ P(\textrm{data or more extreme } | \ H_o \textrm{ true}) $$
+
+::: {.fragment}
+but most people *think* they're getting
+
+$$ P(H_o \textrm{ true } | \textrm{ data}) $$
+
+How can we go from the former to the latter?
+:::
+
+------------------------------------------------------------------------
+
+## What we have
+
+```{r}
+#| echo: false
+#| out-width: "80%"
+knitr::include_graphics("img/classical-socks.png")
+```
+
+------------------------------------------------------------------------
+
+## What we want
+
+```{r}
+#| echo: false
+#| out-width: "80%"
+knitr::include_graphics("img/bayes-socks.png")
+```
+
+------------------------------------------------------------------------
+
+## Bayesian modeling via Bayes' rule
+
+$$P(A \ | \ B) = \frac{P(A \textrm{ and } B)}{P(B)} $$
+
+::: {.fragment}
+$$P(A \ | \ B) = \frac{P(B \ | \ A) \ P(A)}{P(B)} $$
+:::
+
+::: {.fragment}
+$$P(model \ | \ data) = \frac{P(data \ | \ model) \ P(model)}{P(data)} $$
+
+What does it mean to think about $P(model)$?
+:::
+
+------------------------------------------------------------------------
+
+## Activity
+
+Please draw your own subjective distributions for the following events/items.
+
+::: {.nonincremental}
+1. The probability that it will snow at Reed this winter.
+2. The probability that, on a given night, the sun has gone supernova.
+3. The total number of individual socks that you own.
+:::
+
+------------------------------------------------------------------------
+
+## Prior distribution
+
+A **prior distribution** is a probability distribution for a *parameter* that 
+summarizes the information that you have before seeing the data. Prior on $N$:
+
+```{r}
+#| cache: true
+#| echo: false
+#| fig-height: 5
+x <- rnbinom(1e6, mu = 30, size = -30^2 / (30 - 15^2))
+prior_n <- ggplot(data.frame(x), aes(x = x)) +
+  geom_histogram(binwidth = 2, fill = "green", col = "black") +
+  labs(x = "number of socks",
+       y = "density",
+       title = "P(parameter)") +
+  lims(x = c(0, 100)) +
+  theme(axis.text.y = element_blank(),
+        axis.ticks.y = element_blank()) +
+  theme_bw(base_size = 18)
+prior_n
+```
+
+------------------------------------------------------------------------
+
+## Prior on proportion pairs
+
+```{r}
+#| cache: true
+#| echo: false
+#| fig-height: 6
+y <- rbeta(1e6, shape1 = 15, shape2 = 2)
+prior_p <- ggplot(data.frame(y), aes(x = y)) +
+  geom_histogram(binwidth = .02, fill = "green", col = "black") +
+  labs(x = "proportion of pairs",
+       y = "density",
+       title = "P(parameter)") +
+  lims(x = c(0, 1)) +
+  theme_bw(base_size = 18)
+prior_p
+```
+
+------------------------------------------------------------------------
+
+## Our scheme
+
+```{r}
+#| echo: false
+#| out-width: "60%"
+knitr::include_graphics("img/abc1.png")
+```
+
+------------------------------------------------------------------------
+
+## One simulation
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+knitr::include_graphics("img/abc2.png")
+```
+
+------------------------------------------------------------------------
+
+## A second simulation
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+knitr::include_graphics("img/abc3.png")
+```
+
+------------------------------------------------------------------------
+
+## A third simulation
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+knitr::include_graphics("img/abc4.png")
+```
+
+------------------------------------------------------------------------
+
+## A fourth simulation
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+knitr::include_graphics("img/abc5.png")
+```
+
+------------------------------------------------------------------------
+
+## The actual data
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+knitr::include_graphics("img/abc6.png")
+```
+
+------------------------------------------------------------------------
+
+## The actual data
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+knitr::include_graphics("img/abc7.png")
+```
+
+
+------------------------------------------------------------------------
+
+## Full simulation[^1]
+
+```{r}
+#| cache: true
+#| echo: false
+sock_sim <- t(replicate(100000, {
+  n_socks <- rnbinom(1, mu = 30, size = -30^2 / (30 - 15^2))
+  prop_pairs <- rbeta(1, shape1 = 15, shape2 = 2)
+  n_pairs <- round(floor(n_socks / 2) * prop_pairs)
+  n_odd <- n_socks - n_pairs * 2
+  n_sock_types <- n_pairs + n_odd
+  socks <- rep(seq_len(n_sock_types), rep(2:1, c(n_pairs, n_odd)))
+  picked_socks <- sample(socks, size = min(11, n_socks))
+  sock_counts <- table(picked_socks)
+  c(singletons = sum(sock_counts == 1), 
+    pairs = sum(sock_counts == 2),
+    n_socks = n_socks, 
+    prop_pairs = prop_pairs)
+}))
+sock_sim <- as.data.frame(sock_sim)
+post_samples <- sock_sim %>%
+  filter(singletons == 11, pairs == 0)
+```
+
+```{r}
+head(sock_sim)
+```
+
+::: {.fragment}
+```{r}
+#| eval: false
+sock_sim %>%
+  filter(singletons == 11, pairs == 0) %>%
+  head()
+```
+:::
+
+::: {.fragment}
+```{r}
+#| echo: false
+sock_sim %>%
+  filter(singletons == 11, pairs == 0) %>%
+  head()
+```
+:::
+
+[^1]: The simulation technique used here and depicted in the previous slides is called "approximate Bayesian computation" (or "ABC" for short). 
+
+
+------------------------------------------------------------------------
+
+## Proportion of pairs
+
+```{r}
+#| cache: true
+#| echo: false
+#| fig-width: 12
+#| fig-height: 7
+post_p <- ggplot(post_samples, aes(x = prop_pairs)) +
+  geom_histogram(binwidth = .02, fill = "green", col = "black") +
+  labs(x = "proportion of pairs",
+       y = "density",
+       title = "P(parameter|data)") +
+  lims(x = c(0, 1)) +
+  theme_bw(base_size = 18)
+prior_p + post_p
+```
+
+------------------------------------------------------------------------
+
+## Number of socks
+
+```{r}
+#| cache: true
+#| echo: false
+#| fig-width: 12
+#| fig-height: 7
+post_n <- ggplot(post_samples, aes(x = n_socks)) +
+  geom_histogram(binwidth = 2, fill = "green", col = "black") +
+  labs(x = "number of socks",
+       y = "density",
+       title = "P(parameter|data)") +
+  lims(x = c(0, 100)) +
+  theme_bw(base_size = 18)
+prior_n + post_n
+```
+
+------------------------------------------------------------------------
+
+## Karl Broman's socks
+
+```{r}
+#| echo: false
+#| out-width: "40%"
+knitr::include_graphics("img/broman-tweet.png")
+```
+
+------------------------------------------------------------------------
+
+## The posterior distribution
+
+```{r}
+#| cache: true
+#| echo: false
+#| fig-height: 4
+#| fig-width: 7
+post_n
+```
+
+::: {.fragment}
+- Distribution of a parameter after conditioning on the data
+- Synthesis of prior knowledge and observations (data)
+:::
+
+::: {.fragment}
+**Question**
+
+What is your best guess for the number of socks that Karl has?
+:::
+
+------------------------------------------------------------------------
+
+## Our best guess
+
+```{r}
+#| cache: true
+#| echo: false
+#| fig-height: 4
+#| fig-width: 7
+post_n +
+  geom_vline(xintercept = median(post_samples$n_socks), 
+             col = "goldenrod",
+             lwd = 2)
+```
+
+::: {.nonincremental}
+- The posterior median is 44 socks.
+:::
+
+------------------------------------------------------------------------
+
+## Karl Broman's socks
+
+```{r}
+#| echo: false
+#| out-width: "70%"
+knitr::include_graphics("img/broman-tweet2.png")
+```
+
+::: {.fragment}
+$$ 21 \times 2 + 3 = 45 \textrm{ socks} $$
+:::
+
+------------------------------------------------------------------------
+
+## Summary
+
+Bayesian methods . . .
+
+- Require the subjective specification of your prior knowledge
+- Provide a **posterior distribution** on the parameters
+- Are usually computationally intensive
+- Have strong intuition
+
+------------------------------------------------------------------------
+
+```{r}
+#| echo: false
+#| out-width: "40%"
+knitr::include_graphics("img/supernova.png")
+```
+
+# Thanks for a fantastic semester!

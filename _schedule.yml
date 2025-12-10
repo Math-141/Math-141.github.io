@@ -447,13 +447,13 @@ scheduled-docs:
           docs:
             - type: Lab
               href: labs/final_review.qmd
-        - topic: "Wrap up"
+        - topic: "Wrap up / Socks / Bayesian Estimation"
           display-date: Wednesday, Dec 10
           date: 12/10/25
           docs:
             - type: Reading + HW
               href: readings/readings_wk14wed.qmd
-            # - type: Slides
-            #   href: slides/math141_wk14wed.qmd
+            - type: Slides
+              href: slides/math141_wk14wed.qmd
       # resources:
       #   - 'Some text'
