@@ -374,7 +374,7 @@
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>picked_socks <span class="ot">&lt;-</span> <span class="fu">sample</span>(socks, <span class="at">size =</span> <span class="dv">11</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb4-2"><a></a>picked_socks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "E" "J" "A" "B" "C" "B" "D" "F" "K" "H" "G"</code></pre>
+<pre><code> [1] "p" "J" "A" "E" "A" "F" "C" "D" "n" "G" "J"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -383,17 +383,16 @@
 <span id="cb6-2"><a></a>  <span class="fu">count</span>(picked_socks)</span>
 <span id="cb6-3"><a></a>sock_counts</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   picked_socks n
-1             A 1
-2             B 2
-3             C 1
-4             D 1
-5             E 1
-6             F 1
-7             G 1
-8             H 1
-9             J 1
-10            K 1</code></pre>
+<pre><code>  picked_socks n
+1            A 2
+2            C 1
+3            D 1
+4            E 1
+5            F 1
+6            G 1
+7            J 2
+8            n 1
+9            p 1</code></pre>
 </div>
 </div>
 </div>
@@ -404,7 +403,7 @@
 <span id="cb8-3"><a></a>  <span class="fu">pull</span>()</span>
 <span id="cb8-4"><a></a>n_singles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 9</code></pre>
+<pre><code>[1] 7</code></pre>
 </div>
 </div>
 </div>

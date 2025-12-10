@@ -684,7 +684,7 @@ What is your best guess for the number of socks that Karl has?
 #| fig-width: 7
 post_n +
   geom_vline(xintercept = median(post_samples$n_socks), 
-             col = "goldenrod",
+             col = "tomato",
              lwd = 2)
 ```
 
