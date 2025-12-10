@@ -37,6 +37,20 @@ library(ggplot2)
 library(patchwork)
 ```
 
+## Activity
+
+::: {.nonincremental}
+
+Please draw your own subjective distributions for the following events/items.
+
+1. The probability that it will snow at Reed this winter.
+2. The probability that, on a given night, the sun has gone supernova.
+3. The total number of individual socks that you own.
+
+:::
+
+------------------------------------------------------------------------
+
 ::::: columns
 ::: {.column .center width="60%"}
 ![](img/DAW.jpeg){width="90%"}
@@ -58,18 +72,6 @@ library(patchwork)
 [^2]: Slides/story adapted from Andrew Bray
 
 ------------------------------------------------------------------------
-
-## Activity
-
-::: {.nonincremental}
-
-Please draw your own subjective distributions for the following events/items.
-
-1. The probability that it will snow at Reed this winter.
-2. The probability that, on a given night, the sun has gone supernova.
-3. The total number of individual socks that you own.
-
-:::
 
 ## Goals for today
 

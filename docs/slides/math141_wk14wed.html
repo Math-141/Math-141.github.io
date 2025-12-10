@@ -194,6 +194,17 @@
     <div class="slides">
 
 
+<section id="activity" class="slide level2">
+<h2>Activity</h2>
+<div>
+<p>Please draw your own subjective distributions for the following events/items.</p>
+<ol type="1">
+<li>The probability that it will snow at Reed this winter.</li>
+<li>The probability that, on a given night, the sun has gone supernova.</li>
+<li>The total number of individual socks that you own.</li>
+</ol>
+</div>
+</section>
 <section class="slide level2">
 
 <div class="columns">
@@ -207,17 +218,6 @@
 <p><span class="custom-subtitle">Math 141 <br> Week 14 | Fall 2025</span></p>
 </div></div>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>Slides/story adapted from Andrew Bray</p></li></ol></aside></section>
-<section id="activity" class="slide level2">
-<h2>Activity</h2>
-<div>
-<p>Please draw your own subjective distributions for the following events/items.</p>
-<ol type="1">
-<li>The probability that it will snow at Reed this winter.</li>
-<li>The probability that, on a given night, the sun has gone supernova.</li>
-<li>The total number of individual socks that you own.</li>
-</ol>
-</div>
-</section>
 <section id="goals-for-today" class="slide level2">
 <h2>Goals for today</h2>
 <ul>
@@ -374,7 +374,7 @@
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>picked_socks <span class="ot">&lt;-</span> <span class="fu">sample</span>(socks, <span class="at">size =</span> <span class="dv">11</span>, <span class="at">replace =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb4-2"><a></a>picked_socks</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> [1] "m" "A" "D" "I" "K" "J" "B" "C" "G" "H" "o"</code></pre>
+<pre><code> [1] "E" "G" "I" "J" "K" "p" "l" "K" "A" "m" "F"</code></pre>
 </div>
 </div>
 <div class="fragment">
@@ -385,16 +385,15 @@
 <div class="cell-output cell-output-stdout">
 <pre><code>   picked_socks n
 1             A 1
-2             B 1
-3             C 1
-4             D 1
-5             G 1
-6             H 1
-7             I 1
-8             J 1
-9             K 1
-10            m 1
-11            o 1</code></pre>
+2             E 1
+3             F 1
+4             G 1
+5             I 1
+6             J 1
+7             K 2
+8             l 1
+9             m 1
+10            p 1</code></pre>
 </div>
 </div>
 </div>
@@ -405,7 +404,7 @@
 <span id="cb8-3"><a></a>  <span class="fu">pull</span>()</span>
 <span id="cb8-4"><a></a>n_singles</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] 11</code></pre>
+<pre><code>[1] 9</code></pre>
 </div>
 </div>
 </div>
