@@ -184,12 +184,12 @@ h1, .h1, h2, .h2, h3, .h3 {
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 12%">
-<col style="width: 25%">
-<col style="width: 15%">
-<col style="width: 23%">
 <col style="width: 11%">
+<col style="width: 14%">
+<col style="width: 26%">
+<col style="width: 13%">
+<col style="width: 20%">
+<col style="width: 12%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -242,6 +242,30 @@ h1, .h1, h2, .h2, h3, .h3 {
 <td style="text-align: left;"><span class="math inline">\(r\)</span></td>
 <td style="text-align: left;">cor.test()</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">quantitative</td>
+<td style="text-align: left;">quant and/or cat</td>
+<td style="text-align: left;">regression coefficient</td>
+<td style="text-align: left;"><span class="math inline">\(\beta\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\hat{\beta}\)</span></td>
+<td style="text-align: left;">lm() or fit()</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">quantitative</td>
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">difference in many means</td>
+<td style="text-align: left;"><span class="math inline">\(F_{true}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(F\)</span></td>
+<td style="text-align: left;">aov()</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">difference in many proportions</td>
+<td style="text-align: left;"><span class="math inline">\(\chi^2_{true}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\chi^2\)</span></td>
+<td style="text-align: left;">chisq_test()</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -253,12 +277,12 @@ h1, .h1, h2, .h2, h3, .h3 {
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 5%">
-<col style="width: 5%">
+<col style="width: 4%">
+<col style="width: 6%">
 <col style="width: 11%">
-<col style="width: 47%">
-<col style="width: 12%">
-<col style="width: 18%">
+<col style="width: 40%">
+<col style="width: 10%">
+<col style="width: 26%">
 </colgroup>
 <thead>
 <tr class="header">
@@ -310,6 +334,30 @@ h1, .h1, h2, .h2, h3, .h3 {
 <td style="text-align: left;"><span class="math inline">\(\frac{r - 0}{\sqrt{\frac{1 - r^2}{n - 2}}}\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(t(df = n - 2)\)</span></td>
 <td style="text-align: left;"><span class="math inline">\(n \geq 30\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">quantitative</td>
+<td style="text-align: left;">quant and/or cat</td>
+<td style="text-align: left;">regression coefficient</td>
+<td style="text-align: left;"><span class="math inline">\(\frac{\hat{\beta} - 0}{\widehat{SE}(\hat{\beta})}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(t(df = n - p)\)</span></td>
+<td style="text-align: left;">LINE conditions</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">quantitative</td>
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">difference in many means</td>
+<td style="text-align: left;"><span class="math inline">\(F = \frac{\mbox{avg. variation between groups}}{\mbox{avg. variation within groups}}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(F(df1 = K - 1, df2 = n - K)\)</span></td>
+<td style="text-align: left;">(<span class="math inline">\(n \geq 30\)</span> or data are normal) AND similar variability between groups</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">categorical</td>
+<td style="text-align: left;">difference in many proportions</td>
+<td style="text-align: left;"><span class="math inline">\(\chi^2 = \sum_{cells}\left(\frac{\mbox{observed - expected}}{\sqrt{\mbox{expected}}}\right)^2\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(\chi^2(df = (k - 1)(j - 1))\)</span></td>
+<td style="text-align: left;">5 oberservations in each cell</td>
 </tr>
 </tbody>
 </table>
